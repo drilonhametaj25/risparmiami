@@ -1,0 +1,32 @@
+node_modules
+.next
+.git
+.gitignore
+.env
+.env.local
+.env.*.local
+.claude
+.playwright-mcp
+
+# Python
+__pycache__
+*.pyc
+src/scraper/outputs/raw/
+
+# Generated files
+public/generated-pdfs/
+
+# IDE
+.vscode
+.idea
+*.swp
+*.swo
+
+# Docker files (avoid recursion)
+Dockerfile
+Dockerfile.scraper
+docker-compose*.yml
+
+# Docs
+README.md
+LICENSE

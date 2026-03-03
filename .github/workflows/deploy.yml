@@ -1,0 +1,43 @@
+name: Deploy to Hetzner
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Deploy via SSH
+        uses: appleboy/ssh-action@v1
+        with:
+          host: ${{ secrets.HETZNER_HOST }}
+          username: ${{ secrets.HETZNER_USER }}
+          key: ${{ secrets.HETZNER_SSH_KEY }}
+          script_stop: true
+          script: |
+            cd /opt/risparmiami
+
+            echo "==> Pulling latest code..."
+            git pull origin main
+
+            echo "==> Building app container..."
+            docker compose -f docker-compose.prod.yml build app
+
+            echo "==> Running database migrations..."
+            docker compose -f docker-compose.prod.yml run --rm app npx prisma migrate deploy
+
+            echo "==> Restarting app (zero-downtime)..."
+            docker compose -f docker-compose.prod.yml up -d --no-deps app
+
+            echo "==> Rebuilding scraper if changed..."
+            docker compose -f docker-compose.prod.yml up -d --no-deps --build scraper
+
+            echo "==> Waiting for health check..."
+            sleep 10
+            curl -sf http://localhost:3000/api/auth/session > /dev/null && echo "Health check OK" || echo "Health check FAILED"
+
+            echo "==> Cleaning up old images..."
+            docker image prune -f
+
+            echo "==> Deploy complete!"

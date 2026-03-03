@@ -10,8 +10,6 @@ const envSchema = z.object({
       (val) => !val.includes("dev-secret") && !val.includes("change-in-production"),
       "NEXTAUTH_SECRET must be changed from default value"
     ),
-  GOOGLE_CLIENT_ID: z.string().min(1, "GOOGLE_CLIENT_ID is required"),
-  GOOGLE_CLIENT_SECRET: z.string().min(1, "GOOGLE_CLIENT_SECRET is required"),
   STRIPE_SECRET_KEY: z.string().startsWith("sk_", "STRIPE_SECRET_KEY must start with sk_"),
   STRIPE_WEBHOOK_SECRET: z.string().startsWith("whsec_", "STRIPE_WEBHOOK_SECRET must start with whsec_"),
   RESEND_API_KEY: z.string().min(1, "RESEND_API_KEY is required"),
