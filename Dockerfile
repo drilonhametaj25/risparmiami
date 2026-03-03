@@ -22,6 +22,9 @@ ENV NEXT_TELEMETRY_DISABLED=1
 RUN addgroup --system --gid 1001 nodejs && \
     adduser --system --uid 1001 nextjs
 
+# OpenSSL needed for Prisma engine detection on Alpine
+RUN apk add --no-cache openssl
+
 # Copy standalone build + static assets
 COPY --from=builder /app/public ./public
 COPY --from=builder /app/.next/standalone ./
@@ -41,6 +44,9 @@ COPY --from=builder /app/node_modules/@esbuild ./node_modules/@esbuild
 # Copy seed data (JSON rule files) + seed script
 COPY --from=builder /app/src/data ./src/data
 COPY --from=builder /app/package.json ./package.json
+
+# Fix permissions so nextjs user can run prisma migrate/seed
+RUN chown -R nextjs:nodejs ./node_modules/.prisma ./node_modules/@prisma ./node_modules/prisma ./prisma
 
 USER nextjs
 EXPOSE 3000

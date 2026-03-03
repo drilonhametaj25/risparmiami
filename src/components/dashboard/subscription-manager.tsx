@@ -95,7 +95,7 @@ export function SubscriptionManager({ currentPlan, subscription }: SubscriptionM
         {subscription?.currentPeriodEnd && (
           <p className="text-sm text-text-muted mt-4 pt-4 border-t border-border-light">
             {subscription.cancelAtPeriodEnd
-              ? `Il tuo piano scadr\u00e0 il ${new Date(subscription.currentPeriodEnd).toLocaleDateString("it-IT")}`
+              ? `Il tuo piano scadrà il ${new Date(subscription.currentPeriodEnd).toLocaleDateString("it-IT")}`
               : `Prossimo rinnovo: ${new Date(subscription.currentPeriodEnd).toLocaleDateString("it-IT")}`}
           </p>
         )}

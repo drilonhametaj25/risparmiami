@@ -35,7 +35,7 @@ const CHAPTER_CONFIGS: ChapterConfig[] = [
     key: "bollette",
     title: "Risparmio Bollette",
     intro:
-      "Le bollette di luce e gas rappresentano una delle voci di spesa pi\u00F9 importanti. Qui trovi bonus sociali, strategie di cambio fornitore e consigli per ridurre i consumi.",
+      "Le bollette di luce e gas rappresentano una delle voci di spesa più importanti. Qui trovi bonus sociali, strategie di cambio fornitore e consigli per ridurre i consumi.",
   },
   {
     key: "banca",
@@ -47,13 +47,13 @@ const CHAPTER_CONFIGS: ChapterConfig[] = [
     key: "trasporti",
     title: "Trasporti",
     intro:
-      "Dalla mobilit\u00E0 sostenibile agli incentivi per l'acquisto di veicoli ecologici, passando per gli abbonamenti agevolati al trasporto pubblico.",
+      "Dalla mobilità sostenibile agli incentivi per l'acquisto di veicoli ecologici, passando per gli abbonamenti agevolati al trasporto pubblico.",
   },
   {
     key: "isee",
     title: "ISEE e Welfare",
     intro:
-      "L'ISEE \u00E8 la chiave per accedere a numerose agevolazioni. In questa sezione trovi le prestazioni legate all'indicatore economico e i servizi di welfare disponibili.",
+      "L'ISEE è la chiave per accedere a numerose agevolazioni. In questa sezione trovi le prestazioni legate all'indicatore economico e i servizi di welfare disponibili.",
   },
   {
     key: "incentivi-imprese",

@@ -41,7 +41,7 @@ interface ComparisonResult {
 
 const regions: Record<string, RegionData> = {
   piemonte: { label: "Piemonte", zona: "nord" },
-  valle_aosta: { label: "Valle d\u2019Aosta", zona: "nord" },
+  valle_aosta: { label: "Valle d'Aosta", zona: "nord" },
   lombardia: { label: "Lombardia", zona: "nord" },
   trentino: { label: "Trentino-Alto Adige", zona: "nord" },
   veneto: { label: "Veneto", zona: "nord" },
@@ -104,17 +104,17 @@ function calculate(
 
   if (luceDiff > 15) {
     tips.push(
-      "La tua spesa per la luce \u00e8 significativamente sopra la media. Valuta di confrontare le offerte sul Portale Offerte ARERA."
+      "La tua spesa per la luce è significativamente sopra la media. Valuta di confrontare le offerte sul Portale Offerte ARERA."
     );
   }
   if (gasDiff > 20) {
     tips.push(
-      "Spendi molto pi\u00f9 della media per il gas. Controlla l\u2019efficienza della caldaia e valuta un cambio fornitore."
+      "Spendi molto più della media per il gas. Controlla l'efficienza della caldaia e valuta un cambio fornitore."
     );
   }
   if (luceDiff > 0 || gasDiff > 0) {
     tips.push(
-      "Verifica se hai diritto al Bonus Sociale energia elettrica e gas (ISEE sotto 9.530\u00a0\u20ac o 20.000\u00a0\u20ac con 4+ figli)."
+      "Verifica se hai diritto al Bonus Sociale energia elettrica e gas (ISEE sotto 9.530 € o 20.000 € con 4+ figli)."
     );
   }
   if (luceDiff <= 0 && gasDiff <= 0) {
@@ -127,7 +127,7 @@ function calculate(
   );
   if (tipo === "quadrilocale") {
     tips.push(
-      "Per abitazioni grandi, valuta l\u2019installazione di un termostato smart per ridurre i consumi del 10-15%."
+      "Per abitazioni grandi, valuta l'installazione di un termostato smart per ridurre i consumi del 10-15%."
     );
   }
 
@@ -168,7 +168,7 @@ function ComparisonBar({
         <div className="flex items-center justify-between text-sm mb-1">
           <span className="font-body text-text-secondary">Tu</span>
           <span className={`font-money ${isAbove ? "text-red-500" : "text-accent-success"}`}>
-            {userValue}\u00a0{unit}
+            {userValue}&nbsp;{unit}
           </span>
         </div>
         <div className="w-full bg-bg-secondary rounded-full h-4 overflow-hidden">
@@ -186,7 +186,7 @@ function ComparisonBar({
         <div className="flex items-center justify-between text-sm mb-1">
           <span className="font-body text-text-secondary">Media regionale</span>
           <span className="font-money text-text-secondary">
-            {avgValue}\u00a0{unit}
+            {avgValue}&nbsp;{unit}
           </span>
         </div>
         <div className="w-full bg-bg-secondary rounded-full h-4 overflow-hidden">
@@ -379,14 +379,14 @@ export function ConfrontaBolletteClient() {
                   icon={<Zap className="h-5 w-5 text-yellow-500" />}
                   userValue={parseFloat(luce)}
                   avgValue={result.luceAvg}
-                  unit="\u20ac/bim."
+                  unit="€/bim."
                 />
                 <ComparisonBar
                   label="Bolletta Gas"
                   icon={<Flame className="h-5 w-5 text-orange-500" />}
                   userValue={parseFloat(gas)}
                   avgValue={result.gasAvg}
-                  unit="\u20ac/bim."
+                  unit="€/bim."
                 />
               </Card>
 

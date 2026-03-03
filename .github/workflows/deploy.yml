@@ -30,10 +30,10 @@ jobs:
             sleep 5
 
             echo "==> Running database migrations..."
-            docker compose -f docker-compose.prod.yml run --rm app ./node_modules/prisma/build/index.js migrate deploy
+            docker compose -f docker-compose.prod.yml run --rm app node ./node_modules/prisma/build/index.js migrate deploy
 
             echo "==> Seeding database (idempotent)..."
-            docker compose -f docker-compose.prod.yml run --rm app ./node_modules/tsx/dist/cli.mjs prisma/seed.ts || echo "Seed warning (non-blocking)"
+            docker compose -f docker-compose.prod.yml run --rm app node ./node_modules/tsx/dist/cli.mjs prisma/seed.ts || echo "Seed warning (non-blocking)"
 
             echo "==> Starting app..."
             docker compose -f docker-compose.prod.yml up -d --no-deps app

@@ -33,7 +33,7 @@ interface SavingsBreakdown {
 const questions: Question[] = [
   {
     id: "lavoro",
-    label: "Qual \u00e8 la tua situazione lavorativa?",
+    label: "Qual è la tua situazione lavorativa?",
     options: [
       { value: "dipendente", label: "Dipendente" },
       { value: "autonomo", label: "Autonomo" },
@@ -43,13 +43,13 @@ const questions: Question[] = [
   },
   {
     id: "reddito",
-    label: "Qual \u00e8 il tuo reddito annuo lordo?",
+    label: "Qual è il tuo reddito annuo lordo?",
     options: [
-      { value: "under15", label: "Meno di 15.000\u00a0\u20ac" },
-      { value: "15_28", label: "15.000 \u2013 28.000\u00a0\u20ac" },
-      { value: "28_50", label: "28.000 \u2013 50.000\u00a0\u20ac" },
-      { value: "50_75", label: "50.000 \u2013 75.000\u00a0\u20ac" },
-      { value: "over75", label: "Oltre 75.000\u00a0\u20ac" },
+      { value: "under15", label: "Meno di 15.000 €" },
+      { value: "15_28", label: "15.000 – 28.000 €" },
+      { value: "28_50", label: "28.000 – 50.000 €" },
+      { value: "50_75", label: "50.000 – 75.000 €" },
+      { value: "over75", label: "Oltre 75.000 €" },
     ],
   },
   {
@@ -59,7 +59,7 @@ const questions: Question[] = [
       { value: "0", label: "0" },
       { value: "1", label: "1" },
       { value: "2", label: "2" },
-      { value: "3+", label: "3 o pi\u00f9" },
+      { value: "3+", label: "3 o più" },
     ],
   },
   {
@@ -76,10 +76,10 @@ const questions: Question[] = [
     id: "bollette",
     label: "Quanto spendi di bollette al bimestre?",
     options: [
-      { value: "under100", label: "Meno di 100\u00a0\u20ac" },
-      { value: "100_200", label: "100 \u2013 200\u00a0\u20ac" },
-      { value: "200_350", label: "200 \u2013 350\u00a0\u20ac" },
-      { value: "over350", label: "Oltre 350\u00a0\u20ac" },
+      { value: "under100", label: "Meno di 100 €" },
+      { value: "100_200", label: "100 – 200 €" },
+      { value: "200_350", label: "200 – 350 €" },
+      { value: "over350", label: "Oltre 350 €" },
     ],
   },
 ];
@@ -137,7 +137,7 @@ function calculateSavings(answers: Record<string, string>): SavingsBreakdown[] {
       min: 200,
       max: 500,
       description:
-        "Maggiori possibilit\u00e0 di detrazione per spese sanitarie, istruzione, previdenza e assicurazioni.",
+        "Maggiori possibilità di detrazione per spese sanitarie, istruzione, previdenza e assicurazioni.",
     });
   }
 
@@ -164,7 +164,7 @@ function calculateSavings(answers: Record<string, string>): SavingsBreakdown[] {
       min: 300,
       max: 600,
       description:
-        "Detrazione del 19% sugli interessi passivi del mutuo fino a 4.000\u00a0\u20ac.",
+        "Detrazione del 19% sugli interessi passivi del mutuo fino a 4.000 €.",
     });
   } else if (abitazione === "affitto") {
     breakdown.push({
@@ -224,7 +224,7 @@ function AnimatedCounter({ target, duration = 1500 }: { target: number; duration
 
   return (
     <span className="font-money">
-      {value.toLocaleString("it-IT")}\u00a0\u20ac
+      {value.toLocaleString("it-IT")} €
     </span>
   );
 }

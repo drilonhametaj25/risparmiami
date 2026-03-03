@@ -16,7 +16,7 @@ export default async function BollettePage() {
   return (
     <CategoryPageLayout
       title="Bollette"
-      description="Opportunit\u00E0 di risparmio su luce, gas e utenze"
+      description="Opportunità di risparmio su luce, gas e utenze"
       matches={matches}
       totalSavings={total}
     />

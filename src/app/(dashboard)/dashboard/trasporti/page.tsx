@@ -16,7 +16,7 @@ export default async function TrasportiPage() {
   return (
     <CategoryPageLayout
       title="Trasporti"
-      description="Risparmia su trasporti, viaggi e mobilit\u00E0"
+      description="Risparmia su trasporti, viaggi e mobilità"
       matches={matches}
       totalSavings={total}
     />

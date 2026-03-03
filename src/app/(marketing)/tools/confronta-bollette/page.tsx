@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     url: "https://risparmiami.pro/tools/confronta-bollette",
     title: "Confronta le tue Bollette con la Media Italiana | RisparmiaAMi",
     description:
-      "Inserisci le tue spese e scopri se paghi pi\u00f9 della media regionale. Strumento gratuito con dati ARERA aggiornati.",
+      "Inserisci le tue spese e scopri se paghi più della media regionale. Strumento gratuito con dati ARERA aggiornati.",
   },
 };
 

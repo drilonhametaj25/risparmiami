@@ -15,9 +15,9 @@ const CHECKLIST_ITEMS = [
       "Rilasciata dal datore di lavoro o dall'ente pensionistico. Attesta i redditi percepiti.",
   },
   {
-    title: "Documenti di identit\u00E0",
+    title: "Documenti di identità",
     description:
-      "Carta d'identit\u00E0 o passaporto in corso di validit\u00E0. Richiesta per tutte le pratiche.",
+      "Carta d'identità o passaporto in corso di validità. Richiesta per tutte le pratiche.",
   },
   {
     title: "Codice Fiscale / Tessera Sanitaria",
@@ -25,7 +25,7 @@ const CHECKLIST_ITEMS = [
       "Indispensabile per qualsiasi interazione con la Pubblica Amministrazione.",
   },
   {
-    title: "ISEE in corso di validit\u00E0",
+    title: "ISEE in corso di validità",
     description:
       "Indicatore della situazione economica equivalente. Fondamentale per bonus e agevolazioni a soglia.",
   },
@@ -42,7 +42,7 @@ const CHECKLIST_ITEMS = [
   {
     title: "Estratto conto bancario",
     description:
-      "Utile per verificare i costi bancari e valutare alternative pi\u00F9 convenienti.",
+      "Utile per verificare i costi bancari e valutare alternative più convenienti.",
   },
   {
     title: "Contratto di lavoro",
@@ -50,7 +50,7 @@ const CHECKLIST_ITEMS = [
       "Specifica il tipo di contratto, la retribuzione e i benefit aziendali.",
   },
   {
-    title: "Documenti di propriet\u00E0 immobiliare",
+    title: "Documenti di proprietà immobiliare",
     description:
       "Atto di compravendita, visura catastale. Necessari per detrazioni su ristrutturazioni e mutui.",
   },

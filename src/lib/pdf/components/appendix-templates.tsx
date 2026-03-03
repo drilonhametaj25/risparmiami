@@ -8,7 +8,7 @@ const TEMPLATES = [
     title: "Richiesta calcolo ISEE",
     body: `Spett.le CAF / Patronato [NOME CAF/PATRONATO]
 Via [INDIRIZZO]
-[CAP] [CITT\u00C0] ([PROVINCIA])
+[CAP] [CITTÀ] ([PROVINCIA])
 
 Oggetto: Richiesta di elaborazione ISEE ${new Date().getFullYear()}
 
@@ -19,7 +19,7 @@ CHIEDE
 l'elaborazione della Dichiarazione Sostitutiva Unica (DSU) ai fini del calcolo dell'Indicatore della Situazione Economica Equivalente (ISEE) per l'anno ${new Date().getFullYear()}.
 
 A tal fine, allega la seguente documentazione:
-- Documento di identit\u00E0 in corso di validit\u00E0
+- Documento di identità in corso di validità
 - Codice fiscale di tutti i componenti del nucleo familiare
 - Ultima dichiarazione dei redditi (730/Redditi PF)
 - Certificazione Unica (CU) dell'anno precedente
@@ -39,15 +39,15 @@ _________________________
   {
     title: "Richiesta detrazione fiscale",
     body: `Spett.le Agenzia delle Entrate
-Direzione Provinciale di [CITT\u00C0]
+Direzione Provinciale di [CITTÀ]
 Via [INDIRIZZO]
-[CAP] [CITT\u00C0]
+[CAP] [CITTÀ]
 
-Oggetto: Richiesta di chiarimenti su detrazione fiscale \u2014 [TIPO DI DETRAZIONE]
+Oggetto: Richiesta di chiarimenti su detrazione fiscale — [TIPO DI DETRAZIONE]
 
 Il/La sottoscritto/a [NOME COGNOME], codice fiscale [CODICE FISCALE], residente in [INDIRIZZO DI RESIDENZA],
 
-in qualit\u00E0 di contribuente,
+in qualità di contribuente,
 
 ESPONE
 
@@ -58,10 +58,10 @@ CHIEDE
 di poter usufruire della detrazione fiscale prevista dall'art. [ARTICOLO] del TUIR / D.L. [NUMERO DECRETO] del [DATA DECRETO], nella misura del [PERCENTUALE]% della spesa sostenuta, pari ad Euro [IMPORTO DETRAZIONE].
 
 Si allegano:
-- Copia del documento di identit\u00E0
+- Copia del documento di identità
 - Fatture/ricevute delle spese sostenute
 - Ricevuta del bonifico parlante (se applicabile)
-- Dichiarazione di conformit\u00E0 dei lavori (se applicabile)
+- Dichiarazione di conformità dei lavori (se applicabile)
 
 Distinti saluti,
 
@@ -75,11 +75,11 @@ _________________________
     body: `Spett.le [NOME FORNITORE]
 Servizio Clienti / Ufficio Reclami
 Via [INDIRIZZO]
-[CAP] [CITT\u00C0]
+[CAP] [CITTÀ]
 
 Raccomandata A/R (oppure PEC: [INDIRIZZO PEC])
 
-Oggetto: Reclamo formale \u2014 Contratto n. [NUMERO CONTRATTO] / POD: [CODICE POD] / PDR: [CODICE PDR]
+Oggetto: Reclamo formale — Contratto n. [NUMERO CONTRATTO] / POD: [CODICE POD] / PDR: [CODICE PDR]
 
 Il/La sottoscritto/a [NOME COGNOME], titolare dell'utenza sopra indicata, con la presente
 
@@ -99,10 +99,10 @@ CHIEDE
 3. Il rimborso di Euro [IMPORTO] entro 30 giorni dalla presente
 4. La conferma scritta della risoluzione del problema
 
-Si avverte che, in mancanza di riscontro entro 40 giorni dalla ricezione della presente, ci si riserva di adire le vie legali e/o di presentare reclamo all'ARERA (Autorit\u00E0 di Regolazione per Energia Reti e Ambiente) tramite lo Sportello per il Consumatore.
+Si avverte che, in mancanza di riscontro entro 40 giorni dalla ricezione della presente, ci si riserva di adire le vie legali e/o di presentare reclamo all'ARERA (Autorità di Regolazione per Energia Reti e Ambiente) tramite lo Sportello per il Consumatore.
 
 Si allegano:
-- Copia del documento di identit\u00E0
+- Copia del documento di identità
 - Copia della bolletta contestata
 - Eventuali precedenti comunicazioni
 

@@ -44,8 +44,8 @@ const bonuses: Bonus[] = [
   {
     name: "Assegno Unico Universale",
     description:
-      "Assegno mensile per ogni figlio a carico fino a 21 anni. Importo variabile in base all\u2019ISEE.",
-    maxAmount: "199,40\u00a0\u20ac/mese per figlio",
+      "Assegno mensile per ogni figlio a carico fino a 21 anni. Importo variabile in base all’ISEE.",
+    maxAmount: "199,40 €/mese per figlio",
     requirements: { figli: ["1", "2", "3+"] },
     certaintyLevel: "certo",
     howToClaim: "Domanda online su INPS o tramite Patronato. Necessario ISEE aggiornato.",
@@ -53,8 +53,8 @@ const bonuses: Bonus[] = [
   {
     name: "Bonus Asilo Nido",
     description:
-      "Contributo per le rette dell\u2019asilo nido (pubblico o privato) per bambini fino a 3 anni.",
-    maxAmount: "3.600\u00a0\u20ac/anno",
+      "Contributo per le rette dell’asilo nido (pubblico o privato) per bambini fino a 3 anni.",
+    maxAmount: "3.600 €/anno",
     requirements: {
       figli: ["1", "2", "3+"],
       reddito: ["under9360", "9360_15000", "15000_25000", "25000_40000"],
@@ -65,8 +65,8 @@ const bonuses: Bonus[] = [
   {
     name: "Carta Acquisti (Social Card)",
     description:
-      "Carta prepagata da 80\u00a0\u20ac bimestrali per acquisti alimentari e bollette.",
-    maxAmount: "480\u00a0\u20ac/anno",
+      "Carta prepagata da 80 € bimestrali per acquisti alimentari e bollette.",
+    maxAmount: "480 €/anno",
     requirements: {
       eta: ["over65"],
       reddito: ["under9360"],
@@ -77,8 +77,8 @@ const bonuses: Bonus[] = [
   {
     name: "Carta Dedicata a Te",
     description:
-      "Carta da 500\u00a0\u20ac per l\u2019acquisto di beni di prima necessit\u00e0 e carburante.",
-    maxAmount: "500\u00a0\u20ac",
+      "Carta da 500 € per l’acquisto di beni di prima necessità e carburante.",
+    maxAmount: "500 €",
     requirements: {
       reddito: ["under9360", "9360_15000"],
     },
@@ -88,8 +88,8 @@ const bonuses: Bonus[] = [
   {
     name: "Bonus Psicologo",
     description:
-      "Contributo fino a 1.500\u00a0\u20ac per sedute di psicoterapia.",
-    maxAmount: "1.500\u00a0\u20ac",
+      "Contributo fino a 1.500 € per sedute di psicoterapia.",
+    maxAmount: "1.500 €",
     requirements: {
       reddito: ["under9360", "9360_15000", "15000_25000", "25000_40000", "over40000"],
     },
@@ -99,8 +99,8 @@ const bonuses: Bonus[] = [
   {
     name: "Bonus Trasporti",
     description:
-      "Contributo fino a 60\u00a0\u20ac per abbonamenti al trasporto pubblico.",
-    maxAmount: "60\u00a0\u20ac",
+      "Contributo fino a 60 € per abbonamenti al trasporto pubblico.",
+    maxAmount: "60 €",
     requirements: {
       reddito: ["under9360", "9360_15000", "15000_25000"],
     },
@@ -111,7 +111,7 @@ const bonuses: Bonus[] = [
     name: "Detrazioni Lavoro Dipendente",
     description:
       "Detrazione IRPEF automatica per i lavoratori dipendenti, proporzionale al reddito.",
-    maxAmount: "1.955\u00a0\u20ac",
+    maxAmount: "1.955 €",
     requirements: {
       situazione: ["lavoratore"],
     },
@@ -121,8 +121,8 @@ const bonuses: Bonus[] = [
   {
     name: "Trattamento Integrativo (ex Bonus Renzi)",
     description:
-      "Credito IRPEF di 100\u00a0\u20ac/mese per redditi fino a 15.000\u00a0\u20ac (o fino a 28.000\u00a0\u20ac con condizioni).",
-    maxAmount: "1.200\u00a0\u20ac/anno",
+      "Credito IRPEF di 100 €/mese per redditi fino a 15.000 € (o fino a 28.000 € con condizioni).",
+    maxAmount: "1.200 €/anno",
     requirements: {
       situazione: ["lavoratore"],
       reddito: ["under9360", "9360_15000", "15000_25000"],
@@ -134,18 +134,18 @@ const bonuses: Bonus[] = [
     name: "Detrazioni Pensione",
     description:
       "Detrazione IRPEF per i titolari di redditi da pensione.",
-    maxAmount: "1.955\u00a0\u20ac",
+    maxAmount: "1.955 €",
     requirements: {
       situazione: ["pensionato"],
     },
     certaintyLevel: "certo",
-    howToClaim: "Applicata automaticamente dall\u2019INPS sul cedolino pensione.",
+    howToClaim: "Applicata automaticamente dall’INPS sul cedolino pensione.",
   },
   {
     name: "Bonus Mamme Lavoratrici",
     description:
-      "Esonero contributivo per madri lavoratrici dipendenti con 2 o pi\u00f9 figli.",
-    maxAmount: "3.000\u00a0\u20ac/anno",
+      "Esonero contributivo per madri lavoratrici dipendenti con 2 o più figli.",
+    maxAmount: "3.000 €/anno",
     requirements: {
       situazione: ["lavoratore"],
       figli: ["2", "3+"],
@@ -154,10 +154,10 @@ const bonuses: Bonus[] = [
     howToClaim: "Comunicare al datore di lavoro i codici fiscali dei figli. Esonero applicato in automatico.",
   },
   {
-    name: "NASpI (indennit\u00e0 disoccupazione)",
+    name: "NASpI (indennità disoccupazione)",
     description:
-      "Indennit\u00e0 mensile per chi perde involontariamente il lavoro dipendente.",
-    maxAmount: "1.550,42\u00a0\u20ac/mese",
+      "Indennità mensile per chi perde involontariamente il lavoro dipendente.",
+    maxAmount: "1.550,42 €/mese",
     requirements: {
       situazione: ["disoccupato"],
     },
@@ -168,7 +168,7 @@ const bonuses: Bonus[] = [
     name: "Assegno di Inclusione (ADI)",
     description:
       "Sostegno economico per nuclei con minori, disabili, over 60 o in condizioni di svantaggio.",
-    maxAmount: "6.000\u00a0\u20ac/anno + integrazione affitto",
+    maxAmount: "6.000 €/anno + integrazione affitto",
     requirements: {
       reddito: ["under9360"],
     },
@@ -179,18 +179,18 @@ const bonuses: Bonus[] = [
     name: "Bonus Giovani Under 30 (Decontribuzione)",
     description:
       "Esonero contributivo per datori che assumono giovani under 30 a tempo indeterminato.",
-    maxAmount: "Fino a 3.000\u00a0\u20ac/anno",
+    maxAmount: "Fino a 3.000 €/anno",
     requirements: {
       eta: ["under30"],
       situazione: ["lavoratore", "disoccupato"],
     },
     certaintyLevel: "consiglio",
-    howToClaim: "Incentivo per il datore di lavoro. Informarsi presso l\u2019azienda o un consulente.",
+    howToClaim: "Incentivo per il datore di lavoro. Informarsi presso l’azienda o un consulente.",
   },
   {
     name: "Detrazione Spese Sanitarie",
     description:
-      "Detrazione del 19% sulle spese mediche e sanitarie che superano la franchigia di 129,11\u00a0\u20ac.",
+      "Detrazione del 19% sulle spese mediche e sanitarie che superano la franchigia di 129,11 €.",
     maxAmount: "Nessun limite",
     requirements: {},
     certaintyLevel: "consiglio",
@@ -199,8 +199,8 @@ const bonuses: Bonus[] = [
   {
     name: "Detrazione Spese Istruzione",
     description:
-      "Detrazione del 19% su tasse universitarie, mense e gite scolastiche (fino a 800\u00a0\u20ac per studente).",
-    maxAmount: "152\u00a0\u20ac per figlio",
+      "Detrazione del 19% su tasse universitarie, mense e gite scolastiche (fino a 800 € per studente).",
+    maxAmount: "152 € per figlio",
     requirements: {
       figli: ["1", "2", "3+"],
     },
@@ -210,8 +210,8 @@ const bonuses: Bonus[] = [
   {
     name: "Supporto Formazione e Lavoro (SFL)",
     description:
-      "350\u00a0\u20ac/mese per partecipazione a percorsi formativi, per chi non ha diritto all\u2019ADI.",
-    maxAmount: "4.200\u00a0\u20ac/anno",
+      "350 €/mese per partecipazione a percorsi formativi, per chi non ha diritto all’ADI.",
+    maxAmount: "4.200 €/anno",
     requirements: {
       situazione: ["disoccupato", "studente"],
       reddito: ["under9360", "9360_15000"],
@@ -348,11 +348,11 @@ export function VerificaBonusClient() {
                 value={filters.reddito}
                 onChange={updateFilter("reddito")}
                 options={[
-                  { value: "under9360", label: "Meno di 9.360\u00a0\u20ac" },
-                  { value: "9360_15000", label: "9.360 \u2013 15.000\u00a0\u20ac" },
-                  { value: "15000_25000", label: "15.000 \u2013 25.000\u00a0\u20ac" },
-                  { value: "25000_40000", label: "25.000 \u2013 40.000\u00a0\u20ac" },
-                  { value: "over40000", label: "Oltre 40.000\u00a0\u20ac" },
+                  { value: "under9360", label: "Meno di 9.360 €" },
+                  { value: "9360_15000", label: "9.360 – 15.000 €" },
+                  { value: "15000_25000", label: "15.000 – 25.000 €" },
+                  { value: "25000_40000", label: "25.000 – 40.000 €" },
+                  { value: "over40000", label: "Oltre 40.000 €" },
                 ]}
               />
               <Select
@@ -363,7 +363,7 @@ export function VerificaBonusClient() {
                   { value: "0", label: "0" },
                   { value: "1", label: "1" },
                   { value: "2", label: "2" },
-                  { value: "3+", label: "3 o pi\u00f9" },
+                  { value: "3+", label: "3 o più" },
                 ]}
               />
               <Select
@@ -455,7 +455,7 @@ export function VerificaBonusClient() {
                 <Card padding="lg" className="text-center mb-8">
                   <p className="font-body text-text-secondary">
                     Nessun bonus specifico trovato per il tuo profilo. Prova a modificare
-                    i filtri oppure registrati per un&apos;analisi pi\u00f9 approfondita.
+                    i filtri oppure registrati per un&apos;analisi più approfondita.
                   </p>
                 </Card>
               )}
