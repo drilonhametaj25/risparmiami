@@ -39,8 +39,8 @@ export default async function GuidaPdfSuccessoPage({
 
   // Try to find purchase by Stripe session
   try {
-    const { stripe } = await import("@/lib/stripe");
-    const session = await stripe.checkout.sessions.retrieve(session_id);
+    const { getStripe } = await import("@/lib/stripe");
+    const session = await getStripe().checkout.sessions.retrieve(session_id);
     const paymentIntent = session.payment_intent as string;
 
     if (paymentIntent) {
