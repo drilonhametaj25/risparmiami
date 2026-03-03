@@ -10,10 +10,16 @@ const publicRoutes = [
   "/prezzi",
   "/guida-pdf",
   "/tools",
+  "/privacy",
+  "/termini",
+  "/cookie",
+  "/bonus-2026-elenco-completo",
+  "/detrazioni-fiscali-2026",
+  "/risparmio-bollette-luce-gas",
 ];
 
 // Routes that start with these prefixes are public
-const publicPrefixes = ["/blog/", "/tools/", "/api/auth/", "/api/pdf/", "/api/cron/", "/api/stripe/"];
+const publicPrefixes = ["/blog/", "/tools/", "/login/", "/api/auth/", "/api/pdf/", "/api/cron/", "/api/stripe/"];
 
 function isPublicRoute(pathname: string): boolean {
   if (publicRoutes.includes(pathname)) return true;
