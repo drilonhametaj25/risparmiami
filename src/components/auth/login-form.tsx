@@ -17,7 +17,7 @@ export function LoginForm() {
     setLoading(true);
     setError("");
     try {
-      await signIn("resend", { email, callbackUrl: "/dashboard" });
+      await signIn("nodemailer", { email, callbackUrl: "/dashboard" });
       setEmailSent(true);
     } catch {
       setError("Si è verificato un errore. Riprova tra qualche secondo.");

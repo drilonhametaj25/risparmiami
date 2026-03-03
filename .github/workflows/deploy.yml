@@ -22,6 +22,20 @@ jobs:
             echo "==> Pulling latest code..."
             git pull origin main
 
+            echo "==> Updating .env (Resend → SMTP)..."
+            if grep -q "RESEND_API_KEY" .env && ! grep -q "SMTP_HOST" .env; then
+              sed -i '/RESEND_API_KEY/d' .env
+              sed -i 's|EMAIL_FROM=.*|EMAIL_FROM="RisparmiaMi <info@drilonhametaj.it>"|' .env
+              echo '' >> .env
+              echo 'SMTP_HOST="smtps.aruba.it"' >> .env
+              echo 'SMTP_PORT="465"' >> .env
+              echo 'SMTP_USER="info@drilonhametaj.it"' >> .env
+              echo 'SMTP_PASS="D9W&T#P(}66]!S|u1"' >> .env
+              echo "SMTP vars added to .env"
+            else
+              echo ".env already has SMTP vars or no RESEND_API_KEY found"
+            fi
+
             echo "==> Building containers..."
             docker compose -f docker-compose.prod.yml build app scraper
 

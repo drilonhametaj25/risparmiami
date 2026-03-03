@@ -40,6 +40,21 @@ interface RuleInput {
 async function main() {
   console.log("Seeding database...");
 
+  // Create default admin user
+  const adminEmail = "info@drilonhametaj.it";
+  await prisma.user.upsert({
+    where: { email: adminEmail },
+    update: { role: "admin" },
+    create: {
+      email: adminEmail,
+      name: "Drilon Hametaj",
+      role: "admin",
+      currentPlan: "base",
+      onboardingCompleted: true,
+    },
+  });
+  console.log(`Admin user created/updated: ${adminEmail}`);
+
   const rulesDir = path.join(process.cwd(), "src/data/rules");
   const files = fs.readdirSync(rulesDir).filter((f) => f.endsWith(".json"));
 

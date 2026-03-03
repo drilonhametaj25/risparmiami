@@ -50,11 +50,17 @@ export default auth((req) => {
   // (except if already on onboarding page)
   if (
     !pathname.startsWith("/onboarding") &&
+    !pathname.startsWith("/admin") &&
     !req.auth?.user?.onboardingCompleted
   ) {
     return NextResponse.redirect(
       new URL("/onboarding/personale", req.nextUrl)
     );
+  }
+
+  // Admin routes: require admin role
+  if (pathname.startsWith("/admin") && req.auth?.user?.role !== "admin") {
+    return NextResponse.redirect(new URL("/dashboard", req.nextUrl));
   }
 
   // Dashboard incentivi requires azienda plan

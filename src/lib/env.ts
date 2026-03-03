@@ -9,7 +9,9 @@ const requiredSchema = z.object({
 const optionalSchema = z.object({
   STRIPE_SECRET_KEY: z.string().startsWith("sk_", "STRIPE_SECRET_KEY must start with sk_"),
   STRIPE_WEBHOOK_SECRET: z.string().startsWith("whsec_", "STRIPE_WEBHOOK_SECRET must start with whsec_"),
-  RESEND_API_KEY: z.string().min(1, "RESEND_API_KEY is required"),
+  SMTP_HOST: z.string().min(1, "SMTP_HOST is required"),
+  SMTP_USER: z.string().min(1, "SMTP_USER is required"),
+  SMTP_PASS: z.string().min(1, "SMTP_PASS is required"),
   CRON_SECRET: z.string().min(16, "CRON_SECRET must be at least 16 characters"),
 });
 

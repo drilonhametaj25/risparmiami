@@ -18,7 +18,7 @@ export function RegisterForm() {
     setLoading(true);
     setError("");
     try {
-      await signIn("resend", { email, callbackUrl: "/onboarding/personale" });
+      await signIn("nodemailer", { email, callbackUrl: "/onboarding/personale" });
       setEmailSent(true);
     } catch {
       setError("Si è verificato un errore. Riprova tra qualche secondo.");

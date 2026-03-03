@@ -1,12 +1,20 @@
-import { Resend } from "resend";
+import nodemailer from "nodemailer";
 
-let _resend: Resend | null = null;
+let _transporter: nodemailer.Transporter | null = null;
 
-function getResend(): Resend {
-  if (!_resend) {
-    _resend = new Resend(process.env.RESEND_API_KEY);
+function getTransporter(): nodemailer.Transporter {
+  if (!_transporter) {
+    _transporter = nodemailer.createTransport({
+      host: process.env.SMTP_HOST,
+      port: Number(process.env.SMTP_PORT || 465),
+      secure: true,
+      auth: {
+        user: process.env.SMTP_USER,
+        pass: process.env.SMTP_PASS,
+      },
+    });
   }
-  return _resend;
+  return _transporter;
 }
 
 interface SendEmailOptions {
@@ -17,19 +25,14 @@ interface SendEmailOptions {
 
 export async function sendEmail({ to, subject, html }: SendEmailOptions) {
   try {
-    const { data, error } = await getResend().emails.send({
-      from: process.env.EMAIL_FROM || "RisparmiaMi <noreply@risparmiami.pro>",
+    const info = await getTransporter().sendMail({
+      from: process.env.EMAIL_FROM || "RisparmiaMi <info@drilonhametaj.it>",
       to,
       subject,
       html,
     });
 
-    if (error) {
-      console.error("Email send error:", error);
-      throw new Error(error.message);
-    }
-
-    return data;
+    return info;
   } catch (error) {
     console.error("Failed to send email:", error);
     throw error;
