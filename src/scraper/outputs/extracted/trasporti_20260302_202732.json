@@ -1,0 +1,878 @@
+[
+  {
+    "slug": "trenitalia-cartafreccia-young",
+    "name": "CartaFreccia Young Trenitalia",
+    "shortDescription": "Carta sconto Trenitalia per giovani dai 12 ai 30 anni. Offre sconti fino al 50% sui treni Frecce e Intercity.",
+    "fullDescription": "La CartaFreccia Young e' dedicata ai viaggiatori tra 12 e 30 anni. Costa 40 EUR e ha validita' annuale. Offre sconti del 30% sulla tariffa Base dei treni Frecce (Frecciarossa, Frecciargento, Frecciabianca) e Intercity. Lo sconto arriva fino al 50% sulle tariffe Economy e Super Economy quando disponibili. La carta puo' essere richiesta online o in stazione.",
+    "category": "trasporti",
+    "target": "persona",
+    "maxAmount": 40.0,
+    "percentage": 30.0,
+    "certaintyLevel": "certo",
+    "howToClaim": "1. Registrarsi su trenitalia.com o app Trenitalia\n2. Richiedere la CartaFreccia Young online o in biglietteria\n3. Pagare la quota annuale di 40 EUR\n4. Gli sconti si applicano automaticamente in fase di acquisto",
+    "requiredDocs": [
+      "Documento di identita'",
+      "Codice fiscale"
+    ],
+    "tags": [
+      "trenitalia",
+      "cartafreccia",
+      "giovani",
+      "treno",
+      "sconto"
+    ],
+    "sourceName": "Trenitalia",
+    "requirements": [
+      {
+        "field": "birthYear",
+        "operator": "gte",
+        "value": "1996",
+        "isRequired": true
+      },
+      {
+        "field": "birthYear",
+        "operator": "lte",
+        "value": "2014",
+        "isRequired": true
+      }
+    ]
+  },
+  {
+    "slug": "trenitalia-cartafreccia-senior",
+    "name": "CartaFreccia Senior Trenitalia",
+    "shortDescription": "Carta sconto Trenitalia per over 60. Sconti fino al 50% sui treni Frecce e Intercity.",
+    "fullDescription": "La CartaFreccia Senior e' dedicata ai viaggiatori dai 60 anni in su. Costa 40 EUR annui e offre sconti del 30% sulla tariffa Base dei treni Frecce e Intercity. Lo sconto puo' arrivare al 50% sulle tariffe Economy e Super Economy. E' richiedibile online, tramite app o in biglietteria.",
+    "category": "trasporti",
+    "target": "persona",
+    "maxAmount": 40.0,
+    "percentage": 30.0,
+    "certaintyLevel": "certo",
+    "howToClaim": "1. Registrarsi su trenitalia.com\n2. Richiedere la CartaFreccia Senior\n3. Pagare la quota annuale di 40 EUR\n4. Lo sconto si applica automaticamente all'acquisto",
+    "requiredDocs": [
+      "Documento di identita'",
+      "Codice fiscale"
+    ],
+    "tags": [
+      "trenitalia",
+      "cartafreccia",
+      "senior",
+      "treno",
+      "sconto"
+    ],
+    "sourceName": "Trenitalia",
+    "requirements": [
+      {
+        "field": "birthYear",
+        "operator": "lte",
+        "value": "1966",
+        "isRequired": true
+      }
+    ]
+  },
+  {
+    "slug": "trenitalia-abbonamento-regionale",
+    "name": "Abbonamento Regionale Trenitalia",
+    "shortDescription": "Abbonamento mensile o annuale per treni regionali. Risparmio significativo per pendolari rispetto ai biglietti singoli.",
+    "fullDescription": "L'abbonamento regionale Trenitalia e' la soluzione piu' conveniente per i pendolari. Disponibile in versione mensile e annuale, consente viaggi illimitati sulla tratta prescelta con treni regionali. L'abbonamento annuale costa circa 10 mesi rispetto al mensile, con un risparmio di circa il 16%. Per i lavoratori pendolari che viaggiano almeno 15-20 giorni al mese, il risparmio rispetto ai biglietti singoli puo' superare il 50%. Alcune regioni offrono ulteriori agevolazioni per studenti e under 26.",
+    "category": "trasporti",
+    "target": "persona",
+    "maxAmount": null,
+    "percentage": 50.0,
+    "certaintyLevel": "consiglio",
+    "howToClaim": "1. Verificare la tratta e i costi su trenitalia.com\n2. Acquistare in biglietteria, online o tramite app\n3. L'abbonamento annuale offre il miglior rapporto qualita'/prezzo\n4. Verificare agevolazioni regionali per studenti/giovani",
+    "requiredDocs": [
+      "Documento di identita'",
+      "Foto tessera (per abbonamento fisico)"
+    ],
+    "tags": [
+      "trenitalia",
+      "abbonamento",
+      "pendolari",
+      "regionale",
+      "risparmio"
+    ],
+    "sourceName": "Trenitalia",
+    "requirements": []
+  },
+  {
+    "slug": "trenitalia-offerta-famiglia",
+    "name": "Offerta Famiglia Trenitalia",
+    "shortDescription": "Sconto del 50% per i minori (fino a 15 anni) che viaggiano in gruppo con almeno un adulto sui treni Frecce.",
+    "fullDescription": "L'offerta Famiglia di Trenitalia prevede uno sconto del 50% sul prezzo Base per i ragazzi fino a 15 anni accompagnati da almeno un adulto (pagante a tariffa Base o superiore). L'offerta e' valida sui treni Frecciarossa, Frecciargento, Frecciabianca e Intercity. I bambini sotto i 4 anni viaggiano gratis se non occupano un posto a sedere. Ideale per famiglie che viaggiano insieme nei weekend o durante le vacanze.",
+    "category": "trasporti",
+    "target": "persona",
+    "maxAmount": null,
+    "percentage": 50.0,
+    "certaintyLevel": "certo",
+    "howToClaim": "Selezionare l'opzione 'Offerta Famiglia' durante l'acquisto online o in biglietteria. Inserire i dati dei minori e degli adulti accompagnatori.",
+    "requiredDocs": [
+      "Documento di identita' dei passeggeri"
+    ],
+    "tags": [
+      "trenitalia",
+      "famiglia",
+      "bambini",
+      "sconto",
+      "treno"
+    ],
+    "sourceName": "Trenitalia",
+    "requirements": [
+      {
+        "field": "childrenCount",
+        "operator": "gte",
+        "value": "1",
+        "isRequired": true
+      }
+    ]
+  },
+  {
+    "slug": "italo-carta-giovani",
+    "name": "Carta Italo Giovani",
+    "shortDescription": "Carta sconto Italo per giovani tra 14 e 29 anni. Sconti del 40% sull'ambiente Smart e 30% sugli altri ambienti.",
+    "fullDescription": "La carta sconto Italo per giovani (precedentemente X-GO) e' dedicata ai viaggiatori tra 14 e 29 anni. Offre sconti del 40% sull'ambiente Smart e del 30% sugli ambienti Comfort e Prima. La carta costa 29,90 EUR e ha validita' annuale. Consente di accumulare punti Italo Piu' con ogni viaggio. Si acquista online sul sito italotreno.it o tramite l'app Italo.",
+    "category": "trasporti",
+    "target": "persona",
+    "maxAmount": 29.9,
+    "percentage": 40.0,
+    "certaintyLevel": "certo",
+    "howToClaim": "1. Registrarsi su italotreno.it\n2. Acquistare la carta giovani (29,90 EUR/anno)\n3. Lo sconto si applica automaticamente all'acquisto biglietti",
+    "requiredDocs": [
+      "Documento di identita'",
+      "Indirizzo email"
+    ],
+    "tags": [
+      "italo",
+      "giovani",
+      "treno",
+      "sconto",
+      "alta-velocita"
+    ],
+    "sourceName": "Italo",
+    "requirements": [
+      {
+        "field": "birthYear",
+        "operator": "gte",
+        "value": "1997",
+        "isRequired": true
+      },
+      {
+        "field": "birthYear",
+        "operator": "lte",
+        "value": "2012",
+        "isRequired": true
+      }
+    ]
+  },
+  {
+    "slug": "italo-abbonamento",
+    "name": "Abbonamento Italo Treno",
+    "shortDescription": "Abbonamento mensile Italo per pendolari alta velocita'. Viaggi illimitati sulla tratta scelta con risparmio significativo.",
+    "fullDescription": "L'abbonamento Italo e' pensato per i pendolari che viaggiano regolarmente in alta velocita'. Disponibile in formula mensile con viaggi illimitati sulla tratta prescelta. Il costo varia in base alla tratta e all'ambiente scelto (Smart, Comfort, Prima). Per chi viaggia almeno 8-10 volte al mese, l'abbonamento offre un risparmio superiore al 50% rispetto ai biglietti singoli. Acquistabile online, tramite app o alle biglietterie automatiche.",
+    "category": "trasporti",
+    "target": "persona",
+    "maxAmount": null,
+    "percentage": 50.0,
+    "certaintyLevel": "consiglio",
+    "howToClaim": "1. Accedere a italotreno.it sezione Abbonamenti\n2. Selezionare la tratta e l'ambiente\n3. Acquistare l'abbonamento mensile\n4. Utilizzare il QR code per viaggiare",
+    "requiredDocs": [
+      "Documento di identita'",
+      "Account Italo Piu'"
+    ],
+    "tags": [
+      "italo",
+      "abbonamento",
+      "pendolari",
+      "alta-velocita",
+      "risparmio"
+    ],
+    "sourceName": "Italo",
+    "requirements": []
+  },
+  {
+    "slug": "italo-offerta-famiglia",
+    "name": "Offerta Famiglia Italo",
+    "shortDescription": "Bambini e ragazzi fino a 13 anni viaggiano gratis su Italo se accompagnati da un adulto pagante.",
+    "fullDescription": "Con l'offerta Famiglia di Italo, i bambini e ragazzi fino a 13 anni viaggiano gratis se accompagnati da almeno un adulto pagante a tariffa Flex. Ogni adulto puo' portare fino a 2 minori gratuiti. I neonati (0-3 anni) viaggiano sempre gratis senza posto assegnato. L'offerta e' soggetta a disponibilita' e non e' cumulabile con altre promozioni.",
+    "category": "trasporti",
+    "target": "persona",
+    "maxAmount": null,
+    "percentage": 100.0,
+    "certaintyLevel": "certo",
+    "howToClaim": "Selezionare l'offerta Famiglia durante l'acquisto online o in app. Aggiungere i minori al gruppo di viaggio. Lo sconto viene applicato automaticamente.",
+    "requiredDocs": [
+      "Documento di identita' dei passeggeri"
+    ],
+    "tags": [
+      "italo",
+      "famiglia",
+      "bambini",
+      "gratis",
+      "treno"
+    ],
+    "sourceName": "Italo",
+    "requirements": [
+      {
+        "field": "childrenCount",
+        "operator": "gte",
+        "value": "1",
+        "isRequired": true
+      },
+      {
+        "field": "childrenAges",
+        "operator": "contains",
+        "value": "0-13",
+        "isRequired": true
+      }
+    ]
+  },
+  {
+    "slug": "confronto-prezzi-treno",
+    "name": "Confronto Prezzi Trenitalia vs Italo",
+    "shortDescription": "Confrontare i prezzi tra Trenitalia e Italo puo' far risparmiare fino al 30-50% sulla stessa tratta, specialmente prenotando in anticipo.",
+    "fullDescription": "I prezzi dei treni alta velocita' variano significativamente tra Trenitalia e Italo e in base al momento della prenotazione. Prenotando con 15-30 giorni di anticipo si possono trovare tariffe Economy o Low Cost con sconti fino al 60% rispetto alla tariffa piena. Si consiglia di confrontare sempre entrambi i vettori e di verificare le offerte speciali periodiche. App come Trainline e Omio permettono di confrontare i prezzi in un'unica ricerca.",
+    "category": "trasporti",
+    "target": "persona",
+    "maxAmount": null,
+    "percentage": 50.0,
+    "certaintyLevel": "consiglio",
+    "howToClaim": "1. Confrontare prezzi su trenitalia.com e italotreno.it\n2. Usare comparatori come Trainline o Omio\n3. Prenotare con almeno 2 settimane di anticipo\n4. Essere flessibili su orari per trovare tariffe migliori\n5. Valutare le carte sconto annuali se si viaggia spesso",
+    "requiredDocs": [],
+    "tags": [
+      "treno",
+      "risparmio",
+      "confronto",
+      "alta-velocita",
+      "prenotazione-anticipata"
+    ],
+    "sourceName": "Trenitalia / Italo",
+    "requirements": []
+  },
+  {
+    "slug": "bonus-trasporti",
+    "name": "Bonus Trasporti",
+    "shortDescription": "Voucher statale per l'acquisto di abbonamenti al trasporto pubblico locale, regionale e interregionale (quando attivo).",
+    "fullDescription": "Il Bonus Trasporti e' un contributo statale per l'acquisto di abbonamenti al trasporto pubblico locale, regionale e interregionale. Quando attivo, prevede un voucher di 60 EUR per chi ha un reddito complessivo non superiore a 20.000 EUR annui. Si richiede tramite il portale dedicato bonustrasporti.lavoro.gov.it. Il bonus puo' essere usato per abbonamenti mensili o annuali di autobus, metro, treni regionali e trasporto pubblico locale. Verificare la disponibilita' del bonus per l'anno corrente.",
+    "category": "trasporti",
+    "target": "persona",
+    "maxAmount": 60.0,
+    "percentage": null,
+    "certaintyLevel": "probabile",
+    "howToClaim": "1. Verificare se il bonus e' attivo per l'anno corrente\n2. Accedere a bonustrasporti.lavoro.gov.it con SPID/CIE\n3. Richiedere il voucher indicando il gestore del servizio\n4. Utilizzare il voucher per l'acquisto dell'abbonamento",
+    "requiredDocs": [
+      "SPID o CIE",
+      "Dichiarazione dei redditi"
+    ],
+    "tags": [
+      "bonus",
+      "trasporto-pubblico",
+      "abbonamento",
+      "voucher"
+    ],
+    "sourceName": "Ministero del Lavoro",
+    "requirements": [
+      {
+        "field": "annualIncome",
+        "operator": "lte",
+        "value": "20000",
+        "isRequired": true
+      }
+    ]
+  },
+  {
+    "slug": "detrazione-abbonamento-trasporti",
+    "name": "Detrazione Fiscale Abbonamento Trasporti",
+    "shortDescription": "Detrazione IRPEF del 19% sulle spese per abbonamenti al trasporto pubblico fino a 250 EUR di spesa.",
+    "fullDescription": "E' possibile detrarre dall'IRPEF il 19% delle spese sostenute per l'acquisto di abbonamenti ai servizi di trasporto pubblico locale, regionale e interregionale, fino a un massimo di 250 EUR di spesa (detrazione massima 47,50 EUR). La detrazione vale sia per le proprie spese che per quelle di familiari a carico. E' necessario conservare l'abbonamento (o la ricevuta di acquisto) e la documentazione di pagamento tracciabile.",
+    "category": "trasporti",
+    "target": "persona",
+    "maxAmount": 47.5,
+    "percentage": 19.0,
+    "certaintyLevel": "certo",
+    "howToClaim": "Inserire la spesa nella dichiarazione dei redditi (730 o Redditi PF) alla voce 'Spese per abbonamenti trasporto pubblico'. Conservare abbonamento e ricevuta di pagamento.",
+    "requiredDocs": [
+      "Abbonamento o ricevuta di acquisto",
+      "Documentazione pagamento tracciabile"
+    ],
+    "tags": [
+      "detrazione",
+      "irpef",
+      "trasporto-pubblico",
+      "abbonamento",
+      "730"
+    ],
+    "sourceName": "Agenzia delle Entrate",
+    "requirements": []
+  },
+  {
+    "slug": "trenitalia-scopri-le-nostre-offerte",
+    "name": "Trenitalia - Scopri le nostre offerte",
+    "shortDescription": "Carica altro",
+    "fullDescription": "Carica altro",
+    "category": "trasporti",
+    "target": "persona",
+    "maxAmount": null,
+    "percentage": null,
+    "certaintyLevel": "certo",
+    "howToClaim": "Visitare  per dettagli e acquisto.",
+    "requiredDocs": [
+      "Documento di identita'"
+    ],
+    "tags": [
+      "treno",
+      "trenitalia",
+      "offerta"
+    ],
+    "sourceName": "Trenitalia",
+    "requirements": []
+  },
+  {
+    "slug": "italo-scopri-tutte-le-tratte-e-citta-del-network-italo",
+    "name": "Italo - Scopri tutte le tratte e città del network Italo",
+    "shortDescription": "Viaggia in tutta Italia con Italo: scopri offerte esclusive e risparmia sui biglietti dei treni ad alta velocità. Consulta destinazioni, orari e novità: pianifica il tuo viaggio con Italo verso le principali città italiane. Vivi un viaggio unico con Italo: comfort, servizi e innovazione per ogni tua esperienza a bordo.",
+    "fullDescription": "Viaggia in tutta Italia con Italo: scopri offerte esclusive e risparmia sui biglietti dei treni ad alta velocità. Consulta destinazioni, orari e novità: pianifica il tuo viaggio con Italo verso le principali città italiane. Vivi un viaggio unico con Italo: comfort, servizi e innovazione per ogni tua esperienza a bordo.",
+    "category": "trasporti",
+    "target": "persona",
+    "maxAmount": 9.9,
+    "percentage": null,
+    "certaintyLevel": "certo",
+    "howToClaim": "Visitare https://www.italotreno.com/it per dettagli e acquisto.",
+    "requiredDocs": [
+      "Documento di identita'"
+    ],
+    "tags": [
+      "treno",
+      "italo",
+      "offerta"
+    ],
+    "sourceName": "Italo",
+    "requirements": []
+  },
+  {
+    "slug": "italo-italo-extra-magic-fino-al-70-di-sconto",
+    "name": "Italo - Italo eXtra Magic, fino al -70% di sconto",
+    "shortDescription": "Italo eXtra Magic, fino al -70% di sconto",
+    "fullDescription": "Italo eXtra Magic, fino al -70% di sconto",
+    "category": "trasporti",
+    "target": "persona",
+    "maxAmount": null,
+    "percentage": null,
+    "certaintyLevel": "certo",
+    "howToClaim": "Visitare https://www.italotreno.com/it/offerte-treno/italo-extra#extra-magic per dettagli e acquisto.",
+    "requiredDocs": [
+      "Documento di identita'"
+    ],
+    "tags": [
+      "treno",
+      "italo",
+      "offerta"
+    ],
+    "sourceName": "Italo",
+    "requirements": []
+  },
+  {
+    "slug": "italo-codici-promozionali-e-sconti",
+    "name": "Italo - Codici promozionali e sconti",
+    "shortDescription": "Codici promozionali e sconti",
+    "fullDescription": "Codici promozionali e sconti",
+    "category": "trasporti",
+    "target": "persona",
+    "maxAmount": null,
+    "percentage": null,
+    "certaintyLevel": "certo",
+    "howToClaim": "Visitare https://www.italotreno.com/it/offerte-treno/codicepromo per dettagli e acquisto.",
+    "requiredDocs": [
+      "Documento di identita'"
+    ],
+    "tags": [
+      "treno",
+      "italo",
+      "offerta"
+    ],
+    "sourceName": "Italo",
+    "requirements": []
+  },
+  {
+    "slug": "italo-italo-friends-fino-al-60-con-italo",
+    "name": "Italo - Italo Friends, fino al -60% con Italo",
+    "shortDescription": "Italo Friends, fino al -60% con Italo",
+    "fullDescription": "Italo Friends, fino al -60% con Italo",
+    "category": "trasporti",
+    "target": "persona",
+    "maxAmount": null,
+    "percentage": null,
+    "certaintyLevel": "certo",
+    "howToClaim": "Visitare https://www.italotreno.com/it/offerte-treno/italo-friends per dettagli e acquisto.",
+    "requiredDocs": [
+      "Documento di identita'"
+    ],
+    "tags": [
+      "treno",
+      "italo",
+      "offerta"
+    ],
+    "sourceName": "Italo",
+    "requirements": []
+  },
+  {
+    "slug": "italo-andata-e-ritorno-in-giornata",
+    "name": "Italo - Andata e ritorno in giornata",
+    "shortDescription": "Andata e ritorno in giornata",
+    "fullDescription": "Andata e ritorno in giornata",
+    "category": "trasporti",
+    "target": "persona",
+    "maxAmount": null,
+    "percentage": null,
+    "certaintyLevel": "certo",
+    "howToClaim": "Visitare https://www.italotreno.com/it/offerte-treno/andata-ritorno per dettagli e acquisto.",
+    "requiredDocs": [
+      "Documento di identita'"
+    ],
+    "tags": [
+      "treno",
+      "italo",
+      "offerta"
+    ],
+    "sourceName": "Italo",
+    "requirements": []
+  },
+  {
+    "slug": "italo-italo-giovani-fino-al-70-con-italo",
+    "name": "Italo - Italo Giovani,\r\nfino al -70% con Italo!",
+    "shortDescription": "Italo Giovani,\r\nfino al -70% con Italo!",
+    "fullDescription": "Italo Giovani,\r\nfino al -70% con Italo!",
+    "category": "trasporti",
+    "target": "persona",
+    "maxAmount": null,
+    "percentage": null,
+    "certaintyLevel": "certo",
+    "howToClaim": "Visitare https://www.italotreno.com/it/offerte-treno/italo-giovani per dettagli e acquisto.",
+    "requiredDocs": [
+      "Documento di identita'"
+    ],
+    "tags": [
+      "treno",
+      "italo",
+      "offerta"
+    ],
+    "sourceName": "Italo",
+    "requirements": []
+  },
+  {
+    "slug": "italo-italo-famiglia-i-bimbi-viaggiano-gratis-e-gli-adulti-con-sconti-del-50",
+    "name": "Italo - Italo Famiglia, i bimbi viaggiano gratis e gli adulti con sconti del -50%",
+    "shortDescription": "Italo Famiglia, i bimbi viaggiano gratis e gli adulti con sconti del -50%",
+    "fullDescription": "Italo Famiglia, i bimbi viaggiano gratis e gli adulti con sconti del -50%",
+    "category": "trasporti",
+    "target": "persona",
+    "maxAmount": null,
+    "percentage": null,
+    "certaintyLevel": "certo",
+    "howToClaim": "Visitare https://www.italotreno.com/it/offerte-treno/italo-famiglia per dettagli e acquisto.",
+    "requiredDocs": [
+      "Documento di identita'"
+    ],
+    "tags": [
+      "treno",
+      "italo",
+      "offerta"
+    ],
+    "sourceName": "Italo",
+    "requirements": []
+  },
+  {
+    "slug": "italo-italo-senior-fino-al-60-con-italo",
+    "name": "Italo - Italo Senior,\r\nfino al -60% con Italo!",
+    "shortDescription": "Italo Senior,\r\nfino al -60% con Italo!",
+    "fullDescription": "Italo Senior,\r\nfino al -60% con Italo!",
+    "category": "trasporti",
+    "target": "persona",
+    "maxAmount": null,
+    "percentage": null,
+    "certaintyLevel": "certo",
+    "howToClaim": "Visitare https://www.italotreno.com/it/offerte-treno/italo-senior per dettagli e acquisto.",
+    "requiredDocs": [
+      "Documento di identita'"
+    ],
+    "tags": [
+      "treno",
+      "italo",
+      "offerta"
+    ],
+    "sourceName": "Italo",
+    "requirements": []
+  },
+  {
+    "slug": "italo-con-italo-i-bimbi-viaggiano-gratis",
+    "name": "Italo - Con Italo, i bimbi viaggiano gratis",
+    "shortDescription": "Con Italo, i bimbi viaggiano gratis",
+    "fullDescription": "Con Italo, i bimbi viaggiano gratis",
+    "category": "trasporti",
+    "target": "persona",
+    "maxAmount": null,
+    "percentage": null,
+    "certaintyLevel": "certo",
+    "howToClaim": "Visitare https://www.italotreno.com/it/offerte-treno/bambini-gratis per dettagli e acquisto.",
+    "requiredDocs": [
+      "Documento di identita'"
+    ],
+    "tags": [
+      "treno",
+      "italo",
+      "offerta"
+    ],
+    "sourceName": "Italo",
+    "requirements": []
+  },
+  {
+    "slug": "italo-business-first-lofferta-per-partite-iva-e-aziende",
+    "name": "Italo - Business First, l'offerta per Partite Iva e Aziende",
+    "shortDescription": "Business First, l'offerta per Partite Iva e Aziende",
+    "fullDescription": "Business First, l'offerta per Partite Iva e Aziende",
+    "category": "trasporti",
+    "target": "persona",
+    "maxAmount": null,
+    "percentage": null,
+    "certaintyLevel": "certo",
+    "howToClaim": "Visitare https://www.italotreno.com/it/offerta-business per dettagli e acquisto.",
+    "requiredDocs": [
+      "Documento di identita'"
+    ],
+    "tags": [
+      "treno",
+      "italo",
+      "offerta"
+    ],
+    "sourceName": "Italo",
+    "requirements": []
+  },
+  {
+    "slug": "italo-carnet-10-20-di-sconto",
+    "name": "Italo - Carnet 10,-20% di sconto",
+    "shortDescription": "Carnet 10,-20% di sconto",
+    "fullDescription": "Carnet 10,-20% di sconto",
+    "category": "trasporti",
+    "target": "persona",
+    "maxAmount": null,
+    "percentage": null,
+    "certaintyLevel": "certo",
+    "howToClaim": "Visitare https://www.italotreno.com/it/offerte-treno/abbonamento-carnet/carnet-standard per dettagli e acquisto.",
+    "requiredDocs": [
+      "Documento di identita'"
+    ],
+    "tags": [
+      "treno",
+      "italo",
+      "offerta"
+    ],
+    "sourceName": "Italo",
+    "requirements": []
+  },
+  {
+    "slug": "italo-carnet-smart-worker-fino-all80-di-sconto",
+    "name": "Italo - Carnet Smart Worker, fino all'80% di sconto",
+    "shortDescription": "Carnet Smart Worker, fino all'80% di sconto",
+    "fullDescription": "Carnet Smart Worker, fino all'80% di sconto",
+    "category": "trasporti",
+    "target": "persona",
+    "maxAmount": null,
+    "percentage": null,
+    "certaintyLevel": "certo",
+    "howToClaim": "Visitare https://www.italotreno.com/it/offerte-treno/abbonamento-carnet/carnet-special per dettagli e acquisto.",
+    "requiredDocs": [
+      "Documento di identita'"
+    ],
+    "tags": [
+      "treno",
+      "italo",
+      "offerta"
+    ],
+    "sourceName": "Italo",
+    "requirements": []
+  },
+  {
+    "slug": "italo-viaggia-con-i-tuoi-amici-animali",
+    "name": "Italo - Viaggia con i tuoi amici animali",
+    "shortDescription": "Viaggia con i tuoi amici animali",
+    "fullDescription": "Viaggia con i tuoi amici animali",
+    "category": "trasporti",
+    "target": "persona",
+    "maxAmount": null,
+    "percentage": null,
+    "certaintyLevel": "certo",
+    "howToClaim": "Visitare https://www.italotreno.com/it/offerte-treno/viaggiare-con-animali-domestici per dettagli e acquisto.",
+    "requiredDocs": [
+      "Documento di identita'"
+    ],
+    "tags": [
+      "treno",
+      "italo",
+      "offerta"
+    ],
+    "sourceName": "Italo",
+    "requirements": []
+  },
+  {
+    "slug": "italo-italo-2x1-sconti-del-50-con-italo",
+    "name": "Italo - Italo 2x1, sconti del -50% con Italo!",
+    "shortDescription": "Italo 2x1, sconti del -50% con Italo!",
+    "fullDescription": "Italo 2x1, sconti del -50% con Italo!",
+    "category": "trasporti",
+    "target": "persona",
+    "maxAmount": 9.9,
+    "percentage": null,
+    "certaintyLevel": "certo",
+    "howToClaim": "Visitare https://www.italotreno.com/it/offerte-treno/italo-2x1 per dettagli e acquisto.",
+    "requiredDocs": [
+      "Documento di identita'"
+    ],
+    "tags": [
+      "treno",
+      "italo",
+      "offerta"
+    ],
+    "sourceName": "Italo",
+    "requirements": []
+  },
+  {
+    "slug": "italo-viaggia-con-le-offerte-italo-da-990",
+    "name": "Italo - Viaggia con le offerte Italo da 9,90€",
+    "shortDescription": "Viaggia con le offerte Italo da 9,90€",
+    "fullDescription": "Viaggia con le offerte Italo da 9,90€",
+    "category": "trasporti",
+    "target": "persona",
+    "maxAmount": 9.9,
+    "percentage": null,
+    "certaintyLevel": "certo",
+    "howToClaim": "Visitare https://www.italotreno.com/it/offerte-treno/italo-offerte-9-euro per dettagli e acquisto.",
+    "requiredDocs": [
+      "Documento di identita'"
+    ],
+    "tags": [
+      "treno",
+      "italo",
+      "offerta"
+    ],
+    "sourceName": "Italo",
+    "requirements": []
+  },
+  {
+    "slug": "italo-vai-a-votare-con-italo",
+    "name": "Italo - Vai a votare con Italo",
+    "shortDescription": "Vai a votare con Italo",
+    "fullDescription": "Vai a votare con Italo",
+    "category": "trasporti",
+    "target": "persona",
+    "maxAmount": null,
+    "percentage": null,
+    "certaintyLevel": "certo",
+    "howToClaim": "Visitare https://www.italotreno.com/it/offerte-treno/sconto-treno-elezioni per dettagli e acquisto.",
+    "requiredDocs": [
+      "Documento di identita'"
+    ],
+    "tags": [
+      "treno",
+      "italo",
+      "offerta"
+    ],
+    "sourceName": "Italo",
+    "requirements": []
+  },
+  {
+    "slug": "italo-viaggi-di-gruppo",
+    "name": "Italo - Viaggi di gruppo",
+    "shortDescription": "Viaggi di gruppo",
+    "fullDescription": "Viaggi di gruppo",
+    "category": "trasporti",
+    "target": "persona",
+    "maxAmount": null,
+    "percentage": null,
+    "certaintyLevel": "certo",
+    "howToClaim": "Visitare https://www.italotreno.com/it/offerte-treno/viaggi-di-gruppo per dettagli e acquisto.",
+    "requiredDocs": [
+      "Documento di identita'"
+    ],
+    "tags": [
+      "treno",
+      "italo",
+      "offerta"
+    ],
+    "sourceName": "Italo",
+    "requirements": []
+  },
+  {
+    "slug": "italo-1-acquista-sul-sito-o-app-ufficiale",
+    "name": "Italo - 1. Acquista sul sito o App ufficiale",
+    "shortDescription": "1. Acquista sul sito o App ufficiale",
+    "fullDescription": "1. Acquista sul sito o App ufficiale",
+    "category": "trasporti",
+    "target": "persona",
+    "maxAmount": null,
+    "percentage": null,
+    "certaintyLevel": "certo",
+    "howToClaim": "Visitare  per dettagli e acquisto.",
+    "requiredDocs": [
+      "Documento di identita'"
+    ],
+    "tags": [
+      "treno",
+      "italo",
+      "offerta"
+    ],
+    "sourceName": "Italo",
+    "requirements": []
+  },
+  {
+    "slug": "italo-2-sfrutta-al-meglio-le-nostre-offerte-speciali",
+    "name": "Italo - 2. Sfrutta al meglio le nostre offerte speciali",
+    "shortDescription": "2. Sfrutta al meglio le nostre offerte speciali",
+    "fullDescription": "2. Sfrutta al meglio le nostre offerte speciali",
+    "category": "trasporti",
+    "target": "persona",
+    "maxAmount": null,
+    "percentage": null,
+    "certaintyLevel": "certo",
+    "howToClaim": "Visitare  per dettagli e acquisto.",
+    "requiredDocs": [
+      "Documento di identita'"
+    ],
+    "tags": [
+      "treno",
+      "italo",
+      "offerta"
+    ],
+    "sourceName": "Italo",
+    "requirements": []
+  },
+  {
+    "slug": "italo-3-prenota-con-anticipo",
+    "name": "Italo - 3. Prenota con anticipo",
+    "shortDescription": "3. Prenota con anticipo",
+    "fullDescription": "3. Prenota con anticipo",
+    "category": "trasporti",
+    "target": "persona",
+    "maxAmount": null,
+    "percentage": null,
+    "certaintyLevel": "certo",
+    "howToClaim": "Visitare  per dettagli e acquisto.",
+    "requiredDocs": [
+      "Documento di identita'"
+    ],
+    "tags": [
+      "treno",
+      "italo",
+      "offerta"
+    ],
+    "sourceName": "Italo",
+    "requirements": []
+  },
+  {
+    "slug": "italo-4-iscriviti-alla-nostra-newsletter",
+    "name": "Italo - 4. Iscriviti alla nostra newsletter",
+    "shortDescription": "4. Iscriviti alla nostra newsletter",
+    "fullDescription": "4. Iscriviti alla nostra newsletter",
+    "category": "trasporti",
+    "target": "persona",
+    "maxAmount": null,
+    "percentage": null,
+    "certaintyLevel": "certo",
+    "howToClaim": "Visitare  per dettagli e acquisto.",
+    "requiredDocs": [
+      "Documento di identita'"
+    ],
+    "tags": [
+      "treno",
+      "italo",
+      "offerta"
+    ],
+    "sourceName": "Italo",
+    "requirements": []
+  },
+  {
+    "slug": "italo-offerte-italo-domande-frequenti",
+    "name": "Italo - Offerte Italo - Domande frequenti",
+    "shortDescription": "Offerte Italo - Domande frequenti",
+    "fullDescription": "Offerte Italo - Domande frequenti",
+    "category": "trasporti",
+    "target": "persona",
+    "maxAmount": null,
+    "percentage": null,
+    "certaintyLevel": "certo",
+    "howToClaim": "Visitare https://www.italotreno.com/it/offerte-treno/italo-giovani per dettagli e acquisto.",
+    "requiredDocs": [
+      "Documento di identita'"
+    ],
+    "tags": [
+      "treno",
+      "italo",
+      "offerta"
+    ],
+    "sourceName": "Italo",
+    "requirements": []
+  },
+  {
+    "slug": "italo-newsletter-italo-codici-sconto-e-promozioni-per-te",
+    "name": "Italo - Newsletter Italo, codici sconto e promozioni per te!",
+    "shortDescription": "Newsletter Italo, codici sconto e promozioni per te!",
+    "fullDescription": "Newsletter Italo, codici sconto e promozioni per te!",
+    "category": "trasporti",
+    "target": "persona",
+    "maxAmount": null,
+    "percentage": null,
+    "certaintyLevel": "certo",
+    "howToClaim": "Visitare https://www.italotreno.com/~/media/Images/content/pdf/informativa_newsletter_NTV.pdf per dettagli e acquisto.",
+    "requiredDocs": [
+      "Documento di identita'"
+    ],
+    "tags": [
+      "treno",
+      "italo",
+      "offerta"
+    ],
+    "sourceName": "Italo",
+    "requirements": []
+  },
+  {
+    "slug": "italo-segui-italo-sui-social",
+    "name": "Italo - Segui Italo sui Social",
+    "shortDescription": "Segui Italo sui Social",
+    "fullDescription": "Segui Italo sui Social",
+    "category": "trasporti",
+    "target": "persona",
+    "maxAmount": null,
+    "percentage": null,
+    "certaintyLevel": "certo",
+    "howToClaim": "Visitare https://www.facebook.com/ItaloTreno per dettagli e acquisto.",
+    "requiredDocs": [
+      "Documento di identita'"
+    ],
+    "tags": [
+      "treno",
+      "italo",
+      "offerta"
+    ],
+    "sourceName": "Italo",
+    "requirements": []
+  },
+  {
+    "slug": "italo-dove-acquistare",
+    "name": "Italo - DOVE ACQUISTARE",
+    "shortDescription": "DOVE ACQUISTARE",
+    "fullDescription": "DOVE ACQUISTARE",
+    "category": "trasporti",
+    "target": "persona",
+    "maxAmount": null,
+    "percentage": null,
+    "certaintyLevel": "certo",
+    "howToClaim": "Visitare https://www.italotreno.com/it/contatti-supporto/canali-vendita#agenzie-viaggio per dettagli e acquisto.",
+    "requiredDocs": [
+      "Documento di identita'"
+    ],
+    "tags": [
+      "treno",
+      "italo",
+      "offerta"
+    ],
+    "sourceName": "Italo",
+    "requirements": []
+  }
+]

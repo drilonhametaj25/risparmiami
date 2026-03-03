@@ -1,0 +1,18 @@
+node_modules
+.next
+.claude
+.playwright-mcp
+
+# Scraper raw outputs (large HTML/JSON, may contain tokens in URLs)
+src/scraper/outputs/raw/
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Environment
+.env
+.env.local
+
+# Generated PDFs
+public/generated-pdfs/

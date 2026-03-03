@@ -1,0 +1,194 @@
+[
+  {
+    "slug": "confronto-mercato-elettricita",
+    "name": "Confronto Mercato Elettricita'",
+    "shortDescription": "Il mercato tutelato dell'elettricita' costa mediamente 560 EUR/anno contro 620 EUR/anno del mercato libero per un consumo tipo di 2700 kWh/anno.",
+    "fullDescription": "Secondo i dati ARERA, una famiglia tipo con consumo di 2700 kWh/anno paga mediamente 560 EUR nel mercato tutelato e 620 EUR nel mercato libero. La differenza media e' di 60 EUR/anno. Confrontare le offerte usando il Portale Offerte ARERA (offfrteenergiagas.arera.it) per trovare l'offerta migliore per il proprio profilo di consumo.",
+    "category": "bollette",
+    "target": "persona",
+    "maxAmount": 60.0,
+    "percentage": null,
+    "certaintyLevel": "consiglio",
+    "howToClaim": "Confrontare le offerte su ilportaleofferte.it di ARERA. Verificare il prezzo dell'energia (EUR/kWh), i costi fissi annui, e eventuali sconti. Richiedere il cambio fornitore direttamente online.",
+    "requiredDocs": [
+      "Ultima bolletta elettricita'",
+      "Codice POD (sulla bolletta)",
+      "Documento di identita'",
+      "Codice fiscale"
+    ],
+    "tags": [
+      "elettricita",
+      "bollette",
+      "mercato-libero",
+      "arera"
+    ],
+    "sourceName": "ARERA",
+    "requirements": [
+      {
+        "field": "monthlyElectricityCost",
+        "operator": "gt",
+        "value": "0",
+        "isRequired": false
+      }
+    ]
+  },
+  {
+    "slug": "confronto-mercato-gas",
+    "name": "Confronto Mercato Gas",
+    "shortDescription": "Il mercato tutelato del gas costa mediamente 1050 EUR/anno contro 1150 EUR/anno del mercato libero per un consumo tipo di 1400 Smc/anno.",
+    "fullDescription": "Una famiglia tipo con consumo di 1400 Smc/anno paga mediamente 1050 EUR nel mercato tutelato e 1150 EUR nel mercato libero. Si consiglia di confrontare le offerte tramite il Portale Offerte ARERA per individuare l'opzione piu' conveniente.",
+    "category": "bollette",
+    "target": "persona",
+    "maxAmount": 100.0,
+    "percentage": null,
+    "certaintyLevel": "consiglio",
+    "howToClaim": "Confrontare le offerte su ilportaleofferte.it di ARERA. Verificare il prezzo del gas (EUR/Smc), i costi fissi, e richiedere il cambio fornitore online o tramite il nuovo fornitore.",
+    "requiredDocs": [
+      "Ultima bolletta gas",
+      "Codice PDR (sulla bolletta)",
+      "Documento di identita'",
+      "Codice fiscale"
+    ],
+    "tags": [
+      "gas",
+      "bollette",
+      "mercato-libero",
+      "arera"
+    ],
+    "sourceName": "ARERA",
+    "requirements": [
+      {
+        "field": "monthlyGasCost",
+        "operator": "gt",
+        "value": "0",
+        "isRequired": false
+      }
+    ]
+  },
+  {
+    "slug": "bonus-sociale-elettricita",
+    "name": "Bonus Sociale Elettricita'",
+    "shortDescription": "Sconto automatico sulla bolletta elettrica per famiglie con ISEE fino a 9.530 EUR (20.000 EUR per famiglie numerose 4+ figli).",
+    "fullDescription": "Il Bonus Sociale Elettrico e' uno sconto applicato automaticamente in bolletta per le famiglie in condizione di disagio economico. Non serve fare domanda: viene riconosciuto automaticamente a chi presenta la DSU/ISEE e rientra nelle soglie. Lo sconto varia in base al numero di componenti del nucleo familiare e puo' arrivare a circa 200 EUR/anno. Per le famiglie con componenti in gravi condizioni di salute che necessitano di apparecchiature elettromedicali e' previsto un bonus aggiuntivo.",
+    "category": "bollette",
+    "target": "persona",
+    "maxAmount": 200.0,
+    "percentage": null,
+    "certaintyLevel": "certo",
+    "howToClaim": "Il bonus e' automatico. Basta presentare la DSU per ottenere l'ISEE presso un CAF o tramite il sito INPS. Se l'ISEE rientra nelle soglie, lo sconto viene applicato direttamente in bolletta.",
+    "requiredDocs": [
+      "DSU (Dichiarazione Sostitutiva Unica)",
+      "Attestazione ISEE in corso di validita'"
+    ],
+    "tags": [
+      "bonus-sociale",
+      "elettricita",
+      "bollette",
+      "isee",
+      "arera"
+    ],
+    "sourceName": "ARERA",
+    "requirements": [
+      {
+        "field": "iseeRange",
+        "operator": "lte",
+        "value": "9530",
+        "isRequired": true
+      }
+    ]
+  },
+  {
+    "slug": "bonus-sociale-gas",
+    "name": "Bonus Sociale Gas",
+    "shortDescription": "Sconto automatico sulla bolletta del gas per famiglie con ISEE fino a 9.530 EUR (20.000 EUR per famiglie numerose 4+ figli).",
+    "fullDescription": "Il Bonus Sociale Gas e' uno sconto sulla bolletta del gas naturale per le famiglie in difficolta' economica. Come per il bonus elettrico, viene applicato automaticamente dopo la presentazione della DSU/ISEE. L'importo dello sconto dipende dalla zona climatica, dal numero di componenti familiari e dal tipo di utilizzo del gas (riscaldamento, acqua calda, cottura). Puo' arrivare a oltre 200 EUR/anno.",
+    "category": "bollette",
+    "target": "persona",
+    "maxAmount": 250.0,
+    "percentage": null,
+    "certaintyLevel": "certo",
+    "howToClaim": "Il bonus e' automatico. Presentare la DSU per ottenere l'ISEE presso un CAF o tramite il sito INPS. Lo sconto sara' applicato direttamente dal fornitore di gas in bolletta.",
+    "requiredDocs": [
+      "DSU (Dichiarazione Sostitutiva Unica)",
+      "Attestazione ISEE in corso di validita'"
+    ],
+    "tags": [
+      "bonus-sociale",
+      "gas",
+      "bollette",
+      "isee",
+      "arera"
+    ],
+    "sourceName": "ARERA",
+    "requirements": [
+      {
+        "field": "iseeRange",
+        "operator": "lte",
+        "value": "9530",
+        "isRequired": true
+      }
+    ]
+  },
+  {
+    "slug": "risparmio-cambio-fornitore-luce",
+    "name": "Risparmio Cambio Fornitore Luce",
+    "shortDescription": "Confrontando le offerte sul Portale Offerte ARERA si possono risparmiare fino a 100-150 EUR/anno sulla bolletta della luce.",
+    "fullDescription": "Il Portale Offerte di ARERA (ilportaleofferte.it) consente di confrontare tutte le offerte dei fornitori di energia elettrica disponibili nella propria zona. Inserendo i propri dati di consumo si ottiene una stima personalizzata del costo annuo con ogni fornitore. Il cambio fornitore e' gratuito e senza interruzioni di servizio. Si consiglia di verificare periodicamente le offerte, specialmente alla scadenza del contratto in essere.",
+    "category": "bollette",
+    "target": "persona",
+    "maxAmount": 150.0,
+    "percentage": null,
+    "certaintyLevel": "consiglio",
+    "howToClaim": "1. Visitare ilportaleofferte.it\n2. Inserire i propri consumi annui (dalla bolletta)\n3. Confrontare le offerte disponibili\n4. Contattare il fornitore scelto per attivare l'offerta",
+    "requiredDocs": [
+      "Bolletta recente con dati consumo",
+      "Codice POD"
+    ],
+    "tags": [
+      "risparmio",
+      "elettricita",
+      "cambio-fornitore",
+      "arera"
+    ],
+    "sourceName": "ARERA",
+    "requirements": [
+      {
+        "field": "energyProvider",
+        "operator": "exists",
+        "value": "true",
+        "isRequired": false
+      }
+    ]
+  },
+  {
+    "slug": "risparmio-cambio-fornitore-gas",
+    "name": "Risparmio Cambio Fornitore Gas",
+    "shortDescription": "Confrontando le offerte sul Portale Offerte ARERA si possono risparmiare fino a 100-200 EUR/anno sulla bolletta del gas.",
+    "fullDescription": "Il Portale Offerte ARERA permette di confrontare le offerte gas di tutti i fornitori. Il cambio fornitore e' gratuito, non comporta interruzioni di servizio e non richiede interventi tecnici. E' particolarmente conveniente confrontare le offerte a prezzo fisso con quelle a prezzo variabile per scegliere la soluzione piu' adatta al proprio profilo di consumo.",
+    "category": "bollette",
+    "target": "persona",
+    "maxAmount": 200.0,
+    "percentage": null,
+    "certaintyLevel": "consiglio",
+    "howToClaim": "1. Visitare ilportaleofferte.it\n2. Inserire i propri consumi annui di gas\n3. Confrontare le offerte\n4. Richiedere l'attivazione al nuovo fornitore",
+    "requiredDocs": [
+      "Bolletta recente con dati consumo gas",
+      "Codice PDR"
+    ],
+    "tags": [
+      "risparmio",
+      "gas",
+      "cambio-fornitore",
+      "arera"
+    ],
+    "sourceName": "ARERA",
+    "requirements": [
+      {
+        "field": "gasProvider",
+        "operator": "exists",
+        "value": "true",
+        "isRequired": false
+      }
+    ]
+  }
+]

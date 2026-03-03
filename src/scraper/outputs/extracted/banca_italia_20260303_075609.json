@@ -1,0 +1,168 @@
+[
+  {
+    "slug": "costo-medio-conto-corrente",
+    "name": "Costo Medio Conto Corrente in Italia",
+    "shortDescription": "Il costo medio annuo di un conto corrente in Italia e' circa 95 EUR (indicatore ICC, Banca d'Italia). Un conto online costa mediamente 28 EUR.",
+    "fullDescription": "Secondo l'Indagine sui costi dei conti correnti della Banca d'Italia, l'Indicatore di Costo Complessivo (ICC) medio e' pari a 94.7 EUR/anno. Il costo varia significativamente per profilo: un conto online costa mediamente 28 EUR, un conto per giovani 48 EUR, mentre un conto ad alta operativita' puo' costare fino a 127 EUR. Confrontare i costi con il proprio estratto conto per valutare se si paga troppo.",
+    "category": "banca",
+    "target": "persona",
+    "maxAmount": 94.7,
+    "percentage": null,
+    "certaintyLevel": "consiglio",
+    "howToClaim": "Verificare il costo annuo del proprio conto corrente nell'estratto conto o nel Documento di Sintesi. Confrontare con l'ICC medio di Banca d'Italia. Se il costo e' superiore, valutare il cambio verso un conto online o un conto piu' adatto al proprio profilo.",
+    "requiredDocs": [
+      "Estratto conto annuale",
+      "Documento di Sintesi del conto corrente"
+    ],
+    "tags": [
+      "conto-corrente",
+      "banca",
+      "icc",
+      "costi-bancari"
+    ],
+    "sourceName": "Banca d'Italia",
+    "requirements": [
+      {
+        "field": "monthlyBankCost",
+        "operator": "gt",
+        "value": "0",
+        "isRequired": false
+      }
+    ]
+  },
+  {
+    "slug": "risparmio-conto-online",
+    "name": "Risparmio con Conto Online",
+    "shortDescription": "Passando a un conto online si possono risparmiare fino a 66 EUR/anno rispetto al costo medio di un conto tradizionale.",
+    "fullDescription": "I conti correnti online hanno un ICC medio di 28 EUR/anno, contro i 95 EUR del conto tradizionale medio. Molti conti online offrono canone zero, operazioni illimitate, carta di debito inclusa e nessun costo di gestione. Il risparmio potenziale e' di circa 66 EUR/anno. Le banche online sono soggette alle stesse regole e garanzie (Fondo Interbancario di Tutela dei Depositi) delle banche tradizionali.",
+    "category": "banca",
+    "target": "persona",
+    "maxAmount": 66.2,
+    "percentage": null,
+    "certaintyLevel": "consiglio",
+    "howToClaim": "1. Confrontare le offerte di conti online su comparatori (es. SOStariffe)\n2. Verificare: canone, costo operazioni, carte incluse, limiti\n3. Aprire il conto online dal sito della banca scelta\n4. Trasferire domiciliazioni e accredito stipendio\n5. Chiudere il vecchio conto (portabilita' gratuita)",
+    "requiredDocs": [
+      "Documento di identita'",
+      "Codice fiscale",
+      "Indirizzo email",
+      "Smartphone per identificazione"
+    ],
+    "tags": [
+      "conto-online",
+      "risparmio",
+      "banca",
+      "digitale"
+    ],
+    "sourceName": "Banca d'Italia",
+    "requirements": [
+      {
+        "field": "monthlyBankCost",
+        "operator": "gte",
+        "value": "8",
+        "isRequired": false
+      }
+    ]
+  },
+  {
+    "slug": "conto-corrente-giovani",
+    "name": "Conto Corrente Agevolato per Giovani",
+    "shortDescription": "I giovani sotto i 30 anni possono accedere a conti correnti a costo ridotto o gratuito, con un ICC medio di 48 EUR/anno.",
+    "fullDescription": "Molte banche offrono condizioni agevolate per i giovani sotto i 30 anni (in alcuni casi fino a 35 anni). Questi conti prevedono canone zero o molto ridotto, con un ICC medio di 48 EUR. Spesso includono carta di debito gratuita, operazioni online illimitate e nessuna spesa di tenuta conto. Alcune banche offrono anche condizioni speciali per studenti universitari.",
+    "category": "banca",
+    "target": "persona",
+    "maxAmount": null,
+    "percentage": null,
+    "certaintyLevel": "certo",
+    "howToClaim": "Cercare offerte dedicate ai giovani presso banche tradizionali e online. Richiedere il conto presentando documento di identita' e codice fiscale. Verificare l'eta' massima prevista e le condizioni dopo il compimento del limite di eta'.",
+    "requiredDocs": [
+      "Documento di identita'",
+      "Codice fiscale"
+    ],
+    "tags": [
+      "giovani",
+      "conto-corrente",
+      "banca",
+      "under-30"
+    ],
+    "sourceName": "Banca d'Italia",
+    "requirements": [
+      {
+        "field": "birthYear",
+        "operator": "gte",
+        "value": "1996",
+        "isRequired": true
+      }
+    ]
+  },
+  {
+    "slug": "conto-base-pensionati",
+    "name": "Conto di Base per Pensionati",
+    "shortDescription": "I pensionati con reddito ISEE inferiore a una determinata soglia hanno diritto a un conto di base a canone zero o molto ridotto.",
+    "fullDescription": "Il conto di base e' un conto corrente con un numero limitato di operazioni a un costo contenuto, previsto per legge (D.Lgs 11/2010). Per i pensionati con trattamento annuo lordo fino a 18.000 EUR, il canone annuo e' zero. Per i titolari di trattamenti pensionistici fino a 18.000 EUR, include: accredito pensione, prelievi ATM, domiciliazione utenze, bonifici e pagamenti PagoPA. Il costo medio di un conto per pensionati e' di 72 EUR/anno.",
+    "category": "banca",
+    "target": "persona",
+    "maxAmount": 72.0,
+    "percentage": null,
+    "certaintyLevel": "certo",
+    "howToClaim": "Richiedere il conto di base presso qualsiasi banca o Poste Italiane. Presentare documentazione del trattamento pensionistico. La banca e' obbligata per legge a offrire questo tipo di conto.",
+    "requiredDocs": [
+      "Documento di identita'",
+      "Codice fiscale",
+      "Cedolino pensione o CU (Certificazione Unica)"
+    ],
+    "tags": [
+      "pensionati",
+      "conto-base",
+      "banca",
+      "risparmio"
+    ],
+    "sourceName": "Banca d'Italia",
+    "requirements": [
+      {
+        "field": "employmentType",
+        "operator": "eq",
+        "value": "pensionato",
+        "isRequired": true
+      },
+      {
+        "field": "annualIncome",
+        "operator": "lte",
+        "value": "18000",
+        "isRequired": false
+      }
+    ]
+  },
+  {
+    "slug": "portabilita-conto-corrente",
+    "name": "Portabilita' Gratuita del Conto Corrente",
+    "shortDescription": "Il trasferimento del conto corrente da una banca all'altra e' gratuito per legge e deve essere completato entro 12 giorni.",
+    "fullDescription": "La portabilita' del conto corrente (Legge 40/2007 e successive modifiche) garantisce il diritto di trasferire il proprio conto senza costi. La nuova banca si occupa di tutto: trasferimento dei servizi di pagamento, delle domiciliazioni, dell'accredito stipendio/pensione e della chiusura del vecchio conto. Il processo deve completarsi entro 12 giorni lavorativi. In caso di ritardo, il cliente ha diritto a un indennizzo.",
+    "category": "banca",
+    "target": "persona",
+    "maxAmount": null,
+    "percentage": null,
+    "certaintyLevel": "certo",
+    "howToClaim": "1. Scegliere la nuova banca\n2. Richiedere l'apertura del nuovo conto e la portabilita'\n3. La nuova banca si occupa del trasferimento\n4. Verificare che tutte le domiciliazioni siano state trasferite\n5. Nessun costo ne' per la chiusura ne' per il trasferimento",
+    "requiredDocs": [
+      "Documento di identita'",
+      "Codice fiscale",
+      "IBAN del vecchio conto",
+      "Lista delle domiciliazioni attive"
+    ],
+    "tags": [
+      "portabilita",
+      "conto-corrente",
+      "banca",
+      "diritti"
+    ],
+    "sourceName": "Banca d'Italia",
+    "requirements": [
+      {
+        "field": "bankName",
+        "operator": "exists",
+        "value": "true",
+        "isRequired": false
+      }
+    ]
+  }
+]

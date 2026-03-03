@@ -1,0 +1,29 @@
+{
+  "electricity": {
+    "protected_market": {
+      "annual_cost": 560.0,
+      "price_per_kwh": 0.207,
+      "fixed_costs": 85.0
+    },
+    "free_market_average": {
+      "annual_cost": 620.0,
+      "price_per_kwh": 0.23,
+      "fixed_costs": 90.0
+    },
+    "reference_consumption_kwh": 2700
+  },
+  "gas": {
+    "protected_market": {
+      "annual_cost": 1050.0,
+      "price_per_smc": 0.75,
+      "fixed_costs": 120.0
+    },
+    "free_market_average": {
+      "annual_cost": 1150.0,
+      "price_per_smc": 0.82,
+      "fixed_costs": 130.0
+    },
+    "reference_consumption_smc": 1400
+  },
+  "last_updated": "2026-03-03T07:56:07.819219"
+}

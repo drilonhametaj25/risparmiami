@@ -1,0 +1,33 @@
+version: '3.8'
+services:
+  postgres:
+    image: postgres:16-alpine
+    environment:
+      POSTGRES_DB: risparmiomi
+      POSTGRES_USER: risparmiomi
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-risparmiomi_dev}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    ports:
+      - "5435:5432"
+
+  redis:
+    image: redis:7-alpine
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+
+  meilisearch:
+    image: getmeili/meilisearch:v1.6
+    environment:
+      MEILI_MASTER_KEY: ${MEILISEARCH_KEY:-meili_dev_key}
+    volumes:
+      - meili_data:/meili_data
+    ports:
+      - "7700:7700"
+
+volumes:
+  postgres_data:
+  redis_data:
+  meili_data:

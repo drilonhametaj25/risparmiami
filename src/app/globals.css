@@ -1,0 +1,56 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    background-color: #FAFAF8;
+    color: #1A1A1A;
+  }
+
+  /* Typography defaults */
+  h1, h2, h3, h4 {
+    font-family: var(--font-heading);
+  }
+}
+
+@layer components {
+  /* Money amounts use monospace */
+  .font-money {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Section padding utility */
+  .section-padding {
+    @apply px-6 md:px-20 lg:px-[120px] py-20;
+  }
+
+  /* Content container */
+  .container-content {
+    @apply max-w-content mx-auto;
+  }
+
+  /* Card base style */
+  .card-base {
+    @apply border border-border-light bg-white rounded-md shadow-sm;
+  }
+
+  /* Card with hover effect */
+  .card-hover {
+    @apply card-base hover:shadow-md hover:-translate-y-0.5 transition-all duration-300;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+}
