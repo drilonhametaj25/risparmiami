@@ -27,15 +27,19 @@ COPY --from=builder /app/public ./public
 COPY --from=builder /app/.next/standalone ./
 COPY --from=builder /app/.next/static ./.next/static
 
-# Copy Prisma client + schema (needed for migrations/seed)
+# Copy Prisma: client + CLI + schema + migrations
 COPY --from=builder /app/prisma ./prisma
 COPY --from=builder /app/node_modules/.prisma ./node_modules/.prisma
 COPY --from=builder /app/node_modules/@prisma ./node_modules/@prisma
+COPY --from=builder /app/node_modules/prisma ./node_modules/prisma
 
-# Copy seed data (JSON rule files)
+# Copy seed dependencies: tsx, esbuild, typescript
+COPY --from=builder /app/node_modules/tsx ./node_modules/tsx
+COPY --from=builder /app/node_modules/esbuild ./node_modules/esbuild
+COPY --from=builder /app/node_modules/@esbuild ./node_modules/@esbuild
+
+# Copy seed data (JSON rule files) + seed script
 COPY --from=builder /app/src/data ./src/data
-
-# Copy seed script dependencies
 COPY --from=builder /app/package.json ./package.json
 
 USER nextjs
