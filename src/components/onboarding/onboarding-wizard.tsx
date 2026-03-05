@@ -4,7 +4,7 @@ import { useState, useTransition } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { Logo } from "@/components/shared/logo";
-import { saveOnboardingStep, completeOnboarding } from "@/app/(dashboard)/onboarding/actions";
+import { saveOnboardingStep, completeOnboarding } from "@/app/(onboarding)/onboarding/actions";
 import { StepAboutYou } from "./steps/step-1-about-you";
 import { StepFamily } from "./steps/step-2-family";
 import { StepWork } from "./steps/step-3-work";
