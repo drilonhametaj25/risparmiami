@@ -23,7 +23,7 @@ RUN addgroup --system --gid 1001 nodejs && \
     adduser --system --uid 1001 nextjs
 
 # OpenSSL needed for Prisma engine detection on Alpine
-RUN apk add --no-cache openssl
+RUN apk add --no-cache openssl ca-certificates
 
 # Copy standalone build + static assets
 COPY --from=builder /app/public ./public
@@ -51,7 +51,8 @@ COPY --from=builder /app/src/data ./src/data
 COPY --from=builder /app/package.json ./package.json
 
 # Fix permissions so nextjs user can run prisma migrate/seed
-RUN chown -R nextjs:nodejs ./node_modules/.prisma ./node_modules/@prisma ./node_modules/prisma ./prisma
+RUN mkdir -p ./public/generated-pdfs && \
+    chown -R nextjs:nodejs ./public/generated-pdfs ./node_modules/.prisma ./node_modules/@prisma ./node_modules/prisma ./prisma
 
 USER nextjs
 EXPOSE 3000
