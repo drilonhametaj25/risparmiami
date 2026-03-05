@@ -2,6 +2,7 @@
 
 import { auth } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
+import { computeMatchesForUser } from "@/lib/rule-engine";
 import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 import {
@@ -52,6 +53,9 @@ export async function completeOnboarding() {
     where: { id: session.user.id },
     data: { onboardingCompleted: true },
   });
+
+  // Compute matches based on user profile
+  await computeMatchesForUser(session.user.id);
 
   revalidatePath("/dashboard");
   redirect("/dashboard");

@@ -1,6 +1,8 @@
 import { prisma } from "@/lib/prisma";
 
-export async function getCategoryMatches(userId: string, category: string) {
+const FREE_MATCH_LIMIT = 3;
+
+export async function getCategoryMatches(userId: string, category: string, limit?: number) {
   const matches = await prisma.userMatch.findMany({
     where: {
       userId,
@@ -10,7 +12,7 @@ export async function getCategoryMatches(userId: string, category: string) {
     orderBy: [{ certainty: "asc" }, { estimatedSaving: "desc" }],
   });
 
-  return matches.map((m) => ({
+  const serialized = matches.map((m) => ({
     id: m.id,
     status: m.status,
     estimatedSaving: m.estimatedSaving ? Number(m.estimatedSaving) : 0,
@@ -26,4 +28,14 @@ export async function getCategoryMatches(userId: string, category: string) {
       deadline: m.rule.deadline?.toISOString() || null,
     },
   }));
+
+  return {
+    matches: limit ? serialized.slice(0, limit) : serialized,
+    totalCount: serialized.length,
+    totalSavings: serialized.reduce((s, m) => s + m.estimatedSaving, 0),
+  };
+}
+
+export function getFreePlanLimit() {
+  return FREE_MATCH_LIMIT;
 }

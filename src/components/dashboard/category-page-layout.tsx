@@ -66,9 +66,6 @@ export function CategoryPageLayout({
         </div>
       </Card>
 
-      {/* Extra content (specific to each category) */}
-      {children}
-
       {/* Matches list */}
       <div className="space-y-3">
         {matches.length === 0 ? (
@@ -143,6 +140,9 @@ export function CategoryPageLayout({
           ))
         )}
       </div>
+
+      {/* Extra content (e.g. upgrade banner) */}
+      {children}
     </div>
   );
 }

@@ -21,15 +21,14 @@ export default async function IncentiviPage() {
     redirect("/prezzi");
   }
 
-  const matches = await getCategoryMatches(session.user.id, "incentivi");
-  const total = matches.reduce((s, m) => s + m.estimatedSaving, 0);
+  const { matches, totalSavings } = await getCategoryMatches(session.user.id, "incentivi");
 
   return (
     <CategoryPageLayout
       title="Incentivi Imprese"
       description="Crediti d'imposta, bandi e agevolazioni per la tua azienda"
       matches={matches}
-      totalSavings={total}
+      totalSavings={totalSavings}
     />
   );
 }
