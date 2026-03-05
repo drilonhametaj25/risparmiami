@@ -81,4 +81,7 @@ class BaseScraper(ABC):
             rule.setdefault("maxAmount", None)
             rule.setdefault("certaintyLevel", "probabile")
             rule.setdefault("target", "persona")
+            rule.setdefault("validFrom", None)
+            rule.setdefault("validUntil", None)
+            rule.setdefault("deadline", None)
             upsert_rule_with_requirements(rule)

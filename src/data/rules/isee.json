@@ -12,16 +12,30 @@
     "certaintyLevel": "certo",
     "certaintyNote": "Diritto consolidato nel SSN, codici esenzione E01, E02, E03, E04",
     "howToClaim": "1. Verificare se si rientra nei requisiti di reddito/età. 2. Rivolgersi all'ASL di residenza o al medico di base per l'attribuzione del codice esenzione. 3. In alcune Regioni l'esenzione è attribuita automaticamente in base alla dichiarazione dei redditi. 4. Presentare il codice esenzione al momento della prenotazione delle prestazioni.",
-    "requiredDocs": ["Documento identità", "Codice fiscale", "Tessera sanitaria", "Autocertificazione reddito o ISEE"],
+    "requiredDocs": [
+      "Documento identità",
+      "Codice fiscale",
+      "Tessera sanitaria",
+      "Autocertificazione reddito o ISEE"
+    ],
     "whereToApply": "ASL di residenza o medico di base",
     "legalReference": "D.M. 11 dicembre 2009 e normative regionali",
     "officialUrl": "https://www.salute.gov.it/portale/esenzioni/esenzioni.jsp",
     "sourceName": "Ministero della Salute",
-    "validFrom": "2025-01-01",
-    "validUntil": "2025-12-31",
-    "tags": ["ticket", "sanita", "esenzione", "reddito", "asl"],
+    "tags": [
+      "ticket",
+      "sanita",
+      "esenzione",
+      "reddito",
+      "asl"
+    ],
     "requirements": [
-      { "field": "incomeRange", "operator": "lte", "value": "36151", "isRequired": true }
+      {
+        "field": "incomeRange",
+        "operator": "lte",
+        "value": "36151",
+        "isRequired": true
+      }
     ]
   },
   {
@@ -37,17 +51,34 @@
     "certaintyLevel": "certo",
     "certaintyNote": "Disciplina stabilità dalla L. 232/2016 art. 1 commi 252-267",
     "howToClaim": "1. Presentare la DSU per ottenere l'ISEE universitario. 2. Caricare l'ISEE sul portale dell'università entro le scadenze indicate. 3. Le tasse vengono calcolate automaticamente in base all'ISEE. 4. Verificare il rispetto dei requisiti di merito (CFU minimo).",
-    "requiredDocs": ["ISEE universitario in corso di validità", "Iscrizione universitaria"],
+    "requiredDocs": [
+      "ISEE universitario in corso di validità",
+      "Iscrizione universitaria"
+    ],
     "whereToApply": "Segreteria studenti dell'università",
     "legalReference": "Art. 1 commi 252-267 Legge 232/2016",
     "officialUrl": "https://www.miur.gov.it/tasse-e-contributi-universitari",
     "sourceName": "MUR (Ministero Universita e Ricerca)",
-    "validFrom": "2025-01-01",
-    "validUntil": "2025-12-31",
-    "tags": ["università", "tasse", "isee", "studenti", "no-tax-area"],
+    "tags": [
+      "università",
+      "tasse",
+      "isee",
+      "studenti",
+      "no-tax-area"
+    ],
     "requirements": [
-      { "field": "iseeRange", "operator": "lte", "value": "26000", "isRequired": true },
-      { "field": "hasChildrenInSchool", "operator": "eq", "value": "true", "isRequired": false }
+      {
+        "field": "iseeRange",
+        "operator": "lte",
+        "value": "26000",
+        "isRequired": true
+      },
+      {
+        "field": "hasChildrenInSchool",
+        "operator": "eq",
+        "value": "true",
+        "isRequired": false
+      }
     ]
   },
   {
@@ -63,16 +94,29 @@
     "certaintyLevel": "probabile",
     "certaintyNote": "Agevolazione AGCOM, verificare disponibilità presso il proprio operatore",
     "howToClaim": "1. Verificare il proprio ISEE. 2. Contattare il proprio operatore telefonico e richiedere l'agevolazione. 3. Presentare l'ISEE in corso di validità. 4. Lo sconto viene applicato dal mese successivo alla richiesta.",
-    "requiredDocs": ["ISEE in corso di validità", "Bolletta telefonica", "Documento identità"],
+    "requiredDocs": [
+      "ISEE in corso di validità",
+      "Bolletta telefonica",
+      "Documento identità"
+    ],
     "whereToApply": "Presso il proprio operatore telefonico",
     "legalReference": "Delibera AGCOM 258/18/CONS",
     "officialUrl": "https://www.agcom.it/agevolazioni-telefoniche",
     "sourceName": "AGCOM",
-    "validFrom": "2025-01-01",
-    "validUntil": "2025-12-31",
-    "tags": ["telefono", "internet", "bonus-sociale", "telecomunicazioni", "isee"],
+    "tags": [
+      "telefono",
+      "internet",
+      "bonus-sociale",
+      "telecomunicazioni",
+      "isee"
+    ],
     "requirements": [
-      { "field": "iseeRange", "operator": "lte", "value": "8112", "isRequired": true }
+      {
+        "field": "iseeRange",
+        "operator": "lte",
+        "value": "8112",
+        "isRequired": true
+      }
     ]
   },
   {
@@ -88,17 +132,37 @@
     "certaintyLevel": "probabile",
     "certaintyNote": "Disponibilità e importi variano per Comune, verificare il bando locale",
     "howToClaim": "1. Verificare la pubblicazione del bando sul sito del proprio Comune. 2. Controllare i requisiti (ISEE, residenza, contratto regolare). 3. Presentare domanda entro i termini del bando. 4. Allegare la documentazione richiesta.",
-    "requiredDocs": ["ISEE in corso di validità", "Contratto di locazione registrato", "Ricevute pagamento canone", "Documento identità", "Certificato di residenza"],
+    "requiredDocs": [
+      "ISEE in corso di validità",
+      "Contratto di locazione registrato",
+      "Ricevute pagamento canone",
+      "Documento identità",
+      "Certificato di residenza"
+    ],
     "whereToApply": "Comune di residenza",
     "legalReference": "Art. 11 Legge 431/1998 - Fondo Nazionale Locazione",
     "officialUrl": "https://www.mit.gov.it/temi/casa/fondo-locazione",
     "sourceName": "Ministero Infrastrutture e Trasporti / Comuni",
-    "validFrom": "2025-01-01",
-    "validUntil": "2025-12-31",
-    "tags": ["affitto", "contributo", "comune", "locazione", "isee"],
+    "tags": [
+      "affitto",
+      "contributo",
+      "comune",
+      "locazione",
+      "isee"
+    ],
     "requirements": [
-      { "field": "housingType", "operator": "eq", "value": "affitto", "isRequired": true },
-      { "field": "iseeRange", "operator": "lte", "value": "26000", "isRequired": true }
+      {
+        "field": "housingType",
+        "operator": "eq",
+        "value": "affitto",
+        "isRequired": true
+      },
+      {
+        "field": "iseeRange",
+        "operator": "lte",
+        "value": "26000",
+        "isRequired": true
+      }
     ]
   },
   {
@@ -114,17 +178,39 @@
     "certaintyLevel": "certo",
     "certaintyNote": "Le fasce tariffarie variano per Comune",
     "howToClaim": "1. Presentare la DSU per ottenere l'ISEE. 2. Iscrivere il figlio al servizio mensa tramite il portale del Comune. 3. Allegare l'ISEE in fase di iscrizione. 4. La tariffa agevolata viene calcolata automaticamente.",
-    "requiredDocs": ["ISEE in corso di validità", "Iscrizione scolastica del figlio"],
+    "requiredDocs": [
+      "ISEE in corso di validità",
+      "Iscrizione scolastica del figlio"
+    ],
     "whereToApply": "Portale del Comune o ufficio servizi scolastici",
     "officialUrl": "https://www.comune.milano.it/servizi/mensa-scolastica",
     "sourceName": "Comuni italiani",
-    "validFrom": "2025-01-01",
-    "validUntil": "2025-12-31",
-    "tags": ["mensa", "scuola", "isee", "figli", "tariffa-agevolata"],
+    "tags": [
+      "mensa",
+      "scuola",
+      "isee",
+      "figli",
+      "tariffa-agevolata"
+    ],
     "requirements": [
-      { "field": "hasChildrenInSchool", "operator": "eq", "value": "true", "isRequired": true },
-      { "field": "childrenCount", "operator": "gte", "value": "1", "isRequired": true },
-      { "field": "iseeRange", "operator": "lte", "value": "20000", "isRequired": false }
+      {
+        "field": "hasChildrenInSchool",
+        "operator": "eq",
+        "value": "true",
+        "isRequired": true
+      },
+      {
+        "field": "childrenCount",
+        "operator": "gte",
+        "value": "1",
+        "isRequired": true
+      },
+      {
+        "field": "iseeRange",
+        "operator": "lte",
+        "value": "20000",
+        "isRequired": false
+      }
     ]
   },
   {
@@ -140,15 +226,33 @@
     "certaintyLevel": "certo",
     "certaintyNote": "Le agevolazioni variano per Comune",
     "howToClaim": "1. Iscrivere il figlio al servizio trasporto scolastico del Comune. 2. Presentare l'ISEE in fase di iscrizione. 3. La tariffa agevolata viene applicata automaticamente.",
-    "requiredDocs": ["ISEE in corso di validità", "Iscrizione scolastica", "Domanda di iscrizione al servizio"],
+    "requiredDocs": [
+      "ISEE in corso di validità",
+      "Iscrizione scolastica",
+      "Domanda di iscrizione al servizio"
+    ],
     "whereToApply": "Portale del Comune o ufficio servizi scolastici",
     "sourceName": "Comuni italiani",
-    "validFrom": "2025-01-01",
-    "validUntil": "2025-12-31",
-    "tags": ["trasporto", "scuola", "scuolabus", "isee", "figli"],
+    "tags": [
+      "trasporto",
+      "scuola",
+      "scuolabus",
+      "isee",
+      "figli"
+    ],
     "requirements": [
-      { "field": "hasChildrenInSchool", "operator": "eq", "value": "true", "isRequired": true },
-      { "field": "childrenCount", "operator": "gte", "value": "1", "isRequired": true }
+      {
+        "field": "hasChildrenInSchool",
+        "operator": "eq",
+        "value": "true",
+        "isRequired": true
+      },
+      {
+        "field": "childrenCount",
+        "operator": "gte",
+        "value": "1",
+        "isRequired": true
+      }
     ]
   },
   {
@@ -164,17 +268,35 @@
     "certaintyLevel": "certo",
     "certaintyNote": "Misura strutturale per i 18enni, confermata dal D.L. 198/2022",
     "howToClaim": "1. Registrarsi sulla piattaforma dedicata (cartadellacultura.gov.it) entro il 30 giugno dell'anno successivo al compimento dei 18 anni. 2. Accedere con SPID. 3. Generare i voucher da spendere presso gli esercenti convenzionati. 4. Utilizzare entro la scadenza prevista.",
-    "requiredDocs": ["SPID", "ISEE familiare in corso di validità (inferiore a 35.000 euro)"],
+    "requiredDocs": [
+      "SPID",
+      "ISEE familiare in corso di validità (inferiore a 35.000 euro)"
+    ],
     "whereToApply": "Piattaforma cartadellacultura.gov.it",
     "legalReference": "D.L. 198/2022 convertito in L. 14/2023",
     "officialUrl": "https://cartadellacultura.gov.it",
     "sourceName": "Ministero della Cultura",
-    "validFrom": "2025-01-01",
-    "validUntil": "2025-12-31",
-    "tags": ["18enni", "cultura", "libri", "cinema", "formazione", "giovani"],
+    "tags": [
+      "18enni",
+      "cultura",
+      "libri",
+      "cinema",
+      "formazione",
+      "giovani"
+    ],
     "requirements": [
-      { "field": "birthYear", "operator": "eq", "value": "2007", "isRequired": true },
-      { "field": "iseeRange", "operator": "lte", "value": "35000", "isRequired": true }
+      {
+        "field": "birthYear",
+        "operator": "eq",
+        "value": "2007",
+        "isRequired": true
+      },
+      {
+        "field": "iseeRange",
+        "operator": "lte",
+        "value": "35000",
+        "isRequired": true
+      }
     ]
   },
   {
@@ -190,16 +312,29 @@
     "certaintyLevel": "probabile",
     "certaintyNote": "Misura una tantum, verificare riedizione per il 2025",
     "howToClaim": "1. Avere un ISEE in corso di validità inferiore a 15.000 euro. 2. Attendere la comunicazione del proprio Comune. 3. Ritirare la carta presso l'ufficio postale indicato nella comunicazione. 4. Attivare la carta effettuando un primo acquisto entro la scadenza.",
-    "requiredDocs": ["ISEE in corso di validità", "Documento identità", "Comunicazione del Comune"],
+    "requiredDocs": [
+      "ISEE in corso di validità",
+      "Documento identità",
+      "Comunicazione del Comune"
+    ],
     "whereToApply": "Assegnazione automatica da INPS/Comune",
     "legalReference": "Art. 1 comma 450 Legge 197/2022 e DPCM attuativo",
     "officialUrl": "https://www.mef.gov.it/focus/carta-dedicata-a-te/",
     "sourceName": "MEF / INPS",
-    "validFrom": "2025-01-01",
-    "validUntil": "2025-12-31",
-    "tags": ["social-card", "alimentare", "spesa", "carburante", "isee"],
+    "tags": [
+      "social-card",
+      "alimentare",
+      "spesa",
+      "carburante",
+      "isee"
+    ],
     "requirements": [
-      { "field": "iseeRange", "operator": "lte", "value": "15000", "isRequired": true }
+      {
+        "field": "iseeRange",
+        "operator": "lte",
+        "value": "15000",
+        "isRequired": true
+      }
     ]
   }
 ]

@@ -25,6 +25,9 @@ Per ogni regola, restituisci un oggetto JSON con:
 - howToClaim: come richiederlo (passi brevi)
 - requiredDocs: lista di documenti necessari (array di stringhe)
 - tags: lista di tag pertinenti (array di stringhe)
+- validFrom: data di inizio validità formato ISO "YYYY-MM-DD" (null se permanente o non specificata)
+- validUntil: data di fine validità formato ISO "YYYY-MM-DD" (null se permanente o non specificata)
+- deadline: scadenza per la richiesta formato ISO "YYYY-MM-DD" (null se non specificata)
 
 Restituisci SOLO un array JSON valido, nessun altro testo.
 

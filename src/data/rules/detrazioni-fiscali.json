@@ -12,17 +12,36 @@
     "certaintyLevel": "certo",
     "certaintyNote": "Detrazione consolidata nel TUIR art. 15 comma 1 lett. c",
     "howToClaim": "1. Conservare scontrini e fatture delle spese sanitarie. 2. Verificare che il Sistema Tessera Sanitaria abbia registrato le spese. 3. Indicare le spese nel Quadro E del modello 730 o nel Quadro RP del modello Redditi PF. 4. Presentare la dichiarazione dei redditi entro la scadenza.",
-    "requiredDocs": ["Scontrini parlanti farmacia", "Fatture mediche", "Ricevute visite specialistiche", "Modello 730 o Redditi PF"],
+    "requiredDocs": [
+      "Scontrini parlanti farmacia",
+      "Fatture mediche",
+      "Ricevute visite specialistiche",
+      "Modello 730 o Redditi PF"
+    ],
     "whereToApply": "Dichiarazione dei redditi (730 o Redditi PF)",
     "legalReference": "Art. 15 comma 1 lett. c) TUIR - DPR 917/1986",
     "officialUrl": "https://www.agenziaentrate.gov.it/portale/web/guest/spese-sanitarie",
     "sourceName": "Agenzia delle Entrate",
-    "validFrom": "2025-01-01",
-    "validUntil": "2025-12-31",
-    "tags": ["salute", "spese-mediche", "detrazione-19", "730", "irpef"],
+    "tags": [
+      "salute",
+      "spese-mediche",
+      "detrazione-19",
+      "730",
+      "irpef"
+    ],
     "requirements": [
-      { "field": "employmentType", "operator": "in", "value": "dipendente,autonomo,pensionato", "isRequired": true },
-      { "field": "medicalExpensesRange", "operator": "gte", "value": "250", "isRequired": true }
+      {
+        "field": "employmentType",
+        "operator": "in",
+        "value": "dipendente,autonomo,pensionato",
+        "isRequired": true
+      },
+      {
+        "field": "medicalExpensesRange",
+        "operator": "gte",
+        "value": "250",
+        "isRequired": true
+      }
     ]
   },
   {
@@ -39,18 +58,42 @@
     "certaintyLevel": "certo",
     "certaintyNote": "Detrazione consolidata prevista dall'art. 15 TUIR",
     "howToClaim": "1. Richiedere alla banca la certificazione annuale degli interessi passivi pagati. 2. Inserire l'importo nel Quadro E del modello 730 (rigo E7). 3. Presentare la dichiarazione dei redditi.",
-    "requiredDocs": ["Certificazione interessi passivi dalla banca", "Contratto di mutuo", "Atto di acquisto dell'immobile", "Modello 730"],
+    "requiredDocs": [
+      "Certificazione interessi passivi dalla banca",
+      "Contratto di mutuo",
+      "Atto di acquisto dell'immobile",
+      "Modello 730"
+    ],
     "whereToApply": "Dichiarazione dei redditi (730 o Redditi PF)",
     "legalReference": "Art. 15 comma 1 lett. b) TUIR - DPR 917/1986",
     "officialUrl": "https://www.agenziaentrate.gov.it/portale/web/guest/interessi-passivi-mutui",
     "sourceName": "Agenzia delle Entrate",
-    "validFrom": "2025-01-01",
-    "validUntil": "2025-12-31",
-    "tags": ["mutuo", "prima-casa", "interessi", "detrazione-19", "730"],
+    "tags": [
+      "mutuo",
+      "prima-casa",
+      "interessi",
+      "detrazione-19",
+      "730"
+    ],
     "requirements": [
-      { "field": "hasMortgage", "operator": "eq", "value": "true", "isRequired": true },
-      { "field": "isPrimaryResidence", "operator": "eq", "value": "true", "isRequired": true },
-      { "field": "housingType", "operator": "eq", "value": "proprieta", "isRequired": true }
+      {
+        "field": "hasMortgage",
+        "operator": "eq",
+        "value": "true",
+        "isRequired": true
+      },
+      {
+        "field": "isPrimaryResidence",
+        "operator": "eq",
+        "value": "true",
+        "isRequired": true
+      },
+      {
+        "field": "housingType",
+        "operator": "eq",
+        "value": "proprieta",
+        "isRequired": true
+      }
     ]
   },
   {
@@ -67,17 +110,37 @@
     "certaintyLevel": "certo",
     "certaintyNote": "Prorogato dalla Legge di Bilancio 2025 per abitazione principale",
     "howToClaim": "1. Effettuare i pagamenti tramite bonifico parlante (bancario o postale). 2. Conservare fatture, ricevute e documentazione dei lavori. 3. Inviare comunicazione all'ENEA se previsto. 4. Indicare le spese nel modello 730 o Redditi PF (Quadro E, sezione III-A).",
-    "requiredDocs": ["Fatture e ricevute dei lavori", "Bonifici parlanti", "Permessi edilizi (SCIA, CILA)", "Comunicazione ASL se prevista", "Modello 730"],
+    "requiredDocs": [
+      "Fatture e ricevute dei lavori",
+      "Bonifici parlanti",
+      "Permessi edilizi (SCIA, CILA)",
+      "Comunicazione ASL se prevista",
+      "Modello 730"
+    ],
     "whereToApply": "Dichiarazione dei redditi (730 o Redditi PF)",
     "legalReference": "Art. 16-bis TUIR - DPR 917/1986",
     "officialUrl": "https://www.agenziaentrate.gov.it/portale/web/guest/ristrutturazioni-edilizie",
     "sourceName": "Agenzia delle Entrate",
-    "validFrom": "2025-01-01",
-    "validUntil": "2025-12-31",
-    "tags": ["ristrutturazione", "casa", "edilizia", "50-percento", "bonifico-parlante"],
+    "tags": [
+      "ristrutturazione",
+      "casa",
+      "edilizia",
+      "50-percento",
+      "bonifico-parlante"
+    ],
     "requirements": [
-      { "field": "hasRenovatedRecently", "operator": "eq", "value": "true", "isRequired": true },
-      { "field": "housingType", "operator": "in", "value": "proprieta,affitto", "isRequired": false }
+      {
+        "field": "hasRenovatedRecently",
+        "operator": "eq",
+        "value": "true",
+        "isRequired": true
+      },
+      {
+        "field": "housingType",
+        "operator": "in",
+        "value": "proprieta,affitto",
+        "isRequired": false
+      }
     ]
   },
   {
@@ -94,17 +157,37 @@
     "certaintyLevel": "certo",
     "certaintyNote": "Prorogato annualmente, verificare aliquota vigente per il proprio immobile",
     "howToClaim": "1. Far eseguire i lavori da professionisti qualificati. 2. Ottenere l'asseverazione tecnica. 3. Inviare comunicazione all'ENEA entro 90 giorni dalla fine lavori. 4. Pagare con bonifico parlante. 5. Indicare le spese nella dichiarazione dei redditi.",
-    "requiredDocs": ["Asseverazione tecnica", "APE post-intervento", "Comunicazione ENEA", "Fatture e bonifici parlanti", "Modello 730 o Redditi PF"],
+    "requiredDocs": [
+      "Asseverazione tecnica",
+      "APE post-intervento",
+      "Comunicazione ENEA",
+      "Fatture e bonifici parlanti",
+      "Modello 730 o Redditi PF"
+    ],
     "whereToApply": "Dichiarazione dei redditi (730 o Redditi PF) + ENEA",
     "legalReference": "Art. 1 commi 344-347 Legge 296/2006",
     "officialUrl": "https://www.efficienzaenergetica.enea.it/detrazioni-fiscali.html",
     "sourceName": "ENEA / Agenzia delle Entrate",
-    "validFrom": "2025-01-01",
-    "validUntil": "2025-12-31",
-    "tags": ["ecobonus", "efficienza-energetica", "risparmio-energetico", "caldaia", "infissi"],
+    "tags": [
+      "ecobonus",
+      "efficienza-energetica",
+      "risparmio-energetico",
+      "caldaia",
+      "infissi"
+    ],
     "requirements": [
-      { "field": "hasRenovatedRecently", "operator": "eq", "value": "true", "isRequired": true },
-      { "field": "heatingType", "operator": "in", "value": "gas,gasolio,gpl", "isRequired": false }
+      {
+        "field": "hasRenovatedRecently",
+        "operator": "eq",
+        "value": "true",
+        "isRequired": true
+      },
+      {
+        "field": "heatingType",
+        "operator": "in",
+        "value": "gas,gasolio,gpl",
+        "isRequired": false
+      }
     ]
   },
   {
@@ -121,17 +204,35 @@
     "certaintyLevel": "certo",
     "certaintyNote": "Detrazione consolidata nel TUIR",
     "howToClaim": "1. Conservare le ricevute di pagamento delle rette scolastiche/universitarie. 2. Effettuare i pagamenti con strumenti tracciabili. 3. Indicare le spese nel Quadro E del modello 730 (rigo E8/E10, codice 12 o 13).",
-    "requiredDocs": ["Ricevute di pagamento rette", "Attestazione dell'istituto scolastico", "Modello 730"],
+    "requiredDocs": [
+      "Ricevute di pagamento rette",
+      "Attestazione dell'istituto scolastico",
+      "Modello 730"
+    ],
     "whereToApply": "Dichiarazione dei redditi (730 o Redditi PF)",
     "legalReference": "Art. 15 comma 1 lett. e) e e-bis) TUIR",
     "officialUrl": "https://www.agenziaentrate.gov.it/portale/web/guest/spese-di-istruzione",
     "sourceName": "Agenzia delle Entrate",
-    "validFrom": "2025-01-01",
-    "validUntil": "2025-12-31",
-    "tags": ["istruzione", "scuola", "università", "tasse-scolastiche", "figli"],
+    "tags": [
+      "istruzione",
+      "scuola",
+      "università",
+      "tasse-scolastiche",
+      "figli"
+    ],
     "requirements": [
-      { "field": "hasChildrenInSchool", "operator": "eq", "value": "true", "isRequired": true },
-      { "field": "childrenCount", "operator": "gte", "value": "1", "isRequired": true }
+      {
+        "field": "hasChildrenInSchool",
+        "operator": "eq",
+        "value": "true",
+        "isRequired": true
+      },
+      {
+        "field": "childrenCount",
+        "operator": "gte",
+        "value": "1",
+        "isRequired": true
+      }
     ]
   },
   {
@@ -148,18 +249,40 @@
     "certaintyLevel": "certo",
     "certaintyNote": "Detrazione prevista dal TUIR, importi fissi in base al reddito",
     "howToClaim": "1. Registrare il contratto di affitto presso l'Agenzia delle Entrate. 2. Compilare il Quadro E sezione V del modello 730 (rigo E71). 3. Indicare il tipo di contratto e i giorni di locazione.",
-    "requiredDocs": ["Contratto di locazione registrato", "Ricevute pagamento canone", "Modello 730"],
+    "requiredDocs": [
+      "Contratto di locazione registrato",
+      "Ricevute pagamento canone",
+      "Modello 730"
+    ],
     "whereToApply": "Dichiarazione dei redditi (730 o Redditi PF)",
     "legalReference": "Art. 16 TUIR - DPR 917/1986",
     "officialUrl": "https://www.agenziaentrate.gov.it/portale/web/guest/locazioni",
     "sourceName": "Agenzia delle Entrate",
-    "validFrom": "2025-01-01",
-    "validUntil": "2025-12-31",
-    "tags": ["affitto", "locazione", "abitazione-principale", "canone"],
+    "tags": [
+      "affitto",
+      "locazione",
+      "abitazione-principale",
+      "canone"
+    ],
     "requirements": [
-      { "field": "housingType", "operator": "eq", "value": "affitto", "isRequired": true },
-      { "field": "isPrimaryResidence", "operator": "eq", "value": "true", "isRequired": true },
-      { "field": "incomeRange", "operator": "lte", "value": "30000", "isRequired": true }
+      {
+        "field": "housingType",
+        "operator": "eq",
+        "value": "affitto",
+        "isRequired": true
+      },
+      {
+        "field": "isPrimaryResidence",
+        "operator": "eq",
+        "value": "true",
+        "isRequired": true
+      },
+      {
+        "field": "incomeRange",
+        "operator": "lte",
+        "value": "30000",
+        "isRequired": true
+      }
     ]
   },
   {
@@ -176,16 +299,28 @@
     "certaintyLevel": "certo",
     "certaintyNote": "Detrazione prevista dal TUIR art. 15",
     "howToClaim": "1. Conservare la fattura delle spese funebri. 2. Pagare con strumenti tracciabili (bonifico, carta, assegno). 3. Indicare le spese nel Quadro E del modello 730 (rigo E8/E10, codice 14).",
-    "requiredDocs": ["Fattura impresa funebre", "Certificato di morte", "Ricevuta pagamento tracciabile", "Modello 730"],
+    "requiredDocs": [
+      "Fattura impresa funebre",
+      "Certificato di morte",
+      "Ricevuta pagamento tracciabile",
+      "Modello 730"
+    ],
     "whereToApply": "Dichiarazione dei redditi (730 o Redditi PF)",
     "legalReference": "Art. 15 comma 1 lett. d) TUIR",
     "officialUrl": "https://www.agenziaentrate.gov.it/portale/web/guest/spese-funebri",
     "sourceName": "Agenzia delle Entrate",
-    "validFrom": "2025-01-01",
-    "validUntil": "2025-12-31",
-    "tags": ["spese-funebri", "detrazione-19", "730"],
+    "tags": [
+      "spese-funebri",
+      "detrazione-19",
+      "730"
+    ],
     "requirements": [
-      { "field": "employmentType", "operator": "in", "value": "dipendente,autonomo,pensionato", "isRequired": true }
+      {
+        "field": "employmentType",
+        "operator": "in",
+        "value": "dipendente,autonomo,pensionato",
+        "isRequired": true
+      }
     ]
   },
   {
@@ -202,16 +337,28 @@
     "certaintyLevel": "certo",
     "certaintyNote": "Detrazione consolidata nel TUIR",
     "howToClaim": "1. Conservare le fatture del veterinario e gli scontrini per farmaci veterinari. 2. Pagare con strumenti tracciabili. 3. Indicare le spese nel Quadro E del modello 730 (rigo E8/E10, codice 29).",
-    "requiredDocs": ["Fatture veterinarie", "Scontrini farmaci veterinari", "Modello 730"],
+    "requiredDocs": [
+      "Fatture veterinarie",
+      "Scontrini farmaci veterinari",
+      "Modello 730"
+    ],
     "whereToApply": "Dichiarazione dei redditi (730 o Redditi PF)",
     "legalReference": "Art. 15 comma 1 lett. c-bis) TUIR",
     "officialUrl": "https://www.agenziaentrate.gov.it/portale/web/guest/spese-veterinarie",
     "sourceName": "Agenzia delle Entrate",
-    "validFrom": "2025-01-01",
-    "validUntil": "2025-12-31",
-    "tags": ["veterinario", "animali", "pet", "detrazione-19"],
+    "tags": [
+      "veterinario",
+      "animali",
+      "pet",
+      "detrazione-19"
+    ],
     "requirements": [
-      { "field": "hasPets", "operator": "eq", "value": "true", "isRequired": true }
+      {
+        "field": "hasPets",
+        "operator": "eq",
+        "value": "true",
+        "isRequired": true
+      }
     ]
   },
   {
@@ -228,17 +375,35 @@
     "certaintyLevel": "certo",
     "certaintyNote": "Detrazione consolidata nel TUIR",
     "howToClaim": "1. Richiedere alla compagnia assicurativa la certificazione annuale dei premi versati. 2. Indicare l'importo nel Quadro E del modello 730 (rigo E8/E10, codice 36 o 38/39).",
-    "requiredDocs": ["Certificazione premi dalla compagnia assicurativa", "Contratto di polizza", "Modello 730"],
+    "requiredDocs": [
+      "Certificazione premi dalla compagnia assicurativa",
+      "Contratto di polizza",
+      "Modello 730"
+    ],
     "whereToApply": "Dichiarazione dei redditi (730 o Redditi PF)",
     "legalReference": "Art. 15 comma 1 lett. f) TUIR",
     "officialUrl": "https://www.agenziaentrate.gov.it/portale/web/guest/premi-assicurativi",
     "sourceName": "Agenzia delle Entrate",
-    "validFrom": "2025-01-01",
-    "validUntil": "2025-12-31",
-    "tags": ["assicurazione", "vita", "infortuni", "polizza", "detrazione-19"],
+    "tags": [
+      "assicurazione",
+      "vita",
+      "infortuni",
+      "polizza",
+      "detrazione-19"
+    ],
     "requirements": [
-      { "field": "hasInsurance", "operator": "eq", "value": "true", "isRequired": true },
-      { "field": "insuranceTypes", "operator": "contains", "value": "vita", "isRequired": true }
+      {
+        "field": "hasInsurance",
+        "operator": "eq",
+        "value": "true",
+        "isRequired": true
+      },
+      {
+        "field": "insuranceTypes",
+        "operator": "contains",
+        "value": "vita",
+        "isRequired": true
+      }
     ]
   },
   {
@@ -254,16 +419,28 @@
     "certaintyLevel": "certo",
     "certaintyNote": "Disciplina consolidata dal D.Lgs. 117/2017 (Codice Terzo Settore)",
     "howToClaim": "1. Effettuare le donazioni con mezzi tracciabili (bonifico, carta di credito). 2. Conservare le ricevute di versamento. 3. Indicare le donazioni nel Quadro E del modello 730 (rigo E8/E10, codice 71).",
-    "requiredDocs": ["Ricevute di donazione", "Ricevuta dell'ente beneficiario", "Modello 730"],
+    "requiredDocs": [
+      "Ricevute di donazione",
+      "Ricevuta dell'ente beneficiario",
+      "Modello 730"
+    ],
     "whereToApply": "Dichiarazione dei redditi (730 o Redditi PF)",
     "legalReference": "Art. 83 D.Lgs. 117/2017 - Codice del Terzo Settore",
     "officialUrl": "https://www.agenziaentrate.gov.it/portale/web/guest/erogazioni-liberali",
     "sourceName": "Agenzia delle Entrate",
-    "validFrom": "2025-01-01",
-    "validUntil": "2025-12-31",
-    "tags": ["donazioni", "onlus", "terzo-settore", "26-percento"],
+    "tags": [
+      "donazioni",
+      "onlus",
+      "terzo-settore",
+      "26-percento"
+    ],
     "requirements": [
-      { "field": "employmentType", "operator": "in", "value": "dipendente,autonomo,pensionato", "isRequired": true }
+      {
+        "field": "employmentType",
+        "operator": "in",
+        "value": "dipendente,autonomo,pensionato",
+        "isRequired": true
+      }
     ]
   },
   {
@@ -280,16 +457,29 @@
     "certaintyLevel": "certo",
     "certaintyNote": "Detrazione stabile dal 2018, art. 15 TUIR",
     "howToClaim": "1. Conservare l'abbonamento o la ricevuta di acquisto. 2. Pagare con strumenti tracciabili. 3. Indicare la spesa nel Quadro E del modello 730 (rigo E8/E10, codice 40).",
-    "requiredDocs": ["Abbonamento trasporto o ricevuta", "Ricevuta di pagamento tracciabile", "Modello 730"],
+    "requiredDocs": [
+      "Abbonamento trasporto o ricevuta",
+      "Ricevuta di pagamento tracciabile",
+      "Modello 730"
+    ],
     "whereToApply": "Dichiarazione dei redditi (730 o Redditi PF)",
     "legalReference": "Art. 15 comma 1 lett. i-decies) TUIR",
     "officialUrl": "https://www.agenziaentrate.gov.it/portale/web/guest/abbonamenti-trasporto-pubblico",
     "sourceName": "Agenzia delle Entrate",
-    "validFrom": "2025-01-01",
-    "validUntil": "2025-12-31",
-    "tags": ["trasporto-pubblico", "abbonamento", "bus", "metro", "treno"],
+    "tags": [
+      "trasporto-pubblico",
+      "abbonamento",
+      "bus",
+      "metro",
+      "treno"
+    ],
     "requirements": [
-      { "field": "employmentType", "operator": "in", "value": "dipendente,autonomo,pensionato,disoccupato", "isRequired": true }
+      {
+        "field": "employmentType",
+        "operator": "in",
+        "value": "dipendente,autonomo,pensionato,disoccupato",
+        "isRequired": true
+      }
     ]
   },
   {
@@ -306,17 +496,35 @@
     "certaintyLevel": "certo",
     "certaintyNote": "Detrazione stabile nel TUIR",
     "howToClaim": "1. Conservare la ricevuta di pagamento rilasciata dall'associazione sportiva. 2. Verificare che la ricevuta contenga i dati del minore e dell'attività. 3. Indicare la spesa nel Quadro E del modello 730 (rigo E8/E10, codice 16).",
-    "requiredDocs": ["Ricevuta dell'associazione sportiva", "Bollettino di pagamento", "Modello 730"],
+    "requiredDocs": [
+      "Ricevuta dell'associazione sportiva",
+      "Bollettino di pagamento",
+      "Modello 730"
+    ],
     "whereToApply": "Dichiarazione dei redditi (730 o Redditi PF)",
     "legalReference": "Art. 15 comma 1 lett. i-quinquies) TUIR",
     "officialUrl": "https://www.agenziaentrate.gov.it/portale/web/guest/spese-attività-sportive-ragazzi",
     "sourceName": "Agenzia delle Entrate",
-    "validFrom": "2025-01-01",
-    "validUntil": "2025-12-31",
-    "tags": ["sport", "figli", "palestra", "piscina", "minori"],
+    "tags": [
+      "sport",
+      "figli",
+      "palestra",
+      "piscina",
+      "minori"
+    ],
     "requirements": [
-      { "field": "childrenCount", "operator": "gte", "value": "1", "isRequired": true },
-      { "field": "childrenAges", "operator": "range_overlaps", "value": "5-18", "isRequired": true }
+      {
+        "field": "childrenCount",
+        "operator": "gte",
+        "value": "1",
+        "isRequired": true
+      },
+      {
+        "field": "childrenAges",
+        "operator": "range_overlaps",
+        "value": "5-18",
+        "isRequired": true
+      }
     ]
   },
   {
@@ -333,17 +541,35 @@
     "certaintyLevel": "certo",
     "certaintyNote": "Detrazione consolidata, alternativa al bonus nido INPS",
     "howToClaim": "1. Conservare le ricevute di pagamento delle rette. 2. Pagare con strumenti tracciabili. 3. Indicare nel Quadro E del modello 730 (rigo E8/E10, codice 33). 4. Non richiedere anche il bonus nido INPS sulle stesse spese.",
-    "requiredDocs": ["Ricevute pagamento rette asilo", "Attestazione dell'asilo nido", "Modello 730"],
+    "requiredDocs": [
+      "Ricevute pagamento rette asilo",
+      "Attestazione dell'asilo nido",
+      "Modello 730"
+    ],
     "whereToApply": "Dichiarazione dei redditi (730 o Redditi PF)",
     "legalReference": "Art. 15 comma 1 lett. e-bis) TUIR",
     "officialUrl": "https://www.agenziaentrate.gov.it/portale/web/guest/spese-asili-nido",
     "sourceName": "Agenzia delle Entrate",
-    "validFrom": "2025-01-01",
-    "validUntil": "2025-12-31",
-    "tags": ["asilo-nido", "figli", "rette", "nido", "infanzia"],
+    "tags": [
+      "asilo-nido",
+      "figli",
+      "rette",
+      "nido",
+      "infanzia"
+    ],
     "requirements": [
-      { "field": "hasChildrenInDaycare", "operator": "eq", "value": "true", "isRequired": true },
-      { "field": "childrenCount", "operator": "gte", "value": "1", "isRequired": true }
+      {
+        "field": "hasChildrenInDaycare",
+        "operator": "eq",
+        "value": "true",
+        "isRequired": true
+      },
+      {
+        "field": "childrenCount",
+        "operator": "gte",
+        "value": "1",
+        "isRequired": true
+      }
     ]
   },
   {
@@ -360,16 +586,29 @@
     "certaintyLevel": "probabile",
     "certaintyNote": "Limite di spesa ridotto a 5.000 euro dal 2025, verificare conferma in Legge di Bilancio",
     "howToClaim": "1. Aver avviato lavori di ristrutturazione edilizia. 2. Acquistare mobili/elettrodomestici pagando con bonifico o carta. 3. Conservare fatture e ricevute di pagamento. 4. Indicare nel Quadro E del modello 730.",
-    "requiredDocs": ["Fatture acquisto mobili/elettrodomestici", "Ricevute pagamento tracciabile", "Documentazione ristrutturazione (CILA/SCIA)", "Modello 730"],
+    "requiredDocs": [
+      "Fatture acquisto mobili/elettrodomestici",
+      "Ricevute pagamento tracciabile",
+      "Documentazione ristrutturazione (CILA/SCIA)",
+      "Modello 730"
+    ],
     "whereToApply": "Dichiarazione dei redditi (730 o Redditi PF)",
     "legalReference": "Art. 16 comma 2 DL 63/2013",
     "officialUrl": "https://www.agenziaentrate.gov.it/portale/web/guest/bonus-mobili",
     "sourceName": "Agenzia delle Entrate",
-    "validFrom": "2025-01-01",
-    "validUntil": "2025-12-31",
-    "tags": ["mobili", "elettrodomestici", "arredamento", "ristrutturazione"],
+    "tags": [
+      "mobili",
+      "elettrodomestici",
+      "arredamento",
+      "ristrutturazione"
+    ],
     "requirements": [
-      { "field": "hasRenovatedRecently", "operator": "eq", "value": "true", "isRequired": true }
+      {
+        "field": "hasRenovatedRecently",
+        "operator": "eq",
+        "value": "true",
+        "isRequired": true
+      }
     ]
   },
   {
@@ -386,16 +625,29 @@
     "certaintyLevel": "probabile",
     "certaintyNote": "Verificare proroga annuale nella Legge di Bilancio",
     "howToClaim": "1. Far eseguire i lavori da imprese specializzate. 2. Pagare con strumenti tracciabili. 3. Conservare fatture e ricevute. 4. Indicare nel Quadro E del modello 730 (rigo E8/E10, codice 43).",
-    "requiredDocs": ["Fatture lavori di giardinaggio", "Ricevute pagamento tracciabile", "Modello 730"],
+    "requiredDocs": [
+      "Fatture lavori di giardinaggio",
+      "Ricevute pagamento tracciabile",
+      "Modello 730"
+    ],
     "whereToApply": "Dichiarazione dei redditi (730 o Redditi PF)",
     "legalReference": "Art. 1 commi 12-15 Legge 205/2017",
     "officialUrl": "https://www.agenziaentrate.gov.it/portale/web/guest/bonus-verde",
     "sourceName": "Agenzia delle Entrate",
-    "validFrom": "2025-01-01",
-    "validUntil": "2025-12-31",
-    "tags": ["giardino", "verde", "terrazzo", "irrigazione", "bonus-verde"],
+    "tags": [
+      "giardino",
+      "verde",
+      "terrazzo",
+      "irrigazione",
+      "bonus-verde"
+    ],
     "requirements": [
-      { "field": "housingType", "operator": "in", "value": "proprieta,affitto", "isRequired": true }
+      {
+        "field": "housingType",
+        "operator": "in",
+        "value": "proprieta,affitto",
+        "isRequired": true
+      }
     ]
   },
   {
@@ -411,16 +663,28 @@
     "certaintyLevel": "certo",
     "certaintyNote": "Disciplina stabile dal D.Lgs. 252/2005",
     "howToClaim": "1. Verificare i contributi versati al fondo pensione dall'estratto conto. 2. Per i dipendenti, i contributi trattenuti in busta paga sono già considerati dal sostituto d'imposta. 3. Per i contributi volontari, indicare nel Quadro E del modello 730 (rigo E27).",
-    "requiredDocs": ["Certificazione contributi del fondo pensione", "CU (Certificazione Unica)", "Modello 730"],
+    "requiredDocs": [
+      "Certificazione contributi del fondo pensione",
+      "CU (Certificazione Unica)",
+      "Modello 730"
+    ],
     "whereToApply": "Dichiarazione dei redditi (730 o Redditi PF)",
     "legalReference": "Art. 8 comma 4 D.Lgs. 252/2005",
     "officialUrl": "https://www.covip.it/per-il-cittadino/educazione-previdenziale/fondi-pensione",
     "sourceName": "COVIP / Agenzia delle Entrate",
-    "validFrom": "2025-01-01",
-    "validUntil": "2025-12-31",
-    "tags": ["previdenza", "fondo-pensione", "deduzione", "pensione-complementare"],
+    "tags": [
+      "previdenza",
+      "fondo-pensione",
+      "deduzione",
+      "pensione-complementare"
+    ],
     "requirements": [
-      { "field": "employmentType", "operator": "in", "value": "dipendente,autonomo", "isRequired": true }
+      {
+        "field": "employmentType",
+        "operator": "in",
+        "value": "dipendente,autonomo",
+        "isRequired": true
+      }
     ]
   },
   {
@@ -437,17 +701,37 @@
     "certaintyLevel": "probabile",
     "certaintyNote": "Verificare le aliquote vigenti e la zonazione sismica del proprio comune",
     "howToClaim": "1. Incaricare un professionista abilitato per l'asseverazione della classe di rischio. 2. Effettuare i lavori e pagare con bonifico parlante. 3. Depositare l'asseverazione allo sportello unico. 4. Indicare nella dichiarazione dei redditi.",
-    "requiredDocs": ["Asseverazione classe di rischio pre e post intervento", "Progetto strutturale", "Fatture e bonifici parlanti", "Permessi edilizi", "Modello 730"],
+    "requiredDocs": [
+      "Asseverazione classe di rischio pre e post intervento",
+      "Progetto strutturale",
+      "Fatture e bonifici parlanti",
+      "Permessi edilizi",
+      "Modello 730"
+    ],
     "whereToApply": "Dichiarazione dei redditi (730 o Redditi PF)",
     "legalReference": "Art. 16 commi 1-bis e seguenti DL 63/2013",
     "officialUrl": "https://www.agenziaentrate.gov.it/portale/web/guest/sisma-bonus",
     "sourceName": "Agenzia delle Entrate",
-    "validFrom": "2025-01-01",
-    "validUntil": "2025-12-31",
-    "tags": ["sismabonus", "antisismico", "sicurezza", "terremoto", "strutturale"],
+    "tags": [
+      "sismabonus",
+      "antisismico",
+      "sicurezza",
+      "terremoto",
+      "strutturale"
+    ],
     "requirements": [
-      { "field": "hasRenovatedRecently", "operator": "eq", "value": "true", "isRequired": true },
-      { "field": "region", "operator": "in", "value": "calabria,sicilia,campania,abruzzo,molise,basilicata,puglia,marche,umbria,lazio,emilia-romagna,friuli-venezia-giulia,veneto,toscana,liguria", "isRequired": false }
+      {
+        "field": "hasRenovatedRecently",
+        "operator": "eq",
+        "value": "true",
+        "isRequired": true
+      },
+      {
+        "field": "region",
+        "operator": "in",
+        "value": "calabria,sicilia,campania,abruzzo,molise,basilicata,puglia,marche,umbria,lazio,emilia-romagna,friuli-venezia-giulia,veneto,toscana,liguria",
+        "isRequired": false
+      }
     ]
   },
   {
@@ -464,17 +748,34 @@
     "certaintyLevel": "probabile",
     "certaintyNote": "Introdotta dalla Legge di Stabilità 2016, verificare validità",
     "howToClaim": "1. Stipulare un contratto di leasing immobiliare. 2. Adibire l'immobile ad abitazione principale. 3. Indicare i canoni nel Quadro E del modello 730.",
-    "requiredDocs": ["Contratto di leasing immobiliare", "Certificazione canoni dalla società di leasing", "Modello 730"],
+    "requiredDocs": [
+      "Contratto di leasing immobiliare",
+      "Certificazione canoni dalla società di leasing",
+      "Modello 730"
+    ],
     "whereToApply": "Dichiarazione dei redditi (730 o Redditi PF)",
     "legalReference": "Art. 15 comma 1 lett. i-sexies.1) TUIR",
     "officialUrl": "https://www.agenziaentrate.gov.it/portale/web/guest/leasing-immobiliare",
     "sourceName": "Agenzia delle Entrate",
-    "validFrom": "2025-01-01",
-    "validUntil": "2025-12-31",
-    "tags": ["leasing", "prima-casa", "abitazione", "canoni"],
+    "tags": [
+      "leasing",
+      "prima-casa",
+      "abitazione",
+      "canoni"
+    ],
     "requirements": [
-      { "field": "incomeRange", "operator": "lte", "value": "55000", "isRequired": true },
-      { "field": "isPrimaryResidence", "operator": "eq", "value": "true", "isRequired": true }
+      {
+        "field": "incomeRange",
+        "operator": "lte",
+        "value": "55000",
+        "isRequired": true
+      },
+      {
+        "field": "isPrimaryResidence",
+        "operator": "eq",
+        "value": "true",
+        "isRequired": true
+      }
     ]
   },
   {
@@ -491,16 +792,29 @@
     "certaintyLevel": "certo",
     "certaintyNote": "Detrazione prevista dal TUIR art. 15",
     "howToClaim": "1. Assumere regolarmente il personale di assistenza. 2. Ottenere certificazione medica della non autosufficienza. 3. Conservare le ricevute di pagamento. 4. Indicare nel Quadro E del modello 730 (rigo E8/E10, codice 15).",
-    "requiredDocs": ["Certificazione medica di non autosufficienza", "Ricevute pagamento assistente", "Contratto di lavoro", "Modello 730"],
+    "requiredDocs": [
+      "Certificazione medica di non autosufficienza",
+      "Ricevute pagamento assistente",
+      "Contratto di lavoro",
+      "Modello 730"
+    ],
     "whereToApply": "Dichiarazione dei redditi (730 o Redditi PF)",
     "legalReference": "Art. 15 comma 1 lett. i-septies) TUIR",
     "officialUrl": "https://www.agenziaentrate.gov.it/portale/web/guest/spese-assistenza-personale",
     "sourceName": "Agenzia delle Entrate",
-    "validFrom": "2025-01-01",
-    "validUntil": "2025-12-31",
-    "tags": ["badante", "assistenza", "non-autosufficienza", "caregiver"],
+    "tags": [
+      "badante",
+      "assistenza",
+      "non-autosufficienza",
+      "caregiver"
+    ],
     "requirements": [
-      { "field": "incomeRange", "operator": "lte", "value": "40000", "isRequired": true }
+      {
+        "field": "incomeRange",
+        "operator": "lte",
+        "value": "40000",
+        "isRequired": true
+      }
     ]
   },
   {
@@ -516,16 +830,29 @@
     "certaintyLevel": "certo",
     "certaintyNote": "Deduzione consolidata nel TUIR",
     "howToClaim": "1. Versare regolarmente i contributi INPS per il lavoratore domestico. 2. Conservare le ricevute dei bollettini INPS. 3. Indicare nel Quadro E del modello 730 (rigo E23).",
-    "requiredDocs": ["Ricevute versamento contributi INPS", "Contratto di lavoro domestico", "Modello 730"],
+    "requiredDocs": [
+      "Ricevute versamento contributi INPS",
+      "Contratto di lavoro domestico",
+      "Modello 730"
+    ],
     "whereToApply": "Dichiarazione dei redditi (730 o Redditi PF)",
     "legalReference": "Art. 10 comma 2 TUIR",
     "officialUrl": "https://www.inps.it/it/it/dettaglio-scheda.schede-servizio-strumento.schede-servizi.contributi-lavoratori-domestici-50498.contributi-lavoratori-domestici.html",
     "sourceName": "INPS / Agenzia delle Entrate",
-    "validFrom": "2025-01-01",
-    "validUntil": "2025-12-31",
-    "tags": ["colf", "badante", "contributi-inps", "lavoro-domestico", "deduzione"],
+    "tags": [
+      "colf",
+      "badante",
+      "contributi-inps",
+      "lavoro-domestico",
+      "deduzione"
+    ],
     "requirements": [
-      { "field": "employmentType", "operator": "in", "value": "dipendente,autonomo,pensionato", "isRequired": true }
+      {
+        "field": "employmentType",
+        "operator": "in",
+        "value": "dipendente,autonomo,pensionato",
+        "isRequired": true
+      }
     ]
   },
   {
@@ -541,17 +868,37 @@
     "certaintyLevel": "certo",
     "certaintyNote": "Quote residue da lavori già completati, detrazione certa se spettante",
     "howToClaim": "1. Verificare le quote residue da portare in detrazione. 2. Controllare la documentazione originale dei lavori. 3. Indicare nella dichiarazione dei redditi la quota annuale spettante. 4. Conservare tutta la documentazione per eventuali controlli.",
-    "requiredDocs": ["Documentazione lavori Superbonus originale", "Asseverazioni tecniche", "Visto di conformità", "Comunicazione ENEA", "Modello 730"],
+    "requiredDocs": [
+      "Documentazione lavori Superbonus originale",
+      "Asseverazioni tecniche",
+      "Visto di conformità",
+      "Comunicazione ENEA",
+      "Modello 730"
+    ],
     "whereToApply": "Dichiarazione dei redditi (730 o Redditi PF)",
     "legalReference": "Art. 119 DL 34/2020 (Decreto Rilancio)",
     "officialUrl": "https://www.agenziaentrate.gov.it/portale/web/guest/superbonus-110-",
     "sourceName": "Agenzia delle Entrate",
-    "validFrom": "2025-01-01",
-    "validUntil": "2025-12-31",
-    "tags": ["superbonus", "110-percento", "quote-residue", "ecobonus", "sismabonus"],
+    "tags": [
+      "superbonus",
+      "110-percento",
+      "quote-residue",
+      "ecobonus",
+      "sismabonus"
+    ],
     "requirements": [
-      { "field": "hasRenovatedRecently", "operator": "eq", "value": "true", "isRequired": true },
-      { "field": "renovationYear", "operator": "in", "value": "2021,2022,2023", "isRequired": true }
+      {
+        "field": "hasRenovatedRecently",
+        "operator": "eq",
+        "value": "true",
+        "isRequired": true
+      },
+      {
+        "field": "renovationYear",
+        "operator": "in",
+        "value": "2021,2022,2023",
+        "isRequired": true
+      }
     ]
   },
   {
@@ -568,17 +915,36 @@
     "certaintyLevel": "certo",
     "certaintyNote": "Detrazione consolidata nel TUIR",
     "howToClaim": "1. Stipulare un regolare contratto di locazione. 2. Conservare le ricevute di pagamento del canone. 3. Indicare nel Quadro E del modello 730 (rigo E8/E10, codice 18).",
-    "requiredDocs": ["Contratto di locazione registrato", "Ricevute pagamento canone", "Certificato di iscrizione universitaria", "Modello 730"],
+    "requiredDocs": [
+      "Contratto di locazione registrato",
+      "Ricevute pagamento canone",
+      "Certificato di iscrizione universitaria",
+      "Modello 730"
+    ],
     "whereToApply": "Dichiarazione dei redditi (730 o Redditi PF)",
     "legalReference": "Art. 15 comma 1 lett. i-sexies) TUIR",
     "officialUrl": "https://www.agenziaentrate.gov.it/portale/web/guest/canoni-locazione-studenti-fuori-sede",
     "sourceName": "Agenzia delle Entrate",
-    "validFrom": "2025-01-01",
-    "validUntil": "2025-12-31",
-    "tags": ["studenti", "fuori-sede", "università", "affitto", "canone"],
+    "tags": [
+      "studenti",
+      "fuori-sede",
+      "università",
+      "affitto",
+      "canone"
+    ],
     "requirements": [
-      { "field": "childrenCount", "operator": "gte", "value": "1", "isRequired": true },
-      { "field": "hasChildrenInSchool", "operator": "eq", "value": "true", "isRequired": true }
+      {
+        "field": "childrenCount",
+        "operator": "gte",
+        "value": "1",
+        "isRequired": true
+      },
+      {
+        "field": "hasChildrenInSchool",
+        "operator": "eq",
+        "value": "true",
+        "isRequired": true
+      }
     ]
   },
   {
@@ -594,16 +960,29 @@
     "certaintyLevel": "certo",
     "certaintyNote": "Detrazione prevista dalla Legge 184/1983 e successive modifiche",
     "howToClaim": "1. Conservare le certificazioni dell'ente autorizzato alle adozioni internazionali. 2. Raccogliere tutta la documentazione delle spese sostenute. 3. Indicare nel Quadro E del modello 730 (rigo E8/E10, codice 18).",
-    "requiredDocs": ["Certificazione ente autorizzato", "Fatture e ricevute spese", "Decreto di adozione", "Modello 730"],
+    "requiredDocs": [
+      "Certificazione ente autorizzato",
+      "Fatture e ricevute spese",
+      "Decreto di adozione",
+      "Modello 730"
+    ],
     "whereToApply": "Dichiarazione dei redditi (730 o Redditi PF)",
     "legalReference": "Art. 15 comma 1 lett. h) TUIR e Legge 184/1983",
     "officialUrl": "https://www.agenziaentrate.gov.it/portale/web/guest/spese-adozione-internazionale",
     "sourceName": "Agenzia delle Entrate / CAI",
-    "validFrom": "2025-01-01",
-    "validUntil": "2025-12-31",
-    "tags": ["adozione", "internazionale", "famiglia", "figli"],
+    "tags": [
+      "adozione",
+      "internazionale",
+      "famiglia",
+      "figli"
+    ],
     "requirements": [
-      { "field": "employmentType", "operator": "in", "value": "dipendente,autonomo,pensionato", "isRequired": true }
+      {
+        "field": "employmentType",
+        "operator": "in",
+        "value": "dipendente,autonomo,pensionato",
+        "isRequired": true
+      }
     ]
   },
   {
@@ -619,17 +998,35 @@
     "certaintyLevel": "certo",
     "certaintyNote": "Rientra nella disciplina generale delle spese sanitarie TUIR",
     "howToClaim": "1. Acquistare dispositivi medici con marcatura CE. 2. Conservare scontrini e fatture con descrizione del dispositivo. 3. Indicare tra le spese sanitarie nel modello 730.",
-    "requiredDocs": ["Scontrini con descrizione dispositivo e marcatura CE", "Fatture", "Modello 730"],
+    "requiredDocs": [
+      "Scontrini con descrizione dispositivo e marcatura CE",
+      "Fatture",
+      "Modello 730"
+    ],
     "whereToApply": "Dichiarazione dei redditi (730 o Redditi PF)",
     "legalReference": "Art. 15 comma 1 lett. c) TUIR",
     "officialUrl": "https://www.agenziaentrate.gov.it/portale/web/guest/spese-sanitarie",
     "sourceName": "Agenzia delle Entrate",
-    "validFrom": "2025-01-01",
-    "validUntil": "2025-12-31",
-    "tags": ["dispositivi-medici", "occhiali", "salute", "detrazione-19", "marcatura-ce"],
+    "tags": [
+      "dispositivi-medici",
+      "occhiali",
+      "salute",
+      "detrazione-19",
+      "marcatura-ce"
+    ],
     "requirements": [
-      { "field": "employmentType", "operator": "in", "value": "dipendente,autonomo,pensionato", "isRequired": true },
-      { "field": "medicalExpensesRange", "operator": "gte", "value": "250", "isRequired": false }
+      {
+        "field": "employmentType",
+        "operator": "in",
+        "value": "dipendente,autonomo,pensionato",
+        "isRequired": true
+      },
+      {
+        "field": "medicalExpensesRange",
+        "operator": "gte",
+        "value": "250",
+        "isRequired": false
+      }
     ]
   },
   {
@@ -645,16 +1042,28 @@
     "certaintyLevel": "certo",
     "certaintyNote": "Detrazione specifica per persone sorde ai sensi della L. 381/1970",
     "howToClaim": "1. Conservare le fatture dei servizi di interpretariato. 2. Avere il riconoscimento di sordità ai sensi della legge. 3. Indicare nel Quadro E del modello 730 (rigo E8/E10, codice 30).",
-    "requiredDocs": ["Fatture servizi interpretariato", "Certificazione di sordità", "Modello 730"],
+    "requiredDocs": [
+      "Fatture servizi interpretariato",
+      "Certificazione di sordità",
+      "Modello 730"
+    ],
     "whereToApply": "Dichiarazione dei redditi (730 o Redditi PF)",
     "legalReference": "Art. 15 comma 1 lett. c) TUIR",
     "officialUrl": "https://www.agenziaentrate.gov.it/portale/web/guest/spese-sanitarie",
     "sourceName": "Agenzia delle Entrate",
-    "validFrom": "2025-01-01",
-    "validUntil": "2025-12-31",
-    "tags": ["disabilità", "sordità", "interpretariato", "inclusione"],
+    "tags": [
+      "disabilità",
+      "sordità",
+      "interpretariato",
+      "inclusione"
+    ],
     "requirements": [
-      { "field": "employmentType", "operator": "in", "value": "dipendente,autonomo,pensionato", "isRequired": true }
+      {
+        "field": "employmentType",
+        "operator": "in",
+        "value": "dipendente,autonomo,pensionato",
+        "isRequired": true
+      }
     ]
   },
   {
@@ -671,16 +1080,28 @@
     "certaintyLevel": "certo",
     "certaintyNote": "Disciplina stabile dal DL 149/2013",
     "howToClaim": "1. Effettuare il versamento con strumenti tracciabili al partito politico. 2. Conservare la ricevuta di versamento. 3. Indicare nel Quadro E del modello 730 (rigo E8/E10, codice 42).",
-    "requiredDocs": ["Ricevuta versamento al partito", "Attestazione del partito politico", "Modello 730"],
+    "requiredDocs": [
+      "Ricevuta versamento al partito",
+      "Attestazione del partito politico",
+      "Modello 730"
+    ],
     "whereToApply": "Dichiarazione dei redditi (730 o Redditi PF)",
     "legalReference": "Art. 11 DL 149/2013 convertito in L. 13/2014",
     "officialUrl": "https://www.agenziaentrate.gov.it/portale/web/guest/erogazioni-liberali",
     "sourceName": "Agenzia delle Entrate",
-    "validFrom": "2025-01-01",
-    "validUntil": "2025-12-31",
-    "tags": ["partiti-politici", "erogazioni", "donazioni", "26-percento"],
+    "tags": [
+      "partiti-politici",
+      "erogazioni",
+      "donazioni",
+      "26-percento"
+    ],
     "requirements": [
-      { "field": "employmentType", "operator": "in", "value": "dipendente,autonomo,pensionato", "isRequired": true }
+      {
+        "field": "employmentType",
+        "operator": "in",
+        "value": "dipendente,autonomo,pensionato",
+        "isRequired": true
+      }
     ]
   }
 ]

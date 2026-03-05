@@ -1,6 +1,7 @@
 """Rule extraction using Claude API and PDF extractor."""
 import json
 import logging
+import re
 import sys
 import os
 
@@ -35,6 +36,13 @@ def validate_rule(rule: dict) -> tuple[bool, list[str]]:
 
     if rule.get("certaintyLevel") and rule["certaintyLevel"] not in VALID_CERTAINTY:
         errors.append(f"Invalid certaintyLevel: {rule['certaintyLevel']}")
+
+    # Validate optional date fields (ISO format YYYY-MM-DD)
+    iso_date_re = re.compile(r"^\d{4}-\d{2}-\d{2}$")
+    for date_field in ("validFrom", "validUntil", "deadline"):
+        val = rule.get(date_field)
+        if val is not None and val != "" and not iso_date_re.match(str(val)):
+            errors.append(f"Invalid date format for {date_field}: {val} (expected YYYY-MM-DD)")
 
     # Validate requirements
     for req in rule.get("requirements", []):

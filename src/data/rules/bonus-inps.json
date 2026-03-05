@@ -12,17 +12,36 @@
     "certaintyLevel": "certo",
     "certaintyNote": "Misura strutturale dal 2022, D.Lgs. 230/2021",
     "howToClaim": "1. Presentare domanda sul portale INPS (sezione Assegno Unico). 2. Presentare la DSU per ottenere l'ISEE (facoltativo ma consigliato per importi maggiori). 3. Indicare i dati di tutti i figli a carico. 4. L'assegno viene erogato mensilmente sul conto corrente.",
-    "requiredDocs": ["ISEE in corso di validità (consigliato)", "Documento identità", "Codice fiscale figli", "IBAN per accredito"],
+    "requiredDocs": [
+      "ISEE in corso di validità (consigliato)",
+      "Documento identità",
+      "Codice fiscale figli",
+      "IBAN per accredito"
+    ],
     "whereToApply": "Portale INPS o patronato",
     "legalReference": "D.Lgs. 230/2021",
     "officialUrl": "https://www.inps.it/it/it/schede-servizio-strumento/schede-servizi/assegno-unico-e-universale-per-i-figli-a-carico.html",
     "sourceName": "INPS",
-    "validFrom": "2025-01-01",
-    "validUntil": "2025-12-31",
-    "tags": ["figli", "assegno-unico", "famiglia", "isee", "mensile"],
+    "tags": [
+      "figli",
+      "assegno-unico",
+      "famiglia",
+      "isee",
+      "mensile"
+    ],
     "requirements": [
-      { "field": "childrenCount", "operator": "gte", "value": "1", "isRequired": true },
-      { "field": "citizenship", "operator": "in", "value": "IT,UE", "isRequired": true }
+      {
+        "field": "childrenCount",
+        "operator": "gte",
+        "value": "1",
+        "isRequired": true
+      },
+      {
+        "field": "citizenship",
+        "operator": "in",
+        "value": "IT,UE",
+        "isRequired": true
+      }
     ]
   },
   {
@@ -38,19 +57,43 @@
     "certaintyLevel": "certo",
     "certaintyNote": "Misura strutturale confermata annualmente",
     "howToClaim": "1. Presentare domanda sul portale INPS entro il 31 dicembre. 2. Allegare le ricevute di pagamento delle rette del nido. 3. Il contributo viene erogato in rate mensili a fronte delle ricevute presentate.",
-    "requiredDocs": ["ISEE minorenni in corso di validità", "Ricevute pagamento rette asilo", "Documento identità", "Codice fiscale del minore"],
+    "requiredDocs": [
+      "ISEE minorenni in corso di validità",
+      "Ricevute pagamento rette asilo",
+      "Documento identità",
+      "Codice fiscale del minore"
+    ],
     "whereToApply": "Portale INPS o patronato",
     "legalReference": "Art. 1 comma 355 Legge 232/2016",
     "officialUrl": "https://www.inps.it/it/it/schede-servizio-strumento/schede-servizi/bonus-asilo-nido-e-forme-di-supporto-presso-la-propria-abitazione.html",
     "sourceName": "INPS",
-    "validFrom": "2025-01-01",
-    "validUntil": "2025-12-31",
     "deadline": "2025-12-31",
-    "tags": ["asilo-nido", "nido", "figli", "isee", "rette"],
+    "tags": [
+      "asilo-nido",
+      "nido",
+      "figli",
+      "isee",
+      "rette"
+    ],
     "requirements": [
-      { "field": "childrenCount", "operator": "gte", "value": "1", "isRequired": true },
-      { "field": "hasChildrenInDaycare", "operator": "eq", "value": "true", "isRequired": true },
-      { "field": "childrenAges", "operator": "range_overlaps", "value": "0-3", "isRequired": true }
+      {
+        "field": "childrenCount",
+        "operator": "gte",
+        "value": "1",
+        "isRequired": true
+      },
+      {
+        "field": "hasChildrenInDaycare",
+        "operator": "eq",
+        "value": "true",
+        "isRequired": true
+      },
+      {
+        "field": "childrenAges",
+        "operator": "range_overlaps",
+        "value": "0-3",
+        "isRequired": true
+      }
     ]
   },
   {
@@ -67,16 +110,29 @@
     "certaintyLevel": "certo",
     "certaintyNote": "Prestazione strutturale INPS, D.Lgs. 22/2015",
     "howToClaim": "1. Presentare domanda all'INPS entro 68 giorni dalla cessazione del rapporto di lavoro. 2. Rilasciare la DID (Dichiarazione di Immediata Disponibilità) al Centro per l'Impiego. 3. Sottoscrivere il Patto di Servizio Personalizzato.",
-    "requiredDocs": ["Lettera di licenziamento o cessazione", "Documento identità", "IBAN per accredito", "DID - Dichiarazione Immediata Disponibilità"],
+    "requiredDocs": [
+      "Lettera di licenziamento o cessazione",
+      "Documento identità",
+      "IBAN per accredito",
+      "DID - Dichiarazione Immediata Disponibilità"
+    ],
     "whereToApply": "Portale INPS o patronato",
     "legalReference": "D.Lgs. 22/2015",
     "officialUrl": "https://www.inps.it/it/it/schede-servizio-strumento/schede-servizi/naspi--indennità-mensile-di-disoccupazione.html",
     "sourceName": "INPS",
-    "validFrom": "2025-01-01",
-    "validUntil": "2025-12-31",
-    "tags": ["disoccupazione", "naspi", "licenziamento", "ammortizzatori"],
+    "tags": [
+      "disoccupazione",
+      "naspi",
+      "licenziamento",
+      "ammortizzatori"
+    ],
     "requirements": [
-      { "field": "employmentType", "operator": "eq", "value": "disoccupato", "isRequired": true }
+      {
+        "field": "employmentType",
+        "operator": "eq",
+        "value": "disoccupato",
+        "isRequired": true
+      }
     ]
   },
   {
@@ -92,17 +148,36 @@
     "certaintyLevel": "certo",
     "certaintyNote": "Misura strutturale dal 2024, D.L. 48/2023",
     "howToClaim": "1. Presentare domanda sul portale INPS o tramite patronato. 2. Presentare ISEE in corso di validità. 3. Iscriversi sulla piattaforma SIISL. 4. Sottoscrivere il Patto di Attivazione Digitale (PAD). 5. Presentarsi al servizio sociale del Comune per il Patto di Inclusione.",
-    "requiredDocs": ["ISEE in corso di validità", "Documento identità", "Permesso di soggiorno (per extracomunitari)", "IBAN o carta prepagata"],
+    "requiredDocs": [
+      "ISEE in corso di validità",
+      "Documento identità",
+      "Permesso di soggiorno (per extracomunitari)",
+      "IBAN o carta prepagata"
+    ],
     "whereToApply": "Portale INPS, patronato o piattaforma SIISL",
     "legalReference": "D.L. 48/2023 convertito in L. 85/2023",
     "officialUrl": "https://www.inps.it/it/it/schede-servizio-strumento/schede-servizi/assegno-di-inclusione--adi-.html",
     "sourceName": "INPS",
-    "validFrom": "2025-01-01",
-    "validUntil": "2025-12-31",
-    "tags": ["assegno-inclusione", "reddito-cittadinanza", "isee", "poverta", "sociale"],
+    "tags": [
+      "assegno-inclusione",
+      "reddito-cittadinanza",
+      "isee",
+      "poverta",
+      "sociale"
+    ],
     "requirements": [
-      { "field": "iseeRange", "operator": "lte", "value": "9360", "isRequired": true },
-      { "field": "incomeRange", "operator": "lte", "value": "6000", "isRequired": true }
+      {
+        "field": "iseeRange",
+        "operator": "lte",
+        "value": "9360",
+        "isRequired": true
+      },
+      {
+        "field": "incomeRange",
+        "operator": "lte",
+        "value": "6000",
+        "isRequired": true
+      }
     ]
   },
   {
@@ -118,17 +193,34 @@
     "certaintyLevel": "certo",
     "certaintyNote": "Confermato dalla Legge di Bilancio 2025",
     "howToClaim": "1. Comunicare al datore di lavoro i codici fiscali dei figli. 2. Il datore di lavoro applica l'esonero automaticamente in busta paga. 3. In alternativa, comunicare i dati direttamente all'INPS tramite il portale.",
-    "requiredDocs": ["Codici fiscali dei figli", "Comunicazione al datore di lavoro"],
+    "requiredDocs": [
+      "Codici fiscali dei figli",
+      "Comunicazione al datore di lavoro"
+    ],
     "whereToApply": "Tramite datore di lavoro o portale INPS",
     "legalReference": "Art. 1 commi 180-182 Legge 213/2023 (Legge di Bilancio 2024)",
     "officialUrl": "https://www.inps.it/it/it/inps-comunica/notizie/dettaglio-news-page.news.2024.01.bonus-mamme-lavoratrici.html",
     "sourceName": "INPS",
-    "validFrom": "2025-01-01",
-    "validUntil": "2025-12-31",
-    "tags": ["mamme", "lavoratrici", "esonero-contributivo", "figli", "busta-paga"],
+    "tags": [
+      "mamme",
+      "lavoratrici",
+      "esonero-contributivo",
+      "figli",
+      "busta-paga"
+    ],
     "requirements": [
-      { "field": "employmentType", "operator": "eq", "value": "dipendente", "isRequired": true },
-      { "field": "childrenCount", "operator": "gte", "value": "2", "isRequired": true }
+      {
+        "field": "employmentType",
+        "operator": "eq",
+        "value": "dipendente",
+        "isRequired": true
+      },
+      {
+        "field": "childrenCount",
+        "operator": "gte",
+        "value": "2",
+        "isRequired": true
+      }
     ]
   },
   {
@@ -144,16 +236,30 @@
     "certaintyLevel": "certo",
     "certaintyNote": "Misura strutturale gestita da INPS",
     "howToClaim": "1. Presentare domanda presso gli uffici postali compilando il modulo dedicato. 2. Allegare documentazione ISEE e reddito. 3. La carta viene consegnata a domicilio se la domanda è accolta.",
-    "requiredDocs": ["ISEE in corso di validità", "Documento identità", "Codice fiscale", "Modulo di domanda"],
+    "requiredDocs": [
+      "ISEE in corso di validità",
+      "Documento identità",
+      "Codice fiscale",
+      "Modulo di domanda"
+    ],
     "whereToApply": "Uffici Poste Italiane",
     "legalReference": "Art. 81 DL 112/2008 convertito in L. 133/2008",
     "officialUrl": "https://www.inps.it/it/it/schede-servizio-strumento/schede-servizi/carta-acquisti.html",
     "sourceName": "INPS / MEF",
-    "validFrom": "2025-01-01",
-    "validUntil": "2025-12-31",
-    "tags": ["carta-acquisti", "social-card", "anziani", "minori", "isee"],
+    "tags": [
+      "carta-acquisti",
+      "social-card",
+      "anziani",
+      "minori",
+      "isee"
+    ],
     "requirements": [
-      { "field": "iseeRange", "operator": "lte", "value": "8052", "isRequired": true }
+      {
+        "field": "iseeRange",
+        "operator": "lte",
+        "value": "8052",
+        "isRequired": true
+      }
     ]
   },
   {
@@ -169,16 +275,28 @@
     "certaintyLevel": "certo",
     "certaintyNote": "Diritto fondamentale tutelato dal D.Lgs. 151/2001",
     "howToClaim": "1. Presentare il certificato medico di gravidanza all'INPS (telematicamente dal medico). 2. Presentare domanda all'INPS prima dell'inizio del periodo di maternità. 3. Comunicare al datore di lavoro l'inizio dell'astensione.",
-    "requiredDocs": ["Certificato medico di gravidanza", "Domanda INPS", "Documento identità"],
+    "requiredDocs": [
+      "Certificato medico di gravidanza",
+      "Domanda INPS",
+      "Documento identità"
+    ],
     "whereToApply": "Portale INPS o patronato",
     "legalReference": "D.Lgs. 151/2001 - Testo Unico maternità e paternità",
     "officialUrl": "https://www.inps.it/it/it/schede-servizio-strumento/schede-servizi/indennità-di-maternità-per-lavoratrici-dipendenti.html",
     "sourceName": "INPS",
-    "validFrom": "2025-01-01",
-    "validUntil": "2025-12-31",
-    "tags": ["maternità", "gravidanza", "congedo", "astensione-obbligatoria"],
+    "tags": [
+      "maternità",
+      "gravidanza",
+      "congedo",
+      "astensione-obbligatoria"
+    ],
     "requirements": [
-      { "field": "employmentType", "operator": "in", "value": "dipendente,autonomo", "isRequired": true }
+      {
+        "field": "employmentType",
+        "operator": "in",
+        "value": "dipendente,autonomo",
+        "isRequired": true
+      }
     ]
   },
   {
@@ -194,18 +312,40 @@
     "certaintyLevel": "certo",
     "certaintyNote": "Diritto previsto dal D.Lgs. 151/2001, aliquote potenziate dalla Legge di Bilancio 2025",
     "howToClaim": "1. Presentare domanda all'INPS almeno 5 giorni prima dell'inizio del congedo. 2. Comunicare al datore di lavoro con preavviso. 3. Indicare il periodo di congedo richiesto.",
-    "requiredDocs": ["Domanda INPS online", "Certificato di nascita del figlio", "Comunicazione al datore di lavoro"],
+    "requiredDocs": [
+      "Domanda INPS online",
+      "Certificato di nascita del figlio",
+      "Comunicazione al datore di lavoro"
+    ],
     "whereToApply": "Portale INPS o patronato",
     "legalReference": "Art. 32 D.Lgs. 151/2001",
     "officialUrl": "https://www.inps.it/it/it/schede-servizio-strumento/schede-servizi/congedo-parentale.html",
     "sourceName": "INPS",
-    "validFrom": "2025-01-01",
-    "validUntil": "2025-12-31",
-    "tags": ["congedo-parentale", "figli", "genitori", "astensione-facoltativa"],
+    "tags": [
+      "congedo-parentale",
+      "figli",
+      "genitori",
+      "astensione-facoltativa"
+    ],
     "requirements": [
-      { "field": "employmentType", "operator": "eq", "value": "dipendente", "isRequired": true },
-      { "field": "childrenCount", "operator": "gte", "value": "1", "isRequired": true },
-      { "field": "childrenAges", "operator": "range_overlaps", "value": "0-12", "isRequired": true }
+      {
+        "field": "employmentType",
+        "operator": "eq",
+        "value": "dipendente",
+        "isRequired": true
+      },
+      {
+        "field": "childrenCount",
+        "operator": "gte",
+        "value": "1",
+        "isRequired": true
+      },
+      {
+        "field": "childrenAges",
+        "operator": "range_overlaps",
+        "value": "0-12",
+        "isRequired": true
+      }
     ]
   },
   {
@@ -221,16 +361,29 @@
     "certaintyLevel": "probabile",
     "certaintyNote": "Misura a risorse limitate, rinnovata annualmente. Verificare apertura bando.",
     "howToClaim": "1. Presentare domanda sul portale INPS durante la finestra di apertura del bando. 2. Presentare ISEE in corso di validità. 3. Se ammessi, utilizzare il codice univoco presso lo psicoterapeuta scelto. 4. Le sedute devono essere con professionisti iscritti all'albo.",
-    "requiredDocs": ["ISEE in corso di validità", "Documento identità", "Codice fiscale"],
+    "requiredDocs": [
+      "ISEE in corso di validità",
+      "Documento identità",
+      "Codice fiscale"
+    ],
     "whereToApply": "Portale INPS",
     "legalReference": "Art. 1-quater DL 228/2021 convertito in L. 15/2022",
     "officialUrl": "https://www.inps.it/it/it/schede-servizio-strumento/schede-servizi/contributo-per-sostenere-le-spese-relative-a-sessioni-di-psicot.html",
     "sourceName": "INPS",
-    "validFrom": "2025-01-01",
-    "validUntil": "2025-12-31",
-    "tags": ["psicologo", "psicoterapia", "salute-mentale", "isee", "benessere"],
+    "tags": [
+      "psicologo",
+      "psicoterapia",
+      "salute-mentale",
+      "isee",
+      "benessere"
+    ],
     "requirements": [
-      { "field": "iseeRange", "operator": "lte", "value": "50000", "isRequired": true }
+      {
+        "field": "iseeRange",
+        "operator": "lte",
+        "value": "50000",
+        "isRequired": true
+      }
     ]
   },
   {
@@ -246,18 +399,41 @@
     "certaintyLevel": "certo",
     "certaintyNote": "Misura strutturale dal 2023, D.L. 48/2023",
     "howToClaim": "1. Presentare domanda sul portale INPS. 2. Iscriversi sulla piattaforma SIISL. 3. Sottoscrivere il Patto di Attivazione Digitale. 4. Partecipare ai programmi di formazione e politiche attive assegnati.",
-    "requiredDocs": ["ISEE in corso di validità", "Documento identità", "DID - Dichiarazione Immediata Disponibilità"],
+    "requiredDocs": [
+      "ISEE in corso di validità",
+      "Documento identità",
+      "DID - Dichiarazione Immediata Disponibilità"
+    ],
     "whereToApply": "Portale INPS e piattaforma SIISL",
     "legalReference": "Art. 12 D.L. 48/2023 convertito in L. 85/2023",
     "officialUrl": "https://www.inps.it/it/it/schede-servizio-strumento/schede-servizi/supporto-per-la-formazione-e-il-lavoro.html",
     "sourceName": "INPS",
-    "validFrom": "2025-01-01",
-    "validUntil": "2025-12-31",
-    "tags": ["formazione", "lavoro", "disoccupazione", "politiche-attive", "sfl"],
+    "tags": [
+      "formazione",
+      "lavoro",
+      "disoccupazione",
+      "politiche-attive",
+      "sfl"
+    ],
     "requirements": [
-      { "field": "iseeRange", "operator": "lte", "value": "6000", "isRequired": true },
-      { "field": "employmentType", "operator": "eq", "value": "disoccupato", "isRequired": true },
-      { "field": "birthYear", "operator": "range_overlaps", "value": "1966-2007", "isRequired": true }
+      {
+        "field": "iseeRange",
+        "operator": "lte",
+        "value": "6000",
+        "isRequired": true
+      },
+      {
+        "field": "employmentType",
+        "operator": "eq",
+        "value": "disoccupato",
+        "isRequired": true
+      },
+      {
+        "field": "birthYear",
+        "operator": "range_overlaps",
+        "value": "1966-2007",
+        "isRequired": true
+      }
     ]
   },
   {
@@ -272,17 +448,35 @@
     "certaintyLevel": "probabile",
     "certaintyNote": "Misura prorogata annualmente, verificare conferma per il 2025",
     "howToClaim": "1. Verificare i requisiti contributivi sull'estratto conto INPS. 2. Presentare domanda di pensione all'INPS. 3. Attendere la decorrenza (finestre trimestrali).",
-    "requiredDocs": ["Estratto conto contributivo INPS", "Documento identità", "Domanda di pensione"],
+    "requiredDocs": [
+      "Estratto conto contributivo INPS",
+      "Documento identità",
+      "Domanda di pensione"
+    ],
     "whereToApply": "Portale INPS o patronato",
     "legalReference": "Art. 1 comma 283 Legge 197/2022 e successive proroghe",
     "officialUrl": "https://www.inps.it/it/it/schede-servizio-strumento/schede-servizi/pensione-anticipata-flessibile.html",
     "sourceName": "INPS",
-    "validFrom": "2025-01-01",
-    "validUntil": "2025-12-31",
-    "tags": ["pensione", "anticipata", "quota-103", "previdenza", "contributi"],
+    "tags": [
+      "pensione",
+      "anticipata",
+      "quota-103",
+      "previdenza",
+      "contributi"
+    ],
     "requirements": [
-      { "field": "birthYear", "operator": "lte", "value": "1963", "isRequired": true },
-      { "field": "employmentType", "operator": "in", "value": "dipendente,autonomo", "isRequired": true }
+      {
+        "field": "birthYear",
+        "operator": "lte",
+        "value": "1963",
+        "isRequired": true
+      },
+      {
+        "field": "employmentType",
+        "operator": "in",
+        "value": "dipendente,autonomo",
+        "isRequired": true
+      }
     ]
   },
   {
@@ -298,17 +492,30 @@
     "certaintyLevel": "probabile",
     "certaintyNote": "Prorogata annualmente, verificare conferma e requisiti aggiornati",
     "howToClaim": "1. Verificare i requisiti (età, contributi, condizione). 2. Presentare domanda di certificazione del diritto entro il 31 marzo (con riaperture). 3. Alla maturazione del diritto, presentare domanda di prestazione.",
-    "requiredDocs": ["Estratto conto contributivo", "Documentazione della condizione (disoccupazione, invalidità, caregiver, ecc.)", "Documento identità"],
+    "requiredDocs": [
+      "Estratto conto contributivo",
+      "Documentazione della condizione (disoccupazione, invalidità, caregiver, ecc.)",
+      "Documento identità"
+    ],
     "whereToApply": "Portale INPS o patronato",
     "legalReference": "Art. 1 commi 179-186 Legge 232/2016 e successive proroghe",
     "officialUrl": "https://www.inps.it/it/it/schede-servizio-strumento/schede-servizi/ape-sociale.html",
     "sourceName": "INPS",
-    "validFrom": "2025-01-01",
-    "validUntil": "2025-12-31",
     "deadline": "2025-03-31",
-    "tags": ["ape-sociale", "pensione", "anticipo", "lavori-gravosi", "caregiver"],
+    "tags": [
+      "ape-sociale",
+      "pensione",
+      "anticipo",
+      "lavori-gravosi",
+      "caregiver"
+    ],
     "requirements": [
-      { "field": "birthYear", "operator": "lte", "value": "1962", "isRequired": true }
+      {
+        "field": "birthYear",
+        "operator": "lte",
+        "value": "1962",
+        "isRequired": true
+      }
     ]
   },
   {
@@ -323,17 +530,35 @@
     "certaintyLevel": "probabile",
     "certaintyNote": "Verificare proroga per il 2025 nella Legge di Bilancio",
     "howToClaim": "1. Dichiarare nell'atto di acquisto di voler usufruire delle agevolazioni under 36. 2. Presentare ISEE in corso di validità. 3. Il notaio applica le esenzioni in fase di rogito.",
-    "requiredDocs": ["ISEE in corso di validità", "Documento identità", "Contratto preliminare di compravendita"],
+    "requiredDocs": [
+      "ISEE in corso di validità",
+      "Documento identità",
+      "Contratto preliminare di compravendita"
+    ],
     "whereToApply": "Presso il notaio in fase di rogito",
     "legalReference": "Art. 64 commi 6-10 DL 73/2021 (Decreto Sostegni bis)",
     "officialUrl": "https://www.agenziaentrate.gov.it/portale/web/guest/agevolazioni-prima-casa-under-36",
     "sourceName": "Agenzia delle Entrate",
-    "validFrom": "2025-01-01",
-    "validUntil": "2025-12-31",
-    "tags": ["under-36", "prima-casa", "giovani", "esenzione", "mutuo"],
+    "tags": [
+      "under-36",
+      "prima-casa",
+      "giovani",
+      "esenzione",
+      "mutuo"
+    ],
     "requirements": [
-      { "field": "birthYear", "operator": "gte", "value": "1990", "isRequired": true },
-      { "field": "iseeRange", "operator": "lte", "value": "40000", "isRequired": true }
+      {
+        "field": "birthYear",
+        "operator": "gte",
+        "value": "1990",
+        "isRequired": true
+      },
+      {
+        "field": "iseeRange",
+        "operator": "lte",
+        "value": "40000",
+        "isRequired": true
+      }
     ]
   },
   {
@@ -349,17 +574,34 @@
     "certaintyLevel": "probabile",
     "certaintyNote": "Soggetta ad autorizzazione UE, verificare proroga e conferma",
     "howToClaim": "1. Verificare di avere sede operativa nel Mezzogiorno. 2. L'esonero si applica automaticamente tramite il flusso UniEmens. 3. Utilizzare il codice di autorizzazione appropriato nelle denunce contributive.",
-    "requiredDocs": ["Visura camerale con sede operativa", "Denunce UniEmens"],
+    "requiredDocs": [
+      "Visura camerale con sede operativa",
+      "Denunce UniEmens"
+    ],
     "whereToApply": "Applicazione automatica tramite UniEmens",
     "legalReference": "Art. 27 DL 104/2020 e successive proroghe",
     "officialUrl": "https://www.inps.it/it/it/inps-comunica/notizie/dettaglio-news-page.news.2024.01.decontribuzione-sud.html",
     "sourceName": "INPS",
-    "validFrom": "2025-01-01",
-    "validUntil": "2025-12-31",
-    "tags": ["decontribuzione", "mezzogiorno", "sud", "contributi", "imprese"],
+    "tags": [
+      "decontribuzione",
+      "mezzogiorno",
+      "sud",
+      "contributi",
+      "imprese"
+    ],
     "requirements": [
-      { "field": "region", "operator": "in", "value": "abruzzo,basilicata,calabria,campania,molise,puglia,sardegna,sicilia", "isRequired": true },
-      { "field": "employeeCount", "operator": "gte", "value": "1", "isRequired": true }
+      {
+        "field": "region",
+        "operator": "in",
+        "value": "abruzzo,basilicata,calabria,campania,molise,puglia,sardegna,sicilia",
+        "isRequired": true
+      },
+      {
+        "field": "employeeCount",
+        "operator": "gte",
+        "value": "1",
+        "isRequired": true
+      }
     ]
   },
   {
@@ -375,17 +617,35 @@
     "certaintyLevel": "probabile",
     "certaintyNote": "Novità 2025, verificare attuazione e circolare INPS",
     "howToClaim": "1. Presentare domanda all'INPS o alla propria cassa previdenziale. 2. Autocertificare il possesso dei requisiti (numero e età dei figli). 3. L'esonero viene applicato ai contributi dovuti.",
-    "requiredDocs": ["Codici fiscali dei figli", "Iscrizione a gestione previdenziale", "Domanda all'INPS o cassa previdenziale"],
+    "requiredDocs": [
+      "Codici fiscali dei figli",
+      "Iscrizione a gestione previdenziale",
+      "Domanda all'INPS o cassa previdenziale"
+    ],
     "whereToApply": "Portale INPS o cassa previdenziale di appartenenza",
     "legalReference": "Legge di Bilancio 2025",
     "officialUrl": "https://www.inps.it",
     "sourceName": "INPS",
-    "validFrom": "2025-01-01",
-    "validUntil": "2025-12-31",
-    "tags": ["mamme", "autonome", "professioniste", "esonero", "figli"],
+    "tags": [
+      "mamme",
+      "autonome",
+      "professioniste",
+      "esonero",
+      "figli"
+    ],
     "requirements": [
-      { "field": "employmentType", "operator": "eq", "value": "autonomo", "isRequired": true },
-      { "field": "childrenCount", "operator": "gte", "value": "2", "isRequired": true }
+      {
+        "field": "employmentType",
+        "operator": "eq",
+        "value": "autonomo",
+        "isRequired": true
+      },
+      {
+        "field": "childrenCount",
+        "operator": "gte",
+        "value": "2",
+        "isRequired": true
+      }
     ]
   }
 ]

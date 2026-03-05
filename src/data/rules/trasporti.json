@@ -12,16 +12,29 @@
     "certaintyLevel": "probabile",
     "certaintyNote": "Misura a risorse limitate, verificare riapertura bando per il 2025",
     "howToClaim": "1. Verificare l'apertura del bando sulla piattaforma del Ministero. 2. Registrarsi e presentare domanda online. 3. Ottenere il voucher elettronico. 4. Utilizzare il voucher presso i punti vendita degli abbonamenti entro il mese.",
-    "requiredDocs": ["Documento identità", "Codice fiscale", "SPID o CIE per accesso alla piattaforma"],
+    "requiredDocs": [
+      "Documento identità",
+      "Codice fiscale",
+      "SPID o CIE per accesso alla piattaforma"
+    ],
     "whereToApply": "Piattaforma bonustrasporti.lavoro.gov.it",
     "legalReference": "Art. 4 DL 5/2023",
     "officialUrl": "https://bonustrasporti.lavoro.gov.it",
     "sourceName": "Ministero del Lavoro",
-    "validFrom": "2025-01-01",
-    "validUntil": "2025-12-31",
-    "tags": ["trasporti", "abbonamento", "bus", "treno", "bonus"],
+    "tags": [
+      "trasporti",
+      "abbonamento",
+      "bus",
+      "treno",
+      "bonus"
+    ],
     "requirements": [
-      { "field": "incomeRange", "operator": "lte", "value": "20000", "isRequired": true }
+      {
+        "field": "incomeRange",
+        "operator": "lte",
+        "value": "20000",
+        "isRequired": true
+      }
     ]
   },
   {
@@ -38,16 +51,29 @@
     "certaintyLevel": "certo",
     "certaintyNote": "Detrazione stabile nel TUIR art. 15",
     "howToClaim": "1. Acquistare l'abbonamento con mezzi tracciabili. 2. Conservare l'abbonamento e/o la ricevuta di pagamento. 3. Indicare nel modello 730 al Quadro E (rigo E8/E10, codice 40).",
-    "requiredDocs": ["Abbonamento o ricevuta di acquisto", "Ricevuta pagamento tracciabile", "Modello 730"],
+    "requiredDocs": [
+      "Abbonamento o ricevuta di acquisto",
+      "Ricevuta pagamento tracciabile",
+      "Modello 730"
+    ],
     "whereToApply": "Dichiarazione dei redditi (730 o Redditi PF)",
     "legalReference": "Art. 15 comma 1 lett. i-decies) TUIR",
     "officialUrl": "https://www.agenziaentrate.gov.it/portale/web/guest/abbonamenti-trasporto-pubblico",
     "sourceName": "Agenzia delle Entrate",
-    "validFrom": "2025-01-01",
-    "validUntil": "2025-12-31",
-    "tags": ["detrazione", "abbonamento", "trasporto-pubblico", "19-percento", "730"],
+    "tags": [
+      "detrazione",
+      "abbonamento",
+      "trasporto-pubblico",
+      "19-percento",
+      "730"
+    ],
     "requirements": [
-      { "field": "employmentType", "operator": "in", "value": "dipendente,autonomo,pensionato,disoccupato", "isRequired": true }
+      {
+        "field": "employmentType",
+        "operator": "in",
+        "value": "dipendente,autonomo,pensionato,disoccupato",
+        "isRequired": true
+      }
     ]
   },
   {
@@ -63,16 +89,31 @@
     "certaintyLevel": "certo",
     "certaintyNote": "Diritto garantito dal Regolamento UE, escluse circostanze eccezionali",
     "howToClaim": "1. Documentare il ritardo (foto tabellone, boarding pass, comunicazioni). 2. Presentare reclamo scritto alla compagnia aerea entro 2 anni. 3. Se la compagnia non risponde o rifiuta, rivolgersi all'ENAC o usare servizi come AirHelp, Flightright. 4. In ultima istanza, ricorso al Giudice di Pace.",
-    "requiredDocs": ["Carta d'imbarco o conferma prenotazione", "Documentazione del ritardo/cancellazione", "Comunicazioni della compagnia", "Eventuali ricevute spese extra sostenute"],
+    "requiredDocs": [
+      "Carta d'imbarco o conferma prenotazione",
+      "Documentazione del ritardo/cancellazione",
+      "Comunicazioni della compagnia",
+      "Eventuali ricevute spese extra sostenute"
+    ],
     "whereToApply": "Direttamente alla compagnia aerea, poi ENAC o servizi di claim",
     "legalReference": "Regolamento CE 261/2004",
     "officialUrl": "https://www.enac.gov.it/passeggeri/diritti-dei-passeggeri",
     "sourceName": "ENAC / Unione Europea",
-    "validFrom": "2025-01-01",
-    "validUntil": "2025-12-31",
-    "tags": ["volo", "ritardo", "cancellazione", "rimborso", "eu261", "aereo"],
+    "tags": [
+      "volo",
+      "ritardo",
+      "cancellazione",
+      "rimborso",
+      "eu261",
+      "aereo"
+    ],
     "requirements": [
-      { "field": "travelFrequency", "operator": "in", "value": "frequente,occasionale", "isRequired": false }
+      {
+        "field": "travelFrequency",
+        "operator": "in",
+        "value": "frequente,occasionale",
+        "isRequired": false
+      }
     ]
   },
   {
@@ -89,16 +130,29 @@
     "certaintyLevel": "certo",
     "certaintyNote": "Diritto garantito dal Regolamento UE sui diritti dei passeggeri ferroviari",
     "howToClaim": "1. Conservare il biglietto del treno in ritardo. 2. Per Trenitalia: richiedere l'indennizzo online, in biglietteria o tramite il call center entro 12 mesi. 3. Per Italo: richiedere tramite app, sito web o assistenza clienti. 4. Per treni regionali: compilare il modulo di reclamo.",
-    "requiredDocs": ["Biglietto del treno", "Documentazione del ritardo"],
+    "requiredDocs": [
+      "Biglietto del treno",
+      "Documentazione del ritardo"
+    ],
     "whereToApply": "Sito web o app di Trenitalia/Italo, biglietterie",
     "legalReference": "Regolamento UE 2021/782",
     "officialUrl": "https://www.trenitalia.com/it/informazioni/indennità-per-ritardo.html",
     "sourceName": "Trenitalia / Italo / ART",
-    "validFrom": "2025-01-01",
-    "validUntil": "2025-12-31",
-    "tags": ["treno", "ritardo", "rimborso", "trenitalia", "italo", "indennizzo"],
+    "tags": [
+      "treno",
+      "ritardo",
+      "rimborso",
+      "trenitalia",
+      "italo",
+      "indennizzo"
+    ],
     "requirements": [
-      { "field": "travelFrequency", "operator": "in", "value": "frequente,occasionale,pendolare", "isRequired": false }
+      {
+        "field": "travelFrequency",
+        "operator": "in",
+        "value": "frequente,occasionale,pendolare",
+        "isRequired": false
+      }
     ]
   },
   {
@@ -114,15 +168,27 @@
     "certaintyLevel": "certo",
     "certaintyNote": "Programma fedeltà permanente di Trenitalia",
     "howToClaim": "1. Iscriversi gratuitamente su trenitalia.com o tramite l'app. 2. Inserire il numero CartaFreccia ad ogni acquisto di biglietto. 3. Accumulare punti e monitorare il saldo. 4. Utilizzare i punti per biglietti gratuiti o upgrade.",
-    "requiredDocs": ["Documento identità", "Indirizzo email"],
+    "requiredDocs": [
+      "Documento identità",
+      "Indirizzo email"
+    ],
     "whereToApply": "Trenitalia.com o app Trenitalia",
     "officialUrl": "https://www.trenitalia.com/it/informazioni/programma-cartafreccia.html",
     "sourceName": "Trenitalia",
-    "validFrom": "2025-01-01",
-    "validUntil": "2025-12-31",
-    "tags": ["treno", "cartafreccia", "sconti", "punti", "fedeltà"],
+    "tags": [
+      "treno",
+      "cartafreccia",
+      "sconti",
+      "punti",
+      "fedeltà"
+    ],
     "requirements": [
-      { "field": "travelFrequency", "operator": "in", "value": "frequente,pendolare", "isRequired": false }
+      {
+        "field": "travelFrequency",
+        "operator": "in",
+        "value": "frequente,pendolare",
+        "isRequired": false
+      }
     ]
   },
   {
@@ -139,15 +205,27 @@
     "certaintyLevel": "certo",
     "certaintyNote": "Programma stabile di Trenitalia",
     "howToClaim": "1. Iscriversi alla CartaFreccia Young su trenitalia.com (gratuita, under 30). 2. Acquistare biglietti Freccia con il numero CartaFreccia. 3. Lo sconto viene applicato automaticamente sulle tariffe disponibili.",
-    "requiredDocs": ["Documento identità", "Indirizzo email"],
+    "requiredDocs": [
+      "Documento identità",
+      "Indirizzo email"
+    ],
     "whereToApply": "Trenitalia.com o app Trenitalia",
     "officialUrl": "https://www.trenitalia.com/it/informazioni/programma-cartafreccia.html",
     "sourceName": "Trenitalia",
-    "validFrom": "2025-01-01",
-    "validUntil": "2025-12-31",
-    "tags": ["giovani", "treno", "cartafreccia", "under-30", "sconti"],
+    "tags": [
+      "giovani",
+      "treno",
+      "cartafreccia",
+      "under-30",
+      "sconti"
+    ],
     "requirements": [
-      { "field": "birthYear", "operator": "gte", "value": "1996", "isRequired": true }
+      {
+        "field": "birthYear",
+        "operator": "gte",
+        "value": "1996",
+        "isRequired": true
+      }
     ]
   },
   {
@@ -163,15 +241,28 @@
     "certaintyLevel": "certo",
     "certaintyNote": "Risparmio certo per pendolari con viaggi regolari",
     "howToClaim": "1. Calcolare il costo mensile dei singoli biglietti. 2. Confrontare con il costo dell'abbonamento mensile/annuale. 3. Acquistare l'abbonamento presso le biglietterie, l'app o il sito della compagnia regionale. 4. Portare in detrazione il costo nella dichiarazione dei redditi.",
-    "requiredDocs": ["Documento identità", "Foto tessera (per alcune regioni)", "Eventuale tessera studente o over 65"],
+    "requiredDocs": [
+      "Documento identità",
+      "Foto tessera (per alcune regioni)",
+      "Eventuale tessera studente o over 65"
+    ],
     "whereToApply": "Biglietterie ferroviarie, app o siti web delle compagnie regionali",
     "officialUrl": "https://www.trenitalia.com/it/informazioni/trasporto-regionale/abbonamenti-regionali.html",
     "sourceName": "Trenitalia / Trenord / altre compagnie regionali",
-    "validFrom": "2025-01-01",
-    "validUntil": "2025-12-31",
-    "tags": ["pendolari", "abbonamento", "treno", "regionale", "risparmio"],
+    "tags": [
+      "pendolari",
+      "abbonamento",
+      "treno",
+      "regionale",
+      "risparmio"
+    ],
     "requirements": [
-      { "field": "employmentType", "operator": "in", "value": "dipendente,autonomo,studente", "isRequired": false }
+      {
+        "field": "employmentType",
+        "operator": "in",
+        "value": "dipendente,autonomo,studente",
+        "isRequired": false
+      }
     ]
   },
   {
@@ -187,16 +278,31 @@
     "certaintyLevel": "probabile",
     "certaintyNote": "Fondi a esaurimento, verificare disponibilità sul portale ecobonus.mise.gov.it",
     "howToClaim": "1. Verificare la disponibilità dei fondi sul portale ecobonus.mise.gov.it. 2. Scegliere un veicolo che rientra nelle fasce di emissioni incentivate. 3. Il concessionario prenota l'incentivo sulla piattaforma. 4. Lo sconto viene applicato direttamente al prezzo di acquisto.",
-    "requiredDocs": ["Documento identità", "Codice fiscale", "Certificato di proprietà veicolo da rottamare (se previsto)", "Libretto di circolazione veicolo da rottamare"],
+    "requiredDocs": [
+      "Documento identità",
+      "Codice fiscale",
+      "Certificato di proprietà veicolo da rottamare (se previsto)",
+      "Libretto di circolazione veicolo da rottamare"
+    ],
     "whereToApply": "Presso il concessionario auto",
     "legalReference": "DPCM incentivi auto - Legge di Bilancio 2025",
     "officialUrl": "https://ecobonus.mise.gov.it/",
     "sourceName": "MIMIT (ex MISE)",
-    "validFrom": "2025-01-01",
-    "validUntil": "2025-12-31",
-    "tags": ["auto", "ecologica", "elettrica", "ibrida", "incentivi", "rottamazione"],
+    "tags": [
+      "auto",
+      "ecologica",
+      "elettrica",
+      "ibrida",
+      "incentivi",
+      "rottamazione"
+    ],
     "requirements": [
-      { "field": "employmentType", "operator": "in", "value": "dipendente,autonomo,pensionato", "isRequired": true }
+      {
+        "field": "employmentType",
+        "operator": "in",
+        "value": "dipendente,autonomo,pensionato",
+        "isRequired": true
+      }
     ]
   },
   {
@@ -212,15 +318,28 @@
     "certaintyLevel": "consiglio",
     "certaintyNote": "Disponibilità variabile per comune e regione, verificare bandi locali",
     "howToClaim": "1. Verificare i bandi attivi nel proprio comune e regione. 2. Controllare i requisiti (residenza, eventuale rottamazione). 3. Presentare domanda secondo le modalita del bando. 4. Acquistare il mezzo e presentare la fattura per il rimborso.",
-    "requiredDocs": ["Documento identità", "Fattura acquisto mezzo", "Eventuale certificato rottamazione veicolo"],
+    "requiredDocs": [
+      "Documento identità",
+      "Fattura acquisto mezzo",
+      "Eventuale certificato rottamazione veicolo"
+    ],
     "whereToApply": "Comune di residenza o Regione",
     "officialUrl": "https://www.minambiente.it/pagina/mobilità-sostenibile",
     "sourceName": "MASE / Comuni / Regioni",
-    "validFrom": "2025-01-01",
-    "validUntil": "2025-12-31",
-    "tags": ["bicicletta", "e-bike", "monopattino", "mobilità-sostenibile", "green"],
+    "tags": [
+      "bicicletta",
+      "e-bike",
+      "monopattino",
+      "mobilità-sostenibile",
+      "green"
+    ],
     "requirements": [
-      { "field": "region", "operator": "exists", "value": "true", "isRequired": true }
+      {
+        "field": "region",
+        "operator": "exists",
+        "value": "true",
+        "isRequired": true
+      }
     ]
   },
   {
@@ -236,16 +355,30 @@
     "certaintyLevel": "certo",
     "certaintyNote": "Disciplina consolidata nel TUIR art. 164",
     "howToClaim": "1. Documentare tutti i costi auto con fatture intestate. 2. Pagare il carburante con strumenti tracciabili (carta o bonifico). 3. Tenere un registro dei km percorsi per attività professionale. 4. Indicare i costi nella dichiarazione dei redditi.",
-    "requiredDocs": ["Fatture carburante", "Fatture manutenzione e assicurazione", "Libretto di circolazione", "Dichiarazione dei redditi"],
+    "requiredDocs": [
+      "Fatture carburante",
+      "Fatture manutenzione e assicurazione",
+      "Libretto di circolazione",
+      "Dichiarazione dei redditi"
+    ],
     "whereToApply": "Dichiarazione dei redditi (Redditi PF o SP)",
     "legalReference": "Art. 164 TUIR - DPR 917/1986",
     "officialUrl": "https://www.agenziaentrate.gov.it",
     "sourceName": "Agenzia delle Entrate",
-    "validFrom": "2025-01-01",
-    "validUntil": "2025-12-31",
-    "tags": ["partita-iva", "auto", "deducibilità", "carburante", "professionale"],
+    "tags": [
+      "partita-iva",
+      "auto",
+      "deducibilità",
+      "carburante",
+      "professionale"
+    ],
     "requirements": [
-      { "field": "employmentType", "operator": "eq", "value": "autonomo", "isRequired": true }
+      {
+        "field": "employmentType",
+        "operator": "eq",
+        "value": "autonomo",
+        "isRequired": true
+      }
     ]
   }
 ]

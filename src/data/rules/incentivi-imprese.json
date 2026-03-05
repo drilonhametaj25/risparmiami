@@ -13,16 +13,30 @@
     "certaintyLevel": "certo",
     "certaintyNote": "Misura strutturale nel Piano Transizione 4.0/5.0, verificare aliquote aggiornate",
     "howToClaim": "1. Sostenere spese qualificabili per R&S durante l'anno. 2. Redigere una relazione tecnica delle attività svolte. 3. Ottenere la certificazione contabile delle spese. 4. Indicare il credito nella dichiarazione dei redditi. 5. Utilizzare il credito in compensazione tramite F24.",
-    "requiredDocs": ["Relazione tecnica attività R&S", "Certificazione contabile", "Fatture e documentazione spese", "Dichiarazione dei redditi"],
+    "requiredDocs": [
+      "Relazione tecnica attività R&S",
+      "Certificazione contabile",
+      "Fatture e documentazione spese",
+      "Dichiarazione dei redditi"
+    ],
     "whereToApply": "Dichiarazione dei redditi + compensazione F24",
     "legalReference": "Art. 1 commi 198-209 Legge 160/2019 e successive modifiche",
     "officialUrl": "https://www.mimit.gov.it/it/incentivi/credito-d-imposta-per-investimenti-in-ricerca-e-sviluppo-transizione-ecologica-innovazione-tecnologica-4-0-e-altre-attività-innovative",
     "sourceName": "MIMIT",
-    "validFrom": "2025-01-01",
-    "validUntil": "2025-12-31",
-    "tags": ["ricerca", "sviluppo", "innovazione", "credito-imposta", "r&d"],
+    "tags": [
+      "ricerca",
+      "sviluppo",
+      "innovazione",
+      "credito-imposta",
+      "r&d"
+    ],
     "requirements": [
-      { "field": "investsInRD", "operator": "eq", "value": "true", "isRequired": true }
+      {
+        "field": "investsInRD",
+        "operator": "eq",
+        "value": "true",
+        "isRequired": true
+      }
     ]
   },
   {
@@ -39,17 +53,36 @@
     "certaintyLevel": "probabile",
     "certaintyNote": "Verificare conferma e aliquote per il 2025 nel Piano Transizione 5.0",
     "howToClaim": "1. Definire un piano formativo sulle competenze 4.0. 2. Erogare la formazione tramite soggetti accreditati. 3. Certificare i costi sostenuti. 4. Indicare il credito nella dichiarazione dei redditi. 5. Utilizzare in compensazione tramite F24.",
-    "requiredDocs": ["Piano formativo aziendale", "Attestati di partecipazione", "Certificazione contabile", "Fatture enti formativi"],
+    "requiredDocs": [
+      "Piano formativo aziendale",
+      "Attestati di partecipazione",
+      "Certificazione contabile",
+      "Fatture enti formativi"
+    ],
     "whereToApply": "Dichiarazione dei redditi + compensazione F24",
     "legalReference": "Art. 1 commi 210-217 Legge 160/2019",
     "officialUrl": "https://www.mimit.gov.it/it/incentivi/credito-d-imposta-formazione-4-0",
     "sourceName": "MIMIT",
-    "validFrom": "2025-01-01",
-    "validUntil": "2025-12-31",
-    "tags": ["formazione", "4.0", "digitale", "competenze", "credito-imposta"],
+    "tags": [
+      "formazione",
+      "4.0",
+      "digitale",
+      "competenze",
+      "credito-imposta"
+    ],
     "requirements": [
-      { "field": "investsInTraining", "operator": "eq", "value": "true", "isRequired": true },
-      { "field": "employeeCount", "operator": "gte", "value": "1", "isRequired": true }
+      {
+        "field": "investsInTraining",
+        "operator": "eq",
+        "value": "true",
+        "isRequired": true
+      },
+      {
+        "field": "employeeCount",
+        "operator": "gte",
+        "value": "1",
+        "isRequired": true
+      }
     ]
   },
   {
@@ -66,16 +99,30 @@
     "certaintyLevel": "certo",
     "certaintyNote": "Verificare aliquote aggiornate nel Piano Transizione 5.0",
     "howToClaim": "1. Acquistare beni strumentali previsti dall'Allegato A o B. 2. Interconnettere i beni al sistema aziendale. 3. Ottenere una perizia tecnica asseverata (per beni oltre 300.000 euro). 4. Indicare il credito nella dichiarazione dei redditi. 5. Utilizzare in compensazione tramite F24.",
-    "requiredDocs": ["Fatture di acquisto dei beni", "Perizia tecnica asseverata (se oltre 300k)", "Attestazione di interconnessione", "Dichiarazione dei redditi"],
+    "requiredDocs": [
+      "Fatture di acquisto dei beni",
+      "Perizia tecnica asseverata (se oltre 300k)",
+      "Attestazione di interconnessione",
+      "Dichiarazione dei redditi"
+    ],
     "whereToApply": "Dichiarazione dei redditi + compensazione F24",
     "legalReference": "Art. 1 commi 1051-1063 Legge 178/2020",
     "officialUrl": "https://www.mimit.gov.it/it/incentivi/credito-d-imposta-per-investimenti-in-beni-strumentali",
     "sourceName": "MIMIT",
-    "validFrom": "2025-01-01",
-    "validUntil": "2025-12-31",
-    "tags": ["beni-strumentali", "macchinari", "4.0", "investimenti", "credito-imposta"],
+    "tags": [
+      "beni-strumentali",
+      "macchinari",
+      "4.0",
+      "investimenti",
+      "credito-imposta"
+    ],
     "requirements": [
-      { "field": "boughtEquipmentRecently", "operator": "eq", "value": "true", "isRequired": true }
+      {
+        "field": "boughtEquipmentRecently",
+        "operator": "eq",
+        "value": "true",
+        "isRequired": true
+      }
     ]
   },
   {
@@ -92,17 +139,36 @@
     "certaintyLevel": "certo",
     "certaintyNote": "Misura strutturale rifinanziata periodicamente",
     "howToClaim": "1. Richiedere un finanziamento bancario per l'acquisto di beni strumentali. 2. Presentare domanda sul portale del MIMIT tramite la banca. 3. Ottenere la delibera di finanziamento. 4. Effettuare l'investimento entro 12 mesi. 5. Richiedere l'erogazione del contributo.",
-    "requiredDocs": ["Preventivi dei beni da acquistare", "Domanda tramite banca convenzionata", "Dichiarazione de minimis", "Visura camerale"],
+    "requiredDocs": [
+      "Preventivi dei beni da acquistare",
+      "Domanda tramite banca convenzionata",
+      "Dichiarazione de minimis",
+      "Visura camerale"
+    ],
     "whereToApply": "Tramite banca o intermediario convenzionato",
     "legalReference": "Art. 2 DL 69/2013 convertito in L. 98/2013",
     "officialUrl": "https://www.mimit.gov.it/it/incentivi/nuova-sabatini",
     "sourceName": "MIMIT",
-    "validFrom": "2025-01-01",
-    "validUntil": "2025-12-31",
-    "tags": ["sabatini", "macchinari", "pmi", "finanziamento", "leasing"],
+    "tags": [
+      "sabatini",
+      "macchinari",
+      "pmi",
+      "finanziamento",
+      "leasing"
+    ],
     "requirements": [
-      { "field": "boughtEquipmentRecently", "operator": "eq", "value": "true", "isRequired": true },
-      { "field": "employeeCount", "operator": "gte", "value": "1", "isRequired": false }
+      {
+        "field": "boughtEquipmentRecently",
+        "operator": "eq",
+        "value": "true",
+        "isRequired": true
+      },
+      {
+        "field": "employeeCount",
+        "operator": "gte",
+        "value": "1",
+        "isRequired": false
+      }
     ]
   },
   {
@@ -118,17 +184,36 @@
     "certaintyLevel": "probabile",
     "certaintyNote": "Verificare conferma e condizioni per il 2025",
     "howToClaim": "1. Verificare che il lavoratore non abbia mai avuto un contratto a tempo indeterminato. 2. Effettuare l'assunzione a tempo indeterminato. 3. Presentare domanda all'INPS per l'esonero contributivo. 4. Applicare l'esonero nelle denunce contributive mensili (UniEmens).",
-    "requiredDocs": ["Contratto di lavoro", "Dichiarazione del lavoratore (mai assunto a TI)", "Domanda INPS", "Denunce UniEmens"],
+    "requiredDocs": [
+      "Contratto di lavoro",
+      "Dichiarazione del lavoratore (mai assunto a TI)",
+      "Domanda INPS",
+      "Denunce UniEmens"
+    ],
     "whereToApply": "Portale INPS",
     "legalReference": "Art. 1 commi 10-15 Legge 178/2020 e successive proroghe",
     "officialUrl": "https://www.inps.it/it/it/inps-comunica/notizie/dettaglio-news-page.news.2024.01.esonero-giovani.html",
     "sourceName": "INPS",
-    "validFrom": "2025-01-01",
-    "validUntil": "2025-12-31",
-    "tags": ["assunzioni", "giovani", "under-36", "esonero", "contributi"],
+    "tags": [
+      "assunzioni",
+      "giovani",
+      "under-36",
+      "esonero",
+      "contributi"
+    ],
     "requirements": [
-      { "field": "hiredYouth", "operator": "eq", "value": "true", "isRequired": true },
-      { "field": "hiredRecently", "operator": "eq", "value": "true", "isRequired": true }
+      {
+        "field": "hiredYouth",
+        "operator": "eq",
+        "value": "true",
+        "isRequired": true
+      },
+      {
+        "field": "hiredRecently",
+        "operator": "eq",
+        "value": "true",
+        "isRequired": true
+      }
     ]
   },
   {
@@ -144,17 +229,36 @@
     "certaintyLevel": "probabile",
     "certaintyNote": "Verificare conferma per il 2025 e requisiti aggiornati",
     "howToClaim": "1. Verificare che la lavoratrice rientri nelle categorie svantaggiate. 2. Effettuare l'assunzione. 3. Presentare domanda all'INPS per l'esonero. 4. Applicare l'esonero nelle denunce contributive.",
-    "requiredDocs": ["Contratto di lavoro", "Documentazione stato di svantaggio", "Domanda INPS", "DID della lavoratrice"],
+    "requiredDocs": [
+      "Contratto di lavoro",
+      "Documentazione stato di svantaggio",
+      "Domanda INPS",
+      "DID della lavoratrice"
+    ],
     "whereToApply": "Portale INPS",
     "legalReference": "Art. 1 comma 16 Legge 178/2020 e Art. 4 commi 8-11 L. 92/2012",
     "officialUrl": "https://www.inps.it",
     "sourceName": "INPS",
-    "validFrom": "2025-01-01",
-    "validUntil": "2025-12-31",
-    "tags": ["assunzioni", "donne", "svantaggiate", "esonero", "parita-genere"],
+    "tags": [
+      "assunzioni",
+      "donne",
+      "svantaggiate",
+      "esonero",
+      "parita-genere"
+    ],
     "requirements": [
-      { "field": "hiredWomen", "operator": "eq", "value": "true", "isRequired": true },
-      { "field": "hiredRecently", "operator": "eq", "value": "true", "isRequired": true }
+      {
+        "field": "hiredWomen",
+        "operator": "eq",
+        "value": "true",
+        "isRequired": true
+      },
+      {
+        "field": "hiredRecently",
+        "operator": "eq",
+        "value": "true",
+        "isRequired": true
+      }
     ]
   },
   {
@@ -171,17 +275,35 @@
     "certaintyLevel": "probabile",
     "certaintyNote": "Soggetta ad autorizzazione UE, verificare conferma annuale",
     "howToClaim": "1. Verificare di avere sede operativa nel Mezzogiorno. 2. Effettuare l'assunzione. 3. L'esonero si applica automaticamente tramite UniEmens. 4. Per esoneri specifici aggiuntivi, presentare domanda INPS.",
-    "requiredDocs": ["Visura camerale", "Contratto di lavoro", "Denunce UniEmens"],
+    "requiredDocs": [
+      "Visura camerale",
+      "Contratto di lavoro",
+      "Denunce UniEmens"
+    ],
     "whereToApply": "Applicazione automatica o portale INPS",
     "legalReference": "Art. 27 DL 104/2020 e successive proroghe",
     "officialUrl": "https://www.inps.it",
     "sourceName": "INPS",
-    "validFrom": "2025-01-01",
-    "validUntil": "2025-12-31",
-    "tags": ["assunzioni", "sud", "mezzogiorno", "decontribuzione", "incentivi"],
+    "tags": [
+      "assunzioni",
+      "sud",
+      "mezzogiorno",
+      "decontribuzione",
+      "incentivi"
+    ],
     "requirements": [
-      { "field": "region", "operator": "in", "value": "abruzzo,basilicata,calabria,campania,molise,puglia,sardegna,sicilia", "isRequired": true },
-      { "field": "hiredRecently", "operator": "eq", "value": "true", "isRequired": true }
+      {
+        "field": "region",
+        "operator": "in",
+        "value": "abruzzo,basilicata,calabria,campania,molise,puglia,sardegna,sicilia",
+        "isRequired": true
+      },
+      {
+        "field": "hiredRecently",
+        "operator": "eq",
+        "value": "true",
+        "isRequired": true
+      }
     ]
   },
   {
@@ -197,16 +319,29 @@
     "certaintyLevel": "certo",
     "certaintyNote": "Disciplina strutturale del D.Lgs. 81/2015",
     "howToClaim": "1. Stipulare un contratto di apprendistato con il lavoratore. 2. Definire il piano formativo individuale. 3. Assicurare la formazione prevista. 4. Comunicare l'assunzione al Centro per l'Impiego. 5. La contribuzione agevolata si applica automaticamente.",
-    "requiredDocs": ["Contratto di apprendistato", "Piano formativo individuale", "Comunicazione obbligatoria al CPI"],
+    "requiredDocs": [
+      "Contratto di apprendistato",
+      "Piano formativo individuale",
+      "Comunicazione obbligatoria al CPI"
+    ],
     "whereToApply": "Centro per l'Impiego (comunicazione) + INPS (contributi)",
     "legalReference": "D.Lgs. 81/2015 artt. 41-47",
     "officialUrl": "https://www.lavoro.gov.it/temi-e-priorità/orientamento-e-formazione/focus-on/apprendistato",
     "sourceName": "Ministero del Lavoro",
-    "validFrom": "2025-01-01",
-    "validUntil": "2025-12-31",
-    "tags": ["apprendistato", "formazione", "giovani", "contributi-agevolati", "assunzioni"],
+    "tags": [
+      "apprendistato",
+      "formazione",
+      "giovani",
+      "contributi-agevolati",
+      "assunzioni"
+    ],
     "requirements": [
-      { "field": "hasApprentices", "operator": "eq", "value": "true", "isRequired": true }
+      {
+        "field": "hasApprentices",
+        "operator": "eq",
+        "value": "true",
+        "isRequired": true
+      }
     ]
   },
   {
@@ -222,16 +357,29 @@
     "certaintyLevel": "certo",
     "certaintyNote": "Regime opzionale quinquennale, disciplina stabile dal D.L. 146/2021",
     "howToClaim": "1. Identificare i beni immateriali qualificati (software, brevetti, design). 2. Individuare e documentare i costi R&S direttamente collegati. 3. Esercitare l'opzione nella dichiarazione dei redditi. 4. Mantenere documentazione idonea per 5 anni.",
-    "requiredDocs": ["Documentazione beni immateriali (brevetti, copyright)", "Contabilità costi R&S qualificati", "Dichiarazione dei redditi con opzione"],
+    "requiredDocs": [
+      "Documentazione beni immateriali (brevetti, copyright)",
+      "Contabilità costi R&S qualificati",
+      "Dichiarazione dei redditi con opzione"
+    ],
     "whereToApply": "Dichiarazione dei redditi",
     "legalReference": "Art. 6 DL 146/2021 convertito in L. 215/2021",
     "officialUrl": "https://www.agenziaentrate.gov.it/portale/web/guest/patent-box",
     "sourceName": "Agenzia delle Entrate",
-    "validFrom": "2025-01-01",
-    "validUntil": "2025-12-31",
-    "tags": ["patent-box", "brevetti", "software", "proprieta-intellettuale", "r&d"],
+    "tags": [
+      "patent-box",
+      "brevetti",
+      "software",
+      "proprieta-intellettuale",
+      "r&d"
+    ],
     "requirements": [
-      { "field": "investsInRD", "operator": "eq", "value": "true", "isRequired": true }
+      {
+        "field": "investsInRD",
+        "operator": "eq",
+        "value": "true",
+        "isRequired": true
+      }
     ]
   },
   {
@@ -248,15 +396,29 @@
     "certaintyLevel": "consiglio",
     "certaintyNote": "Fondi a esaurimento, verificare apertura bandi",
     "howToClaim": "1. Verificare l'apertura del bando sul sito ICE. 2. Presentare domanda online con progetto di internazionalizzazione. 3. Se ammessi, sostenere le spese e richiedere il rimborso. 4. Presentare la rendicontazione delle spese.",
-    "requiredDocs": ["Visura camerale", "Progetto di internazionalizzazione", "Preventivi fornitori", "Fatture per rendicontazione"],
+    "requiredDocs": [
+      "Visura camerale",
+      "Progetto di internazionalizzazione",
+      "Preventivi fornitori",
+      "Fatture per rendicontazione"
+    ],
     "whereToApply": "Piattaforma ICE-Agenzia",
     "officialUrl": "https://www.ice.it/it/servizi-alle-imprese",
     "sourceName": "ICE - Agenzia",
-    "validFrom": "2025-01-01",
-    "validUntil": "2025-12-31",
-    "tags": ["export", "internazionalizzazione", "digitale", "e-commerce", "voucher"],
+    "tags": [
+      "export",
+      "internazionalizzazione",
+      "digitale",
+      "e-commerce",
+      "voucher"
+    ],
     "requirements": [
-      { "field": "employeeCount", "operator": "lte", "value": "50", "isRequired": true }
+      {
+        "field": "employeeCount",
+        "operator": "lte",
+        "value": "50",
+        "isRequired": true
+      }
     ]
   },
   {
@@ -273,17 +435,36 @@
     "certaintyLevel": "certo",
     "certaintyNote": "Disciplina organica dal D.L. 179/2012, misura strutturale",
     "howToClaim": "1. Verificare i requisiti (società di capitali, meno di 5 anni, fatturato < 5M, oggetto sociale innovativo). 2. Iscriversi alla sezione speciale del Registro Imprese tramite la Camera di Commercio. 3. Compilare l'autocertificazione dei requisiti. 4. Le agevolazioni si applicano automaticamente.",
-    "requiredDocs": ["Statuto e atto costitutivo", "Autocertificazione requisiti startup innovativa", "Business plan", "Iscrizione sezione speciale CCIAA"],
+    "requiredDocs": [
+      "Statuto e atto costitutivo",
+      "Autocertificazione requisiti startup innovativa",
+      "Business plan",
+      "Iscrizione sezione speciale CCIAA"
+    ],
     "whereToApply": "Camera di Commercio (Registro Imprese)",
     "legalReference": "D.L. 179/2012 artt. 25-32 convertito in L. 221/2012",
     "officialUrl": "https://startup.registroimprese.it/",
     "sourceName": "MIMIT / InfoCamere",
-    "validFrom": "2025-01-01",
-    "validUntil": "2025-12-31",
-    "tags": ["startup", "innovazione", "registro-speciale", "agevolazioni", "investitori"],
+    "tags": [
+      "startup",
+      "innovazione",
+      "registro-speciale",
+      "agevolazioni",
+      "investitori"
+    ],
     "requirements": [
-      { "field": "legalForm", "operator": "in", "value": "srl,srls,spa,sapa", "isRequired": true },
-      { "field": "foundedYear", "operator": "gte", "value": "2020", "isRequired": true }
+      {
+        "field": "legalForm",
+        "operator": "in",
+        "value": "srl,srls,spa,sapa",
+        "isRequired": true
+      },
+      {
+        "field": "foundedYear",
+        "operator": "gte",
+        "value": "2020",
+        "isRequired": true
+      }
     ]
   },
   {
@@ -300,17 +481,36 @@
     "certaintyLevel": "certo",
     "certaintyNote": "Disciplina stabile dal D.L. 3/2015",
     "howToClaim": "1. Verificare i requisiti (PMI con bilancio certificato e almeno 2 su 3: spese R&S >= 3% ricavi, personale qualificato >= 1/5, brevetti/software). 2. Iscriversi alla sezione speciale del Registro Imprese. 3. Le agevolazioni si attivano automaticamente.",
-    "requiredDocs": ["Bilancio certificato", "Autocertificazione requisiti PMI innovativa", "Documentazione spese R&S", "Visura camerale"],
+    "requiredDocs": [
+      "Bilancio certificato",
+      "Autocertificazione requisiti PMI innovativa",
+      "Documentazione spese R&S",
+      "Visura camerale"
+    ],
     "whereToApply": "Camera di Commercio (Registro Imprese)",
     "legalReference": "D.L. 3/2015 art. 4 convertito in L. 33/2015",
     "officialUrl": "https://startup.registroimprese.it/",
     "sourceName": "MIMIT / InfoCamere",
-    "validFrom": "2025-01-01",
-    "validUntil": "2025-12-31",
-    "tags": ["pmi", "innovazione", "registro-speciale", "investitori", "agevolazioni"],
+    "tags": [
+      "pmi",
+      "innovazione",
+      "registro-speciale",
+      "investitori",
+      "agevolazioni"
+    ],
     "requirements": [
-      { "field": "investsInRD", "operator": "eq", "value": "true", "isRequired": true },
-      { "field": "employeeCount", "operator": "lte", "value": "250", "isRequired": true }
+      {
+        "field": "investsInRD",
+        "operator": "eq",
+        "value": "true",
+        "isRequired": true
+      },
+      {
+        "field": "employeeCount",
+        "operator": "lte",
+        "value": "250",
+        "isRequired": true
+      }
     ]
   },
   {
@@ -327,17 +527,36 @@
     "certaintyLevel": "probabile",
     "certaintyNote": "Verificare le aliquote effettive e la disponibilità di fondi per il 2025",
     "howToClaim": "1. Effettuare investimenti in beni strumentali nella ZES Unica. 2. Presentare comunicazione all'Agenzia delle Entrate con il modello dedicato. 3. Utilizzare il credito d'imposta in compensazione tramite F24.",
-    "requiredDocs": ["Fatture investimenti", "Comunicazione Agenzia delle Entrate", "Visura camerale con sede nel Mezzogiorno", "Dichiarazione de minimis (se applicabile)"],
+    "requiredDocs": [
+      "Fatture investimenti",
+      "Comunicazione Agenzia delle Entrate",
+      "Visura camerale con sede nel Mezzogiorno",
+      "Dichiarazione de minimis (se applicabile)"
+    ],
     "whereToApply": "Agenzia delle Entrate (comunicazione) + compensazione F24",
     "legalReference": "D.L. 124/2023 convertito in L. 162/2023",
     "officialUrl": "https://www.agenziaentrate.gov.it/portale/web/guest/zes-unica",
     "sourceName": "Agenzia delle Entrate / MIMIT",
-    "validFrom": "2025-01-01",
-    "validUntil": "2025-12-31",
-    "tags": ["zes", "mezzogiorno", "sud", "investimenti", "credito-imposta"],
+    "tags": [
+      "zes",
+      "mezzogiorno",
+      "sud",
+      "investimenti",
+      "credito-imposta"
+    ],
     "requirements": [
-      { "field": "region", "operator": "in", "value": "abruzzo,basilicata,calabria,campania,molise,puglia,sardegna,sicilia", "isRequired": true },
-      { "field": "boughtEquipmentRecently", "operator": "eq", "value": "true", "isRequired": true }
+      {
+        "field": "region",
+        "operator": "in",
+        "value": "abruzzo,basilicata,calabria,campania,molise,puglia,sardegna,sicilia",
+        "isRequired": true
+      },
+      {
+        "field": "boughtEquipmentRecently",
+        "operator": "eq",
+        "value": "true",
+        "isRequired": true
+      }
     ]
   },
   {
@@ -352,16 +571,30 @@
     "certaintyLevel": "consiglio",
     "certaintyNote": "Verificare la normativa vigente e le condizioni specifiche dell'operazione",
     "howToClaim": "1. Individuare opportunità di aggregazione (fusione, scissione, conferimento). 2. Verificare la presenza di DTA trasformabili con un consulente fiscale. 3. Deliberare l'operazione straordinaria. 4. Presentare la comunicazione all'Agenzia delle Entrate.",
-    "requiredDocs": ["Bilancio con DTA", "Progetto di fusione/scissione", "Delibere assembleari", "Comunicazione Agenzia delle Entrate"],
+    "requiredDocs": [
+      "Bilancio con DTA",
+      "Progetto di fusione/scissione",
+      "Delibere assembleari",
+      "Comunicazione Agenzia delle Entrate"
+    ],
     "whereToApply": "Agenzia delle Entrate",
     "legalReference": "Art. 1 commi 233-243 Legge 178/2020",
     "officialUrl": "https://www.agenziaentrate.gov.it",
     "sourceName": "Agenzia delle Entrate",
-    "validFrom": "2025-01-01",
-    "validUntil": "2025-12-31",
-    "tags": ["fusione", "acquisizione", "aggregazione", "dta", "operazioni-straordinarie"],
+    "tags": [
+      "fusione",
+      "acquisizione",
+      "aggregazione",
+      "dta",
+      "operazioni-straordinarie"
+    ],
     "requirements": [
-      { "field": "legalForm", "operator": "in", "value": "srl,spa,sapa", "isRequired": true }
+      {
+        "field": "legalForm",
+        "operator": "in",
+        "value": "srl,spa,sapa",
+        "isRequired": true
+      }
     ]
   },
   {
@@ -378,17 +611,35 @@
     "certaintyLevel": "probabile",
     "certaintyNote": "Verificare rifinanziamento e conferma per il 2025",
     "howToClaim": "1. Acquistare beni strumentali nuovi per una sede nel Mezzogiorno. 2. Presentare comunicazione all'Agenzia delle Entrate (modello CIM). 3. Utilizzare il credito d'imposta in compensazione tramite F24.",
-    "requiredDocs": ["Fatture acquisto beni strumentali", "Modello CIM (comunicazione investimenti Mezzogiorno)", "Visura camerale"],
+    "requiredDocs": [
+      "Fatture acquisto beni strumentali",
+      "Modello CIM (comunicazione investimenti Mezzogiorno)",
+      "Visura camerale"
+    ],
     "whereToApply": "Agenzia delle Entrate (comunicazione) + compensazione F24",
     "legalReference": "Art. 1 commi 98-108 Legge 208/2015",
     "officialUrl": "https://www.agenziaentrate.gov.it/portale/web/guest/credito-d-imposta-mezzogiorno",
     "sourceName": "Agenzia delle Entrate",
-    "validFrom": "2025-01-01",
-    "validUntil": "2025-12-31",
-    "tags": ["mezzogiorno", "sud", "investimenti", "credito-imposta", "beni-strumentali"],
+    "tags": [
+      "mezzogiorno",
+      "sud",
+      "investimenti",
+      "credito-imposta",
+      "beni-strumentali"
+    ],
     "requirements": [
-      { "field": "region", "operator": "in", "value": "abruzzo,basilicata,calabria,campania,molise,puglia,sardegna,sicilia", "isRequired": true },
-      { "field": "boughtEquipmentRecently", "operator": "eq", "value": "true", "isRequired": true }
+      {
+        "field": "region",
+        "operator": "in",
+        "value": "abruzzo,basilicata,calabria,campania,molise,puglia,sardegna,sicilia",
+        "isRequired": true
+      },
+      {
+        "field": "boughtEquipmentRecently",
+        "operator": "eq",
+        "value": "true",
+        "isRequired": true
+      }
     ]
   }
 ]

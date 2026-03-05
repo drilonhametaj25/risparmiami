@@ -12,16 +12,35 @@
     "certaintyLevel": "certo",
     "certaintyNote": "Risparmio certo per chi paga un canone, importo variabile",
     "howToClaim": "1. Confrontare i costi del conto attuale con le offerte delle banche online. 2. Aprire il nuovo conto online (procedura telematica in 10-15 minuti). 3. Trasferire l'addebito di stipendio/utenze (servizio di portabilità). 4. Chiudere il vecchio conto (gratuito per legge).",
-    "requiredDocs": ["Documento identità", "Codice fiscale", "Smartphone per identificazione", "IBAN attuale (per trasferimento)"],
+    "requiredDocs": [
+      "Documento identità",
+      "Codice fiscale",
+      "Smartphone per identificazione",
+      "IBAN attuale (per trasferimento)"
+    ],
     "whereToApply": "Siti web delle banche online",
     "officialUrl": "https://www.bancaditalia.it/compiti/vigilanza/normativa/archivio-norme/att-org-vigilanza/provvedimenti/portabilita-conti/index.html",
     "sourceName": "Banca d'Italia",
-    "validFrom": "2025-01-01",
-    "validUntil": "2025-12-31",
-    "tags": ["conto-corrente", "banca-online", "zero-spese", "canone", "risparmio"],
+    "tags": [
+      "conto-corrente",
+      "banca-online",
+      "zero-spese",
+      "canone",
+      "risparmio"
+    ],
     "requirements": [
-      { "field": "estimatedBankCost", "operator": "gte", "value": "50", "isRequired": true },
-      { "field": "accountType", "operator": "eq", "value": "tradizionale", "isRequired": false }
+      {
+        "field": "estimatedBankCost",
+        "operator": "gte",
+        "value": "50",
+        "isRequired": true
+      },
+      {
+        "field": "accountType",
+        "operator": "eq",
+        "value": "tradizionale",
+        "isRequired": false
+      }
     ]
   },
   {
@@ -37,15 +56,26 @@
     "certaintyLevel": "probabile",
     "certaintyNote": "Risparmio dipende dalla carta attuale e dalla disponibilità di alternative",
     "howToClaim": "1. Verificare il canone annuo della propria carta di credito. 2. Confrontare con carte a zero canone disponibili sul mercato. 3. Richiedere alla propria banca la riduzione o eliminazione del canone. 4. In alternativa, richiedere una nuova carta senza canone e disdire quella attuale.",
-    "requiredDocs": ["Estratto conto carta di credito", "Documento identità"],
+    "requiredDocs": [
+      "Estratto conto carta di credito",
+      "Documento identità"
+    ],
     "whereToApply": "Presso la propria banca o emittente della carta",
     "officialUrl": "https://www.bancaditalia.it/compiti/vigilanza/avvisi-pub/index.html",
     "sourceName": "Confronti indipendenti",
-    "validFrom": "2025-01-01",
-    "validUntil": "2025-12-31",
-    "tags": ["carta-credito", "canone", "risparmio", "banca"],
+    "tags": [
+      "carta-credito",
+      "canone",
+      "risparmio",
+      "banca"
+    ],
     "requirements": [
-      { "field": "estimatedBankCost", "operator": "gte", "value": "30", "isRequired": false }
+      {
+        "field": "estimatedBankCost",
+        "operator": "gte",
+        "value": "30",
+        "isRequired": false
+      }
     ]
   },
   {
@@ -60,16 +90,29 @@
     "certaintyLevel": "probabile",
     "certaintyNote": "La banca non è obbligata ad accettare la rinegoziazione",
     "howToClaim": "1. Richiedere un appuntamento con il direttore di filiale. 2. Presentare la richiesta scritta di rinegoziazione. 3. Indicare le condizioni desiderate (riduzione tasso, cambio fisso/variabile). 4. In caso di rifiuto, minacciare la surroga presso altra banca.",
-    "requiredDocs": ["Contratto di mutuo attuale", "Piano di ammortamento", "Ultime buste paga o dichiarazione dei redditi"],
+    "requiredDocs": [
+      "Contratto di mutuo attuale",
+      "Piano di ammortamento",
+      "Ultime buste paga o dichiarazione dei redditi"
+    ],
     "whereToApply": "Presso la propria banca",
     "legalReference": "Art. 120-quater TUB (D.Lgs. 385/1993)",
     "officialUrl": "https://www.bancaditalia.it/compiti/vigilanza/normativa/archivio-norme/att-org-vigilanza/provvedimenti/portabilita-mutui/index.html",
     "sourceName": "Banca d'Italia",
-    "validFrom": "2025-01-01",
-    "validUntil": "2025-12-31",
-    "tags": ["mutuo", "rinegoziazione", "tasso", "risparmio", "banca"],
+    "tags": [
+      "mutuo",
+      "rinegoziazione",
+      "tasso",
+      "risparmio",
+      "banca"
+    ],
     "requirements": [
-      { "field": "hasMortgage", "operator": "eq", "value": "true", "isRequired": true }
+      {
+        "field": "hasMortgage",
+        "operator": "eq",
+        "value": "true",
+        "isRequired": true
+      }
     ]
   },
   {
@@ -84,16 +127,31 @@
     "certaintyLevel": "certo",
     "certaintyNote": "Diritto garantito dalla Legge Bersani, la banca cedente non può opporsi",
     "howToClaim": "1. Confrontare le offerte di surroga di varie banche (online e in filiale). 2. Richiedere un preventivo alla nuova banca scelta. 3. Presentare la documentazione richiesta. 4. La nuova banca gestisce tutta la pratica (istruttoria, notaio, trasferimento). 5. Il passaggio si completa in 30-60 giorni.",
-    "requiredDocs": ["Contratto di mutuo attuale", "Piano di ammortamento residuo", "Nota di iscrizione ipotecaria", "Ultime buste paga o redditi", "Documento identità"],
+    "requiredDocs": [
+      "Contratto di mutuo attuale",
+      "Piano di ammortamento residuo",
+      "Nota di iscrizione ipotecaria",
+      "Ultime buste paga o redditi",
+      "Documento identità"
+    ],
     "whereToApply": "Presso la nuova banca scelta",
     "legalReference": "Art. 8 DL 7/2007 (Legge Bersani) convertito in L. 40/2007",
     "officialUrl": "https://www.bancaditalia.it/compiti/vigilanza/normativa/archivio-norme/att-org-vigilanza/provvedimenti/portabilita-mutui/index.html",
     "sourceName": "Banca d'Italia",
-    "validFrom": "2025-01-01",
-    "validUntil": "2025-12-31",
-    "tags": ["mutuo", "surroga", "portabilita", "bersani", "tasso"],
+    "tags": [
+      "mutuo",
+      "surroga",
+      "portabilita",
+      "bersani",
+      "tasso"
+    ],
     "requirements": [
-      { "field": "hasMortgage", "operator": "eq", "value": "true", "isRequired": true }
+      {
+        "field": "hasMortgage",
+        "operator": "eq",
+        "value": "true",
+        "isRequired": true
+      }
     ]
   },
   {
@@ -108,15 +166,28 @@
     "certaintyLevel": "probabile",
     "certaintyNote": "I rendimenti sono variabili e soggetti alla tassazione del 26% sugli interessi",
     "howToClaim": "1. Confrontare le offerte di conti deposito su siti comparatori. 2. Valutare la durata del vincolo e il tasso offerto. 3. Aprire il conto deposito (spesso procedura online). 4. Trasferire la liquidità desiderata. 5. Gli interessi vengono accreditati alla scadenza o periodicamente.",
-    "requiredDocs": ["Documento identità", "Codice fiscale", "Conto corrente d'appoggio"],
+    "requiredDocs": [
+      "Documento identità",
+      "Codice fiscale",
+      "Conto corrente d'appoggio"
+    ],
     "whereToApply": "Banche che offrono conti deposito (online e tradizionali)",
     "officialUrl": "https://www.fitd.it/",
     "sourceName": "Fondo Interbancario Tutela Depositi",
-    "validFrom": "2025-01-01",
-    "validUntil": "2025-12-31",
-    "tags": ["conto-deposito", "rendimento", "liquidita", "risparmio", "interessi"],
+    "tags": [
+      "conto-deposito",
+      "rendimento",
+      "liquidita",
+      "risparmio",
+      "interessi"
+    ],
     "requirements": [
-      { "field": "incomeRange", "operator": "gte", "value": "15000", "isRequired": false }
+      {
+        "field": "incomeRange",
+        "operator": "gte",
+        "value": "15000",
+        "isRequired": false
+      }
     ]
   },
   {
@@ -132,16 +203,26 @@
     "certaintyLevel": "certo",
     "certaintyNote": "Imposta di bollo regolata dal DPR 642/1972",
     "howToClaim": "1. Verificare la giacenza media del proprio conto corrente. 2. Se supera 5.000 euro, valutare di spostare l'eccedenza su conto deposito o investimenti. 3. Oppure distribuire la liquidita su più conti intestati alla stessa persona (la soglia è per singolo rapporto). 4. L'imposta di bollo viene addebitata automaticamente dalla banca.",
-    "requiredDocs": ["Estratto conto annuale con giacenza media"],
+    "requiredDocs": [
+      "Estratto conto annuale con giacenza media"
+    ],
     "whereToApply": "Gestione autonoma dei propri conti",
     "legalReference": "Art. 13 comma 2-bis DPR 642/1972",
     "officialUrl": "https://www.agenziaentrate.gov.it",
     "sourceName": "Agenzia delle Entrate",
-    "validFrom": "2025-01-01",
-    "validUntil": "2025-12-31",
-    "tags": ["imposta-bollo", "giacenza-media", "conto-corrente", "34-euro"],
+    "tags": [
+      "imposta-bollo",
+      "giacenza-media",
+      "conto-corrente",
+      "34-euro"
+    ],
     "requirements": [
-      { "field": "estimatedBankCost", "operator": "gte", "value": "20", "isRequired": false }
+      {
+        "field": "estimatedBankCost",
+        "operator": "gte",
+        "value": "20",
+        "isRequired": false
+      }
     ]
   },
   {
@@ -157,15 +238,27 @@
     "certaintyLevel": "probabile",
     "certaintyNote": "L'importo del cashback dipende dalla carta e dalla spesa annua",
     "howToClaim": "1. Verificare se la propria carta offre un programma di cashback. 2. Se no, valutare carte con cashback senza canone. 3. Utilizzare la carta per il maggior numero possibile di acquisti. 4. Attivare eventuali promozioni di cashback extra tramite l'app della carta.",
-    "requiredDocs": ["Documento identità (per nuova carta)", "Codice fiscale"],
+    "requiredDocs": [
+      "Documento identità (per nuova carta)",
+      "Codice fiscale"
+    ],
     "whereToApply": "Banche, fintech e circuiti di carte di pagamento",
     "officialUrl": "https://www.bancaditalia.it/compiti/vigilanza/avvisi-pub/index.html",
     "sourceName": "Confronti indipendenti",
-    "validFrom": "2025-01-01",
-    "validUntil": "2025-12-31",
-    "tags": ["cashback", "carta", "rimborso", "pagamenti", "risparmio"],
+    "tags": [
+      "cashback",
+      "carta",
+      "rimborso",
+      "pagamenti",
+      "risparmio"
+    ],
     "requirements": [
-      { "field": "employmentType", "operator": "in", "value": "dipendente,autonomo,pensionato", "isRequired": true }
+      {
+        "field": "employmentType",
+        "operator": "in",
+        "value": "dipendente,autonomo,pensionato",
+        "isRequired": true
+      }
     ]
   },
   {
@@ -181,16 +274,35 @@
     "certaintyLevel": "probabile",
     "certaintyNote": "Il risparmio dipende dal profilo di rischio e dalla compagnia attuale",
     "howToClaim": "1. Raccogliere i dati della propria polizza attuale (classe di merito, massimali, garanzie). 2. Utilizzare Preventivass (IVASS) e comparatori privati per confrontare. 3. Selezionare l'offerta piu conveniente. 4. Alla scadenza, non rinnovare e attivare la nuova polizza.",
-    "requiredDocs": ["Attestato di rischio (scaricabile online)", "Libretto di circolazione", "Documento identità", "Codice fiscale"],
+    "requiredDocs": [
+      "Attestato di rischio (scaricabile online)",
+      "Libretto di circolazione",
+      "Documento identità",
+      "Codice fiscale"
+    ],
     "whereToApply": "Comparatori online o direttamente presso le compagnie",
     "officialUrl": "https://www.preventivass.it/",
     "sourceName": "IVASS",
-    "validFrom": "2025-01-01",
-    "validUntil": "2025-12-31",
-    "tags": ["assicurazione", "rc-auto", "auto", "comparatore", "risparmio"],
+    "tags": [
+      "assicurazione",
+      "rc-auto",
+      "auto",
+      "comparatore",
+      "risparmio"
+    ],
     "requirements": [
-      { "field": "hasInsurance", "operator": "eq", "value": "true", "isRequired": false },
-      { "field": "insuranceTypes", "operator": "contains", "value": "auto", "isRequired": false }
+      {
+        "field": "hasInsurance",
+        "operator": "eq",
+        "value": "true",
+        "isRequired": false
+      },
+      {
+        "field": "insuranceTypes",
+        "operator": "contains",
+        "value": "auto",
+        "isRequired": false
+      }
     ]
   }
 ]

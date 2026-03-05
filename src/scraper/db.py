@@ -142,6 +142,9 @@ def upsert_rule_with_requirements(rule_data: dict):
     if not rule_data.get("certaintyLevel"):
         rule_data["certaintyLevel"] = "probabile"
     rule_data.setdefault("maxAmount", None)
+    rule_data.setdefault("validFrom", None)
+    rule_data.setdefault("validUntil", None)
+    rule_data.setdefault("deadline", None)
 
     conn = get_connection()
     try:
@@ -150,12 +153,14 @@ def upsert_rule_with_requirements(rule_data: dict):
             cur.execute("""
                 INSERT INTO "Rule" (id, slug, name, "shortDescription", "fullDescription",
                     category, target, "maxAmount", "certaintyLevel", "howToClaim",
-                    "requiredDocs", tags, "sourceName", "isActive", "lastVerified",
+                    "requiredDocs", tags, "sourceName", "validFrom", "validUntil",
+                    deadline, "isActive", "lastVerified",
                     version, "createdAt", "updatedAt")
                 VALUES (gen_random_uuid(), %(slug)s, %(name)s, %(shortDescription)s,
                     %(fullDescription)s, %(category)s, %(target)s, %(maxAmount)s,
                     %(certaintyLevel)s, %(howToClaim)s, %(requiredDocs)s, %(tags)s,
-                    %(sourceName)s, true, NOW(), 1, NOW(), NOW())
+                    %(sourceName)s, %(validFrom)s, %(validUntil)s, %(deadline)s,
+                    true, NOW(), 1, NOW(), NOW())
                 ON CONFLICT (slug) DO UPDATE SET
                     name = EXCLUDED.name,
                     "shortDescription" = EXCLUDED."shortDescription",
@@ -166,6 +171,9 @@ def upsert_rule_with_requirements(rule_data: dict):
                     "requiredDocs" = EXCLUDED."requiredDocs",
                     tags = EXCLUDED.tags,
                     "sourceName" = EXCLUDED."sourceName",
+                    "validFrom" = EXCLUDED."validFrom",
+                    "validUntil" = EXCLUDED."validUntil",
+                    deadline = EXCLUDED.deadline,
                     "isActive" = true,
                     "lastVerified" = NOW(),
                     version = "Rule".version + 1,

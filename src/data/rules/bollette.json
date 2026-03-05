@@ -12,16 +12,27 @@
     "certaintyLevel": "certo",
     "certaintyNote": "Bonus automatico dal 2021, applicato direttamente dal fornitore",
     "howToClaim": "1. Presentare la DSU per ottenere l'ISEE in corso di validità. 2. Il bonus viene riconosciuto automaticamente in bolletta dall'INPS/ARERA. 3. Non serve fare domanda specifica. 4. Verificare che lo sconto sia effettivamente applicato in bolletta.",
-    "requiredDocs": ["ISEE in corso di validità"],
+    "requiredDocs": [
+      "ISEE in corso di validità"
+    ],
     "whereToApply": "Automatico con ISEE valido (presentare DSU a CAF/INPS)",
     "legalReference": "D.M. 28 dicembre 2007 e successive modifiche - Delibere ARERA",
     "officialUrl": "https://www.arera.it/it/bonus_sociale.htm",
     "sourceName": "ARERA",
-    "validFrom": "2025-01-01",
-    "validUntil": "2025-12-31",
-    "tags": ["bonus-sociale", "bolletta", "luce", "elettricità", "isee"],
+    "tags": [
+      "bonus-sociale",
+      "bolletta",
+      "luce",
+      "elettricità",
+      "isee"
+    ],
     "requirements": [
-      { "field": "iseeRange", "operator": "lte", "value": "9530", "isRequired": true }
+      {
+        "field": "iseeRange",
+        "operator": "lte",
+        "value": "9530",
+        "isRequired": true
+      }
     ]
   },
   {
@@ -37,17 +48,33 @@
     "certaintyLevel": "certo",
     "certaintyNote": "Bonus automatico, applicato direttamente dal fornitore",
     "howToClaim": "1. Presentare la DSU per ottenere l'ISEE. 2. Lo sconto viene applicato automaticamente in bolletta. 3. Non serve fare domanda specifica.",
-    "requiredDocs": ["ISEE in corso di validità"],
+    "requiredDocs": [
+      "ISEE in corso di validità"
+    ],
     "whereToApply": "Automatico con ISEE valido (presentare DSU a CAF/INPS)",
     "legalReference": "Delibere ARERA - D.M. 28 dicembre 2007",
     "officialUrl": "https://www.arera.it/it/bonus_sociale.htm",
     "sourceName": "ARERA",
-    "validFrom": "2025-01-01",
-    "validUntil": "2025-12-31",
-    "tags": ["bonus-sociale", "bolletta", "gas", "riscaldamento", "isee"],
+    "tags": [
+      "bonus-sociale",
+      "bolletta",
+      "gas",
+      "riscaldamento",
+      "isee"
+    ],
     "requirements": [
-      { "field": "iseeRange", "operator": "lte", "value": "9530", "isRequired": true },
-      { "field": "heatingType", "operator": "eq", "value": "gas", "isRequired": true }
+      {
+        "field": "iseeRange",
+        "operator": "lte",
+        "value": "9530",
+        "isRequired": true
+      },
+      {
+        "field": "heatingType",
+        "operator": "eq",
+        "value": "gas",
+        "isRequired": true
+      }
     ]
   },
   {
@@ -63,15 +90,30 @@
     "certaintyLevel": "probabile",
     "certaintyNote": "Il risparmio effettivo dipende dal fornitore attuale e dall'offerta scelta",
     "howToClaim": "1. Consultare il Portale Offerte ARERA per confrontare le tariffe. 2. Verificare i propri consumi in bolletta (kWh annui). 3. Scegliere l'offerta più conveniente. 4. Contattare il nuovo fornitore e sottoscrivere il contratto. 5. Il passaggio avviene automaticamente senza interruzioni.",
-    "requiredDocs": ["Ultima bolletta elettrica", "Codice POD (punto di prelievo)", "Documento identità", "Codice fiscale", "IBAN per domiciliazione"],
+    "requiredDocs": [
+      "Ultima bolletta elettrica",
+      "Codice POD (punto di prelievo)",
+      "Documento identità",
+      "Codice fiscale",
+      "IBAN per domiciliazione"
+    ],
     "whereToApply": "Portale Offerte ARERA o direttamente presso il nuovo fornitore",
     "officialUrl": "https://www.ilportaleofferte.it/",
     "sourceName": "ARERA",
-    "validFrom": "2025-01-01",
-    "validUntil": "2025-12-31",
-    "tags": ["bolletta", "luce", "mercato-libero", "fornitore", "risparmio"],
+    "tags": [
+      "bolletta",
+      "luce",
+      "mercato-libero",
+      "fornitore",
+      "risparmio"
+    ],
     "requirements": [
-      { "field": "electricityProvider", "operator": "exists", "value": "true", "isRequired": true }
+      {
+        "field": "electricityProvider",
+        "operator": "exists",
+        "value": "true",
+        "isRequired": true
+      }
     ]
   },
   {
@@ -87,16 +129,36 @@
     "certaintyLevel": "probabile",
     "certaintyNote": "Il risparmio dipende dai consumi e dal contratto attuale",
     "howToClaim": "1. Consultare il Portale Offerte ARERA. 2. Verificare i consumi annui in metri cubi dalla bolletta. 3. Confrontare le offerte e scegliere quella più conveniente. 4. Sottoscrivere il nuovo contratto. 5. Il passaggio avviene automaticamente.",
-    "requiredDocs": ["Ultima bolletta gas", "Codice PDR (punto di riconsegna)", "Documento identità", "Codice fiscale", "IBAN per domiciliazione"],
+    "requiredDocs": [
+      "Ultima bolletta gas",
+      "Codice PDR (punto di riconsegna)",
+      "Documento identità",
+      "Codice fiscale",
+      "IBAN per domiciliazione"
+    ],
     "whereToApply": "Portale Offerte ARERA o direttamente presso il nuovo fornitore",
     "officialUrl": "https://www.ilportaleofferte.it/",
     "sourceName": "ARERA",
-    "validFrom": "2025-01-01",
-    "validUntil": "2025-12-31",
-    "tags": ["bolletta", "gas", "mercato-libero", "fornitore", "risparmio"],
+    "tags": [
+      "bolletta",
+      "gas",
+      "mercato-libero",
+      "fornitore",
+      "risparmio"
+    ],
     "requirements": [
-      { "field": "gasProvider", "operator": "exists", "value": "true", "isRequired": true },
-      { "field": "heatingType", "operator": "eq", "value": "gas", "isRequired": true }
+      {
+        "field": "gasProvider",
+        "operator": "exists",
+        "value": "true",
+        "isRequired": true
+      },
+      {
+        "field": "heatingType",
+        "operator": "eq",
+        "value": "gas",
+        "isRequired": true
+      }
     ]
   },
   {
@@ -116,12 +178,26 @@
     "whereToApply": "Interventi autonomi",
     "officialUrl": "https://www.enea.it/it/seguici/le-parole-dellenergia/risparmio-energetico",
     "sourceName": "ENEA",
-    "validFrom": "2025-01-01",
-    "validUntil": "2025-12-31",
-    "tags": ["risparmio-energetico", "bolletta", "efficienza", "led", "termostato"],
+    "tags": [
+      "risparmio-energetico",
+      "bolletta",
+      "efficienza",
+      "led",
+      "termostato"
+    ],
     "requirements": [
-      { "field": "electricityBimonthly", "operator": "gte", "value": "80", "isRequired": false },
-      { "field": "gasBimonthly", "operator": "gte", "value": "80", "isRequired": false }
+      {
+        "field": "electricityBimonthly",
+        "operator": "gte",
+        "value": "80",
+        "isRequired": false
+      },
+      {
+        "field": "gasBimonthly",
+        "operator": "gte",
+        "value": "80",
+        "isRequired": false
+      }
     ]
   },
   {
@@ -138,16 +214,31 @@
     "certaintyLevel": "certo",
     "certaintyNote": "Rientra nel quadro dell'Ecobonus o del Bonus Ristrutturazione",
     "howToClaim": "1. Acquistare un condizionatore a pompa di calore ad alta efficienza. 2. Pagare con bonifico parlante. 3. Inviare comunicazione ENEA entro 90 giorni (per Ecobonus). 4. Indicare nella dichiarazione dei redditi.",
-    "requiredDocs": ["Fattura acquisto e installazione", "Bonifico parlante", "Comunicazione ENEA (per Ecobonus)", "Scheda tecnica prodotto", "Modello 730"],
+    "requiredDocs": [
+      "Fattura acquisto e installazione",
+      "Bonifico parlante",
+      "Comunicazione ENEA (per Ecobonus)",
+      "Scheda tecnica prodotto",
+      "Modello 730"
+    ],
     "whereToApply": "Dichiarazione dei redditi + ENEA",
     "legalReference": "Art. 16-bis TUIR e Art. 1 commi 344-347 L. 296/2006",
     "officialUrl": "https://www.efficienzaenergetica.enea.it/detrazioni-fiscali.html",
     "sourceName": "ENEA / Agenzia delle Entrate",
-    "validFrom": "2025-01-01",
-    "validUntil": "2025-12-31",
-    "tags": ["condizionatore", "pompa-calore", "climatizzazione", "ecobonus", "efficienza"],
+    "tags": [
+      "condizionatore",
+      "pompa-calore",
+      "climatizzazione",
+      "ecobonus",
+      "efficienza"
+    ],
     "requirements": [
-      { "field": "housingType", "operator": "in", "value": "proprieta,affitto", "isRequired": true }
+      {
+        "field": "housingType",
+        "operator": "in",
+        "value": "proprieta,affitto",
+        "isRequired": true
+      }
     ]
   },
   {
@@ -163,15 +254,28 @@
     "certaintyLevel": "consiglio",
     "certaintyNote": "Il risparmio dipende dalle condizioni negoziate e dal numero di partecipanti",
     "howToClaim": "1. Cercare gruppi di acquisto energia nella propria zona o online. 2. Iscriversi alla campagna di acquisto (es. Altroconsumo, associazioni consumatori). 3. Valutare l'offerta proposta dal gruppo. 4. Aderire e sottoscrivere il contratto negoziato.",
-    "requiredDocs": ["Bolletta attuale", "Documento identità", "Codice fiscale"],
+    "requiredDocs": [
+      "Bolletta attuale",
+      "Documento identità",
+      "Codice fiscale"
+    ],
     "whereToApply": "Associazioni consumatori o piattaforme dedicate",
     "officialUrl": "https://www.altroconsumo.it/energia",
     "sourceName": "Altroconsumo",
-    "validFrom": "2025-01-01",
-    "validUntil": "2025-12-31",
-    "tags": ["gruppo-acquisto", "energia", "risparmio", "associazioni", "collettivo"],
+    "tags": [
+      "gruppo-acquisto",
+      "energia",
+      "risparmio",
+      "associazioni",
+      "collettivo"
+    ],
     "requirements": [
-      { "field": "electricityProvider", "operator": "exists", "value": "true", "isRequired": true }
+      {
+        "field": "electricityProvider",
+        "operator": "exists",
+        "value": "true",
+        "isRequired": true
+      }
     ]
   },
   {
@@ -187,15 +291,27 @@
     "certaintyLevel": "probabile",
     "certaintyNote": "Il risparmio dipende dal profilo di consumo individuale",
     "howToClaim": "1. Verificare in bolletta la distribuzione dei consumi per fasce orarie. 2. Confrontare il costo annuo con la tariffa attuale vs. alternativa. 3. Se conveniente, richiedere il cambio tariffa al proprio fornitore (gratuito).",
-    "requiredDocs": ["Bollette ultimi 12 mesi", "Dati consumi per fascia oraria"],
+    "requiredDocs": [
+      "Bollette ultimi 12 mesi",
+      "Dati consumi per fascia oraria"
+    ],
     "whereToApply": "Presso il proprio fornitore energetico",
     "officialUrl": "https://www.arera.it/it/consumatori/ele.htm",
     "sourceName": "ARERA",
-    "validFrom": "2025-01-01",
-    "validUntil": "2025-12-31",
-    "tags": ["tariffa", "bioraria", "multioraria", "fasce-orarie", "bolletta"],
+    "tags": [
+      "tariffa",
+      "bioraria",
+      "multioraria",
+      "fasce-orarie",
+      "bolletta"
+    ],
     "requirements": [
-      { "field": "electricityProvider", "operator": "exists", "value": "true", "isRequired": true }
+      {
+        "field": "electricityProvider",
+        "operator": "exists",
+        "value": "true",
+        "isRequired": true
+      }
     ]
   },
   {
@@ -212,16 +328,31 @@
     "certaintyLevel": "certo",
     "certaintyNote": "Detrazione nell'ambito del Bonus Ristrutturazione 50%",
     "howToClaim": "1. Richiedere preventivi a installatori qualificati. 2. Effettuare l'installazione con professionisti abilitati. 3. Pagare con bonifico parlante. 4. Comunicare al GSE per lo Scambio sul Posto. 5. Indicare la spesa nella dichiarazione dei redditi.",
-    "requiredDocs": ["Fattura installazione", "Bonifico parlante", "Comunicazione al GSE", "Schema impianto", "Modello 730"],
+    "requiredDocs": [
+      "Fattura installazione",
+      "Bonifico parlante",
+      "Comunicazione al GSE",
+      "Schema impianto",
+      "Modello 730"
+    ],
     "whereToApply": "Dichiarazione dei redditi + GSE",
     "legalReference": "Art. 16-bis TUIR",
     "officialUrl": "https://www.gse.it/servizi-per-te/fotovoltaico/scambio-sul-posto",
     "sourceName": "GSE / Agenzia delle Entrate",
-    "validFrom": "2025-01-01",
-    "validUntil": "2025-12-31",
-    "tags": ["fotovoltaico", "pannelli-solari", "energia-solare", "autoconsumo", "ristrutturazione"],
+    "tags": [
+      "fotovoltaico",
+      "pannelli-solari",
+      "energia-solare",
+      "autoconsumo",
+      "ristrutturazione"
+    ],
     "requirements": [
-      { "field": "housingType", "operator": "eq", "value": "proprieta", "isRequired": true }
+      {
+        "field": "housingType",
+        "operator": "eq",
+        "value": "proprieta",
+        "isRequired": true
+      }
     ]
   },
   {
@@ -237,15 +368,27 @@
     "certaintyLevel": "probabile",
     "certaintyNote": "Risparmio stimato da ENEA per sostituzione elettrodomestici obsoleti",
     "howToClaim": "1. Verificare la classe energetica dei propri elettrodomestici. 2. Confrontare il consumo annuo (kWh) con modelli nuovi. 3. Sostituire privilegiando classe A o superiore. 4. Se in corso ristrutturazione, usufruire del Bonus Mobili 50%.",
-    "requiredDocs": ["Etichetta energetica nuovo elettrodomestico", "Fattura acquisto (per eventuale Bonus Mobili)"],
+    "requiredDocs": [
+      "Etichetta energetica nuovo elettrodomestico",
+      "Fattura acquisto (per eventuale Bonus Mobili)"
+    ],
     "whereToApply": "Autonomamente; Bonus Mobili in dichiarazione dei redditi",
     "officialUrl": "https://www.enea.it/it/seguici/le-parole-dellenergia/etichetta-energetica",
     "sourceName": "ENEA",
-    "validFrom": "2025-01-01",
-    "validUntil": "2025-12-31",
-    "tags": ["elettrodomestici", "classe-energetica", "risparmio", "efficienza", "bolletta"],
+    "tags": [
+      "elettrodomestici",
+      "classe-energetica",
+      "risparmio",
+      "efficienza",
+      "bolletta"
+    ],
     "requirements": [
-      { "field": "electricityBimonthly", "operator": "gte", "value": "80", "isRequired": false }
+      {
+        "field": "electricityBimonthly",
+        "operator": "gte",
+        "value": "80",
+        "isRequired": false
+      }
     ]
   }
 ]
