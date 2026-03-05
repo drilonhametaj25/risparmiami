@@ -474,7 +474,7 @@ class NormattivaScraper(BaseScraper):
         """Extract the largest euro amount from text within plausible range.
 
         Searches for patterns like '1000 euro', '1.500,00 euro', etc.
-        Returns the largest value between 100 and 500000, or None.
+        Returns the largest value between 100 and 100000, or None.
         """
         matches = _EURO_PATTERN.findall(text)
         if not matches:
@@ -486,7 +486,7 @@ class NormattivaScraper(BaseScraper):
             cleaned = raw.replace(".", "").replace(",", ".")
             try:
                 value = float(cleaned)
-                if 100 <= value <= 500_000:
+                if 100 <= value <= 100_000:
                     amounts.append(value)
             except ValueError:
                 continue

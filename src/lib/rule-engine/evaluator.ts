@@ -76,9 +76,11 @@ export function evaluateRule(
   );
 
   // Estimate savings (round to 2 decimals for monetary precision)
+  // Cap at €50,000 to prevent inflated scraper values from distorting totals
+  const MAX_ESTIMATED_SAVING = 50_000;
   let estimatedSaving: number | null = null;
   if (rule.maxAmount) {
-    estimatedSaving = rule.maxAmount.toNumber();
+    estimatedSaving = Math.min(rule.maxAmount.toNumber(), MAX_ESTIMATED_SAVING);
     if (rule.percentage) {
       estimatedSaving = Math.round(estimatedSaving * (rule.percentage.toNumber() / 100) * 100) / 100;
     }
@@ -108,6 +110,8 @@ export function evaluateAllRules(
       if (rule.target !== target && rule.target !== "entrambi") return false;
       if (rule.validFrom && new Date(rule.validFrom) > now) return false;
       if (rule.validUntil && new Date(rule.validUntil) < now) return false;
+      // Skip rules with no requirements — they match everyone indiscriminately
+      if (rule.requirements.length === 0) return false;
       return true;
     })
     .map((rule) => evaluateRule(rule, profile))
