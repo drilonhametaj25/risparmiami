@@ -1,5 +1,5 @@
-import { auth } from "@/lib/auth";
 import { NextResponse } from "next/server";
+import type { NextRequest } from "next/server";
 
 const publicRoutes = [
   "/",
@@ -18,7 +18,6 @@ const publicRoutes = [
   "/risparmio-bollette-luce-gas",
 ];
 
-// Routes that start with these prefixes are public
 const publicPrefixes = ["/blog/", "/tools/", "/login/", "/api/auth/", "/api/pdf/", "/api/cron/", "/api/stripe/"];
 
 function isPublicRoute(pathname: string): boolean {
@@ -26,13 +25,18 @@ function isPublicRoute(pathname: string): boolean {
   return publicPrefixes.some((prefix) => pathname.startsWith(prefix));
 }
 
-export default auth((req) => {
+export function middleware(req: NextRequest) {
   const { pathname } = req.nextUrl;
-  const isLoggedIn = !!req.auth;
+
+  // Check for session cookie (NextAuth database sessions)
+  const sessionToken =
+    req.cookies.get("authjs.session-token")?.value ||
+    req.cookies.get("__Secure-authjs.session-token")?.value;
+  const isLoggedIn = !!sessionToken;
 
   // Public routes: allow everyone
   if (isPublicRoute(pathname)) {
-    // If logged in user visits /login, redirect to dashboard
+    // If logged in user visits /login or /registrati, redirect to dashboard
     if (isLoggedIn && (pathname === "/login" || pathname === "/registrati")) {
       return NextResponse.redirect(new URL("/dashboard", req.nextUrl));
     }
@@ -46,33 +50,8 @@ export default auth((req) => {
     return NextResponse.redirect(loginUrl);
   }
 
-  // Post-login: if onboarding not completed, redirect to onboarding
-  // (except if already on onboarding page)
-  if (
-    !pathname.startsWith("/onboarding") &&
-    !pathname.startsWith("/admin") &&
-    !req.auth?.user?.onboardingCompleted
-  ) {
-    return NextResponse.redirect(
-      new URL("/onboarding/personale", req.nextUrl)
-    );
-  }
-
-  // Admin routes: require admin role
-  if (pathname.startsWith("/admin") && req.auth?.user?.role !== "admin") {
-    return NextResponse.redirect(new URL("/dashboard", req.nextUrl));
-  }
-
-  // Dashboard incentivi requires azienda plan
-  if (
-    pathname.startsWith("/dashboard/incentivi") &&
-    req.auth?.user?.currentPlan !== "azienda"
-  ) {
-    return NextResponse.redirect(new URL("/prezzi", req.nextUrl));
-  }
-
   return NextResponse.next();
-});
+}
 
 export const config = {
   matcher: [

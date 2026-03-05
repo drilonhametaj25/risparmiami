@@ -12,6 +12,10 @@ export default async function DashboardLayout({
     redirect("/login");
   }
 
+  if (!session.user.onboardingCompleted) {
+    redirect("/onboarding/personale");
+  }
+
   return (
     <DashboardShell user={session.user}>
       {children}
