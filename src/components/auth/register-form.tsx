@@ -2,49 +2,70 @@
 
 import { useState } from "react";
 import { signIn } from "next-auth/react";
+import { useRouter } from "next/navigation";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
-import { motion } from "framer-motion";
 import { Check } from "lucide-react";
 
 export function RegisterForm() {
+  const router = useRouter();
   const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
+  const [name, setName] = useState("");
   const [loading, setLoading] = useState(false);
-  const [emailSent, setEmailSent] = useState(false);
   const [error, setError] = useState("");
 
-  async function handleEmailRegister(e: React.FormEvent) {
+  async function handleRegister(e: React.FormEvent) {
     e.preventDefault();
     setLoading(true);
     setError("");
+
+    if (password.length < 8) {
+      setError("La password deve avere almeno 8 caratteri.");
+      setLoading(false);
+      return;
+    }
+
+    if (password !== confirmPassword) {
+      setError("Le password non corrispondono.");
+      setLoading(false);
+      return;
+    }
+
     try {
-      await signIn("nodemailer", { email, callbackUrl: "/onboarding/personale" });
-      setEmailSent(true);
+      const res = await fetch("/api/auth/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ email, password, name: name || undefined }),
+      });
+
+      const data = await res.json();
+
+      if (!res.ok) {
+        setError(data.error || "Errore durante la registrazione.");
+        setLoading(false);
+        return;
+      }
+
+      // Auto-login after registration
+      const result = await signIn("credentials", {
+        email,
+        password,
+        redirect: false,
+      });
+
+      if (result?.error) {
+        setError("Account creato. Effettua il login manualmente.");
+        setLoading(false);
+        return;
+      }
+
+      router.push("/onboarding/personale");
     } catch {
       setError("Si è verificato un errore. Riprova tra qualche secondo.");
       setLoading(false);
     }
-  }
-
-  if (emailSent) {
-    return (
-      <motion.div
-        initial={{ opacity: 0, y: 10 }}
-        animate={{ opacity: 1, y: 0 }}
-        className="text-center"
-      >
-        <div className="w-16 h-16 bg-accent-success/10 rounded-full flex items-center justify-center mx-auto mb-4">
-          <svg className="w-8 h-8 text-accent-success" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-          </svg>
-        </div>
-        <h2 className="font-heading text-2xl mb-2">Controlla la tua email</h2>
-        <p className="text-text-secondary">
-          Abbiamo inviato un link di verifica a <strong>{email}</strong>.
-          Clicca sul link nell&apos;email per completare la registrazione.
-        </p>
-      </motion.div>
-    );
   }
 
   return (
@@ -63,8 +84,15 @@ export function RegisterForm() {
         ))}
       </div>
 
-      <form onSubmit={handleEmailRegister}>
-        <div className="mb-4">
+      <form onSubmit={handleRegister}>
+        <div className="space-y-4 mb-4">
+          <Input
+            label="Nome (opzionale)"
+            type="text"
+            placeholder="Il tuo nome"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
+          />
           <Input
             label="Email"
             type="email"
@@ -73,9 +101,27 @@ export function RegisterForm() {
             onChange={(e) => setEmail(e.target.value)}
             required
           />
+          <Input
+            label="Password"
+            type="password"
+            placeholder="Minimo 8 caratteri"
+            value={password}
+            onChange={(e) => setPassword(e.target.value)}
+            required
+            minLength={8}
+          />
+          <Input
+            label="Conferma password"
+            type="password"
+            placeholder="Ripeti la password"
+            value={confirmPassword}
+            onChange={(e) => setConfirmPassword(e.target.value)}
+            required
+            minLength={8}
+          />
         </div>
         <Button type="submit" className="w-full" loading={loading}>
-          Registrati con email
+          Registrati
         </Button>
         {error && (
           <p className="text-sm text-red-600 text-center mt-3">{error}</p>

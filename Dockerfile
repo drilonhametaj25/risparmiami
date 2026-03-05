@@ -46,6 +46,9 @@ COPY --from=builder /app/node_modules/resolve-pkg-maps ./node_modules/resolve-pk
 # Copy nodemailer for NextAuth email provider
 COPY --from=builder /app/node_modules/nodemailer ./node_modules/nodemailer
 
+# Copy bcryptjs for password hashing
+COPY --from=builder /app/node_modules/bcryptjs ./node_modules/bcryptjs
+
 # Copy seed data (JSON rule files) + seed script
 COPY --from=builder /app/src/data ./src/data
 COPY --from=builder /app/package.json ./package.json

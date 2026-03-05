@@ -1,4 +1,5 @@
 import { PrismaClient } from "@prisma/client";
+import bcrypt from "bcryptjs";
 import * as fs from "fs";
 import * as path from "path";
 
@@ -42,15 +43,17 @@ async function main() {
 
   // Create default admin user
   const adminEmail = "info@drilonhametaj.it";
+  const adminHash = bcrypt.hashSync("*Chepalle1#", 12);
   await prisma.user.upsert({
     where: { email: adminEmail },
-    update: { role: "admin" },
+    update: { role: "admin", hashedPassword: adminHash },
     create: {
       email: adminEmail,
       name: "Drilon Hametaj",
       role: "admin",
       currentPlan: "base",
       onboardingCompleted: true,
+      hashedPassword: adminHash,
     },
   });
   console.log(`Admin user created/updated: ${adminEmail}`);

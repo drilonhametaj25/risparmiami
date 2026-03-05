@@ -65,11 +65,17 @@ const CHAPTER_CONFIGS: ChapterConfig[] = [
 
 // ==================== Helper Functions ====================
 
+const CATEGORY_ALIASES: Record<string, string> = {
+  detrazioni: "detrazioni-fiscali",
+  incentivi: "incentivi-imprese",
+};
+
 function groupRulesByCategory(rules: Rule[]): Map<string, Rule[]> {
   const groups = new Map<string, Rule[]>();
 
   for (const rule of rules) {
-    const category = rule.category.toLowerCase();
+    const raw = rule.category.toLowerCase();
+    const category = CATEGORY_ALIASES[raw] || raw;
     const existing = groups.get(category) || [];
     existing.push(rule);
     groups.set(category, existing);

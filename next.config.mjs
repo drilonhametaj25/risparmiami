@@ -2,7 +2,7 @@
 const nextConfig = {
   output: "standalone",
   experimental: {
-    serverComponentsExternalPackages: ["@react-pdf/renderer", "nodemailer"],
+    serverComponentsExternalPackages: ["@react-pdf/renderer", "nodemailer", "bcryptjs"],
   },
   async headers() {
     return [

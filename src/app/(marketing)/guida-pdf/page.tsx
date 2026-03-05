@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import { Container } from "@/components/ui/container";
-import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Check, BookOpen, Download, Shield, Star } from "lucide-react";
-import Link from "next/link";
+import { Check, BookOpen, Shield } from "lucide-react";
+import { BuyPdfButton } from "@/components/pdf/buy-pdf-button";
 
 export const metadata: Metadata = {
   title: "Guida PDF al Risparmio — RisparmiaMi",
@@ -31,12 +30,7 @@ export default function GuidaPdfPage() {
                 <span className="text-text-muted line-through font-money">&euro;39</span>
                 <span className="text-accent-success text-sm font-medium">-51%</span>
               </div>
-              <Button size="lg" asChild>
-                <Link href="/api/stripe/checkout?planId=pdf">
-                  Acquista ora &mdash; &euro;19
-                  <Download className="h-5 w-5 ml-2" />
-                </Link>
-              </Button>
+              <BuyPdfButton label="Acquista ora &mdash; &euro;19" />
               <p className="text-xs text-text-muted mt-3">Download immediato &bull; Pagamento sicuro &bull; Soddisfatto o rimborsato</p>
             </div>
 
@@ -121,11 +115,7 @@ export default function GuidaPdfPage() {
             <p className="text-white/70 mb-8 max-w-lg mx-auto">
               Ogni mese che passa senza agire sono soldi che perdi. Inizia oggi.
             </p>
-            <Button size="lg" asChild>
-              <Link href="/api/stripe/checkout?planId=pdf">
-                Scarica la guida &mdash; &euro;19
-              </Link>
-            </Button>
+            <BuyPdfButton label="Scarica la guida &mdash; &euro;19" showIcon={false} />
           </div>
         </Container>
       </section>
