@@ -43,6 +43,9 @@ COPY --from=builder /app/node_modules/@esbuild ./node_modules/@esbuild
 COPY --from=builder /app/node_modules/get-tsconfig ./node_modules/get-tsconfig
 COPY --from=builder /app/node_modules/resolve-pkg-maps ./node_modules/resolve-pkg-maps
 
+# Copy nodemailer for NextAuth email provider
+COPY --from=builder /app/node_modules/nodemailer ./node_modules/nodemailer
+
 # Copy seed data (JSON rule files) + seed script
 COPY --from=builder /app/src/data ./src/data
 COPY --from=builder /app/package.json ./package.json
