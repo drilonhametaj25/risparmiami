@@ -3,13 +3,16 @@ import { Container } from "@/components/ui/container";
 import { Card } from "@/components/ui/card";
 import { Check, BookOpen, Shield } from "lucide-react";
 import { BuyPdfButton } from "@/components/pdf/buy-pdf-button";
+import { auth } from "@/lib/auth";
 
 export const metadata: Metadata = {
   title: "Guida PDF al Risparmio — RisparmiaMi",
   description: "La guida definitiva per risparmiare in Italia. 80+ pagine di consigli pratici, detrazioni, bonus e strategie per non perdere neanche un euro.",
 };
 
-export default function GuidaPdfPage() {
+export default async function GuidaPdfPage() {
+  const session = await auth();
+  const isLoggedIn = !!session?.user;
   return (
     <>
       {/* Hero */}
@@ -30,7 +33,7 @@ export default function GuidaPdfPage() {
                 <span className="text-text-muted line-through font-money">&euro;39</span>
                 <span className="text-accent-success text-sm font-medium">-51%</span>
               </div>
-              <BuyPdfButton label="Acquista ora &mdash; &euro;19" />
+              <BuyPdfButton label="Acquista ora &mdash; &euro;19" isLoggedIn={isLoggedIn} />
               <p className="text-xs text-text-muted mt-3">Download immediato &bull; Pagamento sicuro &bull; Soddisfatto o rimborsato</p>
             </div>
 
@@ -115,7 +118,7 @@ export default function GuidaPdfPage() {
             <p className="text-white/70 mb-8 max-w-lg mx-auto">
               Ogni mese che passa senza agire sono soldi che perdi. Inizia oggi.
             </p>
-            <BuyPdfButton label="Scarica la guida &mdash; &euro;19" showIcon={false} />
+            <BuyPdfButton label="Scarica la guida &mdash; &euro;19" showIcon={false} isLoggedIn={isLoggedIn} />
           </div>
         </Container>
       </section>
