@@ -15,7 +15,7 @@ logger = logging.getLogger(__name__)
 
 REQUIRED_FIELDS = {"slug", "name", "shortDescription", "category", "target", "certaintyLevel"}
 VALID_OPERATORS = {"eq", "neq", "gt", "gte", "lt", "lte", "in", "not_in", "exists", "between", "contains", "range_overlaps"}
-VALID_CATEGORIES = {"detrazioni", "bonus-inps", "bollette", "banca", "trasporti", "isee", "incentivi"}
+VALID_CATEGORIES = {"detrazioni", "bonus-inps", "bollette", "banca", "trasporti", "isee", "incentivi", "abbonamenti"}
 VALID_TARGETS = {"persona", "azienda", "entrambi"}
 VALID_CERTAINTY = {"certo", "probabile", "consiglio"}
 

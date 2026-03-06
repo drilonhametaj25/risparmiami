@@ -1,0 +1,106 @@
+[
+  {
+    "slug": "audit-abbonamenti-6-10",
+    "name": "Audit abbonamenti: troppe sottoscrizioni attive",
+    "shortDescription": "Con 6-10 abbonamenti attivi, è molto probabile che almeno 1-2 non vengano utilizzati regolarmente. Un audit può farti risparmiare fino a 200€/anno.",
+    "fullDescription": "Studi di settore mostrano che chi ha più di 5 abbonamenti attivi ne utilizza regolarmente solo il 60-70%. Piattaforme di streaming, app fitness, servizi cloud e abbonamenti dimenticati possono sommarsi rapidamente. Ti consigliamo di verificare l'ultimo accesso a ciascun servizio e cancellare quelli inutilizzati. Molti servizi offrono anche la possibilità di sospendere temporaneamente l'abbonamento.",
+    "category": "abbonamenti",
+    "target": "persona",
+    "maxAmount": 200,
+    "certaintyLevel": "consiglio",
+    "certaintyNote": "Il risparmio dipende dai servizi effettivamente inutilizzati",
+    "howToClaim": "1. Controlla la lista dei tuoi abbonamenti attivi (puoi usare la sezione 'I tuoi abbonamenti' qui sopra). 2. Per ogni servizio, verifica l'ultimo accesso. 3. Cancella o sospendi quelli che non usi da più di 30 giorni. 4. Verifica anche gli addebiti su carta di credito per abbonamenti dimenticati.",
+    "requiredDocs": [],
+    "whereToApply": "Direttamente sulle piattaforme dei singoli servizi",
+    "officialUrl": null,
+    "sourceName": "RisparmiaMi",
+    "tags": ["abbonamenti", "streaming", "risparmio"],
+    "requirements": [
+      {
+        "field": "subscriptionCount",
+        "operator": "in",
+        "value": "6-10,10+",
+        "isRequired": true
+      }
+    ]
+  },
+  {
+    "slug": "audit-abbonamenti-10-plus",
+    "name": "Oltre 10 abbonamenti: rischio duplicati e sprechi",
+    "shortDescription": "Con più di 10 abbonamenti attivi, il risparmio potenziale è significativo. Potresti risparmiare fino a 400€/anno eliminando duplicati e servizi inutilizzati.",
+    "fullDescription": "Avere oltre 10 abbonamenti significa spendere facilmente 100-200€ al mese in servizi ricorrenti. È molto comune avere duplicati (es. due servizi di cloud storage, o streaming musicale incluso in un altro abbonamento). Inoltre, molti servizi aumentano silenziosamente i prezzi nel tempo. Ti consigliamo un audit completo e di considerare pacchetti bundle che includono più servizi a prezzo ridotto.",
+    "category": "abbonamenti",
+    "target": "persona",
+    "maxAmount": 400,
+    "certaintyLevel": "probabile",
+    "certaintyNote": "Molto probabile risparmiare con oltre 10 abbonamenti",
+    "howToClaim": "1. Elenca tutti i tuoi abbonamenti con il costo mensile. 2. Identifica duplicati (es. iCloud + Google Drive + Dropbox). 3. Cerca offerte bundle (es. Apple One, Amazon Prime). 4. Cancella servizi inutilizzati e abbonamenti dimenticati. 5. Imposta promemoria per le prove gratuite.",
+    "requiredDocs": [],
+    "whereToApply": "Direttamente sulle piattaforme dei singoli servizi",
+    "officialUrl": null,
+    "sourceName": "RisparmiaMi",
+    "tags": ["abbonamenti", "duplicati", "bundle", "risparmio"],
+    "requirements": [
+      {
+        "field": "subscriptionCount",
+        "operator": "eq",
+        "value": "10+",
+        "isRequired": true
+      }
+    ]
+  },
+  {
+    "slug": "confronto-offerte-bundle",
+    "name": "Valuta offerte bundle per i tuoi abbonamenti",
+    "shortDescription": "Se hai 3-5 abbonamenti, valuta pacchetti tutto-incluso come Apple One, Amazon Prime o bundle operatore. Risparmio stimato: fino a 100€/anno.",
+    "fullDescription": "Molti provider offrono pacchetti che combinano streaming, musica, cloud e altri servizi a un prezzo inferiore rispetto ai singoli abbonamenti. Ad esempio: Apple One (musica + TV + cloud + gaming), Amazon Prime (spedizioni + video + musica + foto), offerte degli operatori telefonici che includono Netflix o DAZN. Confronta il costo dei tuoi abbonamenti singoli con le offerte bundle disponibili.",
+    "category": "abbonamenti",
+    "target": "persona",
+    "maxAmount": 100,
+    "certaintyLevel": "consiglio",
+    "certaintyNote": "Il risparmio dipende dai servizi attualmente sottoscritti",
+    "howToClaim": "1. Elenca i tuoi abbonamenti attuali con i costi. 2. Verifica se il tuo operatore telefonico offre bundle con streaming. 3. Confronta Apple One, Amazon Prime e altri pacchetti. 4. Calcola il risparmio annuo passando a un bundle.",
+    "requiredDocs": [],
+    "whereToApply": "Siti dei vari provider (Apple, Amazon, operatori telefonici)",
+    "officialUrl": null,
+    "sourceName": "RisparmiaMi",
+    "tags": ["abbonamenti", "bundle", "confronto"],
+    "requirements": [
+      {
+        "field": "subscriptionCount",
+        "operator": "in",
+        "value": "3-5,6-10,10+",
+        "isRequired": true
+      }
+    ]
+  },
+  {
+    "slug": "diritto-recesso-abbonamenti",
+    "name": "Diritto di recesso: 14 giorni per ripensarci",
+    "shortDescription": "Per ogni nuovo abbonamento online hai 14 giorni per recedere senza costi. Usa questo diritto per testare i servizi senza rischi.",
+    "fullDescription": "Il Codice del Consumo (D.Lgs. 206/2005) garantisce 14 giorni di diritto di recesso per gli acquisti online, inclusi gli abbonamenti digitali. Questo significa che puoi attivare un servizio, testarlo, e se non ti soddisfa, recedere entro 14 giorni ottenendo il rimborso completo. Attenzione: il diritto decade se inizi a fruire del contenuto digitale (es. guardi un film su una piattaforma).",
+    "category": "abbonamenti",
+    "target": "persona",
+    "maxAmount": null,
+    "certaintyLevel": "certo",
+    "certaintyNote": "Diritto garantito dal Codice del Consumo",
+    "howToClaim": "1. Attiva il nuovo abbonamento. 2. Testa il servizio nei primi 14 giorni. 3. Se non soddisfatto, esercita il diritto di recesso prima della scadenza. 4. Invia comunicazione scritta al fornitore (email PEC o raccomandata). 5. Il rimborso deve avvenire entro 14 giorni dal recesso.",
+    "requiredDocs": [
+      "Conferma di attivazione dell'abbonamento",
+      "Comunicazione di recesso (email o PEC)"
+    ],
+    "whereToApply": "Direttamente al fornitore del servizio",
+    "legalReference": "D.Lgs. 206/2005, artt. 52-59 (Codice del Consumo)",
+    "officialUrl": null,
+    "sourceName": "RisparmiaMi",
+    "tags": ["abbonamenti", "diritto-recesso", "consumatore"],
+    "requirements": [
+      {
+        "field": "subscriptionCount",
+        "operator": "in",
+        "value": "0-2,3-5,6-10,10+",
+        "isRequired": true
+      }
+    ]
+  }
+]

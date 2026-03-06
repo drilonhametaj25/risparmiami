@@ -36,12 +36,10 @@ const PLANS = [
     features: [
       "Tutto del PDF",
       "Dashboard personalizzata",
-      "Report su misura",
-      "Alert scadenze e nuovi bonus",
-      "Tracking risparmi ottenuti",
-      "Analisi bollette",
-      "Checklist abbonamenti interattiva",
-      "Aggiornamenti in tempo reale",
+      "Tutti i risultati per categoria",
+      "Tracciamento bollette e abbonamenti",
+      "Suggerimenti su misura",
+      "Aggiornamento profilo illimitato",
     ],
   },
   {
@@ -55,10 +53,9 @@ const PLANS = [
     features: [
       "Tutto del Personale",
       "Crediti d'imposta e incentivi",
-      "Monitor bandi regionali e nazionali",
+      "Profilo aziendale completo",
       "Incentivi assunzione",
-      "Calendario fiscale personalizzato",
-      "Export per il commercialista",
+      "Matching regole impresa",
     ],
   },
 ];

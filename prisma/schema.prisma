@@ -31,6 +31,8 @@ model User {
   actions         UserAction[]
   subscription    Subscription?
   pdfPurchases    PdfPurchase[]
+  subscriptions   UserSubscription[]
+  expenses        UserExpense[]
 
   @@index([currentPlan])
 }
@@ -265,6 +267,43 @@ model UserAction {
   updatedAt   DateTime @updatedAt
 
   @@index([userId])
+}
+
+// ==================== DATI DETTAGLIATI UTENTE ====================
+
+model UserSubscription {
+  id          String   @id @default(cuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  name        String
+  category    String   // streaming, music, news, fitness, cloud, gaming, other
+  monthlyCost Decimal
+  isActive    Boolean  @default(true)
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([userId])
+}
+
+model UserExpense {
+  id          String   @id @default(cuid())
+  userId      String
+  user        User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  category    String   // electricity, gas, water, internet, phone, transport, school, medical, daycare
+  description String?
+  month       Int      // 1-12
+  year        Int
+  amount      Decimal
+  provider    String?
+
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@index([userId])
+  @@index([userId, category])
 }
 
 // ==================== STRIPE / PAGAMENTI ====================

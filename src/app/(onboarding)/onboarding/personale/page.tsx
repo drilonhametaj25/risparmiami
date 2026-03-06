@@ -12,11 +12,6 @@ export default async function OnboardingPage() {
   const session = await auth();
   if (!session?.user?.id) redirect("/login");
 
-  // If already completed, redirect to dashboard
-  if (session.user.onboardingCompleted) {
-    redirect("/dashboard");
-  }
-
   const profile = await prisma.userProfile.findUnique({
     where: { userId: session.user.id },
   });

@@ -66,7 +66,11 @@ export function CategoryPageLayout({
         </div>
       </Card>
 
+      {/* Extra content (data trackers, banners) */}
+      {children && <div className="mb-6">{children}</div>}
+
       {/* Matches list */}
+      <h3 className="font-medium text-text-primary mb-3">Suggerimenti</h3>
       <div className="space-y-3">
         {matches.length === 0 ? (
           <Card padding="lg" className="text-center">
@@ -140,9 +144,6 @@ export function CategoryPageLayout({
           ))
         )}
       </div>
-
-      {/* Extra content (e.g. upgrade banner) */}
-      {children}
     </div>
   );
 }

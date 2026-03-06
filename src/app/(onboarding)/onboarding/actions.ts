@@ -13,8 +13,16 @@ import {
   step5Schema,
   step6Schema,
 } from "@/lib/validations/onboarding";
+import {
+  companyStep1Schema,
+  companyStep2Schema,
+  companyStep3Schema,
+  companyStep4Schema,
+  companyStep5Schema,
+} from "@/lib/validations/company-onboarding";
 
 const stepSchemas = [step1Schema, step2Schema, step3Schema, step4Schema, step5Schema, step6Schema];
+const companyStepSchemas = [companyStep1Schema, companyStep2Schema, companyStep3Schema, companyStep4Schema, companyStep5Schema];
 
 export async function saveOnboardingStep(step: number, data: Record<string, unknown>) {
   const session = await auth();
@@ -55,6 +63,48 @@ export async function completeOnboarding() {
   });
 
   // Compute matches based on user profile
+  await computeMatchesForUser(session.user.id);
+
+  revalidatePath("/dashboard");
+  redirect("/dashboard");
+}
+
+export async function saveCompanyOnboardingStep(step: number, data: Record<string, unknown>) {
+  const session = await auth();
+  if (!session?.user?.id) throw new Error("Non autenticato");
+
+  const schema = companyStepSchemas[step];
+  const validated = schema ? schema.parse(data) : data;
+
+  await prisma.companyProfile.upsert({
+    where: { userId: session.user.id },
+    create: {
+      userId: session.user.id,
+      ...validated,
+    },
+    update: {
+      ...validated,
+    },
+  });
+
+  revalidatePath("/onboarding/azienda");
+}
+
+export async function completeCompanyOnboarding() {
+  const session = await auth();
+  if (!session?.user?.id) throw new Error("Non autenticato");
+
+  await prisma.companyProfile.update({
+    where: { userId: session.user.id },
+    data: { onboardingCompleted: true },
+  });
+
+  await prisma.user.update({
+    where: { id: session.user.id },
+    data: { onboardingCompleted: true },
+  });
+
+  // Compute matches based on company profile
   await computeMatchesForUser(session.user.id);
 
   revalidatePath("/dashboard");
