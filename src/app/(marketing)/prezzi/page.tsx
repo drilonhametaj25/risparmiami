@@ -215,6 +215,22 @@ export default function PrezziPage() {
               Inizia gratis. Upgrade quando vuoi. Cancella quando vuoi.
               Nessun costo nascosto, nessun vincolo.
             </p>
+
+            {/* Social proof */}
+            <div className="flex flex-wrap justify-center gap-8 mt-8 text-sm text-text-secondary">
+              <div className="flex items-center gap-2">
+                <span className="font-money font-bold text-text-primary text-lg">153+</span>
+                <span>regole di risparmio</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="font-money font-bold text-text-primary text-lg">9</span>
+                <span>categorie analizzate</span>
+              </div>
+              <div className="flex items-center gap-2">
+                <span className="font-money font-bold text-text-primary text-lg">&euro;3.000+</span>
+                <span>risparmio medio stimato</span>
+              </div>
+            </div>
           </div>
         </Container>
       </section>

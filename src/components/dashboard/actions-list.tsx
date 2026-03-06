@@ -1,11 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
 import { ChevronDown, ExternalLink, FileText, Calendar, CheckCircle2, Lock } from "lucide-react";
+import { useToast } from "@/components/ui/toast";
 
 type ActionStatus = "all" | "pending" | "completed" | "not_applicable";
 
@@ -39,33 +40,49 @@ export function ActionsList({ actions }: ActionsListProps) {
   const [expandedId, setExpandedId] = useState<string | null>(null);
   const [completingId, setCompletingId] = useState<string | null>(null);
   const [savingsInput, setSavingsInput] = useState("");
+  const [localActions, setLocalActions] = useState(actions);
+  const { showToast } = useToast();
+
+  useEffect(() => { setLocalActions(actions); }, [actions]);
 
   const filtered = filter === "all"
-    ? actions
-    : actions.filter((a) => a.status === filter);
+    ? localActions
+    : localActions.filter((a) => a.status === filter);
 
-  const pendingCount = actions.filter((a) => a.status === "pending").length;
-  const completedCount = actions.filter((a) => a.status === "completed").length;
-  const totalSavings = actions.reduce((s, a) => s + a.estimatedSaving, 0);
-  const completedSavings = actions
+  const pendingCount = localActions.filter((a) => a.status === "pending").length;
+  const completedCount = localActions.filter((a) => a.status === "completed").length;
+  const totalSavings = localActions.reduce((s, a) => s + a.estimatedSaving, 0);
+  const completedSavings = localActions
     .filter((a) => a.status === "completed")
     .reduce((s, a) => s + a.estimatedSaving, 0);
 
   const tabs: { label: string; value: ActionStatus; count: number }[] = [
-    { label: "Tutte", value: "all", count: actions.length },
+    { label: "Tutte", value: "all", count: localActions.length },
     { label: "Da fare", value: "pending", count: pendingCount },
     { label: "Completate", value: "completed", count: completedCount },
   ];
 
   async function markComplete(matchId: string, actualSaving?: number) {
-    await fetch(`/api/matches/${matchId}/complete`, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ ...(actualSaving !== undefined ? { actualSaving } : {}) }),
-    });
-    setCompletingId(null);
-    setSavingsInput("");
-    window.location.reload();
+    try {
+      const res = await fetch(`/api/matches/${matchId}/complete`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ ...(actualSaving !== undefined ? { actualSaving } : {}) }),
+      });
+      if (!res.ok) throw new Error();
+
+      // Optimistic update
+      setLocalActions((prev) =>
+        prev.map((a) =>
+          a.id === matchId ? { ...a, status: "completed", completedAt: new Date().toISOString() } : a
+        )
+      );
+      setCompletingId(null);
+      setSavingsInput("");
+      showToast("Azione completata!");
+    } catch {
+      showToast("Errore nel salvataggio", "error");
+    }
   }
 
   return (
@@ -74,7 +91,7 @@ export function ActionsList({ actions }: ActionsListProps) {
       <Card padding="md" className="mb-6">
         <div className="flex items-center justify-between text-sm mb-2">
           <span className="text-text-secondary">
-            {completedCount} di {actions.length} azioni completate
+            {completedCount} di {localActions.length} azioni completate
           </span>
           <span className="font-money font-medium">
             €{completedSavings.toLocaleString("it-IT")} / €{totalSavings.toLocaleString("it-IT")}
@@ -83,7 +100,7 @@ export function ActionsList({ actions }: ActionsListProps) {
         <div className="w-full bg-bg-secondary rounded-full h-2">
           <div
             className="bg-accent-success h-2 rounded-full transition-all"
-            style={{ width: `${actions.length > 0 ? (completedCount / actions.length) * 100 : 0}%` }}
+            style={{ width: `${localActions.length > 0 ? (completedCount / localActions.length) * 100 : 0}%` }}
           />
         </div>
       </Card>

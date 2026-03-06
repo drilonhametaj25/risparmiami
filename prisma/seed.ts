@@ -43,7 +43,11 @@ async function main() {
 
   // Create default admin user
   const adminEmail = "info@drilonhametaj.it";
-  const adminHash = bcrypt.hashSync("*Chepalle1#", 12);
+  const adminPassword = process.env.ADMIN_PASSWORD;
+  if (!adminPassword) {
+    console.warn("WARNING: ADMIN_PASSWORD env var not set, using default. Change this in production!");
+  }
+  const adminHash = bcrypt.hashSync(adminPassword || "changeme-in-production", 12);
   await prisma.user.upsert({
     where: { email: adminEmail },
     update: { role: "admin", hashedPassword: adminHash },

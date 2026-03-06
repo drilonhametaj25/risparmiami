@@ -1,6 +1,7 @@
 import { auth } from "@/lib/auth";
 import { redirect } from "next/navigation";
 import { DashboardShell } from "@/components/dashboard/dashboard-shell";
+import { ToastProvider } from "@/components/ui/toast";
 
 export default async function DashboardLayout({
   children,
@@ -18,7 +19,9 @@ export default async function DashboardLayout({
 
   return (
     <DashboardShell user={session.user}>
-      {children}
+      <ToastProvider>
+        {children}
+      </ToastProvider>
     </DashboardShell>
   );
 }

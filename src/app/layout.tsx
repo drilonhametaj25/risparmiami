@@ -12,9 +12,19 @@ export const metadata: Metadata = {
   description:
     "Detrazioni non sfruttate, bonus mai richiesti, bollette troppo care. Gli italiani perdono in media 2.000-3.000 euro l'anno. Scopri il tuo risparmio in 2 minuti.",
   openGraph: {
-    siteName: "RisparmiaMi",
-    locale: "it_IT",
     type: "website",
+    locale: "it_IT",
+    url: "https://risparmiami.pro",
+    siteName: "RisparmiaMi",
+    title: "RisparmiaMi — Scopri quanto stai perdendo ogni anno",
+    description: "Analisi personalizzata gratuita: detrazioni, bonus, bollette, ISEE. Scopri subito quanto puoi risparmiare.",
+    images: [{ url: "https://risparmiami.pro/og-image.png", width: 1200, height: 630, alt: "RisparmiaMi" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "RisparmiaMi — Scopri quanto stai perdendo ogni anno",
+    description: "Analisi personalizzata gratuita: detrazioni, bonus, bollette, ISEE.",
+    images: ["https://risparmiami.pro/og-image.png"],
   },
 };
 

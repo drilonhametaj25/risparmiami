@@ -57,6 +57,16 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
     notFound();
   }
 
+  const allPosts = getAllPosts();
+  const relatedPosts = allPosts
+    .filter((p) => p.slug !== post.slug)
+    .filter(
+      (p) =>
+        p.category === post.category ||
+        p.tags?.some((t) => post.tags?.includes(t))
+    )
+    .slice(0, 3);
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "BlogPosting",
@@ -114,6 +124,39 @@ export default async function BlogPostPage({ params }: BlogPostPageProps) {
               prose-blockquote:border-accent-primary prose-blockquote:text-text-secondary"
             dangerouslySetInnerHTML={{ __html: post.content }}
           />
+
+          {/* CTA */}
+          <section className="mt-12 p-8 bg-bg-secondary rounded-lg text-center">
+            <h3 className="font-heading text-xl mb-3">Scopri quanto puoi risparmiare</h3>
+            <p className="text-text-secondary mb-6 max-w-md mx-auto">
+              Il nostro tool gratuito analizza la tua situazione e ti mostra tutte le opportunità di risparmio disponibili.
+            </p>
+            <a href="/tools/calcola-risparmio" className="inline-block bg-accent-primary text-white px-6 py-3 rounded-sm font-medium hover:bg-accent-primary/90 transition-colors">
+              Calcola il tuo risparmio gratuito
+            </a>
+          </section>
+
+          {/* Articoli correlati */}
+          {relatedPosts.length > 0 && (
+            <section className="mt-12 pt-8 border-t border-border-light">
+              <h3 className="font-heading text-xl mb-6">Articoli correlati</h3>
+              <div className="grid md:grid-cols-3 gap-4">
+                {relatedPosts.map((relPost) => (
+                  <Link key={relPost.slug} href={`/blog/${relPost.slug}`} className="group">
+                    <div className="p-4 rounded-lg border border-border-light hover:border-accent-primary/30 transition-colors">
+                      <p className="text-xs text-accent-primary font-medium mb-1">
+                        {categoryLabels[relPost.category]}
+                      </p>
+                      <h4 className="font-medium text-sm group-hover:text-accent-primary transition-colors mb-2">
+                        {relPost.title}
+                      </h4>
+                      <p className="text-xs text-text-muted">{relPost.excerpt}</p>
+                    </div>
+                  </Link>
+                ))}
+              </div>
+            </section>
+          )}
         </article>
       </Container>
 

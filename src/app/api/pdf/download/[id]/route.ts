@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
+import { auth } from "@/lib/auth";
 import fs from "fs/promises";
 import path from "path";
 
@@ -19,6 +20,12 @@ export async function GET(
         { error: "Purchase not found" },
         { status: 404 }
       );
+    }
+
+    // Ownership check — if purchase has a userId, verify the requester owns it
+    const session = await auth();
+    if (purchase.userId && (!session?.user?.id || session.user.id !== purchase.userId)) {
+      return NextResponse.json({ error: "Non autorizzato" }, { status: 403 });
     }
 
     if (purchase.downloadCount >= purchase.maxDownloads) {

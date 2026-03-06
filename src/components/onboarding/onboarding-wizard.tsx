@@ -65,14 +65,20 @@ export function OnboardingWizard({ initialData = {}, currentStep = 0 }: Onboardi
         <h2 className="font-heading text-2xl mt-1">{stepTitles[step]}</h2>
       </div>
 
-      {/* Progress bar */}
-      <div className="w-full bg-bg-secondary rounded-full h-1.5 mb-8">
-        <motion.div
-          className="bg-accent-primary h-1.5 rounded-full"
-          initial={{ width: 0 }}
-          animate={{ width: `${progress}%` }}
-          transition={{ duration: 0.3 }}
-        />
+      {/* Progress indicator */}
+      <div className="mb-8">
+        <div className="flex justify-between text-sm text-text-secondary mb-2">
+          <span>Step {step + 1} di {TOTAL_STEPS}</span>
+          <span>{Math.round(progress)}%</span>
+        </div>
+        <div className="w-full bg-bg-secondary rounded-full h-2">
+          <motion.div
+            className="bg-accent-primary h-2 rounded-full"
+            initial={{ width: 0 }}
+            animate={{ width: `${progress}%` }}
+            transition={{ duration: 0.3 }}
+          />
+        </div>
       </div>
 
       <AnimatePresence mode="wait">
