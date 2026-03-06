@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { instrumentSerif, bodyFont, jetbrainsMono } from "./fonts";
 import "./globals.css";
 
@@ -29,6 +30,14 @@ export default function RootLayout({
     >
       <body className="font-body bg-bg-primary text-text-primary antialiased">
         {children}
+        {process.env.NEXT_PUBLIC_UMAMI_URL && (
+          <Script
+            async
+            src={`${process.env.NEXT_PUBLIC_UMAMI_URL}/script.js`}
+            data-website-id={process.env.NEXT_PUBLIC_UMAMI_WEBSITE_ID}
+            strategy="afterInteractive"
+          />
+        )}
       </body>
     </html>
   );

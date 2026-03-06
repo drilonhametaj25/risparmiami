@@ -53,6 +53,11 @@ export async function GET(req: NextRequest) {
       },
     });
 
+    const thirtyDaysAgo = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000);
+    const newRulesCount = await prisma.rule.count({
+      where: { isActive: true, createdAt: { gte: thirtyDaysAgo } },
+    });
+
     let sent = 0;
 
     for (const user of users) {
@@ -76,7 +81,7 @@ export async function GET(req: NextRequest) {
       const html = monthlyReportEmail({
         name: user.name || undefined,
         totalSavings,
-        newRules: 0,
+        newRules: newRulesCount,
         completedActions,
         pendingActions,
         upcomingDeadlines,

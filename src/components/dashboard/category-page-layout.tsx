@@ -4,7 +4,7 @@ import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { ChevronDown, ExternalLink, FileText } from "lucide-react";
+import { ChevronDown, ExternalLink, FileText, Lock } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 interface RuleMatch {
@@ -12,11 +12,12 @@ interface RuleMatch {
   status: string;
   estimatedSaving: number;
   certainty: string;
+  locked?: boolean;
   rule: {
     name: string;
     shortDescription: string;
-    fullDescription: string;
-    howToClaim: string;
+    fullDescription: string | null;
+    howToClaim: string | null;
     requiredDocs: string[];
     whereToApply: string | null;
     officialUrl: string | null;
@@ -112,29 +113,52 @@ export function CategoryPageLayout({
                     className="overflow-hidden"
                   >
                     <div className="pt-4 mt-4 border-t border-border-light space-y-4">
-                      <p className="text-sm text-text-secondary">{match.rule.fullDescription}</p>
-                      <div className="bg-bg-secondary rounded-sm p-4">
-                        <h4 className="font-medium text-sm mb-1">Come richiederlo</h4>
-                        <p className="text-sm text-text-secondary">{match.rule.howToClaim}</p>
-                      </div>
-                      {match.rule.requiredDocs.length > 0 && (
-                        <div>
-                          <h4 className="font-medium text-sm mb-1 flex items-center gap-1">
-                            <FileText className="h-4 w-4" /> Documenti necessari
-                          </h4>
-                          <ul className="text-sm text-text-secondary space-y-1">
-                            {match.rule.requiredDocs.map((doc, i) => (
-                              <li key={i}>&bull; {doc}</li>
-                            ))}
-                          </ul>
+                      {match.locked ? (
+                        <div className="relative">
+                          <div className="filter blur-sm select-none pointer-events-none">
+                            <p className="text-sm text-text-secondary">Scopri come richiedere questo beneficio e quanto potresti risparmiare con istruzioni dettagliate passo-passo...</p>
+                            <div className="bg-bg-secondary rounded-sm p-4 mt-3">
+                              <p className="text-sm">Come richiederlo: istruzioni dettagliate disponibili...</p>
+                            </div>
+                          </div>
+                          <div className="absolute inset-0 flex items-center justify-center bg-white/60 rounded-md">
+                            <div className="text-center p-4">
+                              <Lock className="h-6 w-6 text-accent-primary mx-auto mb-2" />
+                              <p className="font-medium text-sm mb-2">Sblocca le istruzioni</p>
+                              <p className="text-xs text-text-secondary mb-3">Passa al piano Personale per vedere come richiedere questo beneficio</p>
+                              <Button size="sm" asChild>
+                                <a href="/prezzi">Prova gratis 7 giorni</a>
+                              </Button>
+                            </div>
+                          </div>
                         </div>
-                      )}
-                      {match.rule.officialUrl && (
-                        <Button size="sm" variant="secondary" asChild>
-                          <a href={match.rule.officialUrl} target="_blank" rel="noopener noreferrer">
-                            Sito ufficiale <ExternalLink className="h-3 w-3 ml-1" />
-                          </a>
-                        </Button>
+                      ) : (
+                        <>
+                          <p className="text-sm text-text-secondary">{match.rule.fullDescription}</p>
+                          <div className="bg-bg-secondary rounded-sm p-4">
+                            <h4 className="font-medium text-sm mb-1">Come richiederlo</h4>
+                            <p className="text-sm text-text-secondary">{match.rule.howToClaim}</p>
+                          </div>
+                          {match.rule.requiredDocs.length > 0 && (
+                            <div>
+                              <h4 className="font-medium text-sm mb-1 flex items-center gap-1">
+                                <FileText className="h-4 w-4" /> Documenti necessari
+                              </h4>
+                              <ul className="text-sm text-text-secondary space-y-1">
+                                {match.rule.requiredDocs.map((doc, i) => (
+                                  <li key={i}>&bull; {doc}</li>
+                                ))}
+                              </ul>
+                            </div>
+                          )}
+                          {match.rule.officialUrl && (
+                            <Button size="sm" variant="secondary" asChild>
+                              <a href={match.rule.officialUrl} target="_blank" rel="noopener noreferrer">
+                                Sito ufficiale <ExternalLink className="h-3 w-3 ml-1" />
+                              </a>
+                            </Button>
+                          )}
+                        </>
                       )}
                     </div>
                   </motion.div>

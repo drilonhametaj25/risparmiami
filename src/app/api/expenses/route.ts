@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 import { z } from "zod";
 
 const createSchema = z.object({
-  category: z.enum(["electricity", "gas", "water", "internet", "phone", "transport", "school", "medical", "daycare"]),
+  category: z.enum(["electricity", "gas", "water", "internet", "phone", "transport", "school", "medical", "daycare", "bank_canone", "bank_commissioni", "bank_bollo", "bank_carta"]),
   description: z.string().optional(),
   month: z.number().min(1).max(12),
   year: z.number().min(2020).max(2030),

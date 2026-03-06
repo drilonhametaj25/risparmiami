@@ -47,7 +47,7 @@ export function UpgradeBanner({ totalMatches, visibleMatches }: UpgradeBannerPro
         Passa al piano Personale per sbloccare tutte le opportunità di risparmio personalizzate.
         Prova gratis per 7 giorni.
       </p>
-      <Button onClick={handleUpgrade} loading={loading}>
+      <Button onClick={handleUpgrade} loading={loading} data-umami-event="upgrade-click">
         Sblocca tutto &mdash; Prova gratis 7 giorni
         <ArrowUpRight className="h-4 w-4 ml-1" />
       </Button>

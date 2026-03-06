@@ -1,8 +1,6 @@
 import { prisma } from "@/lib/prisma";
 
-const FREE_MATCH_LIMIT = 3;
-
-export async function getCategoryMatches(userId: string, category: string, limit?: number) {
+export async function getCategoryMatches(userId: string, category: string, isFree: boolean = false) {
   const matches = await prisma.userMatch.findMany({
     where: {
       userId,
@@ -17,25 +15,22 @@ export async function getCategoryMatches(userId: string, category: string, limit
     status: m.status,
     estimatedSaving: m.estimatedSaving ? Number(m.estimatedSaving) : 0,
     certainty: m.certainty,
+    locked: isFree,
     rule: {
       name: m.rule.name,
       shortDescription: m.rule.shortDescription,
-      fullDescription: m.rule.fullDescription,
-      howToClaim: m.rule.howToClaim,
-      requiredDocs: m.rule.requiredDocs,
-      whereToApply: m.rule.whereToApply,
-      officialUrl: m.rule.officialUrl,
+      fullDescription: isFree ? null : m.rule.fullDescription,
+      howToClaim: isFree ? null : m.rule.howToClaim,
+      requiredDocs: isFree ? [] : m.rule.requiredDocs,
+      whereToApply: isFree ? null : m.rule.whereToApply,
+      officialUrl: isFree ? null : m.rule.officialUrl,
       deadline: m.rule.deadline?.toISOString() || null,
     },
   }));
 
   return {
-    matches: limit ? serialized.slice(0, limit) : serialized,
+    matches: serialized,
     totalCount: serialized.length,
     totalSavings: serialized.reduce((s, m) => s + m.estimatedSaving, 0),
   };
-}
-
-export function getFreePlanLimit() {
-  return FREE_MATCH_LIMIT;
 }

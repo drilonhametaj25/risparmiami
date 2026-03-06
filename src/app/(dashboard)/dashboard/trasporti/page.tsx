@@ -2,9 +2,8 @@ import type { Metadata } from "next";
 import { auth } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
 import { redirect } from "next/navigation";
-import { getCategoryMatches, getFreePlanLimit } from "@/lib/dashboard-helpers";
+import { getCategoryMatches } from "@/lib/dashboard-helpers";
 import { CategoryPageLayout } from "@/components/dashboard/category-page-layout";
-import { UpgradeBanner } from "@/components/dashboard/upgrade-banner";
 import { ExpenseTracker } from "@/components/dashboard/expense-tracker";
 
 export const metadata: Metadata = { title: "Trasporti" };
@@ -18,10 +17,9 @@ export default async function TrasportiPage() {
   if (!session?.user?.id) redirect("/login");
 
   const isFree = session.user.currentPlan === "free";
-  const limit = isFree ? getFreePlanLimit() : undefined;
 
-  const [{ matches, totalCount, totalSavings }, expenses] = await Promise.all([
-    getCategoryMatches(session.user.id, "trasporti", limit),
+  const [{ matches, totalSavings }, expenses] = await Promise.all([
+    getCategoryMatches(session.user.id, "trasporti", isFree),
     prisma.userExpense.findMany({
       where: { userId: session.user.id, category: "transport" },
       orderBy: [{ year: "desc" }, { month: "desc" }],
@@ -51,7 +49,6 @@ export default async function TrasportiPage() {
         title="Le tue spese di trasporto"
         showProvider={false}
       />
-      {isFree && <UpgradeBanner totalMatches={totalCount} visibleMatches={matches.length} />}
     </CategoryPageLayout>
   );
 }

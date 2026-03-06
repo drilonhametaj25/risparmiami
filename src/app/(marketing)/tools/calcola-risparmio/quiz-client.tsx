@@ -1,9 +1,9 @@
 "use client";
 
-import { useState, useCallback, useEffect } from "react";
+import { useState, useCallback, useEffect, useRef } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
-import { ArrowLeft, ArrowRight, RotateCcw, TrendingUp, Briefcase, Home, Users, Zap } from "lucide-react";
+import { ArrowLeft, ArrowRight, RotateCcw, TrendingUp, Briefcase, Home, Users, Zap, Share2 } from "lucide-react";
 import { Container } from "@/components/ui/container";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -275,6 +275,37 @@ export function CalcolaRisparmioQuiz() {
     }
   }, [step, answers, showResults, hydrated]);
 
+  // Persist quiz results to DB when results are shown
+  const savedRef = useRef(false);
+
+  useEffect(() => {
+    if (!showResults || savedRef.current) return;
+    savedRef.current = true;
+
+    const breakdown = calculateSavings(answers);
+    const totalMin = breakdown.reduce((s, b) => s + b.min, 0);
+    const totalMax = breakdown.reduce((s, b) => s + b.max, 0);
+
+    fetch("/api/quiz", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        answers,
+        estimatedMin: totalMin,
+        estimatedMax: totalMax,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.sessionId) {
+          document.cookie = `quiz_session=${data.sessionId}; path=/; max-age=3600`;
+        }
+      })
+      .catch(() => {
+        // Non-critical — silently ignore
+      });
+  }, [showResults, answers]);
+
   const currentQuestion = questions[step];
   const progress = ((step + (showResults ? 1 : 0)) / questions.length) * 100;
 
@@ -304,12 +335,30 @@ export function CalcolaRisparmioQuiz() {
     setStep(0);
     setAnswers({});
     setShowResults(false);
+    savedRef.current = false;
     try { sessionStorage.removeItem(STORAGE_KEY); } catch { /* ignore */ }
   }, []);
 
   const breakdown = showResults ? calculateSavings(answers) : [];
   const totalMin = breakdown.reduce((s, b) => s + b.min, 0);
   const totalMax = breakdown.reduce((s, b) => s + b.max, 0);
+
+  const handleShareQuiz = useCallback(() => {
+    const text = `Ho scoperto che potrei risparmiare ${totalMin.toLocaleString("it-IT")}–${totalMax.toLocaleString("it-IT")} € all'anno! Calcola anche tu il tuo risparmio con RisparmiaMi`;
+    const url = window.location.href;
+
+    if (navigator.share) {
+      navigator.share({
+        title: "Il mio risparmio — RisparmiaMi",
+        text,
+        url,
+      }).catch(() => {});
+    } else {
+      navigator.clipboard.writeText(`${text}: ${url}`).then(() => {
+        alert("Link copiato negli appunti!");
+      }).catch(() => {});
+    }
+  }, [totalMin, totalMax]);
 
   return (
     <section className="bg-bg-primary py-16 md:py-24 min-h-[80vh]">
@@ -452,6 +501,13 @@ export function CalcolaRisparmioQuiz() {
                       <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
                   </Link>
+                  <button
+                    onClick={handleShareQuiz}
+                    className="inline-flex items-center gap-1.5 text-sm text-text-secondary hover:text-accent-primary transition-colors font-body"
+                  >
+                    <Share2 className="h-4 w-4" />
+                    Condividi il risultato
+                  </button>
                   <button
                     onClick={reset}
                     className="inline-flex items-center gap-1.5 text-sm text-text-secondary hover:text-accent-primary transition-colors font-body"

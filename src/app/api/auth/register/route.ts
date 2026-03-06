@@ -4,7 +4,7 @@ import { prisma } from "@/lib/prisma";
 
 export async function POST(req: NextRequest) {
   try {
-    const { email, password, name } = await req.json();
+    const { email, password, name, referralCode } = await req.json();
 
     if (!email || !password) {
       return NextResponse.json(
@@ -30,13 +30,35 @@ export async function POST(req: NextRequest) {
 
     const hashedPassword = await bcrypt.hash(password, 12);
 
-    await prisma.user.create({
+    const newUser = await prisma.user.create({
       data: {
         email,
         name: name || null,
         hashedPassword,
       },
     });
+
+    // Link referral if a valid referral code was provided
+    if (referralCode) {
+      const referrer = await prisma.user.findFirst({
+        where: { referralCode },
+      });
+      if (referrer) {
+        await prisma.user.update({
+          where: { id: newUser.id },
+          data: { referredBy: referrer.id },
+        });
+      }
+    }
+
+    // Mark quiz result as converted if a quiz_session cookie exists
+    const quizSessionId = req.cookies.get("quiz_session")?.value;
+    if (quizSessionId) {
+      await prisma.quizResult.updateMany({
+        where: { sessionId: quizSessionId },
+        data: { convertedToUser: true },
+      });
+    }
 
     return NextResponse.json({ success: true });
   } catch (error) {

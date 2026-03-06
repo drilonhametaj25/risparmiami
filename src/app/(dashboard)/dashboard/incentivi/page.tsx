@@ -21,7 +21,7 @@ export default async function IncentiviPage() {
     redirect("/prezzi");
   }
 
-  const { matches, totalSavings } = await getCategoryMatches(session.user.id, "incentivi");
+  const { matches, totalSavings } = await getCategoryMatches(session.user.id, "incentivi", false);
 
   return (
     <CategoryPageLayout

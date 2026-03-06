@@ -14,6 +14,8 @@ services:
     depends_on:
       app:
         condition: service_healthy
+      umami:
+        condition: service_started
     networks:
       - frontend
       - backend
@@ -55,6 +57,7 @@ services:
       POSTGRES_PASSWORD: ${DB_PASSWORD}
     volumes:
       - pgdata:/var/lib/postgresql/data
+      - ./docker/init-umami-db.sh:/docker-entrypoint-initdb.d/init-umami-db.sh:ro
     healthcheck:
       test: ["CMD-SHELL", "pg_isready -U ${DB_USER:-risparmiami}"]
       interval: 5s
@@ -107,10 +110,25 @@ services:
     networks:
       - backend
 
+  # ==================== Analytics (Umami) ====================
+  umami:
+    image: ghcr.io/umami-software/umami:postgresql-latest
+    restart: always
+    environment:
+      DATABASE_URL: postgresql://${DB_USER:-risparmiami}:${DB_PASSWORD}@postgres:5432/umami
+      DATABASE_TYPE: postgresql
+      APP_SECRET: ${UMAMI_APP_SECRET:-replace-me-in-production}
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - backend
+
 volumes:
   pgdata:
   redisdata:
   meilidata:
+  umamidata:
   caddy_data:
   caddy_config:
 

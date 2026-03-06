@@ -1,7 +1,9 @@
 """Main entry point for the RisparmiaMi scraper system."""
 import argparse
 import logging
+import os
 import sys
+import requests
 from config import SCRAPER_LOG_LEVEL, SCHEDULES
 
 logging.basicConfig(
@@ -26,6 +28,21 @@ SCRAPER_REGISTRY = {
 }
 
 
+def trigger_rematch():
+    """Trigger user re-matching after rules update."""
+    try:
+        url = os.getenv("NEXTAUTH_URL", "http://app:3000") + "/api/cron/rematch-users"
+        headers = {"Authorization": f"Bearer {os.getenv('CRON_SECRET', '')}"}
+        response = requests.get(url, headers=headers, timeout=120)
+        if response.ok:
+            data = response.json()
+            logger.info(f"Re-matching triggered: {data.get('rematched', 0)} users updated")
+        else:
+            logger.warning(f"Re-matching failed: {response.status_code}")
+    except Exception as e:
+        logger.warning(f"Re-matching error: {e}")
+
+
 def get_scraper(name: str):
     """Dynamically import and instantiate a scraper by name."""
     if name not in SCRAPER_REGISTRY:
@@ -37,7 +54,7 @@ def get_scraper(name: str):
     return scraper_class()
 
 
-def run_single(name: str, dry_run: bool = False):
+def run_single(name: str, dry_run: bool = False, rematch: bool = True):
     """Run a single scraper by name."""
     logger.info(f"Running scraper: {name}")
     scraper = get_scraper(name)
@@ -50,6 +67,10 @@ def run_single(name: str, dry_run: bool = False):
 
     scraper.run()
 
+    # Trigger re-matching after successful scraper run
+    if rematch:
+        trigger_rematch()
+
 
 def run_all(dry_run: bool = False):
     """Run all scrapers sequentially. One failure doesn't block others."""
@@ -58,7 +79,7 @@ def run_all(dry_run: bool = False):
 
     for name in SCRAPER_REGISTRY:
         try:
-            run_single(name, dry_run=dry_run)
+            run_single(name, dry_run=dry_run, rematch=False)
             results[name] = "success"
         except Exception as e:
             logger.error(f"Scraper '{name}' failed: {e}")
@@ -67,6 +88,10 @@ def run_all(dry_run: bool = False):
     logger.info("All scrapers finished. Results:")
     for name, status in results.items():
         logger.info(f"  {name}: {status}")
+
+    # Trigger re-matching once after all scrapers complete
+    if not dry_run and any(s == "success" for s in results.values()):
+        trigger_rematch()
 
 
 def run_scheduler():

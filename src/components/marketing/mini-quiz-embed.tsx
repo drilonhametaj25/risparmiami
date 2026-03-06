@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
 import { ArrowRight } from "lucide-react";
@@ -75,6 +75,42 @@ function MiniQuizEmbed() {
 
   const result = estimateSavings(answers);
 
+  // Persist quiz results to DB when results are shown
+  const savedRef = useRef(false);
+
+  useEffect(() => {
+    if (!showResult || savedRef.current) return;
+    savedRef.current = true;
+
+    // Map mini-quiz keys to the full-quiz keys so onboarding pre-fill works
+    const mappedAnswers: Record<string, string> = {};
+    if (answers.employment) mappedAnswers.lavoro = answers.employment;
+    if (answers.housing) {
+      mappedAnswers.abitazione =
+        answers.housing === "affittuario" ? "affitto" : "proprieta";
+    }
+    if (answers.children) mappedAnswers.figli = answers.children;
+
+    fetch("/api/quiz", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        answers: mappedAnswers,
+        estimatedMin: result.min,
+        estimatedMax: result.max,
+      }),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.sessionId) {
+          document.cookie = `quiz_session=${data.sessionId}; path=/; max-age=3600`;
+        }
+      })
+      .catch(() => {
+        // Non-critical — silently ignore
+      });
+  }, [showResult, answers, result.min, result.max]);
+
   return (
     <SectionWrapper variant="muted">
       <div className="max-w-2xl mx-auto">
@@ -144,13 +180,13 @@ function MiniQuizEmbed() {
 
               <div className="mt-8 flex flex-col sm:flex-row gap-3 justify-center">
                 <Button size="lg" asChild>
-                  <Link href="/registrati">
+                  <Link href="/registrati" data-umami-event="quiz-complete">
                     Registrati per il report completo
                     <ArrowRight className="ml-2 h-5 w-5" />
                   </Link>
                 </Button>
                 <Button variant="secondary" size="lg" asChild>
-                  <Link href="/guida-pdf">Acquista la guida PDF</Link>
+                  <Link href="/guida-pdf" data-umami-event="quiz-complete">Acquista la guida PDF</Link>
                 </Button>
               </div>
             </motion.div>

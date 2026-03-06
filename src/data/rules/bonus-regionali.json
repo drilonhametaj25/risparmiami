@@ -1,0 +1,554 @@
+[
+  {
+    "slug": "bonus-nascita-toscana",
+    "name": "Bonus Nascita Regione Toscana",
+    "shortDescription": "Contributo una tantum per ogni nuovo nato o adottato in Toscana, fino a 700 euro in base all'ISEE familiare.",
+    "fullDescription": "La Regione Toscana eroga un contributo economico una tantum per ogni nuovo nato o bambino adottato da famiglie residenti nel territorio regionale. L'importo varia in base all'ISEE familiare: 700 euro per ISEE fino a 15.000 euro, 500 euro per ISEE da 15.001 a 30.000 euro. Il contributo è cumulabile con l'Assegno Unico Universale e con altri benefici nazionali.",
+    "category": "bonus-inps",
+    "subcategory": "famiglia",
+    "target": "persona",
+    "maxAmount": 700,
+    "percentage": null,
+    "certaintyLevel": "probabile",
+    "certaintyNote": "Misura regionale soggetta a rifinanziamento annuale",
+    "howToClaim": "Presentare domanda online tramite il portale della Regione Toscana entro 6 mesi dalla nascita o adozione. Allegare ISEE aggiornato e certificato di nascita o provvedimento di adozione.",
+    "requiredDocs": [
+      "Certificato di nascita o provvedimento di adozione",
+      "ISEE aggiornato in corso di validità",
+      "Documento di identità del richiedente",
+      "Codice fiscale del neonato/adottato",
+      "IBAN per accredito"
+    ],
+    "whereToApply": "Portale Regione Toscana",
+    "legalReference": "DGR Toscana n. 1407/2023",
+    "officialUrl": "https://www.regione.toscana.it",
+    "sourceName": "Regione Toscana",
+    "tags": ["regionale", "famiglia", "nascita", "toscana", "neonato"],
+    "requirements": [
+      { "field": "region", "operator": "eq", "value": "toscana", "isRequired": true },
+      { "field": "childrenCount", "operator": "gte", "value": "1", "isRequired": true },
+      { "field": "iseeRange", "operator": "lte", "value": "30000", "isRequired": true }
+    ]
+  },
+  {
+    "slug": "contributo-affitto-lombardia",
+    "name": "Contributo Affitto Regione Lombardia",
+    "shortDescription": "Contributo fino a 1.500 euro per il pagamento del canone di locazione per famiglie con ISEE basso in Lombardia.",
+    "fullDescription": "La Regione Lombardia stanzia annualmente un fondo per aiutare le famiglie in difficoltà economica a sostenere il costo dell'affitto. Il contributo è destinato a nuclei familiari residenti in Lombardia con ISEE non superiore a 15.000 euro e un canone di locazione regolarmente registrato. L'importo massimo è di 1.500 euro annui, calcolato in base all'incidenza del canone sul reddito familiare. Le domande vengono raccolte dai Comuni di residenza e trasmesse alla Regione.",
+    "category": "bonus-inps",
+    "subcategory": "casa",
+    "target": "persona",
+    "maxAmount": 1500,
+    "percentage": null,
+    "certaintyLevel": "probabile",
+    "certaintyNote": "Bando annuale soggetto a disponibilità di fondi regionali",
+    "howToClaim": "Presentare domanda al proprio Comune di residenza durante il periodo di apertura del bando regionale. Il Comune raccoglie le domande, verifica i requisiti e le trasmette alla Regione Lombardia per la liquidazione.",
+    "requiredDocs": [
+      "ISEE aggiornato in corso di validità",
+      "Contratto di locazione registrato",
+      "Documento di identità",
+      "Ricevute di pagamento del canone di affitto",
+      "Attestazione di residenza"
+    ],
+    "whereToApply": "Comune di residenza",
+    "legalReference": "Bando Regione Lombardia - Misura Unica Affitto",
+    "officialUrl": "https://www.regione.lombardia.it",
+    "sourceName": "Regione Lombardia",
+    "tags": ["regionale", "affitto", "lombardia", "casa", "locazione"],
+    "requirements": [
+      { "field": "region", "operator": "eq", "value": "lombardia", "isRequired": true },
+      { "field": "housingType", "operator": "eq", "value": "affitto", "isRequired": true },
+      { "field": "iseeRange", "operator": "lte", "value": "15000", "isRequired": true }
+    ]
+  },
+  {
+    "slug": "bonus-nascita-lazio",
+    "name": "Bonus Bebè Regione Lazio",
+    "shortDescription": "Contributo una tantum fino a 600 euro per ogni nuovo nato o adottato da famiglie residenti nel Lazio.",
+    "fullDescription": "La Regione Lazio eroga un bonus nascita una tantum per ogni figlio nato o adottato da nuclei familiari residenti nel territorio regionale. L'importo è di 600 euro per ISEE fino a 20.000 euro e 400 euro per ISEE tra 20.001 e 35.000 euro. Il contributo è destinato a sostenere le famiglie nelle spese legate alla nascita o adozione ed è cumulabile con le misure nazionali.",
+    "category": "bonus-inps",
+    "subcategory": "famiglia",
+    "target": "persona",
+    "maxAmount": 600,
+    "percentage": null,
+    "certaintyLevel": "probabile",
+    "certaintyNote": "Misura regionale soggetta a rifinanziamento annuale",
+    "howToClaim": "Presentare domanda online sul portale della Regione Lazio o tramite i CAF convenzionati entro 6 mesi dalla nascita o adozione. È necessario allegare la documentazione completa.",
+    "requiredDocs": [
+      "Certificato di nascita o provvedimento di adozione",
+      "ISEE aggiornato",
+      "Documento di identità",
+      "Codice fiscale del neonato",
+      "Attestazione di residenza nel Lazio"
+    ],
+    "whereToApply": "Portale Regione Lazio o CAF convenzionati",
+    "legalReference": "DGR Lazio",
+    "officialUrl": "https://www.regione.lazio.it",
+    "sourceName": "Regione Lazio",
+    "tags": ["regionale", "famiglia", "nascita", "lazio", "neonato"],
+    "requirements": [
+      { "field": "region", "operator": "eq", "value": "lazio", "isRequired": true },
+      { "field": "childrenCount", "operator": "gte", "value": "1", "isRequired": true },
+      { "field": "iseeRange", "operator": "lte", "value": "35000", "isRequired": true }
+    ]
+  },
+  {
+    "slug": "bonus-nascita-campania",
+    "name": "Bonus Nascita Regione Campania",
+    "shortDescription": "Contributo regionale fino a 1.000 euro per ogni nuovo nato in Campania, per famiglie con ISEE basso.",
+    "fullDescription": "La Regione Campania prevede un contributo economico per la nascita o adozione di figli, destinato a nuclei familiari residenti con ISEE non superiore a 25.000 euro. L'importo è di 1.000 euro per il primo figlio e 1.500 euro dal secondo figlio in poi. La misura rientra nel piano regionale di sostegno alla natalità e alle famiglie.",
+    "category": "bonus-inps",
+    "subcategory": "famiglia",
+    "target": "persona",
+    "maxAmount": 1500,
+    "percentage": null,
+    "certaintyLevel": "probabile",
+    "certaintyNote": "Misura regionale, attivazione subordinata a bando",
+    "howToClaim": "Presentare domanda sulla piattaforma regionale della Campania durante il periodo di apertura del bando. Allegare la documentazione richiesta e attendere la graduatoria.",
+    "requiredDocs": [
+      "Certificato di nascita",
+      "ISEE aggiornato",
+      "Documento di identità",
+      "Codice fiscale del neonato",
+      "Attestazione di residenza in Campania"
+    ],
+    "whereToApply": "Piattaforma Regione Campania",
+    "legalReference": "DGR Campania",
+    "officialUrl": "https://www.regione.campania.it",
+    "sourceName": "Regione Campania",
+    "tags": ["regionale", "famiglia", "nascita", "campania", "neonato"],
+    "requirements": [
+      { "field": "region", "operator": "eq", "value": "campania", "isRequired": true },
+      { "field": "childrenCount", "operator": "gte", "value": "1", "isRequired": true },
+      { "field": "iseeRange", "operator": "lte", "value": "25000", "isRequired": true }
+    ]
+  },
+  {
+    "slug": "bonus-nascita-sicilia",
+    "name": "Bonus Nascita Regione Sicilia",
+    "shortDescription": "Contributo fino a 1.000 euro per ogni nuovo nato in Sicilia, con priorità alle famiglie numerose.",
+    "fullDescription": "La Regione Siciliana eroga un contributo una tantum per la nascita di figli da genitori residenti nel territorio regionale. L'importo base è di 1.000 euro per ISEE fino a 15.000 euro, ridotto a 500 euro per ISEE tra 15.001 e 25.000 euro. È prevista una maggiorazione di 200 euro dal terzo figlio in poi. La misura è finalizzata al contrasto del calo demografico nelle aree interne della Sicilia.",
+    "category": "bonus-inps",
+    "subcategory": "famiglia",
+    "target": "persona",
+    "maxAmount": 1200,
+    "percentage": null,
+    "certaintyLevel": "probabile",
+    "certaintyNote": "Misura regionale soggetta a bando annuale",
+    "howToClaim": "Presentare domanda online sul portale della Regione Siciliana o presso gli sportelli dei Comuni di residenza. La domanda va presentata entro 90 giorni dalla nascita.",
+    "requiredDocs": [
+      "Certificato di nascita",
+      "ISEE aggiornato",
+      "Documento di identità",
+      "Codice fiscale del neonato",
+      "Certificato di stato di famiglia"
+    ],
+    "whereToApply": "Portale Regione Siciliana o Comune di residenza",
+    "legalReference": "Legge Regionale Sicilia",
+    "officialUrl": "https://www.regione.sicilia.it",
+    "sourceName": "Regione Siciliana",
+    "tags": ["regionale", "famiglia", "nascita", "sicilia", "neonato"],
+    "requirements": [
+      { "field": "region", "operator": "eq", "value": "sicilia", "isRequired": true },
+      { "field": "childrenCount", "operator": "gte", "value": "1", "isRequired": true },
+      { "field": "iseeRange", "operator": "lte", "value": "25000", "isRequired": true }
+    ]
+  },
+  {
+    "slug": "bonus-famiglia-puglia",
+    "name": "Bonus Famiglia Regione Puglia",
+    "shortDescription": "Contributo fino a 800 euro per famiglie numerose residenti in Puglia con almeno 3 figli.",
+    "fullDescription": "La Regione Puglia prevede un contributo economico per le famiglie numerose con almeno 3 figli a carico e ISEE non superiore a 20.000 euro. L'importo è di 800 euro per famiglie con 3 figli, aumentato a 1.000 euro per famiglie con 4 o più figli. La misura mira a sostenere le famiglie pugliesi con maggiori carichi familiari.",
+    "category": "bonus-inps",
+    "subcategory": "famiglia",
+    "target": "persona",
+    "maxAmount": 1000,
+    "percentage": null,
+    "certaintyLevel": "probabile",
+    "certaintyNote": "Misura regionale soggetta a disponibilità fondi",
+    "howToClaim": "Presentare domanda presso il Comune di residenza o tramite i CAF convenzionati con la Regione Puglia durante il periodo di apertura del bando annuale.",
+    "requiredDocs": [
+      "ISEE aggiornato",
+      "Documento di identità",
+      "Stato di famiglia",
+      "Codici fiscali di tutti i figli",
+      "Attestazione di residenza in Puglia"
+    ],
+    "whereToApply": "Comune di residenza o CAF convenzionati",
+    "legalReference": "DGR Puglia",
+    "officialUrl": "https://www.regione.puglia.it",
+    "sourceName": "Regione Puglia",
+    "tags": ["regionale", "famiglia", "puglia", "figli", "numerose"],
+    "requirements": [
+      { "field": "region", "operator": "eq", "value": "puglia", "isRequired": true },
+      { "field": "childrenCount", "operator": "gte", "value": "3", "isRequired": true },
+      { "field": "iseeRange", "operator": "lte", "value": "20000", "isRequired": true }
+    ]
+  },
+  {
+    "slug": "bonus-nascita-veneto",
+    "name": "Bonus Nascita Regione Veneto",
+    "shortDescription": "Contributo una tantum fino a 800 euro per ogni nuovo nato da famiglie residenti in Veneto.",
+    "fullDescription": "La Regione Veneto eroga un contributo una tantum per la nascita o adozione di figli da famiglie residenti nel territorio regionale. L'importo è di 800 euro per ISEE fino a 20.000 euro e 500 euro per ISEE tra 20.001 e 40.000 euro. La misura fa parte del programma regionale di sostegno alla genitorialità e alla famiglia.",
+    "category": "bonus-inps",
+    "subcategory": "famiglia",
+    "target": "persona",
+    "maxAmount": 800,
+    "percentage": null,
+    "certaintyLevel": "probabile",
+    "certaintyNote": "Misura regionale soggetta a rifinanziamento",
+    "howToClaim": "Presentare domanda online sul portale della Regione Veneto entro 6 mesi dalla nascita o adozione. La domanda viene valutata entro 60 giorni.",
+    "requiredDocs": [
+      "Certificato di nascita o provvedimento di adozione",
+      "ISEE aggiornato",
+      "Documento di identità",
+      "Codice fiscale del neonato",
+      "Attestazione di residenza in Veneto"
+    ],
+    "whereToApply": "Portale Regione Veneto",
+    "legalReference": "DGR Veneto",
+    "officialUrl": "https://www.regione.veneto.it",
+    "sourceName": "Regione Veneto",
+    "tags": ["regionale", "famiglia", "nascita", "veneto", "neonato"],
+    "requirements": [
+      { "field": "region", "operator": "eq", "value": "veneto", "isRequired": true },
+      { "field": "childrenCount", "operator": "gte", "value": "1", "isRequired": true },
+      { "field": "iseeRange", "operator": "lte", "value": "40000", "isRequired": true }
+    ]
+  },
+  {
+    "slug": "contributo-affitto-emilia-romagna",
+    "name": "Contributo Affitto Regione Emilia-Romagna",
+    "shortDescription": "Contributo fino a 2.000 euro per il pagamento dell'affitto per famiglie in difficoltà in Emilia-Romagna.",
+    "fullDescription": "La Regione Emilia-Romagna mette a disposizione un fondo per il sostegno all'accesso alle abitazioni in locazione. Il contributo è destinato a nuclei familiari con ISEE non superiore a 17.154 euro e un'incidenza del canone di locazione sul reddito familiare superiore al 30%. L'importo massimo è di 2.000 euro annui. I fondi vengono ripartiti tra i Comuni che gestiscono le graduatorie.",
+    "category": "bonus-inps",
+    "subcategory": "casa",
+    "target": "persona",
+    "maxAmount": 2000,
+    "percentage": null,
+    "certaintyLevel": "probabile",
+    "certaintyNote": "Bando annuale con fondi regionali e statali",
+    "howToClaim": "Presentare domanda al Comune di residenza durante il periodo di apertura del bando. Il Comune pubblica il bando con le scadenze specifiche. Le domande vengono valutate e inserite in una graduatoria.",
+    "requiredDocs": [
+      "ISEE aggiornato",
+      "Contratto di locazione registrato",
+      "Documento di identità",
+      "Ricevute pagamento canone",
+      "Attestazione di residenza in Emilia-Romagna"
+    ],
+    "whereToApply": "Comune di residenza",
+    "legalReference": "L.R. Emilia-Romagna n. 24/2001",
+    "officialUrl": "https://www.regione.emilia-romagna.it",
+    "sourceName": "Regione Emilia-Romagna",
+    "tags": ["regionale", "affitto", "emilia-romagna", "casa", "locazione"],
+    "requirements": [
+      { "field": "region", "operator": "eq", "value": "emilia-romagna", "isRequired": true },
+      { "field": "housingType", "operator": "eq", "value": "affitto", "isRequired": true },
+      { "field": "iseeRange", "operator": "lte", "value": "17154", "isRequired": true }
+    ]
+  },
+  {
+    "slug": "contributo-affitto-piemonte",
+    "name": "Contributo Affitto Regione Piemonte",
+    "shortDescription": "Contributo fino a 1.800 euro per il canone di locazione per famiglie piemontesi con ISEE basso.",
+    "fullDescription": "La Regione Piemonte eroga un contributo per il pagamento del canone di locazione destinato a nuclei familiari in condizioni di disagio economico. L'importo massimo è di 1.800 euro annui per famiglie con ISEE non superiore a 15.748 euro e con un'incidenza del canone sul reddito superiore al 30%. Il contributo è erogato tramite i Comuni, che pubblicano bandi con scadenze specifiche.",
+    "category": "bonus-inps",
+    "subcategory": "casa",
+    "target": "persona",
+    "maxAmount": 1800,
+    "percentage": null,
+    "certaintyLevel": "probabile",
+    "certaintyNote": "Bando annuale, fondi soggetti a disponibilità",
+    "howToClaim": "Presentare domanda al Comune di residenza durante il periodo del bando regionale. Il Comune raccoglie le domande e predispone la graduatoria in base ai criteri regionali.",
+    "requiredDocs": [
+      "ISEE aggiornato",
+      "Contratto di locazione registrato",
+      "Documento di identità",
+      "Ricevute pagamento canone",
+      "Attestazione di residenza in Piemonte"
+    ],
+    "whereToApply": "Comune di residenza",
+    "legalReference": "L.R. Piemonte n. 3/2010",
+    "officialUrl": "https://www.regione.piemonte.it",
+    "sourceName": "Regione Piemonte",
+    "tags": ["regionale", "affitto", "piemonte", "casa", "locazione"],
+    "requirements": [
+      { "field": "region", "operator": "eq", "value": "piemonte", "isRequired": true },
+      { "field": "housingType", "operator": "eq", "value": "affitto", "isRequired": true },
+      { "field": "iseeRange", "operator": "lte", "value": "15748", "isRequired": true }
+    ]
+  },
+  {
+    "slug": "bonus-prima-casa-giovani-lazio",
+    "name": "Bonus Prima Casa Giovani Regione Lazio",
+    "shortDescription": "Contributo fino a 10.000 euro per l'acquisto della prima casa per giovani under 36 residenti nel Lazio.",
+    "fullDescription": "La Regione Lazio prevede un contributo a fondo perduto per l'acquisto della prima casa destinato a giovani under 36 residenti nel territorio regionale. L'importo massimo è di 10.000 euro, commisurato al valore dell'immobile e all'ISEE del richiedente. Il beneficio è rivolto a giovani singoli o coppie con ISEE non superiore a 40.000 euro che acquistano la prima abitazione nel Lazio.",
+    "category": "bonus-inps",
+    "subcategory": "casa",
+    "target": "persona",
+    "maxAmount": 10000,
+    "percentage": null,
+    "certaintyLevel": "probabile",
+    "certaintyNote": "Misura subordinata a bando regionale con fondi limitati",
+    "howToClaim": "Presentare domanda online sul portale della Regione Lazio durante il periodo di apertura del bando. Allegare la documentazione relativa all'acquisto dell'immobile e l'ISEE. La graduatoria viene stilata in base a criteri di merito ed economici.",
+    "requiredDocs": [
+      "ISEE aggiornato",
+      "Documento di identità",
+      "Compromesso o atto di acquisto dell'immobile",
+      "Dichiarazione di non possidenza di altri immobili",
+      "Attestazione di residenza nel Lazio"
+    ],
+    "whereToApply": "Portale Regione Lazio",
+    "legalReference": "DGR Lazio - Bando Prima Casa Giovani",
+    "officialUrl": "https://www.regione.lazio.it",
+    "sourceName": "Regione Lazio",
+    "tags": ["regionale", "prima-casa", "giovani", "lazio", "acquisto"],
+    "requirements": [
+      { "field": "region", "operator": "eq", "value": "lazio", "isRequired": true },
+      { "field": "birthYear", "operator": "gte", "value": "1990", "isRequired": true },
+      { "field": "iseeRange", "operator": "lte", "value": "40000", "isRequired": true }
+    ]
+  },
+  {
+    "slug": "voucher-energia-calabria",
+    "name": "Voucher Energia Regione Calabria",
+    "shortDescription": "Voucher fino a 400 euro per il pagamento delle bollette energetiche per famiglie calabresi in difficoltà.",
+    "fullDescription": "La Regione Calabria eroga un voucher energetico per sostenere le famiglie in difficoltà economica nel pagamento delle bollette di luce e gas. L'importo del voucher varia in base all'ISEE: 400 euro per ISEE fino a 8.000 euro, 300 euro per ISEE tra 8.001 e 12.000 euro, 200 euro per ISEE tra 12.001 e 15.000 euro. Il voucher è spendibile direttamente presso i fornitori di energia convenzionati.",
+    "category": "bollette",
+    "subcategory": "energia",
+    "target": "persona",
+    "maxAmount": 400,
+    "percentage": null,
+    "certaintyLevel": "probabile",
+    "certaintyNote": "Misura regionale straordinaria, soggetta a disponibilità fondi",
+    "howToClaim": "Presentare domanda presso il Comune di residenza o online sul portale della Regione Calabria. Il voucher viene erogato sotto forma di credito da utilizzare per il pagamento delle bollette.",
+    "requiredDocs": [
+      "ISEE aggiornato",
+      "Documento di identità",
+      "Ultime bollette di luce e/o gas",
+      "Attestazione di residenza in Calabria",
+      "Codice fiscale"
+    ],
+    "whereToApply": "Comune di residenza o Portale Regione Calabria",
+    "legalReference": "DGR Calabria",
+    "officialUrl": "https://www.regione.calabria.it",
+    "sourceName": "Regione Calabria",
+    "tags": ["regionale", "energia", "bollette", "calabria", "voucher"],
+    "requirements": [
+      { "field": "region", "operator": "eq", "value": "calabria", "isRequired": true },
+      { "field": "iseeRange", "operator": "lte", "value": "15000", "isRequired": true }
+    ]
+  },
+  {
+    "slug": "voucher-energia-sardegna",
+    "name": "Voucher Energia Regione Sardegna",
+    "shortDescription": "Contributo fino a 500 euro per il pagamento delle bollette energetiche per famiglie sarde a basso reddito.",
+    "fullDescription": "La Regione Sardegna prevede un contributo straordinario per il sostegno delle famiglie nel pagamento delle utenze domestiche di energia elettrica e gas. L'importo massimo è di 500 euro per nucleo familiare con ISEE non superiore a 12.000 euro. Il contributo è riconosciuto una tantum e viene erogato direttamente sul conto corrente del beneficiario o come credito sulle bollette.",
+    "category": "bollette",
+    "subcategory": "energia",
+    "target": "persona",
+    "maxAmount": 500,
+    "percentage": null,
+    "certaintyLevel": "probabile",
+    "certaintyNote": "Misura straordinaria regionale, attivazione subordinata a delibera",
+    "howToClaim": "Presentare domanda online sul portale SardegnaEntrate o presso i CAF convenzionati durante il periodo di apertura del bando. L'erogazione avviene entro 90 giorni dall'approvazione della graduatoria.",
+    "requiredDocs": [
+      "ISEE aggiornato",
+      "Documento di identità",
+      "Ultime bollette di luce e gas",
+      "Attestazione di residenza in Sardegna",
+      "IBAN per accredito"
+    ],
+    "whereToApply": "Portale SardegnaEntrate o CAF convenzionati",
+    "legalReference": "DGR Sardegna",
+    "officialUrl": "https://www.regione.sardegna.it",
+    "sourceName": "Regione Sardegna",
+    "tags": ["regionale", "energia", "bollette", "sardegna", "voucher"],
+    "requirements": [
+      { "field": "region", "operator": "eq", "value": "sardegna", "isRequired": true },
+      { "field": "iseeRange", "operator": "lte", "value": "12000", "isRequired": true }
+    ]
+  },
+  {
+    "slug": "borsa-studio-regionale-campania",
+    "name": "Borsa di Studio Regione Campania",
+    "shortDescription": "Borsa di studio fino a 2.000 euro per studenti universitari residenti in Campania con ISEE basso.",
+    "fullDescription": "La Regione Campania, tramite l'ADISU (Azienda per il Diritto allo Studio Universitario), eroga borse di studio a studenti iscritti presso università campane o fuori sede. L'importo varia in base alla condizione dello studente: fino a 2.000 euro per studenti fuori sede, fino a 1.500 euro per pendolari e fino a 1.000 euro per studenti in sede. È richiesto un ISEE non superiore a 24.335 euro e il rispetto dei requisiti di merito accademico.",
+    "category": "bonus-inps",
+    "subcategory": "istruzione",
+    "target": "persona",
+    "maxAmount": 2000,
+    "percentage": null,
+    "certaintyLevel": "probabile",
+    "certaintyNote": "Bando annuale ADISU Campania",
+    "howToClaim": "Presentare domanda online sul portale ADISU Campania entro le scadenze del bando annuale (generalmente settembre-ottobre). Allegare ISEE per il diritto allo studio universitario e documentazione accademica.",
+    "requiredDocs": [
+      "ISEE per il diritto allo studio universitario",
+      "Documento di identità",
+      "Certificato di iscrizione universitaria",
+      "Piano di studi e crediti conseguiti",
+      "Attestazione di residenza in Campania"
+    ],
+    "whereToApply": "Portale ADISU Campania",
+    "legalReference": "Bando ADISU Campania",
+    "officialUrl": "https://www.adisurcampania.it",
+    "sourceName": "ADISU Campania",
+    "tags": ["regionale", "studio", "università", "campania", "borsa-studio"],
+    "requirements": [
+      { "field": "region", "operator": "eq", "value": "campania", "isRequired": true },
+      { "field": "iseeRange", "operator": "lte", "value": "24335", "isRequired": true }
+    ]
+  },
+  {
+    "slug": "borsa-studio-regionale-lombardia",
+    "name": "Borsa di Studio Regione Lombardia - Dote Scuola",
+    "shortDescription": "Contributo fino a 1.500 euro per studenti delle scuole superiori e della formazione professionale in Lombardia.",
+    "fullDescription": "La Regione Lombardia eroga il contributo 'Dote Scuola - Componente Merito' e 'Componente Materiale Didattico' per studenti delle scuole secondarie di secondo grado e della formazione professionale. La componente Materiale Didattico prevede un contributo fino a 200 euro per ISEE fino a 15.748 euro. La componente Merito prevede buoni fino a 1.500 euro per studenti con media elevata. Il contributo è destinato all'acquisto di libri, materiale didattico e strumenti tecnologici.",
+    "category": "bonus-inps",
+    "subcategory": "istruzione",
+    "target": "persona",
+    "maxAmount": 1500,
+    "percentage": null,
+    "certaintyLevel": "probabile",
+    "certaintyNote": "Bando annuale Regione Lombardia",
+    "howToClaim": "Presentare domanda online sulla piattaforma Bandi Online di Regione Lombardia durante il periodo previsto dal bando annuale. Allegare ISEE e documentazione scolastica.",
+    "requiredDocs": [
+      "ISEE aggiornato",
+      "Documento di identità",
+      "Certificato di iscrizione scolastica",
+      "Pagella o certificato dei voti",
+      "Attestazione di residenza in Lombardia"
+    ],
+    "whereToApply": "Piattaforma Bandi Online Regione Lombardia",
+    "legalReference": "DGR Lombardia - Dote Scuola",
+    "officialUrl": "https://www.regione.lombardia.it",
+    "sourceName": "Regione Lombardia",
+    "tags": ["regionale", "studio", "scuola", "lombardia", "dote-scuola"],
+    "requirements": [
+      { "field": "region", "operator": "eq", "value": "lombardia", "isRequired": true },
+      { "field": "iseeRange", "operator": "lte", "value": "15748", "isRequired": true }
+    ]
+  },
+  {
+    "slug": "bonus-trasporti-campania",
+    "name": "Bonus Trasporti Regione Campania",
+    "shortDescription": "Abbonamento gratuito o scontato per studenti e lavoratori under 35 residenti in Campania.",
+    "fullDescription": "La Regione Campania offre agevolazioni per il trasporto pubblico locale tramite la misura 'Unico Campania Giovani'. Gli studenti e i giovani lavoratori under 35 con ISEE fino a 20.000 euro possono ottenere un abbonamento annuale gratuito o a costo ridotto per bus, metro e treni regionali dell'intera rete campana. L'importo del risparmio equivale al costo dell'abbonamento annuale, che può arrivare fino a 450 euro.",
+    "category": "trasporti",
+    "subcategory": "abbonamenti",
+    "target": "persona",
+    "maxAmount": 450,
+    "percentage": null,
+    "certaintyLevel": "probabile",
+    "certaintyNote": "Misura regionale rinnovata annualmente",
+    "howToClaim": "Richiedere l'abbonamento agevolato presso i punti vendita Unico Campania o online sul portale dedicato. Presentare ISEE e documentazione attestante lo status di studente o lavoratore.",
+    "requiredDocs": [
+      "ISEE aggiornato",
+      "Documento di identità",
+      "Certificato di iscrizione scolastica/universitaria o busta paga",
+      "Codice fiscale",
+      "Fototessera"
+    ],
+    "whereToApply": "Punti vendita Unico Campania o portale online",
+    "legalReference": "DGR Campania - Trasporto Pubblico Locale",
+    "officialUrl": "https://www.unicocampania.it",
+    "sourceName": "Regione Campania",
+    "tags": ["regionale", "trasporti", "campania", "giovani", "abbonamento"],
+    "requirements": [
+      { "field": "region", "operator": "eq", "value": "campania", "isRequired": true },
+      { "field": "birthYear", "operator": "gte", "value": "1991", "isRequired": true },
+      { "field": "iseeRange", "operator": "lte", "value": "20000", "isRequired": true }
+    ]
+  },
+  {
+    "slug": "bonus-trasporti-puglia",
+    "name": "Bonus Trasporti Regione Puglia",
+    "shortDescription": "Abbonamento agevolato per il trasporto pubblico locale per studenti e pendolari pugliesi.",
+    "fullDescription": "La Regione Puglia prevede agevolazioni tariffarie per il trasporto pubblico locale destinate a studenti, pendolari e lavoratori con reddito basso. Gli studenti possono ottenere un abbonamento annuale scontato fino al 70% per bus e treni regionali. I pendolari con ISEE fino a 15.000 euro possono beneficiare di riduzioni significative sul costo dell'abbonamento. Il risparmio può arrivare fino a 350 euro annui.",
+    "category": "trasporti",
+    "subcategory": "abbonamenti",
+    "target": "persona",
+    "maxAmount": 350,
+    "percentage": 70,
+    "certaintyLevel": "probabile",
+    "certaintyNote": "Misura regionale rinnovata periodicamente",
+    "howToClaim": "Richiedere l'abbonamento agevolato presso i punti vendita dei gestori del trasporto pubblico locale o online sul portale della mobilità pugliese. Presentare la documentazione richiesta.",
+    "requiredDocs": [
+      "ISEE aggiornato",
+      "Documento di identità",
+      "Certificato di iscrizione scolastica/universitaria o contratto di lavoro",
+      "Codice fiscale",
+      "Attestazione di residenza in Puglia"
+    ],
+    "whereToApply": "Punti vendita gestori TPL Puglia o portale regionale",
+    "legalReference": "DGR Puglia - Agevolazioni TPL",
+    "officialUrl": "https://www.regione.puglia.it",
+    "sourceName": "Regione Puglia",
+    "tags": ["regionale", "trasporti", "puglia", "studenti", "abbonamento"],
+    "requirements": [
+      { "field": "region", "operator": "eq", "value": "puglia", "isRequired": true },
+      { "field": "iseeRange", "operator": "lte", "value": "15000", "isRequired": true }
+    ]
+  },
+  {
+    "slug": "bonus-prima-casa-veneto",
+    "name": "Contributo Prima Casa Giovani Coppie Veneto",
+    "shortDescription": "Contributo fino a 8.000 euro per giovani coppie under 40 che acquistano la prima casa in Veneto.",
+    "fullDescription": "La Regione Veneto eroga un contributo a fondo perduto per l'acquisto o la ristrutturazione della prima casa destinato a giovani coppie (sposate o conviventi) in cui almeno uno dei componenti abbia meno di 40 anni. L'importo massimo è di 8.000 euro, elevato a 10.000 euro in caso di acquisto in un comune montano o con meno di 5.000 abitanti. È richiesto un ISEE non superiore a 35.000 euro.",
+    "category": "bonus-inps",
+    "subcategory": "casa",
+    "target": "persona",
+    "maxAmount": 10000,
+    "percentage": null,
+    "certaintyLevel": "probabile",
+    "certaintyNote": "Bando regionale con cadenza periodica",
+    "howToClaim": "Presentare domanda online sul portale della Regione Veneto durante il periodo di apertura del bando. Allegare la documentazione relativa all'immobile, lo stato civile e l'ISEE.",
+    "requiredDocs": [
+      "ISEE aggiornato",
+      "Documento di identità di entrambi i componenti",
+      "Certificato di matrimonio o convivenza",
+      "Compromesso o atto di acquisto dell'immobile",
+      "Dichiarazione di non possidenza di altri immobili"
+    ],
+    "whereToApply": "Portale Regione Veneto",
+    "legalReference": "L.R. Veneto n. 13/2011",
+    "officialUrl": "https://www.regione.veneto.it",
+    "sourceName": "Regione Veneto",
+    "tags": ["regionale", "prima-casa", "giovani", "veneto", "coppie"],
+    "requirements": [
+      { "field": "region", "operator": "eq", "value": "veneto", "isRequired": true },
+      { "field": "birthYear", "operator": "gte", "value": "1986", "isRequired": true },
+      { "field": "iseeRange", "operator": "lte", "value": "35000", "isRequired": true }
+    ]
+  },
+  {
+    "slug": "borsa-studio-regionale-toscana",
+    "name": "Borsa di Studio DSU Toscana",
+    "shortDescription": "Borsa di studio fino a 5.200 euro per studenti universitari meritevoli residenti in Toscana.",
+    "fullDescription": "L'Azienda DSU Toscana eroga borse di studio a studenti iscritti presso le università toscane che rispettano requisiti di merito e reddito. L'importo varia in base alla condizione dello studente: fino a 5.200 euro per studenti fuori sede, fino a 3.100 euro per pendolari e fino a 1.900 euro per studenti in sede. L'ISEE per il diritto allo studio non deve superare i 24.335 euro e l'ISPE non deve superare i 52.902 euro.",
+    "category": "bonus-inps",
+    "subcategory": "istruzione",
+    "target": "persona",
+    "maxAmount": 5200,
+    "percentage": null,
+    "certaintyLevel": "probabile",
+    "certaintyNote": "Bando annuale DSU Toscana",
+    "howToClaim": "Presentare domanda online sul portale DSU Toscana entro le scadenze del bando annuale. Allegare ISEE per il diritto allo studio universitario e rispettare i requisiti di merito (CFU minimi).",
+    "requiredDocs": [
+      "ISEE per il diritto allo studio universitario",
+      "Documento di identità",
+      "Certificato di iscrizione universitaria",
+      "Autocertificazione crediti formativi",
+      "IBAN per accredito"
+    ],
+    "whereToApply": "Portale DSU Toscana",
+    "legalReference": "L.R. Toscana n. 32/2002",
+    "officialUrl": "https://www.dsu.toscana.it",
+    "sourceName": "DSU Toscana",
+    "tags": ["regionale", "studio", "università", "toscana", "borsa-studio", "merito"],
+    "requirements": [
+      { "field": "region", "operator": "eq", "value": "toscana", "isRequired": true },
+      { "field": "iseeRange", "operator": "lte", "value": "24335", "isRequired": true }
+    ]
+  }
+]

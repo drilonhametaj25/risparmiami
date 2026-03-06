@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 import { auth } from "@/lib/auth";
+import { prisma } from "@/lib/prisma";
 import { redirect } from "next/navigation";
-import { getCategoryMatches, getFreePlanLimit } from "@/lib/dashboard-helpers";
+import { getCategoryMatches } from "@/lib/dashboard-helpers";
 import { CategoryPageLayout } from "@/components/dashboard/category-page-layout";
-import { UpgradeBanner } from "@/components/dashboard/upgrade-banner";
+import { IseeEstimator } from "@/components/dashboard/isee-estimator";
 
 export const metadata: Metadata = { title: "ISEE e Bonus" };
 
@@ -12,8 +13,14 @@ export default async function IseePage() {
   if (!session?.user?.id) redirect("/login");
 
   const isFree = session.user.currentPlan === "free";
-  const limit = isFree ? getFreePlanLimit() : undefined;
-  const { matches, totalCount, totalSavings } = await getCategoryMatches(session.user.id, "isee", limit);
+
+  const [{ matches, totalSavings }, profile] = await Promise.all([
+    getCategoryMatches(session.user.id, "isee", isFree),
+    prisma.userProfile.findUnique({
+      where: { userId: session.user.id },
+      select: { iseeRange: true },
+    }),
+  ]);
 
   return (
     <CategoryPageLayout
@@ -22,7 +29,7 @@ export default async function IseePage() {
       matches={matches}
       totalSavings={totalSavings}
     >
-      {isFree && <UpgradeBanner totalMatches={totalCount} visibleMatches={matches.length} />}
+      <IseeEstimator initialIseeRange={profile?.iseeRange || ""} />
     </CategoryPageLayout>
   );
 }

@@ -99,6 +99,12 @@ export async function computeMatchesForUser(userId: string): Promise<MatchResult
     },
   });
 
+  // Update lastMatchedAt
+  await prisma.userProfile.update({
+    where: { userId },
+    data: { lastMatchedAt: new Date() },
+  });
+
   return allMatches;
 }
 

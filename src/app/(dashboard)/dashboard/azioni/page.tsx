@@ -12,6 +12,8 @@ export default async function ActionsPage() {
   const session = await auth();
   if (!session?.user?.id) redirect("/login");
 
+  const isFree = session.user.currentPlan === "free";
+
   const matches = await prisma.userMatch.findMany({
     where: { userId: session.user.id },
     include: {
@@ -32,16 +34,17 @@ export default async function ActionsPage() {
     estimatedSaving: m.estimatedSaving ? Number(m.estimatedSaving) : 0,
     certainty: m.certainty,
     completedAt: m.completedAt?.toISOString() || null,
+    locked: isFree,
     rule: {
       name: m.rule.name,
       shortDescription: m.rule.shortDescription,
-      fullDescription: m.rule.fullDescription,
+      fullDescription: isFree ? null : m.rule.fullDescription,
       category: m.rule.category,
-      howToClaim: m.rule.howToClaim,
-      requiredDocs: m.rule.requiredDocs,
-      whereToApply: m.rule.whereToApply,
+      howToClaim: isFree ? null : m.rule.howToClaim,
+      requiredDocs: isFree ? [] : m.rule.requiredDocs,
+      whereToApply: isFree ? null : m.rule.whereToApply,
       deadline: m.rule.deadline?.toISOString() || null,
-      officialUrl: m.rule.officialUrl,
+      officialUrl: isFree ? null : m.rule.officialUrl,
     },
   }));
 

@@ -2,3 +2,8 @@ risparmiami.pro {
     reverse_proxy app:3000
     encode gzip
 }
+
+analytics.risparmiami.pro {
+    reverse_proxy umami:3000
+    encode gzip
+}

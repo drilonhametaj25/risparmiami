@@ -5,7 +5,7 @@ import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
-import { ChevronDown, ExternalLink, FileText, Calendar, CheckCircle2 } from "lucide-react";
+import { ChevronDown, ExternalLink, FileText, Calendar, CheckCircle2, Lock } from "lucide-react";
 
 type ActionStatus = "all" | "pending" | "completed" | "not_applicable";
 
@@ -16,12 +16,13 @@ interface Action {
   estimatedSaving: number;
   certainty: string;
   completedAt: string | null;
+  locked?: boolean;
   rule: {
     name: string;
     shortDescription: string;
-    fullDescription: string;
+    fullDescription: string | null;
     category: string;
-    howToClaim: string;
+    howToClaim: string | null;
     requiredDocs: string[];
     whereToApply: string | null;
     deadline: string | null;
@@ -36,6 +37,8 @@ interface ActionsListProps {
 export function ActionsList({ actions }: ActionsListProps) {
   const [filter, setFilter] = useState<ActionStatus>("all");
   const [expandedId, setExpandedId] = useState<string | null>(null);
+  const [completingId, setCompletingId] = useState<string | null>(null);
+  const [savingsInput, setSavingsInput] = useState("");
 
   const filtered = filter === "all"
     ? actions
@@ -54,8 +57,14 @@ export function ActionsList({ actions }: ActionsListProps) {
     { label: "Completate", value: "completed", count: completedCount },
   ];
 
-  async function markComplete(matchId: string) {
-    await fetch(`/api/matches/${matchId}/complete`, { method: "POST" });
+  async function markComplete(matchId: string, actualSaving?: number) {
+    await fetch(`/api/matches/${matchId}/complete`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ ...(actualSaving !== undefined ? { actualSaving } : {}) }),
+    });
+    setCompletingId(null);
+    setSavingsInput("");
     window.location.reload();
   }
 
@@ -141,52 +150,98 @@ export function ActionsList({ actions }: ActionsListProps) {
                     className="overflow-hidden"
                   >
                     <div className="pt-4 mt-4 border-t border-border-light">
-                      <div className="prose prose-sm max-w-none text-text-secondary mb-4">
-                        <p>{action.rule.fullDescription}</p>
-                      </div>
-
-                      <div className="bg-bg-secondary rounded-sm p-4 mb-4">
-                        <h4 className="font-medium text-sm mb-2">Come richiederlo</h4>
-                        <p className="text-sm text-text-secondary">{action.rule.howToClaim}</p>
-                      </div>
-
-                      {action.rule.requiredDocs.length > 0 && (
-                        <div className="mb-4">
-                          <h4 className="font-medium text-sm mb-2 flex items-center gap-1">
-                            <FileText className="h-4 w-4" /> Documenti necessari
-                          </h4>
-                          <ul className="text-sm text-text-secondary space-y-1">
-                            {action.rule.requiredDocs.map((doc, i) => (
-                              <li key={i} className="flex items-center gap-2">
-                                <span className="w-1 h-1 rounded-full bg-text-muted" />
-                                {doc}
-                              </li>
-                            ))}
-                          </ul>
+                      {action.locked ? (
+                        <div className="relative">
+                          <div className="filter blur-sm select-none pointer-events-none">
+                            <p className="text-sm text-text-secondary">Scopri come richiedere questo beneficio e quanto potresti risparmiare con istruzioni dettagliate passo-passo...</p>
+                            <div className="bg-bg-secondary rounded-sm p-4 mt-3">
+                              <p className="text-sm">Come richiederlo: istruzioni dettagliate disponibili...</p>
+                            </div>
+                          </div>
+                          <div className="absolute inset-0 flex items-center justify-center bg-white/60 rounded-md">
+                            <div className="text-center p-4">
+                              <Lock className="h-6 w-6 text-accent-primary mx-auto mb-2" />
+                              <p className="font-medium text-sm mb-2">Sblocca le istruzioni</p>
+                              <p className="text-xs text-text-secondary mb-3">Passa al piano Personale per vedere come richiedere questo beneficio</p>
+                              <Button size="sm" asChild>
+                                <a href="/prezzi">Prova gratis 7 giorni</a>
+                              </Button>
+                            </div>
+                          </div>
                         </div>
-                      )}
+                      ) : (
+                        <>
+                          <div className="prose prose-sm max-w-none text-text-secondary mb-4">
+                            <p>{action.rule.fullDescription}</p>
+                          </div>
 
-                      {action.rule.deadline && (
-                        <p className="text-sm text-accent-warning flex items-center gap-1 mb-4">
-                          <Calendar className="h-4 w-4" />
-                          Scadenza: {new Date(action.rule.deadline).toLocaleDateString("it-IT")}
-                        </p>
-                      )}
+                          <div className="bg-bg-secondary rounded-sm p-4 mb-4">
+                            <h4 className="font-medium text-sm mb-2">Come richiederlo</h4>
+                            <p className="text-sm text-text-secondary">{action.rule.howToClaim}</p>
+                          </div>
 
-                      <div className="flex gap-3">
-                        {action.status === "pending" && (
-                          <Button size="sm" onClick={() => markComplete(action.id)}>
-                            Segna come completata
-                          </Button>
-                        )}
-                        {action.rule.officialUrl && (
-                          <Button size="sm" variant="secondary" asChild>
-                            <a href={action.rule.officialUrl} target="_blank" rel="noopener noreferrer">
-                              Sito ufficiale <ExternalLink className="h-3 w-3 ml-1" />
-                            </a>
-                          </Button>
-                        )}
-                      </div>
+                          {action.rule.requiredDocs.length > 0 && (
+                            <div className="mb-4">
+                              <h4 className="font-medium text-sm mb-2 flex items-center gap-1">
+                                <FileText className="h-4 w-4" /> Documenti necessari
+                              </h4>
+                              <ul className="text-sm text-text-secondary space-y-1">
+                                {action.rule.requiredDocs.map((doc, i) => (
+                                  <li key={i} className="flex items-center gap-2">
+                                    <span className="w-1 h-1 rounded-full bg-text-muted" />
+                                    {doc}
+                                  </li>
+                                ))}
+                              </ul>
+                            </div>
+                          )}
+
+                          {action.rule.deadline && (
+                            <p className="text-sm text-accent-warning flex items-center gap-1 mb-4">
+                              <Calendar className="h-4 w-4" />
+                              Scadenza: {new Date(action.rule.deadline).toLocaleDateString("it-IT")}
+                            </p>
+                          )}
+
+                          <div className="flex flex-wrap gap-3">
+                            {action.status === "pending" && !action.locked && (
+                              completingId === action.id ? (
+                                <div className="flex items-center gap-2">
+                                  <div className="flex items-center gap-1">
+                                    <span className="text-sm text-text-secondary">&euro;</span>
+                                    <input
+                                      type="number"
+                                      value={savingsInput}
+                                      onChange={(e) => setSavingsInput(e.target.value)}
+                                      placeholder={String(action.estimatedSaving)}
+                                      className="w-24 px-2 py-1 text-sm border border-border-light rounded"
+                                      min="0"
+                                      step="0.01"
+                                    />
+                                  </div>
+                                  <Button size="sm" onClick={() => markComplete(action.id, savingsInput ? Number(savingsInput) : undefined)}>
+                                    Conferma
+                                  </Button>
+                                  <Button size="sm" variant="secondary" onClick={() => markComplete(action.id)}>
+                                    Salta
+                                  </Button>
+                                </div>
+                              ) : (
+                                <Button size="sm" onClick={() => { setCompletingId(action.id); setSavingsInput(String(action.estimatedSaving)); }}>
+                                  Segna come completata
+                                </Button>
+                              )
+                            )}
+                            {action.rule.officialUrl && (
+                              <Button size="sm" variant="secondary" asChild>
+                                <a href={action.rule.officialUrl} target="_blank" rel="noopener noreferrer">
+                                  Sito ufficiale <ExternalLink className="h-3 w-3 ml-1" />
+                                </a>
+                              </Button>
+                            )}
+                          </div>
+                        </>
+                      )}
                     </div>
                   </motion.div>
                 )}

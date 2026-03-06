@@ -15,6 +15,8 @@ import {
   Building2,
   Settings,
   Star,
+  Calendar,
+  Gift,
   X,
 } from "lucide-react";
 
@@ -33,9 +35,11 @@ const navItems = [
   { label: "Abbonamenti", href: "/dashboard/abbonamenti", icon: CreditCard },
   { label: "Trasporti", href: "/dashboard/trasporti", icon: Train },
   { label: "ISEE", href: "/dashboard/isee", icon: Star },
+  { label: "Scadenze", href: "/dashboard/scadenze", icon: Calendar },
 ];
 
 const bottomItems = [
+  { label: "Invita amici", href: "/dashboard/referral", icon: Gift },
   { label: "Abbonamento", href: "/dashboard/abbonamento", icon: CreditCard },
   { label: "Impostazioni", href: "/dashboard/impostazioni", icon: Settings },
 ];
