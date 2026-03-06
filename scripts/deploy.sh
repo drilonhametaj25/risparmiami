@@ -7,7 +7,7 @@ echo "==> Pulling latest code..."
 git pull origin main
 
 echo "==> Building containers..."
-docker compose -f docker-compose.prod.yml build app scraper
+docker compose -f docker-compose.prod.yml build app scraper cron
 
 echo "==> Starting database services..."
 docker compose -f docker-compose.prod.yml up -d postgres redis meilisearch
@@ -23,8 +23,8 @@ echo "==> Starting app..."
 docker compose -f docker-compose.prod.yml up -d --no-deps app
 sleep 5
 
-echo "==> Starting Caddy + scraper..."
-docker compose -f docker-compose.prod.yml up -d caddy scraper
+echo "==> Starting Caddy + scraper + cron..."
+docker compose -f docker-compose.prod.yml up -d caddy scraper cron
 
 echo "==> Waiting for health check..."
 sleep 15
