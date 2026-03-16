@@ -10,8 +10,9 @@ import { CompanyStepSize } from "./company-steps/step-2-size";
 import { CompanyStepTax } from "./company-steps/step-3-tax";
 import { CompanyStepInvestments } from "./company-steps/step-4-investments";
 import { CompanyStepStaff } from "./company-steps/step-5-staff";
+import type { CompanyOnboardingStepData } from "@/types/onboarding";
 
-type StepData = Record<string, any>;
+type StepData = CompanyOnboardingStepData;
 
 const TOTAL_STEPS = 5;
 

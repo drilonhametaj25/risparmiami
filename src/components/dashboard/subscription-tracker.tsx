@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { useToast } from "@/components/ui/toast";
 import { Plus, Trash2 } from "lucide-react";
 
 interface Subscription {
@@ -34,6 +35,8 @@ export function SubscriptionTracker({ initialSubscriptions }: SubscriptionTracke
   const [category, setCategory] = useState("streaming");
   const [monthlyCost, setMonthlyCost] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [deletingId, setDeletingId] = useState<string | null>(null);
+  const { showToast } = useToast();
 
   const totalMonthly = subscriptions.filter((s) => s.isActive).reduce((sum, s) => sum + s.monthlyCost, 0);
   const totalYearly = totalMonthly * 12;
@@ -49,22 +52,31 @@ export function SubscriptionTracker({ initialSubscriptions }: SubscriptionTracke
         body: JSON.stringify({ name, category, monthlyCost: parseFloat(monthlyCost) }),
       });
 
-      if (res.ok) {
-        const sub = await res.json();
-        setSubscriptions([sub, ...subscriptions]);
-        setName("");
-        setMonthlyCost("");
-        setShowForm(false);
-      }
+      if (!res.ok) throw new Error();
+
+      const sub = await res.json();
+      setSubscriptions([sub, ...subscriptions]);
+      setName("");
+      setMonthlyCost("");
+      setShowForm(false);
+      showToast("Abbonamento aggiunto");
+    } catch {
+      showToast("Errore nel salvataggio", "error");
     } finally {
       setIsSubmitting(false);
     }
   }
 
   async function handleDelete(id: string) {
-    const res = await fetch(`/api/subscriptions/${id}`, { method: "DELETE" });
-    if (res.ok) {
+    try {
+      const res = await fetch(`/api/subscriptions/${id}`, { method: "DELETE" });
+      if (!res.ok) throw new Error();
       setSubscriptions(subscriptions.filter((s) => s.id !== id));
+      setDeletingId(null);
+      showToast("Abbonamento eliminato");
+    } catch {
+      showToast("Errore nell'eliminazione", "error");
+      setDeletingId(null);
     }
   }
 
@@ -82,8 +94,9 @@ export function SubscriptionTracker({ initialSubscriptions }: SubscriptionTracke
         <Card padding="md">
           <div className="space-y-4">
             <div>
-              <label className="block text-sm font-medium text-text-secondary mb-1.5">Nome servizio</label>
+              <label htmlFor="sub-name" className="block text-sm font-medium text-text-secondary mb-1.5">Nome servizio</label>
               <input
+                id="sub-name"
                 type="text"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
@@ -93,8 +106,9 @@ export function SubscriptionTracker({ initialSubscriptions }: SubscriptionTracke
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-text-secondary mb-1.5">Categoria</label>
+              <label htmlFor="sub-category" className="block text-sm font-medium text-text-secondary mb-1.5">Categoria</label>
               <select
+                id="sub-category"
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
                 className="w-full border border-border-light rounded-sm px-4 py-2.5 bg-white focus:outline-none focus:ring-2 focus:ring-accent-primary/20 focus:border-accent-primary"
@@ -106,8 +120,9 @@ export function SubscriptionTracker({ initialSubscriptions }: SubscriptionTracke
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-text-secondary mb-1.5">Costo mensile</label>
+              <label htmlFor="sub-cost" className="block text-sm font-medium text-text-secondary mb-1.5">Costo mensile</label>
               <input
+                id="sub-cost"
                 type="number"
                 value={monthlyCost}
                 onChange={(e) => setMonthlyCost(e.target.value)}
@@ -153,12 +168,30 @@ export function SubscriptionTracker({ initialSubscriptions }: SubscriptionTracke
                   </div>
                   <div className="flex items-center gap-3">
                     <span className="font-mono text-sm text-text-primary">&euro;{sub.monthlyCost.toFixed(2)}/mese</span>
-                    <button
-                      onClick={() => handleDelete(sub.id)}
-                      className="text-text-muted hover:text-accent-danger transition-colors"
-                    >
-                      <Trash2 className="h-4 w-4" />
-                    </button>
+                    {deletingId === sub.id ? (
+                      <div className="flex items-center gap-1">
+                        <button
+                          onClick={() => handleDelete(sub.id)}
+                          className="text-xs text-accent-danger font-medium hover:underline"
+                        >
+                          Conferma
+                        </button>
+                        <button
+                          onClick={() => setDeletingId(null)}
+                          className="text-xs text-text-muted hover:underline"
+                        >
+                          Annulla
+                        </button>
+                      </div>
+                    ) : (
+                      <button
+                        onClick={() => setDeletingId(sub.id)}
+                        className="text-text-muted hover:text-accent-danger transition-colors"
+                        aria-label="Elimina"
+                      >
+                        <Trash2 className="h-4 w-4" />
+                      </button>
+                    )}
                   </div>
                 </div>
               </Card>

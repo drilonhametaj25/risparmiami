@@ -8,6 +8,7 @@ import remarkGfm from "remark-gfm";
 import remarkRehype from "remark-rehype";
 import rehypeStringify from "rehype-stringify";
 import rehypeSlug from "rehype-slug";
+import rehypeSanitize from "rehype-sanitize";
 
 const postsDirectory = path.join(process.cwd(), "src/data/blog");
 
@@ -49,6 +50,7 @@ export async function markdownToHtml(markdown: string): Promise<string> {
     .use(remarkGfm)
     .use(remarkRehype)
     .use(rehypeSlug)
+    .use(rehypeSanitize)
     .use(rehypeStringify)
     .process(markdown);
 

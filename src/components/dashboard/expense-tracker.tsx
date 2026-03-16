@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { useToast } from "@/components/ui/toast";
 import { Plus, Trash2 } from "lucide-react";
 
 interface Expense {
@@ -20,6 +21,9 @@ const MONTHS = [
   "Luglio", "Agosto", "Settembre", "Ottobre", "Novembre", "Dicembre",
 ];
 
+const currentYear = new Date().getFullYear();
+const YEARS = [currentYear - 1, currentYear, currentYear + 1];
+
 interface ExpenseTrackerProps {
   initialExpenses: Expense[];
   categories: { value: string; label: string }[];
@@ -33,10 +37,12 @@ export function ExpenseTracker({ initialExpenses, categories, title, showProvide
   const [category, setCategory] = useState(categories[0]?.value || "");
   const [description, setDescription] = useState("");
   const [month, setMonth] = useState(new Date().getMonth() + 1);
-  const [year, setYear] = useState(new Date().getFullYear());
+  const [year, setYear] = useState(currentYear);
   const [amount, setAmount] = useState("");
   const [provider, setProvider] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [deletingId, setDeletingId] = useState<string | null>(null);
+  const { showToast } = useToast();
 
   const totalAmount = expenses.reduce((sum, e) => sum + e.amount, 0);
   const avgMonthly = expenses.length > 0
@@ -61,23 +67,32 @@ export function ExpenseTracker({ initialExpenses, categories, title, showProvide
         }),
       });
 
-      if (res.ok) {
-        const exp = await res.json();
-        setExpenses([exp, ...expenses]);
-        setAmount("");
-        setDescription("");
-        setProvider("");
-        setShowForm(false);
-      }
+      if (!res.ok) throw new Error();
+
+      const exp = await res.json();
+      setExpenses([exp, ...expenses]);
+      setAmount("");
+      setDescription("");
+      setProvider("");
+      setShowForm(false);
+      showToast("Spesa aggiunta");
+    } catch {
+      showToast("Errore nel salvataggio", "error");
     } finally {
       setIsSubmitting(false);
     }
   }
 
   async function handleDelete(id: string) {
-    const res = await fetch(`/api/expenses/${id}`, { method: "DELETE" });
-    if (res.ok) {
+    try {
+      const res = await fetch(`/api/expenses/${id}`, { method: "DELETE" });
+      if (!res.ok) throw new Error();
       setExpenses(expenses.filter((e) => e.id !== id));
+      setDeletingId(null);
+      showToast("Spesa eliminata");
+    } catch {
+      showToast("Errore nell'eliminazione", "error");
+      setDeletingId(null);
     }
   }
 
@@ -96,8 +111,9 @@ export function ExpenseTracker({ initialExpenses, categories, title, showProvide
           <div className="space-y-4">
             {categories.length > 1 && (
               <div>
-                <label className="block text-sm font-medium text-text-secondary mb-1.5">Tipo</label>
+                <label htmlFor="expense-category" className="block text-sm font-medium text-text-secondary mb-1.5">Tipo</label>
                 <select
+                  id="expense-category"
                   value={category}
                   onChange={(e) => setCategory(e.target.value)}
                   className="w-full border border-border-light rounded-sm px-4 py-2.5 bg-white focus:outline-none focus:ring-2 focus:ring-accent-primary/20 focus:border-accent-primary"
@@ -111,8 +127,9 @@ export function ExpenseTracker({ initialExpenses, categories, title, showProvide
 
             <div className="grid grid-cols-2 gap-3">
               <div>
-                <label className="block text-sm font-medium text-text-secondary mb-1.5">Mese</label>
+                <label htmlFor="expense-month" className="block text-sm font-medium text-text-secondary mb-1.5">Mese</label>
                 <select
+                  id="expense-month"
                   value={month}
                   onChange={(e) => setMonth(parseInt(e.target.value))}
                   className="w-full border border-border-light rounded-sm px-4 py-2.5 bg-white focus:outline-none focus:ring-2 focus:ring-accent-primary/20 focus:border-accent-primary"
@@ -123,13 +140,14 @@ export function ExpenseTracker({ initialExpenses, categories, title, showProvide
                 </select>
               </div>
               <div>
-                <label className="block text-sm font-medium text-text-secondary mb-1.5">Anno</label>
+                <label htmlFor="expense-year" className="block text-sm font-medium text-text-secondary mb-1.5">Anno</label>
                 <select
+                  id="expense-year"
                   value={year}
                   onChange={(e) => setYear(parseInt(e.target.value))}
                   className="w-full border border-border-light rounded-sm px-4 py-2.5 bg-white focus:outline-none focus:ring-2 focus:ring-accent-primary/20 focus:border-accent-primary"
                 >
-                  {[2024, 2025, 2026].map((y) => (
+                  {YEARS.map((y) => (
                     <option key={y} value={y}>{y}</option>
                   ))}
                 </select>
@@ -137,8 +155,9 @@ export function ExpenseTracker({ initialExpenses, categories, title, showProvide
             </div>
 
             <div>
-              <label className="block text-sm font-medium text-text-secondary mb-1.5">Importo (&euro;)</label>
+              <label htmlFor="expense-amount" className="block text-sm font-medium text-text-secondary mb-1.5">Importo (&euro;)</label>
               <input
+                id="expense-amount"
                 type="number"
                 value={amount}
                 onChange={(e) => setAmount(e.target.value)}
@@ -151,8 +170,9 @@ export function ExpenseTracker({ initialExpenses, categories, title, showProvide
 
             {showProvider && (
               <div>
-                <label className="block text-sm font-medium text-text-secondary mb-1.5">Fornitore (opzionale)</label>
+                <label htmlFor="expense-provider" className="block text-sm font-medium text-text-secondary mb-1.5">Fornitore (opzionale)</label>
                 <input
+                  id="expense-provider"
                   type="text"
                   value={provider}
                   onChange={(e) => setProvider(e.target.value)}
@@ -163,8 +183,9 @@ export function ExpenseTracker({ initialExpenses, categories, title, showProvide
             )}
 
             <div>
-              <label className="block text-sm font-medium text-text-secondary mb-1.5">Descrizione (opzionale)</label>
+              <label htmlFor="expense-description" className="block text-sm font-medium text-text-secondary mb-1.5">Descrizione (opzionale)</label>
               <input
+                id="expense-description"
                 type="text"
                 value={description}
                 onChange={(e) => setDescription(e.target.value)}
@@ -212,12 +233,30 @@ export function ExpenseTracker({ initialExpenses, categories, title, showProvide
                   </div>
                   <div className="flex items-center gap-3">
                     <span className="font-mono text-sm text-text-primary">&euro;{exp.amount.toFixed(2)}</span>
-                    <button
-                      onClick={() => handleDelete(exp.id)}
-                      className="text-text-muted hover:text-accent-danger transition-colors"
-                    >
-                      <Trash2 className="h-4 w-4" />
-                    </button>
+                    {deletingId === exp.id ? (
+                      <div className="flex items-center gap-1">
+                        <button
+                          onClick={() => handleDelete(exp.id)}
+                          className="text-xs text-accent-danger font-medium hover:underline"
+                        >
+                          Conferma
+                        </button>
+                        <button
+                          onClick={() => setDeletingId(null)}
+                          className="text-xs text-text-muted hover:underline"
+                        >
+                          Annulla
+                        </button>
+                      </div>
+                    ) : (
+                      <button
+                        onClick={() => setDeletingId(exp.id)}
+                        className="text-text-muted hover:text-accent-danger transition-colors"
+                        aria-label="Elimina"
+                      >
+                        <Trash2 className="h-4 w-4" />
+                      </button>
+                    )}
                   </div>
                 </div>
               </Card>

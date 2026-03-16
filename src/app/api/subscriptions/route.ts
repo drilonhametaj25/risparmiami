@@ -10,44 +10,66 @@ const createSchema = z.object({
 });
 
 export async function GET() {
-  const session = await auth();
-  if (!session?.user?.id) {
-    return NextResponse.json({ error: "Non autenticato" }, { status: 401 });
+  try {
+    const session = await auth();
+    if (!session?.user?.id) {
+      return NextResponse.json({ error: "Non autenticato" }, { status: 401 });
+    }
+
+    const subscriptions = await prisma.userSubscription.findMany({
+      where: { userId: session.user.id },
+      orderBy: { createdAt: "desc" },
+    });
+
+    return NextResponse.json(
+      subscriptions.map((s) => ({
+        ...s,
+        monthlyCost: Number(s.monthlyCost),
+      }))
+    );
+  } catch (error) {
+    console.error("Subscriptions GET error:", error);
+    return NextResponse.json(
+      { error: "Errore nel caricamento degli abbonamenti" },
+      { status: 500 }
+    );
   }
-
-  const subscriptions = await prisma.userSubscription.findMany({
-    where: { userId: session.user.id },
-    orderBy: { createdAt: "desc" },
-  });
-
-  return NextResponse.json(
-    subscriptions.map((s) => ({
-      ...s,
-      monthlyCost: Number(s.monthlyCost),
-    }))
-  );
 }
 
 export async function POST(request: Request) {
-  const session = await auth();
-  if (!session?.user?.id) {
-    return NextResponse.json({ error: "Non autenticato" }, { status: 401 });
+  try {
+    const session = await auth();
+    if (!session?.user?.id) {
+      return NextResponse.json({ error: "Non autenticato" }, { status: 401 });
+    }
+
+    const body = await request.json();
+    const parsed = createSchema.safeParse(body);
+    if (!parsed.success) {
+      return NextResponse.json(
+        { error: "Dati non validi" },
+        { status: 400 }
+      );
+    }
+
+    const subscription = await prisma.userSubscription.create({
+      data: {
+        userId: session.user.id,
+        name: parsed.data.name,
+        category: parsed.data.category,
+        monthlyCost: parsed.data.monthlyCost,
+      },
+    });
+
+    return NextResponse.json({
+      ...subscription,
+      monthlyCost: Number(subscription.monthlyCost),
+    });
+  } catch (error) {
+    console.error("Subscriptions POST error:", error);
+    return NextResponse.json(
+      { error: "Errore nel salvataggio dell'abbonamento" },
+      { status: 500 }
+    );
   }
-
-  const body = await request.json();
-  const data = createSchema.parse(body);
-
-  const subscription = await prisma.userSubscription.create({
-    data: {
-      userId: session.user.id,
-      name: data.name,
-      category: data.category,
-      monthlyCost: data.monthlyCost,
-    },
-  });
-
-  return NextResponse.json({
-    ...subscription,
-    monthlyCost: Number(subscription.monthlyCost),
-  });
 }

@@ -28,7 +28,7 @@ function releaseLock() {
   try { fs.unlinkSync(LOCK_FILE); } catch { /* already removed */ }
 }
 
-export async function GET(req: NextRequest) {
+export async function POST(req: NextRequest) {
   const authHeader = req.headers.get("authorization");
   const cronSecret = process.env.CRON_SECRET;
 

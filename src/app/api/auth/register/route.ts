@@ -1,24 +1,29 @@
 import { NextRequest, NextResponse } from "next/server";
 import bcrypt from "bcryptjs";
 import { prisma } from "@/lib/prisma";
+import { registerSchema } from "@/lib/validations/auth";
+import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
 
 export async function POST(req: NextRequest) {
   try {
-    const { email, password, name, referralCode } = await req.json();
-
-    if (!email || !password) {
+    // Rate limit: 5 req/min per IP
+    const ip = getClientIp(req);
+    const rl = checkRateLimit(`register:${ip}`, { limit: 5, windowSeconds: 60 });
+    if (!rl.success) {
       return NextResponse.json(
-        { error: "Email e password sono obbligatori" },
-        { status: 400 }
+        { error: "Troppi tentativi. Riprova tra poco." },
+        { status: 429 }
       );
     }
 
-    if (password.length < 8) {
-      return NextResponse.json(
-        { error: "La password deve avere almeno 8 caratteri" },
-        { status: 400 }
-      );
+    const body = await req.json();
+    const parsed = registerSchema.safeParse(body);
+    if (!parsed.success) {
+      const firstError = parsed.error.issues[0]?.message || "Dati non validi";
+      return NextResponse.json({ error: firstError }, { status: 400 });
     }
+
+    const { email, password, name, referralCode } = parsed.data;
 
     const existing = await prisma.user.findUnique({ where: { email } });
     if (existing) {

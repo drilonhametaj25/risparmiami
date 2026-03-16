@@ -137,9 +137,7 @@ export async function deleteRule(ruleId: string) {
   revalidatePath("/admin/regole");
 }
 
-export async function createRule(formData: FormData) {
-  await requireAdmin();
-
+function extractRuleFormData(formData: FormData) {
   const name = formData.get("name") as string;
   const slug = formData.get("slug") as string;
   const shortDescription = formData.get("shortDescription") as string;
@@ -173,44 +171,46 @@ export async function createRule(formData: FormData) {
   const requiredDocs = requiredDocsRaw
     ? requiredDocsRaw.split(",").map((d) => d.trim()).filter(Boolean)
     : [];
-  const requirements = requirementsRaw ? JSON.parse(requirementsRaw) : [];
+  const requirements: { field: string; operator: string; value: string; isRequired: boolean }[] =
+    requirementsRaw ? JSON.parse(requirementsRaw) : [];
+
+  return {
+    name, slug, shortDescription, fullDescription, category,
+    subcategory: subcategory || null, target,
+    maxAmount: maxAmount ? parseFloat(maxAmount) : null,
+    percentage: percentage ? parseFloat(percentage) : null,
+    estimateFormula: estimateFormula || null,
+    certaintyLevel, certaintyNote: certaintyNote || null,
+    howToClaim, requiredDocs,
+    whereToApply: whereToApply || null,
+    legalReference: legalReference || null,
+    officialUrl: officialUrl || null,
+    sourceName: sourceName || null,
+    validFrom: validFrom ? new Date(validFrom) : null,
+    validUntil: validUntil ? new Date(validUntil) : null,
+    deadline: deadline ? new Date(deadline) : null,
+    isActive,
+    seoTitle: seoTitle || null,
+    seoDescription: seoDescription || null,
+    tags, requirements,
+  };
+}
+
+export async function createRule(formData: FormData) {
+  await requireAdmin();
+
+  const { requirements, ...data } = extractRuleFormData(formData);
 
   await prisma.rule.create({
     data: {
-      name,
-      slug,
-      shortDescription,
-      fullDescription,
-      category,
-      subcategory: subcategory || null,
-      target,
-      maxAmount: maxAmount ? parseFloat(maxAmount) : null,
-      percentage: percentage ? parseFloat(percentage) : null,
-      estimateFormula: estimateFormula || null,
-      certaintyLevel,
-      certaintyNote: certaintyNote || null,
-      howToClaim,
-      requiredDocs,
-      whereToApply: whereToApply || null,
-      legalReference: legalReference || null,
-      officialUrl: officialUrl || null,
-      sourceName: sourceName || null,
-      validFrom: validFrom ? new Date(validFrom) : null,
-      validUntil: validUntil ? new Date(validUntil) : null,
-      deadline: deadline ? new Date(deadline) : null,
-      isActive,
-      seoTitle: seoTitle || null,
-      seoDescription: seoDescription || null,
-      tags,
+      ...data,
       requirements: {
-        create: requirements.map(
-          (req: { field: string; operator: string; value: string; isRequired: boolean }) => ({
-            field: req.field,
-            operator: req.operator,
-            value: req.value,
-            isRequired: req.isRequired,
-          })
-        ),
+        create: requirements.map((req) => ({
+          field: req.field,
+          operator: req.operator,
+          value: req.value,
+          isRequired: req.isRequired,
+        })),
       },
     },
   });
@@ -221,81 +221,22 @@ export async function createRule(formData: FormData) {
 export async function updateRule(id: string, formData: FormData) {
   await requireAdmin();
 
-  const name = formData.get("name") as string;
-  const slug = formData.get("slug") as string;
-  const shortDescription = formData.get("shortDescription") as string;
-  const fullDescription = formData.get("fullDescription") as string;
-  const category = formData.get("category") as string;
-  const subcategory = formData.get("subcategory") as string;
-  const target = formData.get("target") as string;
-  const maxAmount = formData.get("maxAmount") as string;
-  const percentage = formData.get("percentage") as string;
-  const estimateFormula = formData.get("estimateFormula") as string;
-  const certaintyLevel = formData.get("certaintyLevel") as string;
-  const certaintyNote = formData.get("certaintyNote") as string;
-  const howToClaim = formData.get("howToClaim") as string;
-  const requiredDocsRaw = formData.get("requiredDocs") as string;
-  const whereToApply = formData.get("whereToApply") as string;
-  const legalReference = formData.get("legalReference") as string;
-  const officialUrl = formData.get("officialUrl") as string;
-  const sourceName = formData.get("sourceName") as string;
-  const validFrom = formData.get("validFrom") as string;
-  const validUntil = formData.get("validUntil") as string;
-  const deadline = formData.get("deadline") as string;
-  const isActive = formData.get("isActive") === "true";
-  const seoTitle = formData.get("seoTitle") as string;
-  const seoDescription = formData.get("seoDescription") as string;
-  const tagsRaw = formData.get("tags") as string;
-  const requirementsRaw = formData.get("requirements") as string;
-
-  const tags = tagsRaw
-    ? tagsRaw.split(",").map((t) => t.trim()).filter(Boolean)
-    : [];
-  const requiredDocs = requiredDocsRaw
-    ? requiredDocsRaw.split(",").map((d) => d.trim()).filter(Boolean)
-    : [];
-  const requirements = requirementsRaw ? JSON.parse(requirementsRaw) : [];
+  const { requirements, ...data } = extractRuleFormData(formData);
 
   await prisma.$transaction([
     prisma.ruleRequirement.deleteMany({ where: { ruleId: id } }),
     prisma.rule.update({
       where: { id },
       data: {
-        name,
-        slug,
-        shortDescription,
-        fullDescription,
-        category,
-        subcategory: subcategory || null,
-        target,
-        maxAmount: maxAmount ? parseFloat(maxAmount) : null,
-        percentage: percentage ? parseFloat(percentage) : null,
-        estimateFormula: estimateFormula || null,
-        certaintyLevel,
-        certaintyNote: certaintyNote || null,
-        howToClaim,
-        requiredDocs,
-        whereToApply: whereToApply || null,
-        legalReference: legalReference || null,
-        officialUrl: officialUrl || null,
-        sourceName: sourceName || null,
-        validFrom: validFrom ? new Date(validFrom) : null,
-        validUntil: validUntil ? new Date(validUntil) : null,
-        deadline: deadline ? new Date(deadline) : null,
-        isActive,
-        seoTitle: seoTitle || null,
-        seoDescription: seoDescription || null,
-        tags,
+        ...data,
         version: { increment: 1 },
         requirements: {
-          create: requirements.map(
-            (req: { field: string; operator: string; value: string; isRequired: boolean }) => ({
-              field: req.field,
-              operator: req.operator,
-              value: req.value,
-              isRequired: req.isRequired,
-            })
-          ),
+          create: requirements.map((req) => ({
+            field: req.field,
+            operator: req.operator,
+            value: req.value,
+            isRequired: req.isRequired,
+          })),
         },
       },
     }),

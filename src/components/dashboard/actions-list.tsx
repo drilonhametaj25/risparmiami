@@ -97,7 +97,13 @@ export function ActionsList({ actions }: ActionsListProps) {
             €{completedSavings.toLocaleString("it-IT")} / €{totalSavings.toLocaleString("it-IT")}
           </span>
         </div>
-        <div className="w-full bg-bg-secondary rounded-full h-2">
+        <div
+          className="w-full bg-bg-secondary rounded-full h-2"
+          role="progressbar"
+          aria-valuenow={completedCount}
+          aria-valuemin={0}
+          aria-valuemax={localActions.length}
+        >
           <div
             className="bg-accent-success h-2 rounded-full transition-all"
             style={{ width: `${localActions.length > 0 ? (completedCount / localActions.length) * 100 : 0}%` }}
@@ -106,12 +112,14 @@ export function ActionsList({ actions }: ActionsListProps) {
       </Card>
 
       {/* Filter tabs */}
-      <div className="flex gap-2 mb-6">
+      <div className="flex gap-2 mb-6" role="tablist">
         {tabs.map((tab) => (
           <button
             key={tab.value}
+            role="tab"
+            aria-selected={filter === tab.value}
             onClick={() => setFilter(tab.value)}
-            className={`px-4 py-1.5 rounded-full text-sm transition-colors ${
+            className={`px-4 py-1.5 rounded-full text-sm transition-colors focus-visible:ring-2 focus-visible:ring-accent-primary ${
               filter === tab.value
                 ? "bg-accent-primary text-white"
                 : "bg-bg-secondary text-text-secondary hover:text-text-primary"
@@ -133,6 +141,7 @@ export function ActionsList({ actions }: ActionsListProps) {
             <Card key={action.id} padding="md">
               <button
                 onClick={() => setExpandedId(expandedId === action.id ? null : action.id)}
+                aria-expanded={expandedId === action.id}
                 className="w-full text-left"
               >
                 <div className="flex items-center justify-between">

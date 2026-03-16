@@ -1,8 +1,19 @@
 import { NextRequest, NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
+import { checkRateLimit, getClientIp } from "@/lib/rate-limit";
 
 export async function POST(req: NextRequest) {
   try {
+    // Rate limit: 20 req/min per IP
+    const ip = getClientIp(req);
+    const rl = checkRateLimit(`quiz:${ip}`, { limit: 20, windowSeconds: 60 });
+    if (!rl.success) {
+      return NextResponse.json(
+        { error: "Troppi tentativi. Riprova tra poco." },
+        { status: 429 }
+      );
+    }
+
     const body = await req.json();
     const { answers, estimatedMin, estimatedMax } = body;
 

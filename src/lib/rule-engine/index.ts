@@ -69,41 +69,41 @@ export async function computeMatchesForUser(userId: string): Promise<MatchResult
   const allMatches = [...personalMatches, ...companyMatches];
   const matchedRuleIds = allMatches.map((m) => m.ruleId);
 
-  // Upsert matches into database
-  for (const match of allMatches) {
-    await prisma.userMatch.upsert({
+  // Batch upsert matches + cleanup in a single transaction
+  await prisma.$transaction([
+    ...allMatches.map((match) =>
+      prisma.userMatch.upsert({
+        where: {
+          userId_ruleId: { userId, ruleId: match.ruleId },
+        },
+        create: {
+          userId,
+          ruleId: match.ruleId,
+          estimatedSaving: match.estimatedSaving,
+          certainty: match.certainty,
+          matchScore: match.matchScore,
+          status: "pending",
+        },
+        update: {
+          estimatedSaving: match.estimatedSaving,
+          certainty: match.certainty,
+          matchScore: match.matchScore,
+        },
+      })
+    ),
+    // Remove stale matches (rules that no longer match this user)
+    prisma.userMatch.deleteMany({
       where: {
-        userId_ruleId: { userId, ruleId: match.ruleId },
-      },
-      create: {
         userId,
-        ruleId: match.ruleId,
-        estimatedSaving: match.estimatedSaving,
-        certainty: match.certainty,
-        matchScore: match.matchScore,
-        status: "pending",
+        ruleId: { notIn: matchedRuleIds },
       },
-      update: {
-        estimatedSaving: match.estimatedSaving,
-        certainty: match.certainty,
-        matchScore: match.matchScore,
-      },
-    });
-  }
-
-  // Remove stale matches (rules that no longer match this user)
-  await prisma.userMatch.deleteMany({
-    where: {
-      userId,
-      ruleId: { notIn: matchedRuleIds },
-    },
-  });
-
-  // Update lastMatchedAt
-  await prisma.userProfile.update({
-    where: { userId },
-    data: { lastMatchedAt: new Date() },
-  });
+    }),
+    // Update lastMatchedAt
+    prisma.userProfile.update({
+      where: { userId },
+      data: { lastMatchedAt: new Date() },
+    }),
+  ]);
 
   return allMatches;
 }

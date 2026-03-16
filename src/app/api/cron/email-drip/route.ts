@@ -15,7 +15,7 @@ const DRIP_SCHEDULE = [
   { step: 5, daysAfterSignup: 45, type: "reengagement" },
 ];
 
-export async function GET(req: NextRequest) {
+export async function POST(req: NextRequest) {
   const authHeader = req.headers.get("authorization");
   if (authHeader !== `Bearer ${process.env.CRON_SECRET}`) {
     return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
@@ -26,10 +26,12 @@ export async function GET(req: NextRequest) {
       where: {
         onboardingCompleted: true,
         notifyRuleUpdates: true,
+        email: { not: "" },
       },
       include: {
         matches: { include: { rule: true } },
       },
+      take: 100,
     });
 
     let sent = 0;

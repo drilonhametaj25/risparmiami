@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { useToast } from "@/components/ui/toast";
 import { signOut } from "next-auth/react";
 import { User, Bell, Trash2, Download, RefreshCw } from "lucide-react";
 import Link from "next/link";
@@ -21,7 +22,6 @@ interface SettingsFormProps {
 export function SettingsForm({ user }: SettingsFormProps) {
   const [name, setName] = useState(user.name);
   const [saving, setSaving] = useState(false);
-  const [saved, setSaved] = useState(false);
   const [exporting, setExporting] = useState(false);
   const [deleting, setDeleting] = useState(false);
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
@@ -30,37 +30,55 @@ export function SettingsForm({ user }: SettingsFormProps) {
     notifyMonthlyReport: user.notifyMonthlyReport,
     notifyDeadlines: user.notifyDeadlines,
   });
+  const { showToast } = useToast();
 
   async function handleSave() {
     setSaving(true);
-    setSaved(false);
-    await fetch("/api/settings", {
-      method: "PATCH",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ name, ...notifications }),
-    });
-    setSaving(false);
-    setSaved(true);
-    setTimeout(() => setSaved(false), 3000);
+    try {
+      const res = await fetch("/api/settings", {
+        method: "PATCH",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ name, ...notifications }),
+      });
+      if (!res.ok) throw new Error();
+      showToast("Impostazioni salvate");
+    } catch {
+      showToast("Errore nel salvataggio", "error");
+    } finally {
+      setSaving(false);
+    }
   }
 
   async function handleExport() {
     setExporting(true);
-    const res = await fetch("/api/settings/export");
-    const blob = await res.blob();
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement("a");
-    a.href = url;
-    a.download = `risparmiami-export-${new Date().toISOString().split("T")[0]}.json`;
-    a.click();
-    URL.revokeObjectURL(url);
-    setExporting(false);
+    try {
+      const res = await fetch("/api/settings/export");
+      if (!res.ok) throw new Error();
+      const blob = await res.blob();
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = `risparmiami-export-${new Date().toISOString().split("T")[0]}.json`;
+      a.click();
+      URL.revokeObjectURL(url);
+      showToast("Dati esportati");
+    } catch {
+      showToast("Errore nell'esportazione", "error");
+    } finally {
+      setExporting(false);
+    }
   }
 
   async function handleDelete() {
     setDeleting(true);
-    await fetch("/api/settings/delete-account", { method: "DELETE" });
-    signOut({ callbackUrl: "/" });
+    try {
+      const res = await fetch("/api/settings/delete-account", { method: "DELETE" });
+      if (!res.ok) throw new Error();
+      signOut({ callbackUrl: "/" });
+    } catch {
+      showToast("Errore nell'eliminazione dell'account", "error");
+      setDeleting(false);
+    }
   }
 
   function handleNotificationChange(key: keyof typeof notifications) {
@@ -84,12 +102,9 @@ export function SettingsForm({ user }: SettingsFormProps) {
             <label className="block text-sm text-text-secondary mb-1">Email</label>
             <Input value={user.email} disabled className="opacity-60" />
           </div>
-          <div className="flex items-center gap-3">
-            <Button size="sm" onClick={handleSave} loading={saving}>
-              Salva modifiche
-            </Button>
-            {saved && <span className="text-sm text-accent-success">Salvato!</span>}
-          </div>
+          <Button size="sm" onClick={handleSave} loading={saving}>
+            Salva modifiche
+          </Button>
         </div>
         <div className="mt-4 pt-4 border-t border-border-light">
           <Button variant="secondary" size="sm" asChild>

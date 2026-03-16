@@ -261,6 +261,7 @@ model UserMatch {
 
   @@unique([userId, ruleId])
   @@index([userId])
+  @@index([ruleId])
   @@index([status])
   @@index([userId, status])
 }

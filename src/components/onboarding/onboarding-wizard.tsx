@@ -11,8 +11,9 @@ import { StepWork } from "./steps/step-3-work";
 import { StepHousing } from "./steps/step-4-housing";
 import { StepExpenses } from "./steps/step-5-expenses";
 import { StepLifestyle } from "./steps/step-6-lifestyle";
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-type StepData = Record<string, any>;
+import type { PersonalOnboardingStepData } from "@/types/onboarding";
+
+type StepData = PersonalOnboardingStepData;
 
 const TOTAL_STEPS = 6;
 
@@ -71,7 +72,13 @@ export function OnboardingWizard({ initialData = {}, currentStep = 0 }: Onboardi
           <span>Step {step + 1} di {TOTAL_STEPS}</span>
           <span>{Math.round(progress)}%</span>
         </div>
-        <div className="w-full bg-bg-secondary rounded-full h-2">
+        <div
+          className="w-full bg-bg-secondary rounded-full h-2"
+          role="progressbar"
+          aria-valuenow={step + 1}
+          aria-valuemin={1}
+          aria-valuemax={TOTAL_STEPS}
+        >
           <motion.div
             className="bg-accent-primary h-2 rounded-full"
             initial={{ width: 0 }}

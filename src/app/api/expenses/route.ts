@@ -13,48 +13,70 @@ const createSchema = z.object({
 });
 
 export async function GET(request: Request) {
-  const session = await auth();
-  if (!session?.user?.id) {
-    return NextResponse.json({ error: "Non autenticato" }, { status: 401 });
+  try {
+    const session = await auth();
+    if (!session?.user?.id) {
+      return NextResponse.json({ error: "Non autenticato" }, { status: 401 });
+    }
+
+    const { searchParams } = new URL(request.url);
+    const category = searchParams.get("category");
+
+    const where: Record<string, unknown> = { userId: session.user.id };
+    if (category) where.category = category;
+
+    const expenses = await prisma.userExpense.findMany({
+      where,
+      orderBy: [{ year: "desc" }, { month: "desc" }],
+    });
+
+    return NextResponse.json(
+      expenses.map((e) => ({
+        ...e,
+        amount: Number(e.amount),
+      }))
+    );
+  } catch (error) {
+    console.error("Expenses GET error:", error);
+    return NextResponse.json(
+      { error: "Errore nel caricamento delle spese" },
+      { status: 500 }
+    );
   }
-
-  const { searchParams } = new URL(request.url);
-  const category = searchParams.get("category");
-
-  const where: Record<string, unknown> = { userId: session.user.id };
-  if (category) where.category = category;
-
-  const expenses = await prisma.userExpense.findMany({
-    where,
-    orderBy: [{ year: "desc" }, { month: "desc" }],
-  });
-
-  return NextResponse.json(
-    expenses.map((e) => ({
-      ...e,
-      amount: Number(e.amount),
-    }))
-  );
 }
 
 export async function POST(request: Request) {
-  const session = await auth();
-  if (!session?.user?.id) {
-    return NextResponse.json({ error: "Non autenticato" }, { status: 401 });
+  try {
+    const session = await auth();
+    if (!session?.user?.id) {
+      return NextResponse.json({ error: "Non autenticato" }, { status: 401 });
+    }
+
+    const body = await request.json();
+    const parsed = createSchema.safeParse(body);
+    if (!parsed.success) {
+      return NextResponse.json(
+        { error: "Dati non validi" },
+        { status: 400 }
+      );
+    }
+
+    const expense = await prisma.userExpense.create({
+      data: {
+        userId: session.user.id,
+        ...parsed.data,
+      },
+    });
+
+    return NextResponse.json({
+      ...expense,
+      amount: Number(expense.amount),
+    });
+  } catch (error) {
+    console.error("Expenses POST error:", error);
+    return NextResponse.json(
+      { error: "Errore nel salvataggio della spesa" },
+      { status: 500 }
+    );
   }
-
-  const body = await request.json();
-  const data = createSchema.parse(body);
-
-  const expense = await prisma.userExpense.create({
-    data: {
-      userId: session.user.id,
-      ...data,
-    },
-  });
-
-  return NextResponse.json({
-    ...expense,
-    amount: Number(expense.amount),
-  });
 }

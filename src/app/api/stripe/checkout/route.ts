@@ -3,9 +3,21 @@ import { auth } from "@/lib/auth";
 import { getStripe } from "@/lib/stripe";
 import { prisma } from "@/lib/prisma";
 import { plans, type PlanId } from "@/lib/plans";
+import { checkRateLimit } from "@/lib/rate-limit";
 
 export async function POST(req: NextRequest) {
   try {
+    // Rate limit: 10 req/min per user session
+    const sessionForRL = await auth();
+    const rlKey = sessionForRL?.user?.id || req.headers.get("x-forwarded-for") || "unknown";
+    const rl = checkRateLimit(`checkout:${rlKey}`, { limit: 10, windowSeconds: 60 });
+    if (!rl.success) {
+      return NextResponse.json(
+        { error: "Troppi tentativi. Riprova tra poco." },
+        { status: 429 }
+      );
+    }
+
     const body = await req.json();
     const { planId, billingPeriod = "monthly", email: guestEmail } = body as {
       planId: PlanId;
@@ -22,7 +34,7 @@ export async function POST(req: NextRequest) {
     const isPdf = planId === "pdf";
 
     // PDF can be purchased without auth; subscriptions require auth
-    const session = await auth();
+    const session = sessionForRL;
     if (!isPdf && !session?.user?.id) {
       return NextResponse.json({ error: "Non autenticato" }, { status: 401 });
     }

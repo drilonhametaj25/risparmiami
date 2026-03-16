@@ -70,7 +70,7 @@ export default async function GuidaPdfSuccessoPage({
           </p>
 
           <Card padding="lg" className="mb-8 text-left">
-            <h2 className="font-heading text-lg mb-4">La tua guida e' pronta</h2>
+            <h2 className="font-heading text-lg mb-4">La tua guida &egrave; pronta</h2>
             <p className="text-text-secondary text-sm mb-6">
               Clicca il pulsante qui sotto per scaricare il PDF. Puoi scaricarlo
               fino a {remainingDownloads} volte.
@@ -86,7 +86,7 @@ export default async function GuidaPdfSuccessoPage({
             ) : (
               <div className="bg-bg-secondary p-4 rounded-lg">
                 <p className="text-sm text-text-muted">
-                  Il tuo acquisto e' in fase di elaborazione. Ricarica la pagina tra
+                  Il tuo acquisto &egrave; in fase di elaborazione. Ricarica la pagina tra
                   qualche secondo oppure controlla la tua email.
                 </p>
               </div>

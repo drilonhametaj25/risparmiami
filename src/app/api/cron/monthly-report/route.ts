@@ -28,7 +28,7 @@ function releaseLock() {
   try { fs.unlinkSync(LOCK_FILE); } catch { /* already removed */ }
 }
 
-export async function GET(req: NextRequest) {
+export async function POST(req: NextRequest) {
   // Verify cron secret
   const authHeader = req.headers.get("authorization");
   if (authHeader !== `Bearer ${process.env.CRON_SECRET}`) {
@@ -40,17 +40,19 @@ export async function GET(req: NextRequest) {
   }
 
   try {
-    // Get all active users with subscriptions
+    // Get active users in batches
     const users = await prisma.user.findMany({
       where: {
         onboardingCompleted: true,
         currentPlan: { not: "free" },
+        notifyMonthlyReport: true,
       },
       include: {
         matches: {
           include: { rule: true },
         },
       },
+      take: 100,
     });
 
     const thirtyDaysAgo = new Date(Date.now() - 30 * 24 * 60 * 60 * 1000);

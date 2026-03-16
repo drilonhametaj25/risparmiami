@@ -17,7 +17,7 @@ function getTransporter(): nodemailer.Transporter {
       connectionTimeout: 15000,
       greetingTimeout: 15000,
       socketTimeout: 15000,
-      tls: { rejectUnauthorized: false },
+      ...(process.env.NODE_ENV !== "production" && { tls: { rejectUnauthorized: false } }),
     });
   }
   return _transporter;

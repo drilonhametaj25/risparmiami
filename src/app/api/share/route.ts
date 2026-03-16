@@ -1,10 +1,22 @@
 import { NextRequest, NextResponse } from "next/server";
 import { auth } from "@/lib/auth";
 import { prisma } from "@/lib/prisma";
+import { checkRateLimit } from "@/lib/rate-limit";
 
 export async function POST(req: NextRequest) {
   try {
     const session = await auth();
+
+    // Rate limit: 10 req/min per user
+    if (session?.user?.id) {
+      const rl = checkRateLimit(`share:${session.user.id}`, { limit: 10, windowSeconds: 60 });
+      if (!rl.success) {
+        return NextResponse.json(
+          { error: "Troppi tentativi. Riprova tra poco." },
+          { status: 429 }
+        );
+      }
+    }
     if (!session?.user?.id) {
       return NextResponse.json({ error: "Non autenticato" }, { status: 401 });
     }

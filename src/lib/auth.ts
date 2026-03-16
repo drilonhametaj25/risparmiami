@@ -35,7 +35,7 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
         connectionTimeout: 15000,
         greetingTimeout: 15000,
         socketTimeout: 15000,
-        tls: { rejectUnauthorized: false },
+        ...(process.env.NODE_ENV !== "production" && { tls: { rejectUnauthorized: false } }),
       },
       from: process.env.EMAIL_FROM || "RisparmiaMi <info@drilonhametaj.it>",
     }),
@@ -76,23 +76,29 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
     verifyRequest: "/login/verifica-email",
   },
   callbacks: {
-    async jwt({ token, user }) {
+    async jwt({ token, user, trigger }) {
       if (user) {
         token.id = user.id;
+      }
+      // Cache user data in JWT (refreshed on sign-in and manual update)
+      if (user || trigger === "update" || !token.role) {
+        const dbUser = await prisma.user.findUnique({
+          where: { id: (token.id ?? user?.id) as string },
+          select: { role: true, currentPlan: true, onboardingCompleted: true },
+        });
+        if (dbUser) {
+          token.role = dbUser.role;
+          token.currentPlan = dbUser.currentPlan;
+          token.onboardingCompleted = dbUser.onboardingCompleted;
+        }
       }
       return token;
     },
     async session({ session, token }) {
-      const dbUser = await prisma.user.findUnique({
-        where: { id: token.id as string },
-        select: { role: true, currentPlan: true, onboardingCompleted: true },
-      });
-      if (dbUser) {
-        session.user.id = token.id as string;
-        session.user.role = dbUser.role;
-        session.user.currentPlan = dbUser.currentPlan;
-        session.user.onboardingCompleted = dbUser.onboardingCompleted;
-      }
+      session.user.id = token.id as string;
+      session.user.role = token.role as string;
+      session.user.currentPlan = token.currentPlan as string;
+      session.user.onboardingCompleted = token.onboardingCompleted as boolean;
       return session;
     },
   },
